@@ -1,0 +1,139 @@
+\documentclass[a4paper]{article}
+\usepackage[german]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+
+\begin{document}
+	\title{Versuchsprotokoll}
+	\tableofcontents
+	\newpage
+	\section{Schallgeschwindigkeit in Gasen}
+	\subsection{Kalibration des Potentiometers zur Streckenmessung}
+	\label{section:Kalibration_Poti}
+	\subsubsection{Versuchsbeschreibung}
+	Zur Längenmessung soll ein Potentiometer eingesetzt werden. Dazu muss bei verschiedenen Auslenkungen der Widerstand R des Potentiometers gemessen werden und der entsprechenden Strecke s zugeordnet werden.\\
+	
+	Für den Widerstand des Potentiometers gilt:
+	\begin{equation}
+	R = R_0(1-\frac{x}{L})
+	\end{equation}
+	Der Regelbare Widerstand ist linear in der Auslenkung x innerhalb des Potentiometers, welche wiederum linear zu der von uns verwendeten Strecke s ist.\\
+	
+	Für die folgenden Versuche sind immer nur Streckendifferenzen $\Delta s$ von Interesse. Deswegen suchen wir den Umrechnungsfaktor k:
+	\begin{equation}
+	k = \frac{\Delta s}{\Delta R}
+	\end{equation}
+	Dieser entspricht offensichtlich der Steigung der Geraden durch die Messpunkte (R, s).
+	
+	\subsubsection{Versuchsaufbau und - durchführung}
+
+	Vom Mikrofon aus läuft ein Seil über eine Umlenkrolle am Potentiometer, die den Widerstand reguliert. Am Ende des Seils, das hinter der Rolle nach unten hängt, befindet sich ein Gewicht, um guten Kontakt zwischen Seil und Rolle sicherzustellen. Der Widerstand R des Potentiometers wird mithilfe der Stromquellen-Box des CASSY Sensor Systems gemessen und gegen die aktuelle Position des Mikrofons aufgetragen. Als Rauschmessung für den Widerstand haben wir die Messung aus dem Versuch zur Laufzeitmessung (Kapitel \ref{section:Laufzeitmessung}) genutzt, da wir bei dieser Messung jeweils ca 20 Werte aufgenommen haben.\\
+	
+	\begin{tabular}{l l l}
+		
+		CASSY & Kanal B & Stromquellen-Box, Rb1 0-10kOhm Momentanwert \\ 
+		 
+		Messparameter & manuell &  7 Messungen\\ 
+		
+	\end{tabular} 
+	
+	\subsubsection{Versuchsauswertung}
+	Der Fehler auf diese Strecken ist jeweils $\sigma _{stat} = 0,3cm$, $\sigma_{sys} = 0,7cm$.
+	An diese Rohdaten wurde eine Gerade angepasst. Die Steigung dieser Geraden mit $s=k\cdot R+b$ entspricht also dem gesuchten Umrechnungsfaktor $k$.\\\\
+	Aus der linearen Regression ergibt sich: $ k = (-15,97 \pm 0,07) \frac{cm}{k\Omega}$
+	\begin{center}
+        \begin{tabular}{|c|c|}
+        	\hline
+	        \textbf{Strecke [$cm$]} & \textbf{Widerstand [$k\Omega$]} \\
+	        \hline
+	        10 & 2,375 \\
+			\hline
+			15 & 2,065 \\
+			\hline
+			20 & 1,765 \\
+			\hline
+			25 & 1,435 \\
+			\hline
+			30 & 1,12 \\
+			\hline
+			35 & 0,81 \\
+			\hline
+			40 & 0,505 \\
+			\hline		
+		\end{tabular}
+	\end{center}
+	\begin{center}
+		\includegraphics[width=0.75\linewidth]{kalibration_poti_fit}
+	\end{center}
+		
+	
+	
+	\subsection{Laufzeitmessung}
+	\label{section:Laufzeitmessung}
+	\subsubsection{Versuchsbeschreibung}
+	Schallwellen breiten sich in Gasen (z.B. Luft) mit begrenzter Geschwindigkeit $v_{Schall}$ aus. Um  $v_{Schall}$ zu bestimmen, wird in diesem Versuch direkt die Zeit gemessen, die der Schall für die Ausbreitung vom Lautsprecher bis zum Mikrofon benötigt.
+	Trägt man die Strecke $x$ gegen Laufzeit $t$ auf, so ergibt sich $v_{Schall}$ als Steigung der Geraden durch die Messwerte ($v=\frac{\Delta s}{\Delta t}$).
+	
+	\subsubsection{Versuchsaufbau und -durchführung}
+	
+	\begin{figure}
+		\begin{center}
+		\includegraphics[width=0.7\linewidth]{aufbau_laufzeitmessung}
+		\caption{CASSY Messaufbau: Laufzeit gegen Laufstrecke (Quelle: Praktikumsskript S. 38)}
+		\label{pic:aufbau_laufzeit}
+		\end{center}
+	\end{figure}
+	
+
+	Als Lautsprecher wird ein Piezo-Hochtonlautsprecher verwendet. Dieser wird vom Relais-Schalterpaar R2/R3 des Sensor CASSY angesteuert, diese liefern auch das Triggersignal zum Starten der Zeitmessung und das Mikrofon im Triggermodus gibt das Signal zum Beenden der Zeitmessung. Das Mikrofon steht verschiebbar auf einer Metallschiene, die mit einer Tischklemme am Ende des Tisches befestigt ist. Dort befindet sich auch ein Potentiometer (Stromquellenbox, Kanal B) mit Umlenkrolle, um Änderungen der Strecke Lautsprecher - Mikrofon aufzunehmen (siehe Kapitel \ref{section:Kalibration_Poti}). Am Ende der Metallschiene befindet sich eine Rohrhalterung mit Rohr, in dem die Messung stattfindet, um Störungen zu vermeiden. Abbildung \ref{pic:aufbau_laufzeit} zeigt den Aufbau.\\\\
+	Um die Schallgeschwindigkeit zu berechnen, wird die Laufzeit bei unterschiedlichen Mikrofonabständen gemessen. Dabei ist zu beachten, dass das Potentiometer einen Abstand Mikrofon - Potentiometer liefert. Das bedeutet: $\Delta s_{Lautsprecher-Mikrofon} = - \Delta s_{Mikrofon-Poti}$\\\\
+	
+
+		\begin{tabular}{l l l}
+			CASSY & Kanal A & Laufzeit Dta1 E$\rightarrow$F, 0.002s, Flanken invertiert \\
+			&Relais & frac(time)<0.1\\
+			Messparameter & automatisch Intervall 1s \\
+			& neue Messreihe anhängen
+		\end{tabular}
+
+	
+	\subsubsection{Versuchsauswertung}
+	
+	Gesucht ist die Schallgeschwindigkeit $v_{Schall}$, diese ergibt sich als Steigung der Geraden an die Messwerte, wobei die Widerstände noch in Entfernungen umgerechnet werden müssen. Da nur die Steigung von Interesse ist und nicht der y-Achsenabschnitt, wurde die tatsächliche  Entfernung Lautsprecher - Mikrofon weder gemessen noch berechnet. Es gilt:
+	
+	\begin{equation}
+	v_{Schall} = \frac{\Delta s}{\Delta t} = \frac{\Delta s}{\Delta R} \cdot \frac{\Delta R}{\Delta t} = k \frac{\Delta R}{\Delta t}
+	\end{equation}
+	\begin{equation}
+	\sigma_{stat} = v_{Schall}
+	\end{equation}
+	
+	
+	\begin{table}
+		\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline
+				\textbf{Widerstand [$k\Omega$]} & \textbf{Laufzeit [$s$]} \\
+				\hline
+				2.3792 & 0.001591 \\
+				\hline
+				2.0682 & 0.001453 \\
+				\hline
+				1.7535 & 0.001292 \\
+				\hline
+				1.4435 & 0.001148 \\
+				\hline
+				1.126 & 0.001011 \\
+				\hline
+				0.8178 & 0.0008721 \\
+				\hline
+				0.5075 &  0.0007338 \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\caption{Mittelwerte der Messgruppen}
+	\end{table}
+	
+\end{document}

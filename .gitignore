@@ -1,3 +1,19 @@
+# Project specific files
+*.pdf
+*.pyc
+#TeX
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.gz
+*.toc
+#Cassy
+*.lab
+
+
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
