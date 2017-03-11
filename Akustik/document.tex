@@ -40,9 +40,13 @@
 	\end{tabular} 
 	
 	\subsubsection{Versuchsauswertung}
-	Der Fehler auf diese Strecken ist jeweils $\sigma _{stat} = 0,3cm$, $\sigma_{sys} = 0,7cm$.
+	Der Fehler auf diese Strecken ist jeweils durch den Ablesefehler sowie den Kalibrationsfehler des Maßbands gegeben.
+	\begin{equation}
+	\sigma _{stat} = 0,05cm / \sqrt{12} = 0,15cm \text{\qquad} \sigma_{sys} = 0,07 / \sqrt{3} = 0,04cm
+	\end{equation}
+
 	An diese Rohdaten wurde eine Gerade angepasst. Die Steigung dieser Geraden mit $s=k\cdot R+b$ entspricht also dem gesuchten Umrechnungsfaktor $k$.\\\\
-	Aus der linearen Regression ergibt sich: $ k = (-15,97 \pm 0,07) \frac{cm}{k\Omega}$
+	Aus der linearen Regression ergibt sich: $ k = (-15,99 \pm 0,07) \frac{cm}{k\Omega}$
 	\begin{center}
         \begin{tabular}{|c|c|}
         	\hline
@@ -65,7 +69,7 @@
 		\end{tabular}
 	\end{center}
 	\begin{center}
-		\includegraphics[width=0.75\linewidth]{kalibration_poti_fit}
+		\includegraphics[width=0.7\linewidth]{kalibration_poti_fit}
 	\end{center}
 		
 	
@@ -73,7 +77,11 @@
 	\subsection{Laufzeitmessung}
 	\label{section:Laufzeitmessung}
 	\subsubsection{Versuchsbeschreibung}
-	Schallwellen breiten sich in Gasen (z.B. Luft) mit begrenzter Geschwindigkeit $v_{Schall}$ aus. Um  $v_{Schall}$ zu bestimmen, wird in diesem Versuch direkt die Zeit gemessen, die der Schall für die Ausbreitung vom Lautsprecher bis zum Mikrofon benötigt.
+	Schallwellen breiten sich in Gasen (z.B. Luft) mit begrenzter Geschwindigkeit $v_{Schall}$ aus. Um  $v_{Schall}$ zu bestimmen, wird in diesem Versuch direkt die Zeit gemessen, die der Schall für die Ausbreitung vom Lautsprecher bis zum Mikrofon benötigt.\\
+	Es ist bekannt, dass in idealen Gasen gilt:
+	\begin{equation}
+	v_{Schall} = v_0 \sqrt{T/T_0} \text{\qquad mit \qquad} v_0 = \sqrt{\frac{R\cdot\kappa}{M_{mol}}T_0}
+	\end{equation}
 	Trägt man die Strecke $x$ gegen Laufzeit $t$ auf, so ergibt sich $v_{Schall}$ als Steigung der Geraden durch die Messwerte ($v=\frac{\Delta s}{\Delta t}$).
 	
 	\subsubsection{Versuchsaufbau und -durchführung}
@@ -87,8 +95,8 @@
 	\end{figure}
 	
 
-	Als Lautsprecher wird ein Piezo-Hochtonlautsprecher verwendet. Dieser wird vom Relais-Schalterpaar R2/R3 des Sensor CASSY angesteuert, diese liefern auch das Triggersignal zum Starten der Zeitmessung und das Mikrofon im Triggermodus gibt das Signal zum Beenden der Zeitmessung. Das Mikrofon steht verschiebbar auf einer Metallschiene, die mit einer Tischklemme am Ende des Tisches befestigt ist. Dort befindet sich auch ein Potentiometer (Stromquellenbox, Kanal B) mit Umlenkrolle, um Änderungen der Strecke Lautsprecher - Mikrofon aufzunehmen (siehe Kapitel \ref{section:Kalibration_Poti}). Am Ende der Metallschiene befindet sich eine Rohrhalterung mit Rohr, in dem die Messung stattfindet, um Störungen zu vermeiden. Abbildung \ref{pic:aufbau_laufzeit} zeigt den Aufbau.\\\\
-	Um die Schallgeschwindigkeit zu berechnen, wird die Laufzeit bei unterschiedlichen Mikrofonabständen gemessen. Dabei ist zu beachten, dass das Potentiometer einen Abstand Mikrofon - Potentiometer liefert. Das bedeutet: $\Delta s_{Lautsprecher-Mikrofon} = - \Delta s_{Mikrofon-Poti}$\\\\
+	Als Lautsprecher wird ein Piezo-Hochtonlautsprecher verwendet. Dieser wird vom Relais - Schalterpaar R2/R3 des Sensor CASSY angesteuert, diese liefern auch das Triggersignal zum Starten der Zeitmessung und das Mikrofon im Triggermodus gibt das Signal zum Beenden der Zeitmessung. Das Mikrofon steht verschiebbar auf einer Metallschiene, die mit einer Tischklemme am Ende des Tisches befestigt ist. Dort befindet sich auch ein Potentiometer (Stromquellenbox, Kanal B) mit Umlenkrolle, um Änderungen der Strecke Lautsprecher - Mikrofon aufzunehmen (siehe Kapitel \ref{section:Kalibration_Poti}). Am Ende der Metallschiene befindet sich eine Rohrhalterung mit Rohr, in dem die Messung stattfindet, um Störungen zu vermeiden. Abbildung \ref{pic:aufbau_laufzeit} zeigt den Aufbau. Außerdem wird die Lufttemperatur im Raum gemessen, um die theoretische Vorhersage für die Schallgeschwindigkeit zu ermitteln.\\\\
+	Um die Schallgeschwindigkeit zu berechnen, wird die Laufzeit bei unterschiedlichen Mikrofonabständen gemessen. Wir haben je Abstandseinstellung ca. 20 Messwerte aufgenommen, um den statistischen Fehler auf die Messungen zu bestimmen. Dabei ist zu beachten, dass das Potentiometer einen Abstand Mikrofon - Potentiometer liefert. Das bedeutet: $\Delta s_{Lautsprecher-Mikrofon} = - \Delta s_{Mikrofon-Poti}$\\\\
 	
 
 		\begin{tabular}{l l l}
@@ -101,16 +109,49 @@
 	
 	\subsubsection{Versuchsauswertung}
 	
+	Zunächst wurden die einzelnen Messreihen (Abbildung \ref{pic:messreihen_laufzeit}) auf statistische Fehler untersucht. Daraus ergab sich als Fehler für die Einzelmessungen:
+	\begin{equation}
+	\sigma _{R_{stat}} = 0,63 k\Omega \text{\qquad sowie \qquad} \sigma_{t_{stat}} = 0,29 ms
+	\end{equation}
+	Als systematischer Fehler auf die Widerstandsmessung der Stromquellen-Box haben wir ca. 1\% angenommen: 
+	\begin{equation}
+	\sigma_{R_{sys}} = 0.01 k \Omega
+	\end{equation}
+	\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.75\linewidth]{messreihen_2bis5_laufzeit}
+		\caption{Messreihen 2 bis 5 von insgesamt sieben Messreihen}
+		\label{pic:messreihen_laufzeit}
+		
+		\includegraphics[width=0.7\linewidth]{fit_laufzeit}
+		\caption{Mittelwerte der Messreihen mit angepasster Geraden durch die Messwerte}
+		\label{pic:fit_laufzeit}
+	\end{center}
+	\end{figure}
+	An alle Messreihen zusammen wurde eine Gerade angepasst (Abbildung \ref{pic:fit_laufzeit}), es ergab sich für deren Steigung:
+	\begin{equation}
+	\frac{\Delta R}{\Delta t} = (2181,55 \pm 22,77) \frac{k\Omega}{s}
+	\end{equation} 
 	Gesucht ist die Schallgeschwindigkeit $v_{Schall}$, diese ergibt sich als Steigung der Geraden an die Messwerte, wobei die Widerstände noch in Entfernungen umgerechnet werden müssen. Da nur die Steigung von Interesse ist und nicht der y-Achsenabschnitt, wurde die tatsächliche  Entfernung Lautsprecher - Mikrofon weder gemessen noch berechnet. Es gilt:
 	
 	\begin{equation}
-	v_{Schall} = \frac{\Delta s}{\Delta t} = \frac{\Delta s}{\Delta R} \cdot \frac{\Delta R}{\Delta t} = k \frac{\Delta R}{\Delta t}
+	v_{Schall} = \frac{\Delta s}{\Delta t} = \frac{\Delta s}{\Delta R} \cdot \frac{\Delta R}{\Delta t} = k \frac{\Delta R}{\Delta t} = 352,11 \frac{m}{s}
 	\end{equation}
 	\begin{equation}
-	\sigma_{stat} = v_{Schall}
+	\sigma_{stat} = v_{Schall} \frac{\sigma _{\Delta R / \Delta t}}{\Delta R / \Delta t} = 3,64 \frac{m}{s}
+	\end{equation}
+	\begin{equation}
+	\sigma_{sys} = v_{Schall} \frac{\sigma _k}{k} = 1,53 \frac{m}{s}
 	\end{equation}
 	
-	
+	Also ergibt sich als Ergebnis des Versuchs: $v_{Messung} = (348,90 \pm 3,64 \pm 1,53) \frac{m}{s}$. \\\\
+	Aus der Temperaturmessung erhielten wir, dass die Raumtemperatur zu Beginn des Versuchs $T = (23,459 \pm 0,001)C = (296,609 \pm 0.001)K$ betrug.
+	Daraus ergibt sich eine Schallgeschwindigkeit von
+	\begin{equation}
+	v_{Theorie} =\sqrt{\frac{R\cdot\kappa}{M_mol}}\sqrt{T} = 345,1398 \frac{m}{s} \text{\qquad mit \qquad}
+	\sigma = 0,5 \sqrt{\frac{R\cdot\kappa}{M_mol}} \frac{\sigma_T}{\sqrt{T}} = 0,00058 \frac{m}{s}
+	\end{equation}
+	Die Abweichung der Messung von der Theorie beträgt demnach 0,73 Standardabweichungen. Dies bestätigt zusammen mit den $\chi^2$ von über 2, dass die Fehler etwas zu klein abgeschätzt wurden. Dies liegt wohl daran, dass wir den Fehler der Stromquellen-Box nur als Fortpflanzung der Sensor CASSY-eigenen Fehler kannten. Weiterhin
 	\begin{table}
 		\begin{center}
 			\begin{tabular}{|c|c|}
@@ -133,7 +174,7 @@
 				\hline
 			\end{tabular}
 		\end{center}
-		\caption{Mittelwerte der Messgruppen}
+		\caption{Mittelwerte der Messreihen}
 	\end{table}
 	
 \end{document}
