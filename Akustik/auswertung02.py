@@ -67,7 +67,14 @@ widerstand = kalibrierung[:,2]
 strecke = kalibrierung[:,3]
 
 # Plot Rohdaten
-plt.figure(2)
+plt.figure(2, [10,10])
+plt.errorbar(laufzeit*1000, widerstand_laufzeitmessung, fmt="k.")
+plt.ylabel("Widerstand / $k\Omega$")
+plt.xlabel("Laufzeit / ms")
+
+
+# Plot mit Fit
+plt.figure(3)
 plt.subplot(1, 1, 1)
 plt.title("Messdaten zur Kalibration mit Fit")
 plt.ylabel("Strecke / cm")
@@ -104,7 +111,7 @@ sigma_t_array = np.concatenate( (np.full(20, sigma_t[0]), np.full(17, sigma_t[1]
 
 
 # Plot Laufzeitmessung Rohdaten
-plt.figure(3)
+plt.figure(4)
 plt.subplot(1,1,1)
 #plt.errorbar(laufzeit, widerstand_laufzeitmessung, xerr=np.ones(laufzeit.size)*np.mean(sigma_t), yerr= np.ones(laufzeit.size)*np.mean(sigma_R), fmt="k.")
 plt.errorbar(t, R, xerr=sigma_t, yerr= sigma_R+sigma_R_sys, fmt="k.")
@@ -125,7 +132,7 @@ dof = t.size -2
 plt.figtext(0.15, 0.70, "$\Delta R / \Delta t = {:2.2f}(k\Omega /s)$\n$\sigma_a={:1.2f}k\Omega / s$\n$\chi ^2 /dof ={:2.3f}$".format(a, ea, chi2/dof))
 
 # Pullverteilung
-plt.figure(4)
+plt.figure(5)
 
 plt.subplot(2, 1, 1)
 plt.errorbar(laufzeit, widerstand_laufzeitmessung - laufzeit*a-b, fmt=".")

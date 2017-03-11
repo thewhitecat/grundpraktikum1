@@ -1,9 +1,9 @@
 \documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{geometry}
-
 
 \begin{document}
 	\title{Versuchsprotokoll}
@@ -40,12 +40,12 @@
 	\end{tabular} 
 	
 	\subsubsection{Versuchsauswertung}
-	Der Fehler auf diese Strecken ist jeweils durch den Ablesefehler sowie den Kalibrationsfehler des Maßbands gegeben.
+	Der Fehler auf die Strecken ist jeweils durch den Ablesefehler sowie den Kalibrationsfehler des Maßbands gegeben.
 	\begin{equation}
-	\sigma _{stat} = 0,05cm / \sqrt{12} = 0,15cm \text{\qquad} \sigma_{sys} = 0,07 / \sqrt{3} = 0,04cm
+	\sigma _{stat} = 0,05 cm / \sqrt{12} = 0,15 cm \text{\qquad} \sigma_{sys} = 0,07 cm / \sqrt{3} = 0,04 cm
 	\end{equation}
 
-	An diese Rohdaten wurde eine Gerade angepasst. Die Steigung dieser Geraden mit $s=k\cdot R+b$ entspricht also dem gesuchten Umrechnungsfaktor $k$.\\\\
+	An diese Rohdaten wurde eine Gerade angepasst. Die Steigung dieser Geraden mit $s=k\cdot R+b$ entspricht dem gesuchten Umrechnungsfaktor $k$.\\\\
 	Aus der linearen Regression ergibt sich: $ k = (-15,99 \pm 0,07) \frac{cm}{k\Omega}$
 	\begin{center}
         \begin{tabular}{|c|c|}
@@ -95,9 +95,11 @@
 	\end{figure}
 	
 
-	Als Lautsprecher wird ein Piezo-Hochtonlautsprecher verwendet. Dieser wird vom Relais - Schalterpaar R2/R3 des Sensor CASSY angesteuert, diese liefern auch das Triggersignal zum Starten der Zeitmessung und das Mikrofon im Triggermodus gibt das Signal zum Beenden der Zeitmessung. Das Mikrofon steht verschiebbar auf einer Metallschiene, die mit einer Tischklemme am Ende des Tisches befestigt ist. Dort befindet sich auch ein Potentiometer (Stromquellenbox, Kanal B) mit Umlenkrolle, um Änderungen der Strecke Lautsprecher - Mikrofon aufzunehmen (siehe Kapitel \ref{section:Kalibration_Poti}). Am Ende der Metallschiene befindet sich eine Rohrhalterung mit Rohr, in dem die Messung stattfindet, um Störungen zu vermeiden. Abbildung \ref{pic:aufbau_laufzeit} zeigt den Aufbau. Außerdem wird die Lufttemperatur im Raum gemessen, um die theoretische Vorhersage für die Schallgeschwindigkeit zu ermitteln.\\\\
-	Um die Schallgeschwindigkeit zu berechnen, wird die Laufzeit bei unterschiedlichen Mikrofonabständen gemessen. Wir haben je Abstandseinstellung ca. 20 Messwerte aufgenommen, um den statistischen Fehler auf die Messungen zu bestimmen. Dabei ist zu beachten, dass das Potentiometer einen Abstand Mikrofon - Potentiometer liefert. Das bedeutet: $\Delta s_{Lautsprecher-Mikrofon} = - \Delta s_{Mikrofon-Poti}$\\\\
-	
+	Als Lautsprecher wird ein Piezo-Hochtonlautsprecher verwendet. Dieser wird vom Relais - Schalterpaar R2/R3 des Sensor CASSY angesteuert. Diese liefern auch das Triggersignal zum Starten der Zeitmessung und das Mikrofon im Triggermodus gibt das Signal zum Beenden der Zeitmessung. Das Mikrofon steht verschiebbar auf einer Metallschiene, die mit einer Tischklemme am Ende des Tisches befestigt ist. Dort befindet sich auch ein Potentiometer (Stromquellenbox, Kanal B) mit Umlenkrolle, um Änderungen der Strecke Lautsprecher - Mikrofon aufzunehmen (siehe Kapitel \ref{section:Kalibration_Poti}). Am Ende der Metallschiene befindet sich eine Rohrhalterung mit Rohr, in dem die Messung stattfindet, um Störungen zu vermeiden. Abbildung \ref{pic:aufbau_laufzeit} zeigt den Aufbau. Außerdem wird die Lufttemperatur im Raum gemessen, um die theoretische Vorhersage für die Schallgeschwindigkeit zu ermitteln.\\\\
+	Um die Schallgeschwindigkeit zu berechnen, wird die Laufzeit bei unterschiedlichen Mikrofonabständen gemessen. Wir haben je Abstandseinstellung ca. 20 Messwerte aufgenommen, um den statistischen Fehler auf die Messungen zu bestimmen. Dabei ist zu beachten, dass das Potentiometer einen Abstand Mikrofon - Potentiometer liefert. Das bedeutet:
+	\begin{equation}
+	\Delta s_{Lautsprecher-Mikrofon} = - \Delta s_{Mikrofon-Poti}	
+	\end{equation}
 
 		\begin{tabular}{l l l}
 			CASSY & Kanal A & Laufzeit Dta1 E$\rightarrow$F, 0.002s, Flanken invertiert \\
@@ -151,7 +153,7 @@
 	v_{Theorie} =\sqrt{\frac{R\cdot\kappa}{M_mol}}\sqrt{T} = 345,1398 \frac{m}{s} \text{\qquad mit \qquad}
 	\sigma = 0,5 \sqrt{\frac{R\cdot\kappa}{M_mol}} \frac{\sigma_T}{\sqrt{T}} = 0,00058 \frac{m}{s}
 	\end{equation}
-	Die Abweichung der Messung von der Theorie beträgt demnach 0,73 Standardabweichungen. Dies bestätigt zusammen mit den $\chi^2$ von über 2, dass die Fehler etwas zu klein abgeschätzt wurden. Dies liegt wohl daran, dass wir den Fehler der Stromquellen-Box nur als Fortpflanzung der Sensor CASSY-eigenen Fehler kannten. Weiterhin
+	Die Abweichung der Messung von der Theorie beträgt demnach 0,73 Standardabweichungen.
 	\begin{table}
 		\begin{center}
 			\begin{tabular}{|c|c|}
