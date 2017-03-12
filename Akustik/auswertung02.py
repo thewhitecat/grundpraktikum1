@@ -79,11 +79,11 @@ plt.subplot(1, 1, 1)
 plt.title("Messdaten zur Kalibration mit Fit")
 plt.ylabel("Strecke / cm")
 plt.xlabel("Widerstand / kOhm")
-plt.errorbar(widerstand, strecke, yerr=0.03+0.07/np.sqrt(3), xerr=sigma_R, fmt="k.")
+plt.errorbar(widerstand, strecke, yerr=0.03+0.07/np.sqrt(3), xerr=sigma_R+sigma_R_sys, fmt="k.")
 
 
 
-a, ea, b, eb, chi2, cov = p.lineare_regression_xy(widerstand, strecke, sigma_R, np.full(7, 0.015+0.07/np.sqrt(3)))
+a, ea, b, eb, chi2, cov = p.lineare_regression_xy(widerstand, strecke, sigma_R+sigma_R_sys, np.full(7, 0.015+0.07/np.sqrt(3)))
 
 cm_pro_kOhm = np.abs(a)
 sigma_cm_pro_kOHm = ea
@@ -99,7 +99,7 @@ plt.figtext(0.55, 0.71, "$\Delta s = {:2.2f}(cm/k\Omega)*\Delta R$\n$\sigma_k={:
 # Plot Residuen
 plt.figure(4)
 plt.subplot(2, 1, 1)
-plt.errorbar(widerstand, (strecke - widerstand*a-b), xerr=sigma_R, yerr=0.03+0.07/np.sqrt(3), fmt=".")
+plt.errorbar(widerstand, (strecke - widerstand*a-b), xerr=sigma_R+sigma_R_sys, yerr=0.03+0.07/np.sqrt(3), fmt=".")
 plt.title("Residuenverteilung")
 
 
@@ -125,7 +125,11 @@ plt.ylabel("Widerstand / kOhm")
 # Linreg Laufzeitmessung
 #a, ea, b, eb, chi2, cov = p.lineare_regression_xy(laufzeit, widerstand_laufzeitmessung, sigma_t_array, sigma_R_array)
 a, ea, b, eb, chi2, cov = p.lineare_regression_xy(t, R, sigma_t/4.3, (sigma_R)/4.3+sigma_R_sys)
-
+print (a)
+print (ea)
+print (b)
+print (eb)
+print (chi2/5)
 
 # Plot Fit
 x=np.arange(9)*0.001/9+0.0007
