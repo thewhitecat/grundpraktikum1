@@ -11,182 +11,212 @@
 \begin{document}
 	
 
+
+
+
+\thispagestyle{empty}
+\begin{center}
+{\LARGE Versuchsprotokoll}\\
+\begin{large}
+zum Grundpraktikum Physik Teil I\\[0.4cm]
+an der RWTH Aachen\\
+I. Physikalisches Institut B\\[4.5cm]
+\Large\textbf{\textsl{Akustik}}\\[4cm]
+\normalsize\textit{vorgelegt\\von}\\[0.4cm]
+\large{Moritz Berger\\Tim Herbermann\\Gerald Kolter\\Sebastian Siebert}\\[3cm]
+\large \textbf{Wintersemester 2016/2017}
+\end{large}
+\end{center}
+
+\newpage
+\thispagestyle{empty}
+
+
+
+
+
 \title{Versuchsprotokoll}
 \tableofcontents
 \newpage
 \section{Schallgeschwindigkeit in Gasen}
-\subsection{Kalibration des Potentiometers zur Streckenmessung}
-\label{section:Kalibration_Poti}
-\subsubsection{Versuchsbeschreibung}
-Zur Längenmessung soll ein Potentiometer eingesetzt werden. Dazu muss bei verschiedenen Auslenkungen der Widerstand R des Potentiometers gemessen werden und der entsprechenden Strecke s zugeordnet werden.\\
-
-Für den Widerstand des Potentiometers gilt:
-\begin{equation}
-R = R_0(1-\frac{x}{L})
-\end{equation}
-Der Regelbare Widerstand ist linear in der Auslenkung x innerhalb des Potentiometers, welche wiederum linear zu der von uns verwendeten Strecke s ist.\\
-
-Für die folgenden Versuche sind immer nur Streckendifferenzen $\Delta s$ von Interesse. Deswegen suchen wir den Umrechnungsfaktor k:
-\begin{equation}
-k = \frac{\Delta s}{\Delta R}
-\end{equation}
-Dieser entspricht offensichtlich der Steigung der Geraden durch die Messpunkte (R, s).
-
-\subsubsection{Versuchsaufbau und - durchführung}
-
-Vom Mikrofon aus läuft ein Seil über eine Umlenkrolle am Potentiometer, die den Widerstand reguliert. Am Ende des Seils, das hinter der Rolle nach unten hängt, befindet sich ein Gewicht, um guten Kontakt zwischen Seil und Rolle sicherzustellen. Der Widerstand R des Potentiometers wird mithilfe der Stromquellen-Box des CASSY Sensor Systems gemessen und gegen die aktuelle Position des Mikrofons aufgetragen. Als Rauschmessung für den Widerstand haben wir die Messung aus dem Versuch zur Laufzeitmessung (Kapitel \ref{section:Laufzeitmessung}) genutzt, da wir bei dieser Messung jeweils ca 20 Werte aufgenommen haben.\\
-
-\begin{tabular}{l l l}
+	\subsection{Kalibration des Potentiometers zur Streckenmessung}
+	\label{section:Kalibration_Poti}
+	\subsubsection{Versuchsbeschreibung}
+	Zur Längenmessung soll ein Potentiometer eingesetzt werden. Dazu muss bei verschiedenen Auslenkungen der Widerstand R des Potentiometers gemessen werden und der entsprechenden Strecke s zugeordnet werden.\\
 	
-	CASSY & Kanal B & Stromquellen-Box, Rb1 0-10kOhm Momentanwert \\ 
+	Für den Widerstand des Potentiometers gilt:
+	\begin{equation}
+	R = R_0(1-\frac{x}{L})
+	\end{equation}
+	Der Regelbare Widerstand ist linear in der Auslenkung x innerhalb des Potentiometers, welche wiederum linear zu der von uns verwendeten Strecke s ist.\\
 	
-	Messparameter & manuell &  7 Messungen\\ 
+	Für die folgenden Versuche sind immer nur Streckendifferenzen $\Delta s$ von Interesse. Deswegen suchen wir den Umrechnungsfaktor k:
+	\begin{equation}
+	k = \frac{\Delta s}{\Delta R}
+	\end{equation}
+	Dieser entspricht offensichtlich der Steigung der Geraden durch die Messpunkte (R, s).
 	
-\end{tabular} 
+	\subsubsection{Versuchsaufbau und - durchführung}
 
-\subsubsection{Versuchsauswertung}
-Der Fehler auf die Strecken ist jeweils durch den Ablesefehler sowie den Kalibrationsfehler des Maßbands gegeben.
-\begin{equation}
-\sigma _{stat} = 0,05 cm / \sqrt{12} = 0,15 cm \text{\qquad} \sigma_{sys} = 0,07 cm / \sqrt{3} = 0,04 cm
-\end{equation}
+	Vom Mikrofon aus läuft ein Seil über eine Umlenkrolle am Potentiometer, die den Widerstand reguliert. Am Ende des Seils, das hinter der Rolle nach unten hängt, befindet sich ein Gewicht, um guten Kontakt zwischen Seil und Rolle sicherzustellen. Der Widerstand R des Potentiometers wird mithilfe der Stromquellen-Box des CASSY Sensor Systems gemessen und gegen die aktuelle Position des Mikrofons aufgetragen. Als Rauschmessung für den Widerstand haben wir die Messung aus dem Versuch zur Laufzeitmessung (Kapitel \ref{section:Laufzeitmessung}) genutzt, da wir bei dieser Messung jeweils ca 20 Werte aufgenommen haben.\\
+	
+	\begin{tabular}{l l l}
+		
+		CASSY & Kanal B & Stromquellen-Box, Rb1 0-10kOhm Momentanwert \\ 
+		 
+		Messparameter & manuell &  7 Messungen\\ 
+		
+	\end{tabular} 
+	
+	\subsubsection{Versuchsauswertung}
+	Der Fehler auf die Strecken ist jeweils durch den Ablesefehler sowie den Kalibrationsfehler des Maßbands gegeben.
+	\begin{equation}
+	\sigma _{stat} = 0,05 cm / \sqrt{12} = 0,15 cm \text{\qquad} \sigma_{sys} = 0,07 cm / \sqrt{3} = 0,04 cm
+	\end{equation}
 
-An diese Rohdaten wurde eine Gerade angepasst. Die Steigung dieser Geraden mit $s=k\cdot R+b$ entspricht dem gesuchten Umrechnungsfaktor $k$.\\\\
-Aus der linearen Regression ergibt sich: $ k = (-15,99 \pm 0,07) \frac{cm}{k\Omega}$
-\begin{center}
-	\begin{tabular}{|c|c|}
-		\hline
-		\textbf{Strecke [$cm$]} & \textbf{Widerstand [$k\Omega$]} \\
-		\hline
-		10 & 2,375 \\
-		\hline
-		15 & 2,065 \\
-		\hline
-		20 & 1,765 \\
-		\hline
-		25 & 1,435 \\
-		\hline
-		30 & 1,12 \\
-		\hline
-		35 & 0,81 \\
-		\hline
-		40 & 0,505 \\
-		\hline		
-	\end{tabular}
-\end{center}
-\begin{center}
-	\includegraphics[width=0.7\linewidth]{kalibration_poti_fit}
-\end{center}
-
-
-
-\subsection{Laufzeitmessung}
-\label{section:Laufzeitmessung}
-\subsubsection{Versuchsbeschreibung}
-Schallwellen breiten sich in Gasen (z.B. Luft) mit begrenzter Geschwindigkeit $v_{Schall}$ aus. Um  $v_{Schall}$ zu bestimmen, wird in diesem Versuch direkt die Zeit gemessen, die der Schall für die Ausbreitung vom Lautsprecher bis zum Mikrofon benötigt.\\
-Es ist bekannt, dass in idealen Gasen gilt:
-\begin{equation}
-v_{Schall} = v_0 \sqrt{T/T_0} \text{\qquad mit \qquad} v_0 = \sqrt{\frac{R\cdot\kappa}{M_{mol}}T_0}
-\end{equation}
-Trägt man die Strecke $x$ gegen Laufzeit $t$ auf, so ergibt sich $v_{Schall}$ als Steigung der Geraden durch die Messwerte ($v=\frac{\Delta s}{\Delta t}$).
-
-\subsubsection{Versuchsaufbau und -durchführung}
-
-\begin{figure}
+	An diese Rohdaten wurde eine Gerade angepasst. Die Steigung dieser Geraden mit $s=k\cdot R+b$ entspricht dem gesuchten Umrechnungsfaktor $k$.\\\\
+	Aus der linearen Regression ergibt sich: $ k = (-15,99 \pm 0,07) \frac{cm}{k\Omega}$\\
+	Das $\chi^2/dof = 1,012$ zeigt eine sehr gelungene Kalibration.
 	\begin{center}
+        \begin{tabular}{|c|c|}
+        	\hline
+	        \textbf{Strecke [$cm$]} & \textbf{Widerstand [$k\Omega$]} \\
+	        \hline
+	        10 & 2,375 \\
+			\hline
+			15 & 2,065 \\
+			\hline
+			20 & 1,765 \\
+			\hline
+			25 & 1,435 \\
+			\hline
+			30 & 1,12 \\
+			\hline
+			35 & 0,81 \\
+			\hline
+			40 & 0,505 \\
+			\hline		
+		\end{tabular}
+	\end{center}
+	\begin{center}
+		\includegraphics[width=0.7\linewidth]{kalibration_poti_fit}
+		\includegraphics[width=0.7\linewidth]{residuen_kalibration}
+	\end{center}
+		
+	
+	
+	\subsection{Laufzeitmessung}
+	\label{section:Laufzeitmessung}
+	\subsubsection{Versuchsbeschreibung}
+	Schallwellen breiten sich in Gasen (z.B. Luft) mit begrenzter Geschwindigkeit $v_{Schall}$ aus. Um  $v_{Schall}$ zu bestimmen, wird in diesem Versuch direkt die Zeit gemessen, die der Schall für die Ausbreitung vom Lautsprecher bis zum Mikrofon benötigt.\\
+	Es ist bekannt, dass in idealen Gasen gilt:
+	\begin{equation}
+	v_{Schall} = v_0 \sqrt{T/T_0} \text{\qquad mit \qquad} v_0 = \sqrt{\frac{R\cdot\kappa}{M_{mol}}T_0}
+	\end{equation}
+	Trägt man die Strecke $x$ gegen Laufzeit $t$ auf, so ergibt sich $v_{Schall}$ als Steigung der Geraden durch die Messwerte ($v=\frac{\Delta s}{\Delta t}$).
+	
+	\subsubsection{Versuchsaufbau und -durchführung}
+	
+	\begin{figure}
+		\begin{center}
 		\includegraphics[width=0.7\linewidth]{aufbau_laufzeitmessung}
 		\caption{CASSY Messaufbau: Laufzeit gegen Laufstrecke (Quelle: Praktikumsskript S. 38)}
 		\label{pic:aufbau_laufzeit}
-	\end{center}
-\end{figure}
+		\end{center}
+	\end{figure}
+	
 
+	Als Lautsprecher wird ein Piezo-Hochtonlautsprecher verwendet. Dieser wird vom Relais - Schalterpaar R2/R3 des Sensor CASSY angesteuert. Diese liefern auch das Triggersignal zum Starten der Zeitmessung und das Mikrofon im Triggermodus gibt das Signal zum Beenden der Zeitmessung. Das Mikrofon steht verschiebbar auf einer Metallschiene, die mit einer Tischklemme am Ende des Tisches befestigt ist. Dort befindet sich auch ein Potentiometer (Stromquellenbox, Kanal B) mit Umlenkrolle, um Änderungen der Strecke Lautsprecher - Mikrofon aufzunehmen (siehe Kapitel \ref{section:Kalibration_Poti}). Am Ende der Metallschiene befindet sich eine Rohrhalterung mit Rohr, in dem die Messung stattfindet, um Störungen zu vermeiden. Abbildung \ref{pic:aufbau_laufzeit} zeigt den Aufbau. Außerdem wird die Lufttemperatur im Raum gemessen, um die theoretische Vorhersage für die Schallgeschwindigkeit zu ermitteln.\\\\
+	Um die Schallgeschwindigkeit zu berechnen, wird die Laufzeit bei unterschiedlichen Mikrofonabständen gemessen. Wir haben je Abstandseinstellung ca. 20 Messwerte aufgenommen, um den statistischen Fehler auf die Messungen zu bestimmen. Dabei ist zu beachten, dass das Potentiometer einen Abstand Mikrofon - Potentiometer liefert. Das bedeutet:
+	\begin{equation}
+	\Delta s_{Lautsprecher-Mikrofon} = - \Delta s_{Mikrofon-Poti}	
+	\end{equation}
 
-Als Lautsprecher wird ein Piezo-Hochtonlautsprecher verwendet. Dieser wird vom Relais - Schalterpaar R2/R3 des Sensor CASSY angesteuert. Diese liefern auch das Triggersignal zum Starten der Zeitmessung und das Mikrofon im Triggermodus gibt das Signal zum Beenden der Zeitmessung. Das Mikrofon steht verschiebbar auf einer Metallschiene, die mit einer Tischklemme am Ende des Tisches befestigt ist. Dort befindet sich auch ein Potentiometer (Stromquellenbox, Kanal B) mit Umlenkrolle, um Änderungen der Strecke Lautsprecher - Mikrofon aufzunehmen (siehe Kapitel \ref{section:Kalibration_Poti}). Am Ende der Metallschiene befindet sich eine Rohrhalterung mit Rohr, in dem die Messung stattfindet, um Störungen zu vermeiden. Abbildung \ref{pic:aufbau_laufzeit} zeigt den Aufbau. Außerdem wird die Lufttemperatur im Raum gemessen, um die theoretische Vorhersage für die Schallgeschwindigkeit zu ermitteln.\\\\
-Um die Schallgeschwindigkeit zu berechnen, wird die Laufzeit bei unterschiedlichen Mikrofonabständen gemessen. Wir haben je Abstandseinstellung ca. 20 Messwerte aufgenommen, um den statistischen Fehler auf die Messungen zu bestimmen. Dabei ist zu beachten, dass das Potentiometer einen Abstand Mikrofon - Potentiometer liefert. Das bedeutet:
-\begin{equation}
-\Delta s_{Lautsprecher-Mikrofon} = - \Delta s_{Mikrofon-Poti}	
-\end{equation}
+		\begin{tabular}{l l l}
+			CASSY & Kanal A & Laufzeit Dta1 E$\rightarrow$F, 0.002s, Flanken invertiert \\
+			&Relais & frac(time)<0.1\\
+			Messparameter & automatisch Intervall 1s \\
+			& neue Messreihe anhängen
+		\end{tabular}
 
-\begin{tabular}{l l l}
-	CASSY & Kanal A & Laufzeit Dta1 E$\rightarrow$F, 0.002s, Flanken invertiert \\
-	&Relais & frac(time)<0.1\\
-	Messparameter & automatisch Intervall 1s \\
-	& neue Messreihe anhängen
-\end{tabular}
-
-
-\subsubsection{Versuchsauswertung}
-
-Zunächst wurden die einzelnen Messreihen (Abbildung \ref{pic:messreihen_laufzeit}) auf statistische Fehler untersucht. Daraus ergab sich als Fehler für die Einzelmessungen:
-\begin{equation}
-\sigma _{R_{stat}} = 0,63 k\Omega \text{\qquad sowie \qquad} \sigma_{t_{stat}} = 0,29 ms
-\end{equation}
-Als systematischer Fehler auf die Widerstandsmessung der Stromquellen-Box haben wir ca. 1\% angenommen: 
-\begin{equation}
-\sigma_{R_{sys}} = 0.01 k \Omega
-\end{equation}
-\begin{figure}
+	
+	\subsubsection{Versuchsauswertung}
+	
+	Zunächst wurden die einzelnen Messreihen (Abbildung \ref{pic:messreihen_laufzeit}) auf statistische Fehler untersucht. Daraus ergab sich als Fehler für die Einzelmessungen:
+	\begin{equation}
+	\sigma _{R_{stat}} = 0,63 k\Omega \text{\qquad sowie \qquad} \sigma_{t_{stat}} = 0,29 ms
+	\end{equation}
+	Als systematischer Fehler auf die Widerstandsmessung der Stromquellen-Box haben wir ca. 1\% angenommen: 
+	\begin{equation}
+	\sigma_{R_{sys}} = 0.01 k \Omega
+	\end{equation}
+	\begin{figure}
 	\begin{center}
-		\includegraphics[width=0.75\linewidth]{messreihen_2bis5_laufzeit}
+		\includegraphics[width=0.6\linewidth]{messreihen_2bis5_laufzeit}
 		\caption{Messreihen 2 bis 5 von insgesamt sieben Messreihen}
 		\label{pic:messreihen_laufzeit}
-		
-		\includegraphics[width=0.7\linewidth]{fit_laufzeit}
+	\end{center}
+	\end{figure}	
+	\begin{figure}
+	\begin{center}	
+		\includegraphics[width=0.55\linewidth]{fit_laufzeit}
+		\includegraphics[width=0.55\linewidth]{residuen_laufzeit}
 		\caption{Mittelwerte der Messreihen mit angepasster Geraden durch die Messwerte}
 		\label{pic:fit_laufzeit}
+		
+		
 	\end{center}
-\end{figure}
-An alle Messreihen zusammen wurde eine Gerade angepasst (Abbildung \ref{pic:fit_laufzeit}), es ergab sich für deren Steigung:
-\begin{equation}
-\frac{\Delta R}{\Delta t} = (2181,55 \pm 22,77) \frac{k\Omega}{s}
-\end{equation} 
-Gesucht ist die Schallgeschwindigkeit $v_{Schall}$, diese ergibt sich als Steigung der Geraden an die Messwerte, wobei die Widerstände noch in Entfernungen umgerechnet werden müssen. Da nur die Steigung von Interesse ist und nicht der y-Achsenabschnitt, wurde die tatsächliche  Entfernung Lautsprecher - Mikrofon weder gemessen noch berechnet. Es gilt:
-
-\begin{equation}
-v_{Schall} = \frac{\Delta s}{\Delta t} = \frac{\Delta s}{\Delta R} \cdot \frac{\Delta R}{\Delta t} = k \frac{\Delta R}{\Delta t} = 352,11 \frac{m}{s}
-\end{equation}
-\begin{equation}
-\sigma_{stat} = v_{Schall} \frac{\sigma _{\Delta R / \Delta t}}{\Delta R / \Delta t} = 3,64 \frac{m}{s}
-\end{equation}
-\begin{equation}
-\sigma_{sys} = v_{Schall} \frac{\sigma _k}{k} = 1,53 \frac{m}{s}
-\end{equation}
-
-Also ergibt sich als Ergebnis des Versuchs: $v_{Messung} = (348,90 \pm 3,64 \pm 1,53) \frac{m}{s}$. \\\\
-Aus der Temperaturmessung erhielten wir, dass die Raumtemperatur zu Beginn des Versuchs $T = (23,459 \pm 0,001)C = (296,609 \pm 0.001)K$ betrug.
-Daraus ergibt sich eine Schallgeschwindigkeit von
-\begin{equation}
-v_{Theorie} =\sqrt{\frac{R\cdot\kappa}{M_mol}}\sqrt{T} = 345,1398 \frac{m}{s} \text{\qquad mit \qquad}
-\sigma = 0,5 \sqrt{\frac{R\cdot\kappa}{M_mol}} \frac{\sigma_T}{\sqrt{T}} = 0,00058 \frac{m}{s}
-\end{equation}
-Die Abweichung der Messung von der Theorie beträgt demnach 0,73 Standardabweichungen. Die relative Unsicherheit auf  beträgt 1,48\%. Damit ist die Messung im Rahmen der angegebenen Unsicherheit nah am erwarteten Wert.
-\begin{table}
-	\begin{center}
-		\begin{tabular}{|c|c|}
-			\hline
-			\textbf{Widerstand [$k\Omega$]} & \textbf{Laufzeit [$s$]} \\
-			\hline
-			2.3792 & 0.001591 \\
-			\hline
-			2.0682 & 0.001453 \\
-			\hline
-			1.7535 & 0.001292 \\
-			\hline
-			1.4435 & 0.001148 \\
-			\hline
-			1.126 & 0.001011 \\
-			\hline
-			0.8178 & 0.0008721 \\
-			\hline
-			0.5075 &  0.0007338 \\
-			\hline
-		\end{tabular}
-	\end{center}
-	\caption{Mittelwerte der Messreihen}
-\end{table}
-
-
-
-
+	\end{figure}
+	An alle Messreihen zusammen wurde eine Gerade angepasst (Abbildung \ref{pic:fit_laufzeit}), es ergab sich für deren Steigung:
+	\begin{equation}
+	\frac{\Delta R}{\Delta t} = (2181,55 \pm 22,77) \frac{k\Omega}{s}
+	\end{equation} 
+	Gesucht ist die Schallgeschwindigkeit $v_{Schall}$, diese ergibt sich als Steigung der Geraden an die Messwerte, wobei die Widerstände noch in Entfernungen umgerechnet werden müssen. Da nur die Steigung von Interesse ist und nicht der y-Achsenabschnitt, wurde die tatsächliche  Entfernung Lautsprecher - Mikrofon weder gemessen noch berechnet. Es gilt:
+	
+	\begin{equation}
+	v_{Schall} = \frac{\Delta s}{\Delta t} = \frac{\Delta s}{\Delta R} \cdot \frac{\Delta R}{\Delta t} = k \frac{\Delta R}{\Delta t} = 352,11 \frac{m}{s}
+	\end{equation}
+	\begin{equation}
+	\sigma_{stat} = v_{Schall} \frac{\sigma _{\Delta R / \Delta t}}{\Delta R / \Delta t} = 3,64 \frac{m}{s}
+	\end{equation}
+	\begin{equation}
+	\sigma_{sys} = v_{Schall} \frac{\sigma _k}{k} = 1,53 \frac{m}{s}
+	\end{equation}
+	
+	Also ergibt sich als Ergebnis des Versuchs: $v_{Messung} = (348,90 \pm 3,64 \pm 1,53) \frac{m}{s}$. \\\\
+	Aus der Temperaturmessung erhielten wir, dass die Raumtemperatur zu Beginn des Versuchs $T = (23,459 \pm 0,001)C = (296,609 \pm 0.001)K$ betrug.
+	Daraus ergibt sich eine Schallgeschwindigkeit von
+	\begin{equation}
+	v_{Theorie} =\sqrt{\frac{R\cdot\kappa}{M_mol}}\sqrt{T} = 345,1398 \frac{m}{s} \text{\qquad mit \qquad}
+	\sigma = 0,5 \sqrt{\frac{R\cdot\kappa}{M_mol}} \frac{\sigma_T}{\sqrt{T}} = 0,00058 \frac{m}{s}
+	\end{equation}
+	Die Abweichung der Messung von der Theorie beträgt demnach 0,73 Standardabweichungen. Damit ist die Messung im Rahmen der angegebenen Unsicherheit nah am erwarteten Wert. Die relative Unsicherheit auf die Schallgeschwindigkeit beträgt 1,48\%, was durchaus ein guter Wert ist.
+	
+	Die Geradenanpassung ergibt mit einem $chi^2/dof = 2,08$, dass die Fehler tendenziell noch etwas zu klein abgeschätzt wurden.
+	\begin{table}
+		\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline
+				\textbf{Widerstand [$k\Omega$]} & \textbf{Laufzeit [$s$]} \\
+				\hline
+				2.3792 & 0.001591 \\
+				\hline
+				2.0682 & 0.001453 \\
+				\hline
+				1.7535 & 0.001292 \\
+				\hline
+				1.4435 & 0.001148 \\
+				\hline
+				1.126 & 0.001011 \\
+				\hline
+				0.8178 & 0.0008721 \\
+				\hline
+				0.5075 &  0.0007338 \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\caption{Mittelwerte der Messreihen}
+	\end{table}
 
 
 
@@ -194,7 +224,9 @@ Die Abweichung der Messung von der Theorie beträgt demnach 0,73 Standardabweich
 
 
 
-\section{Schallgeschwindigkeit in Gasen}
+
+
+
 
 \subsection{Resonanzfrequenzen in Röhre mit fester Länge}
 
@@ -403,7 +435,7 @@ Dem gegenüber steht der theoretische Wert mit $v_{Theorie}=346.23m/s$. Der geme
 
 
 
-\part{Schallgeschwindigkeit in Festkörpern}
+
 \section{Schallgeschwindigkeit in Metall}
 \subsection{Versuchsbeschreibung}
 Der Elastizitätsmodul ist eine Materialkonstante, die in vielen Bereichen, wie beispielsweise in der Bauphysik, eine wichtige Rolle spielt. Er charakterisiert die relative Längenausdehnung in Abhängigkeit von der angreifenden Zugspannung.
@@ -546,6 +578,8 @@ Kupfer & $3794.5\pm2.5$ & 4660 \\
 Messing & $3433.0\pm2.3$ & 3500 \\ 
 \hline 
 \end{tabular} 
+\end{table}
+\begin{table}
 \begin{tabular}{|c|c|c|}
 \hline 
 Material & gemessenes E-Modul[GPa] & Literaturwert[GPa] \\ 
@@ -617,7 +651,7 @@ Es werden für die Messung immer jeweils die verstimmte Saite am fünften Bund v
 \end{figure}
 Die Schwebung ist gut durch die Schwankungen der Amplitude zu erkennen. Die resultierende Frequenz ist nicht direkt ersichtlich, dazu muss in das Bild "reingezoomt" werden. Dabei gerät die Schwebung aus dem Blickfeld.
 \begin{figure}
-\includegraphics[scale=1]{Bilder/Schwebung_reingezoomt.png}
+\includegraphics[scale=0.9]{Bilder/Schwebung_reingezoomt.png}
 \centering
 \caption{Schwingung zweier Gitarrensaite mit nur leicht unterschiedlichen Frequenzen; kurzes Zeitintervall}
 \label{Schwebung_zoom}
@@ -626,7 +660,7 @@ Die Schwebung ist gut durch die Schwankungen der Amplitude zu erkennen. Die resu
 Die Schwebungsfrequenz kann nun auf zweierlei Arten bestimmt werden. Möglichkeit eins ist die Berechnung aus den beiden Originalfrequenzen, die mithilfe der Fast-Fourier-Transformation aus den Daten bestimmt werden. Diese liefert für jeden Datensatz ein Frequenzspektrum wie in Abbildung \ref{Schwebung_Frequenzspektrum}. Die Schwebungsfrequenz wird dann mit Gleichung \ref{eq:Schwebungsfrequenz} berechnet. \\
 Die zweite Möglichkeit besteht darin, die Schwebungsfrequenz durch Abzählen der Amplitudenminima in den Rohdaten zu bestimmen. Dazu werden alle sichtbaren Amplitudenminima abgezählt und anschließend durch die Differenz der Zeitpunkte des ersten und des letzten Minimums geteilt.
 \begin{figure}
-\includegraphics[scale=1]{Bilder/Frequenzspektrum_ges.png}
+\includegraphics[scale=0.9]{Bilder/Frequenzspektrum_ges.png}
 \centering
 \caption{Gesamtes Frequenzspektrum}
 \label{Schwebung_Frequenzspektrum}
@@ -678,7 +712,7 @@ Anschließend wird die Saite angeschlagen und die Messung mit kurzem Zeitversatz
 \subsection{Versuchsauswertung}
 \subsubsection{Rohdaten}
 \begin{figure}
-\includegraphics[scale=1]{Bilder/Gitarre_Schwingung.png}
+\includegraphics[scale=0.9]{Bilder/Gitarre_Schwingung.png}
 \centering
 \caption{Frequenzspektrum einer Gitarrensaite}
 \label{Schwingung_Rohdaten}
@@ -687,7 +721,7 @@ Abbildung \ref{Schwingung_Rohdaten} zeigt die Rohdaten. Hieraus lässt sich kaum
 \subsubsection{Frequenzspektren}
 Wesentlich mehr Aufschluss gibt da das Frequenzspektrum aus der FFT (siehe Abbildung \ref{Saite_Frequenzspektrum}). Hier sind die Grundschwingung (erster Peak) und die Oberschwingungen gut erkennbar, ebenso wie das Abfallen der Amplituden der Peaks mit $A_n \propto \dfrac{1}{n}$.
 \begin{figure}
-\includegraphics[scale=1]{Bilder/FrequenzspektrumGitarrensaite.png}
+\includegraphics[scale=0.9]{Bilder/FrequenzspektrumGitarrensaite.png}
 \centering
 \caption{Frequenzspektrum einer Gitarrensaite}
 \label{Saite_Frequenzspektrum}
@@ -721,9 +755,9 @@ Bund & Frequenz [Hz] & Länge [m] \\
 \end{tabular} 
 \\
 \begin{figure}
-\includegraphics[scale=0.5]{Bilder/SpannungMassebelagLineareRegression.png}
+\includegraphics[scale=0.45]{Bilder/SpannungMassebelagLineareRegression.png}
 \centering
-\caption{Lineare Regession}
+\caption{Lineare Regression}
 \label{LineareRegressionSpannungMassebelag}
 \end{figure}
 Mittels Gleichung \ref{eq:SpannungMassebelag} lässt sich nun eine lineare Regression durch auftragen von $f$ gegen $\dfrac{1}{2L}$ durchführen (wie in Abbildung \ref{LineareRegressionSpannungMassebelag} gezeigt). Die Steigung der Ausgleichgeraden ist dann die Wurzel aus dem Verhältnis der Saitenspannung zu Massebelag. \\

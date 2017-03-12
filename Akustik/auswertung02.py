@@ -50,7 +50,7 @@ sigma_R_sys = 0.01
 plt.figure(1, [8, 8])
 for i in range(1, 5):
     plt.subplot(4, 1, i)
-    plt.errorbar(messreihe_laufzeit[i]*1000, messreihe_widerstand[i], xerr=sigma_t[i]*1000, yerr=sigma_R[i]+sigma_R_sys, fmt=".")
+    plt.errorbar(messreihe_laufzeit[i]*1000, messreihe_widerstand[i], fmt=".")
     plt.ylabel("R / $k\Omega$")
     plt.xlabel("t / $ms$")
 
@@ -89,15 +89,18 @@ cm_pro_kOhm = np.abs(a)
 sigma_cm_pro_kOHm = ea
 
 # Plot Fit
-x=np.arange(10)*2.5/10 +0.3
+x=np.arange(2)*1.9 +0.5
 y=a*x+b
 plt.plot(x, y)
 dof = widerstand.size -2
 plt.figtext(0.55, 0.71, "$\Delta s = {:2.2f}(cm/k\Omega)*\Delta R$\n$\sigma_k={:1.2f}cm / k\Omega$\n$\chi ^2 /dof ={:2.3f}$".format(a, ea, chi2/dof))
 
 
-
-
+# Plot Residuen
+plt.figure(4)
+plt.subplot(2, 1, 1)
+plt.errorbar(widerstand, (strecke - widerstand*a-b), xerr=sigma_R, yerr=0.03+0.07/np.sqrt(3), fmt=".")
+plt.title("Residuenverteilung")
 
 
 
@@ -105,14 +108,14 @@ plt.figtext(0.55, 0.71, "$\Delta s = {:2.2f}(cm/k\Omega)*\Delta R$\n$\sigma_k={:
 
 
 # Array für Lin Reg
-sigma_R_array = np.concatenate( (np.full(20, sigma_R[0]), np.full(17, sigma_R[1]), np.full(20, sigma_R[2]), np.full(20, sigma_R[3]), np.full(20, sigma_R[4]), np.full(19, sigma_R[5]), np.full(20, sigma_R[5])) )
+sigma_R_array = sigma_R_sys + np.concatenate( (np.full(20, sigma_R[0]), np.full(17, sigma_R[1]), np.full(20, sigma_R[2]), np.full(20, sigma_R[3]), np.full(20, sigma_R[4]), np.full(19, sigma_R[5]), np.full(20, sigma_R[5])) )
 sigma_t_array = np.concatenate( (np.full(20, sigma_t[0]), np.full(17, sigma_t[1]), np.full(20, sigma_t[2]), np.full(20, sigma_t[3]), np.full(20, sigma_t[4]), np.full(19, sigma_t[5]), np.full(20, sigma_t[5])) )
 
 
 
 # Plot Laufzeitmessung Rohdaten
-plt.figure(4)
-plt.subplot(1,1,1)
+plt.figure(5)
+plt.subplot(1, 1, 1)
 #plt.errorbar(laufzeit, widerstand_laufzeitmessung, xerr=np.ones(laufzeit.size)*np.mean(sigma_t), yerr= np.ones(laufzeit.size)*np.mean(sigma_R), fmt="k.")
 plt.errorbar(t, R, xerr=sigma_t, yerr= sigma_R+sigma_R_sys, fmt="k.")
 plt.title("Laufzeitmessung")
@@ -125,20 +128,17 @@ a, ea, b, eb, chi2, cov = p.lineare_regression_xy(t, R, sigma_t/4.3, (sigma_R)/4
 
 
 # Plot Fit
-x=np.arange(10)*0.001/9+0.00065
+x=np.arange(9)*0.001/9+0.0007
 y=a*x+b
 plt.plot(x, y)
 dof = t.size -2
 plt.figtext(0.15, 0.70, "$\Delta R / \Delta t = {:2.2f}(k\Omega /s)$\n$\sigma_a={:1.2f}k\Omega / s$\n$\chi ^2 /dof ={:2.3f}$".format(a, ea, chi2/dof))
 
 # Pullverteilung
-plt.figure(5)
-
+plt.figure(6)
 plt.subplot(2, 1, 1)
-plt.errorbar(laufzeit, widerstand_laufzeitmessung - laufzeit*a-b, fmt=".")
-plt.title("Residuen- und Pullverteilung")
-plt.subplot(2, 1, 2)
-plt.hist(widerstand_laufzeitmessung - laufzeit*a-b, bins =15)
+plt.errorbar(t, (R - t*a-b), xerr=sigma_t, yerr=sigma_R, fmt=".")
+plt.title("Residuenverteilung")
 
 
 # Schgallgeschwindigkeit berechnen
