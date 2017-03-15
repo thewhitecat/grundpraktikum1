@@ -20,11 +20,11 @@ def gerade_an_intervall(x, y, ex, ey, wert = 0, intervall = 0):
     
 
 
-data = p.lese_lab_datei("CASSY\Hauptmessung.lab")
+data = p.lese_lab_datei("Lab\Hauptmessung.lab")
 
 laufzeit = data[:,1]
-druck = data[:,2]
-temperatur = data[:,3] + 273.15
+druck = data[:,4]
+temperatur = data[:,2]
 
 R = 8.314
                  
@@ -40,7 +40,7 @@ temp0 = 373.15
 # Korrekturwerte für Druck und Temperatur
 m = 1
 b = -2
-offset_druck = 10
+offset_druck = -20
 
 
 
@@ -99,7 +99,8 @@ plt.figtext(0.65, 0.6, "a = {:2.3f}K\n$\sigma_a$ = {:2.3f}K\nb= {:2.3f}\n$\sigma
 
 
 # Stückweiser fit, jeweils
-n = 6
+n = 10
+n = n+2
 intervall = kehrwert_temp.size/n
 unterteilung = np.arange(n-1)[1:] * intervall
 
@@ -118,7 +119,7 @@ for i in range(unterteilung.size):
     x = np.array([x[-1], x[0]])
     y = a*x+b
     plt.plot(x, y, color="k")
-    dof = intervall*2-1
+    dof = intervall-1
     plt.figtext(0.7, 0.6, "a = {:2.3f}K\n$\sigma_a$ = {:2.3f}K\nb= {:2.3f}\n$\sigma_b$={:2.3f}\n$chi^2$/dof = {:2.3f}".format(a, ea, b, eb, chi2/dof))
 
 
