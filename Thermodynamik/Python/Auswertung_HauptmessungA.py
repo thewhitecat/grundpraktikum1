@@ -18,7 +18,18 @@ def gerade_an_intervall(x, y, ex, ey, wert = 0, intervall = 0):
     a, ea, b, eb, chi2, cov = p.lineare_regression_xy(x, y, ex, ey)
     return x, y, ex, ey, a, ea, b, eb, chi2, cov
     
+#Literaturwert für T in K
+def Lambda(T):
+    T = T-273.15
+    x_C_2 = [60, 80, 100]
+    y_2 = [42.482, 41.585, 40.657]
 
+    a_2 = [60, 100]
+    b_2 = [42.482, 40.657]
+
+    m = (y_2[2] - y_2[0])/(x_C_2[2] - x_C_2[0])
+    b = y_2[0] - m * x_C_2[0]
+    return np.round((m * T + b), 3)
 
 data = p.lese_lab_datei("CASSY\Hauptmessung.lab")
 
@@ -31,7 +42,7 @@ R = 8.314
                  
 # Rauschwerte -> Fehler auf Einzelwerte
 sigma_p = np.sqrt( (0.75/np.sqrt(12))**2+0.37**2)
-sigma_t = 0.035
+sigma_t = 0.12
 
 
 # Druck und Temperatur beim Sieden
@@ -142,7 +153,7 @@ for i in range(unterteilung.size):
         plt.ylabel("Residuen [hPa]")
         plt.axhline(0, linestyle="dashed")
         plt.xticks(rotation=0)
-        temp = 1/(kehrwert_temp[unterteilung[i]]+(1/temp0))
+    temp = 1/(kehrwert_temp[unterteilung[i]]+(1/temp0))
     print ("\nTemperatur = {:3.3f}\n$\Lambda$ = {:3.3f}, $\sigma_\Lambda$ = {:3.3f}\n".format(temp, -a*R/1000, ea*R/1000))
 
 
@@ -154,10 +165,16 @@ plt.errorbar(1/(kehrwert_temp[intervall:(n-1)*intervall:intervall]+(1/temp0)), e
 plt.xlabel("Temperatur [K]")
 plt.ylabel("Verdampfungsenthalpie [kJ/mol]")
 
+# Literaturwerte
 x = [60+273.15, 101+273.15]
 y = [42.482, 40.657]
 plt.xlim(75+273.15, 101+273.15)
 plt.plot(x, y)
+
+
+# Abweichung von Literaturwerten
+abweichung = (enthalpie - Lambda(1/(kehrwert_temp[intervall:(n-1)*intervall:intervall]+(1/temp0))) )/sigma_enthalpie
+
 
 
 #plt.figure(4+2*n+2)

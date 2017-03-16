@@ -146,10 +146,6 @@ I. Physikalisches Institut B\\[4.5cm]
 	\begin{equation}
 	\sigma _{R_{stat}} = 0,63 k\Omega \text{\qquad sowie \qquad} \sigma_{t_{stat}} = 0,29 ms
 	\end{equation}
-	Als systematischer Fehler auf die Widerstandsmessung der Stromquellen-Box haben wir ca. 1\% angenommen: 
-	\begin{equation}
-	\sigma_{R_{sys}} = 0.01 k \Omega
-	\end{equation}
 	\begin{figure}
 	\begin{center}
 		\includegraphics[width=0.6\linewidth]{messreihen_2bis5_laufzeit}
@@ -169,53 +165,56 @@ I. Physikalisches Institut B\\[4.5cm]
 	\end{figure}
 	An alle Messreihen zusammen wurde eine Gerade angepasst (Abbildung \ref{pic:fit_laufzeit}), es ergab sich für deren Steigung:
 	\begin{equation}
-	\frac{\Delta R}{\Delta t} = (2181,55 \pm 22,77) \frac{k\Omega}{s}
+	\frac{\Delta R}{\Delta t} = (2228,45 \pm 20,21) \frac{k\Omega}{s}
 	\end{equation} 
 	Gesucht ist die Schallgeschwindigkeit $v_{Schall}$, diese ergibt sich als Steigung der Geraden an die Messwerte, wobei die Widerstände noch in Entfernungen umgerechnet werden müssen. Da nur die Steigung von Interesse ist und nicht der y-Achsenabschnitt, wurde die tatsächliche  Entfernung Lautsprecher - Mikrofon weder gemessen noch berechnet. Es gilt:
 	
 	\begin{equation}
-	v_{Schall} = \frac{\Delta s}{\Delta t} = \frac{\Delta s}{\Delta R} \cdot \frac{\Delta R}{\Delta t} = k \frac{\Delta R}{\Delta t} = 352,11 \frac{m}{s}
+	v_{Schall} = \frac{\Delta s}{\Delta t} = \frac{\Delta s}{\Delta R} \cdot \frac{\Delta R}{\Delta t} = k \frac{\Delta R}{\Delta t} = 356,33 \frac{m}{s}
 	\end{equation}
 	\begin{equation}
-	\sigma_{stat} = v_{Schall} \frac{\sigma _{\Delta R / \Delta t}}{\Delta R / \Delta t} = 3,64 \frac{m}{s}
+	\sigma_{stat} = v_{Schall} \frac{\sigma _{\Delta R / \Delta t}}{\Delta R / \Delta t} = 3,23 \frac{m}{s}
 	\end{equation}
 	\begin{equation}
-	\sigma_{sys} = v_{Schall} \frac{\sigma _k}{k} = 1,53 \frac{m}{s}
+	\sigma_{sys} = v_{Schall} \frac{\sigma _k}{k} = 1,56 \frac{m}{s}
 	\end{equation}
 	
-	Also ergibt sich als Ergebnis des Versuchs: $v_{Messung} = (348,90 \pm 3,64 \pm 1,53) \frac{m}{s}$. \\\\
-	Aus der Temperaturmessung erhielten wir, dass die Raumtemperatur zu Beginn des Versuchs $T = (23,459 \pm 0,001)C = (296,609 \pm 0.001)K$ betrug.
+	Also ergibt sich als Ergebnis des Versuchs:
+	\begin{equation}
+	v_{Messung} = (356.33 \pm 3.232 \pm 1.56)\frac{m}{s} = (356,33\pm 3,59) \frac{m}{s}
+	\end{equation}
+	Aus der Temperaturmessung erhielten wir, dass die Raumtemperatur zu Beginn des Versuchs $T = (23,6 \pm 1)C = (296,7 \pm 1)K$ betrug.
 	Daraus ergibt sich eine Schallgeschwindigkeit von
 	\begin{equation}
-	v_{Theorie} =\sqrt{\frac{R\cdot\kappa}{M_mol}}\sqrt{T} = 345,1398 \frac{m}{s} \text{\qquad mit \qquad}
-	\sigma = 0,5 \sqrt{\frac{R\cdot\kappa}{M_mol}} \frac{\sigma_T}{\sqrt{T}} = 0,00058 \frac{m}{s}
+	v_{Theorie} =\sqrt{\frac{R\cdot\kappa}{M_mol}}\sqrt{T} = 345,14 \frac{m}{s} \text{\qquad mit \qquad}
+	\sigma = 0,5 \sqrt{\frac{R\cdot\kappa}{M_mol}} \frac{\sigma_T}{\sqrt{T}} = 0,58 \frac{m}{s}
 	\end{equation}
-	Die Abweichung der Messung von der Theorie beträgt demnach 0,73 Standardabweichungen. Damit ist die Messung im Rahmen der angegebenen Unsicherheit nah am erwarteten Wert. Die relative Unsicherheit auf die Schallgeschwindigkeit beträgt 1,48\%, was durchaus ein guter Wert ist.
+	Die Abweichung der Messung von der Theorie beträgt demnach 3.1 Standardabweichungen. Damit ist die Messung im Rahmen der angegebenen Unsicherheit nah am erwarteten Wert. Die relative Unsicherheit auf die Schallgeschwindigkeit beträgt 1,48\%, was durchaus ein guter Wert ist.
 	
-	Die Geradenanpassung ergibt mit einem $chi^2/dof = 2,08$, dass die Fehler tendenziell noch etwas zu klein abgeschätzt wurden.
+	Das $\chi^2/dof=42,3$ zeigt, dass die sieben Mittelwerte nicht auf einer Geraden liegen. Allerdings ist unklar worin diese begründet ist, da der Versuchsaufbau und die Kalibration des Potentiometers nicht verändert wurden. Aus der Residuenverteilung ist zu erkennen, dass die fünf linken Werte etwa auf einer Geraden liegen. Beachtet man nur die fünf linken Werte, so erhält man mit $v_{links} = 359.354 m/s$ auch keinen besseren Wert für die Schallgeschwindigkeit.  Berechnet man die Schallgeschwindigkeit nur aus den rechten beiden Messungen (diese wurden zeitlich zuerst durchgeführt), so erhält man $v_{rechts} = 361.519 m/s$, einen noch schlechteren Wert.
 	\begin{table}
 		\begin{center}
 			\begin{tabular}{|c|c|}
 				\hline
-				\textbf{Widerstand [$k\Omega$]} & \textbf{Laufzeit [$s$]} \\
+				\textbf{Widerstand [$k\Omega$]} & \textbf{Laufzeit [$ms$]} \\
 				\hline
-				2.3792 & 0.001591 \\
+				2.3792 $\pm$ 0.0024 & 1,5914 $\pm$ 0,0017\\
 				\hline
-				2.0682 & 0.001453 \\
+				2.0682 $\pm$ 0.0019 & 1,4534 $\pm$ 0,0030\\
 				\hline
-				1.7535 & 0.001292 \\
+				1.7535 $\pm$ 0.0019 & 1,2911 $\pm$ 0,0018\\
 				\hline
-				1.4435 & 0.001148 \\
+				1.4435 $\pm$ 0.0011& 1,1485 $\pm$ 0,0002\\
 				\hline
-				1.126 & 0.001011 \\
+				1.1260 $\pm$ 0.0012& 1,0114 $\pm$ 0,0001\\
 				\hline
-				0.8178 & 0.0008721 \\
+				0.8178 $\pm$ 0.0013& 0,8721 $\pm$ 0,0001 \\
 				\hline
-				0.5075 &  0.0007338 \\
+				0.5075 $\pm$ 0.0011&  0,7338 $\pm$ 0,0001 \\
 				\hline
 			\end{tabular}
 		\end{center}
-		\caption{Mittelwerte der Messreihen}
+		\caption{Mittelwerte der Messreihen mit stat. Fehlern}
 	\end{table}
 
 
