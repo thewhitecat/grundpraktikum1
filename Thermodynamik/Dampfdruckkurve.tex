@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \author{Tim}
 
@@ -40,7 +41,7 @@ Mit diesem Zusammenhang kann die Verdampfungsenthalpie $\Lambda$ für verschiede
 
 \section{Aufbau und Durchführung}
 \label{sec:Aufbau und Durchfühung}
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{Bilder/AufbauB}
 \caption[AufbauB]{Aufbau}
 \label{fig:AufbauB}
@@ -62,7 +63,7 @@ Am Ende des Messvorgangs lässt man das Wasser weiter bis auf Raumtemperatur abk
 \subsection{Versuch A}
 
 \subsubsection{Rauschmessung}
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[scale=0.5]{Bilder/DruckrauschenA}
 \includegraphics[scale=0.5]{Bilder/TemprauschenA}
 \caption[Rauschen Versuch A]{Rauschmessung des Drucksensors (links) und des Temperaturfühlers (rechts). Eine Gaußkurve mit entsprechenden Parametern ist zusätzlich eingezeichnet.}
@@ -90,7 +91,7 @@ Die Ergebnisse der Rauschmessungen sind in Abb. \ref{fig:RauschenA} und Tab. \re
 \subsubsection{Kalibrierung des Temperatursensors}
 Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in Tabelle \ref{tab:KaliA} aufgeführt.
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline 
@@ -108,7 +109,7 @@ $100$ & $99.39\pm0.14$ \\
 
 Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt:
 
-\begin{figure}
+\begin{figure}[H]
 \begin{center}
 \includegraphics[width=\linewidth]{Bilder/KalibrationA}
 \caption[Gerade Kalibration A]{Ausgleichsgerade bei der Kalibration(VersuchA)\\
@@ -124,24 +125,43 @@ Damit können die wirklichen Temperaturen berechnet werden:
 T_{erwartet}=1.028\cdot T_{gemessen}-2.1801C
 \end{equation}
 
+Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
+\begin{equation}
+\sigma_{T}=\sqrt{\sigma_{m}^{2}+\sigma_{b}^{2}}=0.002
+\end{equation}
+Dieser Fehler ist so klein, dass man ihn ignorieren kann.
+
 \subsubsection{Dichtigkeitsmessung}
 Eine sehr wichtige Voraussetzung für sinnvolle Ergebnisse ist, dass die Messapparatur dicht ist. Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind in Abbildung \ref{fig:DichtigkeitA} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitA} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
 Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_A.png}
 \caption[Dichtigkeit vor Hauptversuch Apparatur A]{Dichtigkeit vor Hauptversuch Apparatur A}
 \label{fig:DichtigkeitA}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_A.png}
 \caption[Dichtigkeit vor Hauptversuch Apparatur A]{Residuen der Dichtigkeit vor Hauptversuch Apparatur A}
 \label{fig:ResiduenDichtigkeitA}
 \end{figure}
 
 \subsubsection{Auswertung}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{Bilder/Rohdaten_HauptmessungA.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Druck und Temperatur im Verlauf der Messung}
+\label{fig:RohdatenA}
+\end{figure}
+
 Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich in Abbildung \ref{fig:RohdatenA}. Fügt man diese Daten über die Zeiten zusammen erhält man die Dampfdruckkurve (siehe Abbildung \ref{fig:DampfA}).\\
+
+\begin{figure}[H]
+\includegraphics[scale=0.9]{Bilder/DampfdruckkurveA.png}
+\caption[Dampfdruckkurve A]{Dampfdruckkurve in Versuch A}
+\label{fig:DampfA}
+\end{figure}
 
 Der Fehler auf die Druckmessung ist gegeben durch die Digitalisierung und den Fehler der Rauschmessung:
 
@@ -159,37 +179,10 @@ Dabei ergeben sich die Fehler der transformierten Daten durch Fehlerfortpflanzun
 
 Für den in Abbildung \ref{fig:logA} markierten Bereich ist die lineare Anpassung in Abbildung \ref{fig:fit_2A} exemplarisch gezeigt.\\
 
-
-Dieses Vorgehen wurde für insgesamt sechs, symmetrisch um eine bestimmte Temperatur verteilte, Teilintervalle durchgeführt. Die jeweiligen Ergebnisse sind in Tabelle %hier ref 
-aufgeführt.\\
-Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda}=R \cdot \sigma_a$.\\
-Da $\Lambda$ temperaturabhängig ist, muss der zur Messung passende Literaturwert erst noch bestimmt werden. Da die Literaturwerte nicht trivial von der Temperatur abhängen, lassen sich diese nicht konkret ausrechnen. Abbildung \ref{fig:LiteraturwertLambda} zeigt die Literaturwerte als blaue Punkte und eine lineare Näherung als rote Linie. Es lässt sich leicht erkennen, dass die Näherung in diesem Temperaturbereich gut funktioniert. Daher wird mit dieser gerechnet und diese ist auch in die Ergebnisplots eingezeichnet. \\
-In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte von $\Lambda$ bei den entsprechenden Temperaturen.
-
-
-
-\begin{figure}
-\includegraphics[width=\linewidth]{Bilder/Rohdaten_HauptmessungA.png}
-\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Druck und Temperatur im Verlauf der Messung}
-\label{fig:RohdatenA}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=\linewidth]{Bilder/DampfdruckkurveA.png}
-\caption[Dampfdruckkurve A]{Dampfdruckkurve in Versuch A}
-\label{fig:DampfA}
-\end{figure}
-
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{Bilder/log_RohdatenA.png}
 \caption[Transformierte Daten A]{Transformierte Rohdaten für Versuch A}
 \label{fig:logA}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=\linewidth]{Bilder/Lambda_Literaturwert_fit.png}
-\caption[Literaturwerte für $\Lambda$ in Abhängigkeit von der Temperatur]{Literaturwerte für $\Lambda$ in Abhängigkeit von der Temperatur}
-\label{fig:LiteraturwertLambda}
 \end{figure}
 
 \begin{figure}
@@ -198,10 +191,11 @@ In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte vo
 \caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich und Residuen}
 \label{fig:fit_2A}
 \end{figure}
+\newpage
+Dieses Vorgehen wurde für insgesamt sechs, symmetrisch um eine bestimmte Temperatur verteilte, Teilintervalle durchgeführt. Die jeweiligen Ergebnisse sind in Tabelle \ref{tab:enthalpie_A}
+aufgeführt.\\
 
-
-
-\begin{table}
+\begin{table}[H]
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
 		\textbf{Temperatur [K]} & \textbf{Steigung fit [K]} & \textbf{y-Achsenabschnitt} & $\chi ^2/dof$ & \textbf{$\Lambda$ [kJ/mol]} \\
@@ -223,9 +217,21 @@ In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte vo
 	\label{tab:enthalpie_A}
 \end{table}
 
+Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda}=R \cdot \sigma_a$.\\
+Da $\Lambda$ temperaturabhängig ist, muss der zur Messung passende Literaturwert erst noch bestimmt werden. Da die Literaturwerte nicht trivial von der Temperatur abhängen, lassen sich diese nicht konkret ausrechnen. Abbildung \ref{fig:LiteraturwertLambda} zeigt die Literaturwerte als blaue Punkte und eine lineare Näherung als rote Linie. Es lässt sich leicht erkennen, dass die Näherung in diesem Temperaturbereich gut funktioniert. Daher wird mit dieser gerechnet und diese ist auch in die Ergebnisplots eingezeichnet. \\
+In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte von $\Lambda$ bei den entsprechenden Temperaturen.
+
+
+\begin{figure}[H]
+\includegraphics[scale=0.9]{Bilder/Lambda_Literaturwert_fit.png}
+\caption[Literaturwerte für $\Lambda$ in Abhängigkeit von der Temperatur]{Literaturwerte für $\Lambda$ in Abhängigkeit von der Temperatur}
+\label{fig:LiteraturwertLambda}
+\end{figure}
+
+
 \begin{figure}
 \begin{center}
-\includegraphics[width=\linewidth]{Bilder/Enthalpie_gegen_TempA}
+\includegraphics[scale=0.9]{Bilder/Enthalpie_gegen_TempA}
 \caption{Enthalpie gegen Temperatur.}
 \label{fig:EntTempA}
 \end{center}
@@ -233,20 +239,20 @@ In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte vo
 
 Es ist deutlich zu erkennen, dass die gemessenen Werte stark und ohne erkennbare Regelmäßigkeit von den Literaturwerten abweichen. 
 
-
+\newpage
 \subsection{Versuch B}
 
 
 \subsubsection{Rauschmessung}
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[scale=0.5]{Bilder/DruckrauschenB}
 \includegraphics[scale=0.5]{Bilder/TemprauschenB}
 \caption[Rauschmessung Versuch B]{Rauschmessung des Drucksensors (links) und des Temperaturfühlers (rechts)}
 \label{fig:RauschenB}
 \end{figure}
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline 
@@ -269,7 +275,7 @@ Die Ergebnisse der Rauschmessungen für Versuch B finden sich in Abb. \ref{fig:R
 \subsubsection{Kalibrierung des Temperatursensors}
 Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in Tabelle \ref{tab:KaliB} dargestellt.
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline 
@@ -284,10 +290,9 @@ $T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\
 \label{tab:KaliB}
 \end{center}
 \end{table}
+Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt. (vgl. Abb. \ref{fig:GeradeKaliB})
 
-Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt. (vgl. \ref{fig:GeradeKaliB}
-
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{Bilder/KalibrationB}
 \begin{center}
 \caption[KalibrationB]{Ausgleichsgerade bei der Kalibration (VersuchB)\\
@@ -302,40 +307,48 @@ Damit können die wirklichen Temperaturen berechnet werden:
 T_{erwartet}=1.013\cdot T_{gemessen}-0.5304
 \end{equation}
 
+Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
+\begin{equation}
+\sigma_{T}=\sqrt{\sigma_{m}^{2}+\sigma_{b}^{2}}=0.002
+\end{equation}
+Dieser Fehler ist so klein, dass man ihn ignorieren kann.
+
 \subsubsection{Dichtigkeitsmessung}
 Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind in Abbildung \ref{fig:DichtigkeitB} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitB} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
 Aufgrund der Leckrate von $(0,236 \pm 0,035) \dfrac{hPa}{min}$ kann die Apparatur als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.\\
 \\Für die Apparatur wurde noch eine zweite Dichtigkeitsmessung nach dem Hauptversuch durchgeführt. Die Daten sind in Abbildung \ref{fig:DichtigkeitNachherB} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitNachherB}.\\
 Die Leckrate ist mit $(2,718 \pm 0,160) \dfrac{hPa}{min}$ deutlich schlechter geworden im Vergleich zu der Leckrate vor dem Hauptversuch. Dies könnte daran liegen, dass die Dichtigkeitsmessung nicht mit dem nach dem Hauptversuch vorhandenen Unterdruck durchgeführt wurde, sondern wie zu Beginn mit der Handvakuumpumpe. Durch das Wackeln an der Apparatur beim Anschließen dieser könnten sich Undichtigkeiten aufgetan haben, welche dann den Wert der zweiten Messung verschlechtert haben, auf die Hauptmessung aber keinen Einfluss haben, weil sie erst nach dieser aufgetreten sind. Daher wird im Folgenden davon dennoch ausgegangen, dass die Undichtigkeit vernachlässigbar gering ist.
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_B.png}
 \caption[Dichtigkeit vor Hauptversuch Apparatur B]{Dichtigkeit vor Hauptversuch Apparatur B}
 \label{fig:DichtigkeitB}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_B.png}
 \caption[Dichtigkeit vor Hauptversuch Apparatur B]{Residuen der Dichtigkeit vor Hauptversuch Apparatur B}
 \label{fig:ResiduenDichtigkeitB}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{Bilder/Dichtigkeit_nachher_B.png}
 \caption[Dichtigkeit vor Hauptversuch Apparatur B]{Dichtigkeit nach Hauptversuch Apparatur B}
 \label{fig:DichtigkeitNachherB}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_nachher_B.png}
 \caption[Dichtigkeit nach Hauptversuch Apparatur B]{Residuen der Dichtigkeit nach Hauptversuch Apparatur B}
 \label{fig:ResiduenDichtigkeitNachherB}
 \end{figure}
 
-
+\newpage
 \subsubsection{Auswertung}
 
-\begin{figure}
+Eine Aufzeichnung von Druck und Temperatur im Verlauf der Messung findet sich in Abb. \ref{fig:RohdatenB}. Die sich daraus ergebende Dampfdruckkurve ist in Abb.\ref{fig:DampfB} dargestellt.\\
+
+\begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.4]{Bilder/Rohdaten_HauptmessungB}
 \caption[Rohdaten B]{Druck und Temperatur im Verlauf der Messung.}
@@ -343,19 +356,17 @@ Die Leckrate ist mit $(2,718 \pm 0,160) \dfrac{hPa}{min}$ deutlich schlechter ge
 \end{center}
 \end{figure}
 
-
-\begin{figure}
+\begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.8]{Bilder/DampfdruckkurveB}
 \caption[Dampfdruckkurve B]{Dampfdruckkurve in Versuch B.}
 \label{fig:DampfB}
 \end{center}
 \end{figure}
-
-Eine Aufzeichnung von Druck und Temperatur im Verlauf der Messung findet sich in Abb. \ref{fig:RohdatenB}. Die sich daraus ergebende Dampfdruckkurve ist in Abb.\ref{fig:DampfB} dargestellt.\\
+\newpage
 Bei entsprechender Transformation der Messwerte (erfolgt durch direkte Aufzeichnung mittels CASSY und der Funktion \glqq Größe definieren \grqq) ist bereits deutlich der zumindest lokal gültige lineare Zusammenhang erkennbar (Abb.\ref{fig:logB}).
 
-\begin{figure}
+\begin{figure}[H]
 \begin{center}
 \includegraphics[width=\linewidth]{Bilder/log_RohdatenB}
 \caption[Rohdaten logarith. B]{Transformierte Rohdaten}
@@ -366,17 +377,7 @@ Bei entsprechender Transformation der Messwerte (erfolgt durch direkte Aufzeichn
 Für den markierten Bereich in der transformierten Darstellung ist die lokale Anpassung exemplarisch in Abb.\ref{fig:fit_2B} durchgeführt worden.\\
 Weitere Anpassungen auf symmetrischen Intervallen bestimmter (reziproke) Temperaturwerte wurden durchgeführt. Die Ergebnisse finden sich in Tab. \ref{tab:enthalpie_B}.
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=\linewidth]{Bilder/lokaler_fit_2B}\\
-\includegraphics[width=\linewidth]{Bilder/lokale_residuen_2B}
-\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich und Residuen}
-\label{fig:fit_2B}
-\end{center}
-\end{figure}
-
-
-\begin{table}
+\begin{table}[H]
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
 		\textbf{Temperatur [K]} & \textbf{Steigung fit [K]} & \textbf{y-Achsenabschnitt} & $\chi ^2/dof$ & \textbf{$\Lambda$ [kJ/mol]} \\
@@ -398,10 +399,22 @@ Weitere Anpassungen auf symmetrischen Intervallen bestimmter (reziproke) Tempera
 	\label{tab:enthalpie_B}
 \end{table}
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\linewidth]{Bilder/lokaler_fit_2B}\\
+\includegraphics[width=\linewidth]{Bilder/lokale_residuen_2B}
+\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich und Residuen}
+\label{fig:fit_2B}
+\end{center}
+\end{figure}
+
+
+
+
 
 Die so erhaltenen Werte für die Verdampfungsenthalpie können gegen die dazugehörige Temperatur aufgetragen werden. Man erhält dann Abb.\ref{fig:EntTempB}.
 
-\begin{figure}
+\begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.8]{Bilder/Enthalpie_gegen_TempB}
 \caption[Enthalpie - Temperatur]{Errechnete Enthalpiewerte aufgetragen gegen die entsprechende Temperatur}
