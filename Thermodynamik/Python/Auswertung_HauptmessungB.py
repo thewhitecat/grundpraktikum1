@@ -29,7 +29,7 @@ temperatur = data[50:,2]
 R = 8.314
                  
 # Rauschwerte -> Fehler auf Einzelwerte
-sigma_p = 0.37
+sigma_p = np.sqrt((0.75/np.sqrt(12))**2+0.37**2) # mit Digitlisierungsfehler
 sigma_t = 0.035
 
 
