@@ -14,11 +14,11 @@ import matplotlib.pyplot as plt
 start_time=timeit.default_timer()
 
 #Lese alle Datensätze ein
-M_S_1 = p.lese_lab_datei('lab/Temperatur_Eiswasser.lab')
-T_E = M_S_1[:, 2]
+M_S_1 = p.lese_lab_datei('CASSY/Rauschmessungen.lab')
+T_E = M_S_1[:, 3]
 
-M_S_2 = p.lese_lab_datei('lab/Temperatur_siedend.lab')
-T_S = M_S_2[:, 2]
+M_S_2 = p.lese_lab_datei('CASSY/Temperatur_siedend.lab')
+T_S = M_S_2[:, 3]
 T_S = T_S[730:]
 
 def func(T_E, T_S):
@@ -36,7 +36,7 @@ def func(T_E, T_S):
 
     #Bestimme Fehler auf Steigung und Offset
     sig_m = np.sqrt(((T_S_std*100)/(T_S_mw - T_E_mw)**2)**2 + ((T_E_std*100)/(T_S_mw - T_E_mw)**2)**2)
-    sig_T_0 = np.sqrt(sig_m**2 * T_S_std**2)
+    sig_T_0 = T_0 * np.sqrt((sig_m/m)**2 + (T_S_std/T_S_mw)**2)
     return m, sig_m, T_0, sig_T_0
 
 m, sig_m, T_0, sig_T_0 = func(T_E, T_S)
