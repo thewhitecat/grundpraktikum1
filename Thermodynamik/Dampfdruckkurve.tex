@@ -169,7 +169,7 @@ Der Fehler auf die Druckmessung ist gegeben durch die Digitalisierung und den Fe
 \sigma_p=\sqrt{\left(\frac{0.75 hPa}{\sqrt{12}}\right)^2+(0.006 hPa)^2}=0.22 hPa
 \end{equation}
 
-Der Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und ist damit gegeben durch $\sigma_T=0.12$.\\
+Der Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und ist damit gegeben durch $\sigma_T=0.12C$.\\
 Trägt man nun den logarithmierten Druck gegen den Kehrwert der Temperatur auf, lässt sich der (lokale) lineare Zusammenhang gut erkennen(vgl. Abbildung \ref{fig:logA}).\\
 Dabei ergeben sich die Fehler der transformierten Daten durch Fehlerfortpflanzung:
 
@@ -232,7 +232,7 @@ In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte vo
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.9]{Bilder/Enthalpie_gegen_TempA}
-\caption{Enthalpie gegen Temperatur.}
+\caption{Enthalpie gegen Temperatur und Literaturwerte (Gerade).}
 \label{fig:EntTempA}
 \end{center}
 \end{figure}
@@ -417,15 +417,14 @@ Die so erhaltenen Werte für die Verdampfungsenthalpie können gegen die dazugeh
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.8]{Bilder/Enthalpie_gegen_TempB}
-\caption[Enthalpie - Temperatur]{Errechnete Enthalpiewerte aufgetragen gegen die entsprechende Temperatur}
+\caption[Enthalpie - Temperatur]{Errechnete Enthalpiewerte aufgetragen gegen die entsprechende Temperatur und Literaturwerte (Gerade).}
 \label{fig:EntTempB}
 \end{center}
 \end{figure}
 
-Es ist direkt ersichtlich, dass der prinzipielle Verlauf von Verdampfungsenthalpie gegen Temperatur mit dem Verlauf aus der Literatur übereinstimmt. Allerdings sind die individuellen Werte im Vergleich zu den Literaturwerten zum Teil mehrere Standardabweichungen zu groß, was dafür spricht, dass das Versuchsergebnis durch eine unerkannte Systematik stark nach oben verfälscht wird.\
-Da insbesondere bereits zu Beginn ein gewisser Offset zwischen gemessenen Werten und Literaturwerten besteht liegt die Vermutung nahe, dass bereits zu Beginn eine gewisse Restmenge Luft im Kolben enthalten war die den gemessenen Druck nach oben verfälscht. Ein konstant zu hoher Druck würde letzendlich auch in einer betragsmäßig zu großen Steigung und somit auch einem zu großen $\Lambda$ resultieren.\\
-Ebenso ist klar erkennbar, dass die Abweichung mit zunehmender Messdauer (entspricht kleinerer Temperatur) immer mehr zunimmt. Berücksichtigt man noch die zweite Dichtigkeitsmessung, welche deutlich schlechter als die erste ausgefallen ist, lässt sich zusammenfassend sagen das während des Versuches signifikante Mengen Luft in den Kolben eingedrungen sind und somit der gemessene Druck zunehmend größer als der tatsächliche Dampfdruck des Wassers wurde.
-%hier noch konkretere Zahlenwerte!!!!
+Es ist direkt ersichtlich, dass der prinzipielle Verlauf von Verdampfungsenthalpie gegen Temperatur mit dem Verlauf aus der Literatur übereinstimmt. Allerdings sind die individuellen Werte im Vergleich zu den Literaturwerten zum Teil mehrere Standardabweichungen zu groß, was dafür spricht, dass das Versuchsergebnis durch eine unerkannte Systematik stark nach oben verfälscht wird.\\
+Denn ein zu großer Druck (z.B. durch den Partialdruck zusätzlich eingeschlossener Luft) sorgt für eine betragsmäßig größere Steigung und infolge dessen zu einem erhöhten Wert für $\Lambda$.
+Ebenso ist klar erkennbar, dass die Abweichung mit zunehmender Messdauer (entspricht kleinerer Temperatur) immer mehr zunimmt. Berücksichtigt man noch die zweite Dichtigkeitsmessung, welche deutlich schlechter als die erste ausgefallen ist, lässt sich zusammenfassend sagen das während des Versuches eine ausreichend große Menge Luft in den Kolben eingedrungen ist und somit der gemessene Druck zunehmend größer als der tatsächliche Dampfdruck des Wassers wurde.
 
 
 \end{document}
