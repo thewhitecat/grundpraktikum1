@@ -58,9 +58,25 @@ Im Hauptversuch wird bei geöffnetem Auslass das Wasser im Glaskolben bis zum Si
 Am Ende des Messvorgangs lässt man das Wasser weiter bis auf Raumtemperatur abkühlen und führt gegebenenfalls eine zweite Dichtigkeitsmessung durch, um sich davon zu überzeugen, dass die Undichtigkeit des Aufbaus während des Versuchs nicht gestiegen ist. 
 
 \section{Versuchsauswertung}
+\subsection{Versuch A}
+\subsubsection{Kalibrierung des Temperatursensors}
+\begin{tabular}{|c|c|}
+\hline 
+T_{erwartet} & T_{gemessen} \\ 
+\hline 
+• & • \\ 
+\hline 
+\end{tabular} 
+\includegraphics[width=\linewidth]{Bilder/KalibrationA}\\
+Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.\\
+Die Kalibrierung hat eine Steigung von $1.028\pm 0.002$ und einen offset von $-2.1801\pm 0.0003$.\\
+Damit können die wirklichen Temperaturen berechnet werden:
+\begin{equation}
+T_{erwartet}=1.028*T_{gemessen}-2.1801
+\end{equation}
 \subsection{Versuch B}
 \subsubsection{Rauschmessung}
-um die Ungenauigkeit der messgeräte zu bestimmen, wurde eine Rauschmwssung durchgeführt.
+um die Ungenauigkeit der Messgeräte zu bestimmen, wurde eine Rauschmessung durchgeführt.
 \begin{tabular}{|c|c|c|c|}
 \hline 
  & Mittelwert & Fehler(stat.) & Fehler(sys.)\\ 
@@ -71,7 +87,12 @@ Druck & 1021.04 & 0.37 & 0.51\\
 \hline 
 \end{tabular} 
 \subsubsection{Kalibrierung des Temperatursensors}
-
+\includegraphics[width=\linewidth]{Bilder/KalibrationB}
+Die Kalibrierung hat eine Steigung von $1.013\pm 0.002$ und einen offset von $-0.5304\pm 0.0002$.\\
+Damit können die wirklichen Temperaturen berechnet werden:
+\begin{equation}
+T_{erwartet}=1.013*T_{gemessen}-0.5304
+\end{equation}
 
 
 
