@@ -154,6 +154,11 @@ plt.errorbar(1/(kehrwert_temp[intervall:(n-1)*intervall:intervall]+(1/temp0)), e
 plt.xlabel("Temperatur [K]")
 plt.ylabel("Verdampfungsenthalpie [kJ/mol]")
 
+x = [60+273.15, 101+273.15]
+y = [42.482, 40.657]
+plt.xlim(75+273.15, 101+273.15)
+plt.plot(x, y)
+
 
 #plt.figure(4+2*n+2)
 #plt.plot(laufzeit, kehrwert_temp, linestyle="dotted")
