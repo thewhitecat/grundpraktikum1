@@ -15,8 +15,8 @@ import Rauschmessung as Rm
 start_time=timeit.default_timer()
 
 #Lese alle Datensätze ein
-M_S_1 = prak.lese_lab_datei('CASSY/Dichtigkeitsmessung_vorher.lab')
-p_v = M_S_1[:, 2]
+M_S_1 = prak.lese_lab_datei('lab/Dichtigkeitsmessung_vorher.lab')
+p_v = M_S_1[:, 4]
 t_v = M_S_1[:, 1]
 
 M_S_2 = prak.lese_lab_datei('lab/Dichtigkeitsmessung_nachher_2.lab')
@@ -43,9 +43,12 @@ for i in range(p_v.size):
     Y[i] = p_v[i] - leckrate_v * t_v[i] - b_v
 Y_err = np.full(p_v.size, np.sqrt(var_v**2 + 0.75**2))
 fig1, ax1 = plt.subplots()
-ax1.set_xlabel("Zeit [s]")
-ax1.set_ylabel("Residuen [hPa]")
-ax1.set_title("Residuen Dichtigkeitsmessung vorher")
+plt.font = {'family' : 'monospace',
+        'weight' : 'bold',
+        'size'   : 21}
+ax1.set_xlabel("Zeit [s]", **plt.font)
+ax1.set_ylabel("Residuen [hPa]", **plt.font)
+ax1.set_title("Residuen Dichtigkeitsmessung vorher", **plt.font)
 plt.plot(x, y, color='r')
 plt.errorbar(X, Y, yerr=Y_err, fmt='.', color='b')
 fig1.show()
@@ -59,9 +62,12 @@ for i in range(p_n.size):
     Y_n[i] = p_n[i] - leckrate_n * t_n[i] - b_n
 Y_n_err = np.full(p_n.size, np.sqrt(var_n**2 + 0.75**2))
 fig2, ax1 = plt.subplots()
-ax1.set_xlabel("Zeit [s]")
-ax1.set_ylabel("Residuen [hPa]")
-ax1.set_title("Residuen Dichtigkeitsmessung nachher")
+plt.font = {'family' : 'monospace',
+        'weight' : 'bold',
+        'size'   : 21}
+ax1.set_xlabel("Zeit [s]", **plt.font)
+ax1.set_ylabel("Residuen [hPa]", **plt.font)
+ax1.set_title("Residuen Dichtigkeitsmessung nachher", **plt.font)
 plt.plot(x, y, color='r')
 plt.errorbar(X_n, Y_n, yerr=Y_n_err, fmt='.', color='b')
 fig2.show()
@@ -73,14 +79,17 @@ sig_einzel = np.sqrt(Fehler_v**2 + 0.75**2)
 p_err = np.full(p_v.size, sig_einzel)
 chiq_dof_v = chiq_v/(p_v.size-2)
 fig3, ax3 = plt.subplots()
-ax3.set_xlabel("Zeit [s]")
-ax3.set_ylabel("Druck [mbar]")
-ax3.set_title("Dichtigkeitsmessung vor Hauptversuch")
+plt.font = {'family' : 'monospace',
+        'weight' : 'bold',
+        'size'   : 21}
+ax3.set_xlabel("Zeit [s]", **plt.font)
+ax3.set_ylabel("Druck [mbar]", **plt.font)
+ax3.set_title("Dichtigkeitsmessung vor Hauptversuch", **plt.font)
 plt.errorbar(t_v, p_v, yerr=p_err, fmt='.')
 plt.figtext(0.15,0.7,
             '\n a= ('+str(np.round(leckrate_v * 60,3))+' +/- '+str(np.round(Fehler_v * 60,3))+') hPa/min\n'
             +' b= ('+str(np.round(b_v,3))+' +/- '+str(np.round(eb_v,3))+') hPa\n'
-            +'$\chi ^2 / ndof$= ' + str(chiq_v/(p_v.size-2)))
+            +'$\chi ^2 / ndof$= ' + str(chiq_v/(p_v.size-2)), **plt.font)
 plt.plot(x, y)
 fig3.show()
 
@@ -90,14 +99,17 @@ y = leckrate_n * x + b_n
 sig_einzel = np.sqrt(Fehler_n**2 + 0.75**2)
 p_n_err = np.full(p_n.size, sig_einzel)
 fig4, ax3 = plt.subplots()
-ax3.set_xlabel("Zeit [s]")
-ax3.set_ylabel("Druck [mbar]")
-ax3.set_title("Dichtigkeitsmessung nach Hauptversuch")
+plt.font = {'family' : 'monospace',
+        'weight' : 'bold',
+        'size'   : 21}
+ax3.set_xlabel("Zeit [s]", **plt.font)
+ax3.set_ylabel("Druck [mbar]", **plt.font)
+ax3.set_title("Dichtigkeitsmessung nach Hauptversuch", **plt.font)
 plt.errorbar(t_n, p_n, yerr=p_n_err, fmt='.')
 plt.figtext(0.15,0.7,
             '\n a= ('+str(np.round(leckrate_n * 60,3))+' +/- '+str(np.round(Fehler_n * 60,3))+') hPa/min\n'
             +' b= ('+str(np.round(b_n,3))+' +/- '+str(np.round(eb_n,3))+') hPa\n'
-            +'$\chi ^2 / ndof$= ' + str(chiq_n/(p_n.size-2)))
+            +'$\chi ^2 / ndof$= ' + str(chiq_n/(p_n.size-2)), **plt.font)
 plt.plot(x, y)
 fig4.show()
 
