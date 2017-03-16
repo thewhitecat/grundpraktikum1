@@ -42,7 +42,7 @@ for i in range(p_v.size):
 Y_err = np.full(p_v.size, np.sqrt(var_v**2 + 0.75**2))
 fig1, ax1 = plt.subplots()
 ax1.set_xlabel("Zeit [s]")
-ax1.set_ylabel("Abweichung: gemessener Wert - lineare Regression")
+ax1.set_ylabel("Residuen [hPa]")
 ax1.set_title("Residuen Dichtigkeitsmessung vorher")
 plt.errorbar(X, Y, yerr=Y_err, fmt='.')
 fig1.show()
@@ -55,26 +55,31 @@ for i in range(p_n.size):
 Y_n_err = np.full(p_n.size, np.sqrt(var_n**2 + 0.75**2))
 fig2, ax1 = plt.subplots()
 ax1.set_xlabel("Zeit [s]")
-ax1.set_ylabel("Abweichung: gemessener Wert - lineare Regression")
+ax1.set_ylabel("Residuen [hPa]")
 ax1.set_title("Residuen Dichtigkeitsmessung nachher")
 plt.errorbar(X_n, Y_n, yerr=Y_n_err, fmt='.')
 fig2.show()
 
 #plotte lineare Regression an Messung vorher
-x = np.array([0, 300])
+x = np.array([0, p_v.size])
 y = leckrate_v * x + b_v
 sig_einzel = np.sqrt(Fehler_v**2 + 0.75**2)
 p_err = np.full(p_v.size, sig_einzel)
+chiq_dof_v = chiq_v/(p_v.size-2)
 fig3, ax3 = plt.subplots()
 ax3.set_xlabel("Zeit [s]")
 ax3.set_ylabel("Druck [mbar]")
 ax3.set_title("Dichtigkeitsmessung vor Hauptversuch")
 plt.errorbar(t_v, p_v, yerr=p_err, fmt='.')
+plt.figtext(0.15,0.7,
+            '\n a= ('+str(np.round(leckrate_v * 60,3))+' +/- '+str(np.round(Fehler_v * 60,3))+') hPa/min\n'
+            +' b= ('+str(np.round(b_v,3))+' +/- '+str(np.round(eb_v,3))+') hPa\n'
+            +'$\chi ^2 / ndof$= ' + str(chiq_v/(p_v.size-2)))
 plt.plot(x, y)
 fig3.show()
 
 #plotte lineare Regression an Messung nachher
-x = np.array([0, 300])
+x = np.array([0, p_n.size])
 y = leckrate_n * x + b_n
 sig_einzel = np.sqrt(Fehler_n**2 + 0.75**2)
 p_n_err = np.full(p_n.size, sig_einzel)
@@ -83,6 +88,10 @@ ax3.set_xlabel("Zeit [s]")
 ax3.set_ylabel("Druck [mbar]")
 ax3.set_title("Dichtigkeitsmessung nach Hauptversuch")
 plt.errorbar(t_n, p_n, yerr=p_n_err, fmt='.')
+plt.figtext(0.15,0.7,
+            '\n a= ('+str(np.round(leckrate_n * 60,3))+' +/- '+str(np.round(Fehler_n * 60,3))+') hPa/min\n'
+            +' b= ('+str(np.round(b_n,3))+' +/- '+str(np.round(eb_n,3))+') hPa\n'
+            +'$\chi ^2 / ndof$= ' + str(chiq_n/(p_n.size-2)))
 plt.plot(x, y)
 fig4.show()
 
