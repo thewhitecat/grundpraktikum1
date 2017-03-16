@@ -242,15 +242,27 @@ Die Leckrate ist mit $(2,718 \pm 0,160) \dfrac{hPa}{min}$ deutlich schlechter ge
 \end{figure}
 
 Eine Aufzeichnung von Druck und Temperatur im Verlauf der Messung findet sich in Abb. \ref{fig:RohdatenB}. Die sich daraus ergebende Dampfdruckkurve ist in Abb.\ref{fig:DampfB} dargestellt.\\
-Bei entsprechender Transformation der Messwerte (erfolgt durch direkte Aufzeichnung mittels CASSY und der Funktion \glqq Größe definieren \grqq) ist bereits deutlich der zumindest lokal gültige lineare Zusammenhang erkennbar.%hier verweis einfügen
+Bei entsprechender Transformation der Messwerte (erfolgt durch direkte Aufzeichnung mittels CASSY und der Funktion \glqq Größe definieren \grqq) ist bereits deutlich der zumindest lokal gültige lineare Zusammenhang erkennbar (Abb.\ref{fig:logB}).
 
-%hier Rohdaten
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.8]{Bilder/log_RohdatenB}
+\caption[Rohdaten logarith. B]{Transformierte Rohdaten}
+\label{fig:logB}
+\end{center}
+\end{figure}
 
-Für den markierten Bereich in der transformierten Darstellung ist die lokale Anpassung exemplarisch in Abb. %hier ref
-durchgeführt worden.\\
-Weitere Anpassungen auf symmetrischen Intervallen bestimmte (reziproke) Temperaturwerte wurden durchgeführt. Die Ergebnisse finden
+Für den markierten Bereich in der transformierten Darstellung ist die lokale Anpassung exemplarisch in Abb.\ref{fig:fit_2B} durchgeführt worden.\\
+Weitere Anpassungen auf symmetrischen Intervallen bestimmter (reziproke) Temperaturwerte wurden durchgeführt. Die Ergebnisse finden sich in Tab. %hier ref
 
-%hier exemplarischen fit
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/lokaler_fit_2B}
+\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich}
+\label{fig:fit_2B}
+\end{center}
+\end{figure}
+
 
 %hier fit tabelle
 
