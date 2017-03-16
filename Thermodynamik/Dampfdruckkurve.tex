@@ -149,10 +149,10 @@ Der Fehler auf die Druckmessung ist gegeben durch die Digitalisierung und den Fe
 \sigma_p=\sqrt{(\frac{0.75 hPa}{\sqrt(12)})^2+(0.006)^2 hPa)^2}=0.22 hPa
 \end{equation}
 
-Der Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und ist damit gegeben durch $\sigma_T=0.12$
-
+Der Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und ist damit gegeben durch $\sigma_T=0.12$.\\
 Trägt man nun den logarithmierten Druck gegen den Kehrwert der Temperatur auf, lässt sich der (lokale) lineare Zusammenhang gut erkennen(vgl. Abbildung \ref{fig:logA}).\\
 Dabei ergeben sich die Fehler der transformierten Daten durch Fehlerfortpflanzung:
+
 \begin{equation}
 \sigma_{log(p/p_0}=\frac{\sigma_p}{p} ; \quad \sigma_{1/T}=\frac{\sigma_T}{T^2}
 \end{equation}
@@ -161,7 +161,9 @@ Für den in Abbildung \ref{fig:logA} markierten Bereich ist die lineare Anpassun
 
 
 Dieses Vorgehen wurde für insgesamt sechs, symmetrisch um eine bestimmte Temperatur verteilte, Teilintervalle durchgeführt. Die jeweiligen Ergebnisse sind in Tabelle %hier ref 
-aufgeführt.
+aufgeführt.\\
+Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda}=R \cdot \sigma_a$.\\
+
 
 
 \begin{figure}
@@ -196,6 +198,7 @@ aufgeführt.
 
 
 \subsection{Versuch B}
+
 
 \subsubsection{Rauschmessung}
 
@@ -256,7 +259,7 @@ Anm.: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sicht
 \end{center}
 \end{figure}
 
-Die Kalibrierung hat eine Steigung von $1.013\pm 0.002$ und einen offset von $-0.5304\pm 0.0002$.\\
+Die Kalibrierung hat eine Steigung von $1.013\pm 0.002$ und einen Offset von $-0.5304\pm 0.0002$.\\
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
 T_{erwartet}=1.013\cdot T_{gemessen}-0.5304
