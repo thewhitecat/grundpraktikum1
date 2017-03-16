@@ -142,7 +142,24 @@ Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur
 
 \subsubsection{Auswertung}
 Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich in Abbildung \ref{fig:RohdatenA}. Fügt man diese Daten über die Zeiten zusammen erhält man die Dampfdruckkurve (siehe Abbildung \ref{fig:DampfA}).\\
-Trägt man nun den logarithmierten Druck gegen den Kehrwert der Temperatur auf, lässt sich der (lokale) lineare Zusammenhang gut erkennen(vgl. Abbildung \ref{fig:logA}). Für den in Abbildung \ref{fig:logA} markierten Bereich ist die lineare Anpassung in Abbildung \ref{fig:fit_2A} exemplarisch gezeigt.\\
+
+Der Fehler auf die Druckmessung ist gegeben durch die Digitalisierung und den Fehler der Rauschmessung:
+
+\begin{equation}
+\sigma_p=\sqrt{(\frac{0.75 hPa}{\sqrt(12)})^2+(0.006)^2 hPa)^2}=0.22 hPa
+\end{equation}
+
+Der Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und
+
+Trägt man nun den logarithmierten Druck gegen den Kehrwert der Temperatur auf, lässt sich der (lokale) lineare Zusammenhang gut erkennen(vgl. Abbildung \ref{fig:logA}).\\
+Dabei ergeben sich die Fehler der transformierten Daten durch Fehlerfortpflanzung:
+\begin{equation}
+\sigma_{log(p/p_0}=\frac{\sigma_p}{p} ; \quad \sigma_{1/T}=\frac{\sigma_T}{T^2}
+\end{equation}
+
+Für den in Abbildung \ref{fig:logA} markierten Bereich ist die lineare Anpassung in Abbildung \ref{fig:fit_2A} exemplarisch gezeigt.\\
+
+
 Dieses Vorgehen wurde für insgesamt sechs, symmetrisch um eine bestimmte Temperatur verteilte, Teilintervalle durchgeführt. Die jeweiligen Ergebnisse sind in Tabelle %hier ref 
 aufgeführt.
 
@@ -167,7 +184,8 @@ aufgeführt.
 
 \begin{figure}
 \includegraphics[width=\linewidth]{Bilder/lokaler_fit_2A.png}
-\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich}
+\includegraphics[width=\linewidth]{Bilder/lokale_Residuen_2A}
+\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich und Residuen}
 \label{fig:fit_2A}
 \end{figure}
 
@@ -274,6 +292,7 @@ Die Leckrate ist mit $(2,718 \pm 0,160) \dfrac{hPa}{min}$ deutlich schlechter ge
 \label{fig:ResiduenDichtigkeitNachherB}
 \end{figure}
 
+
 \subsubsection{Auswertung}
 
 \begin{figure}
@@ -298,7 +317,7 @@ Bei entsprechender Transformation der Messwerte (erfolgt durch direkte Aufzeichn
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.8]{Bilder/log_RohdatenB}
+\includegraphics[width=\linewidth]{Bilder/log_RohdatenB}
 \caption[Rohdaten logarith. B]{Transformierte Rohdaten}
 \label{fig:logB}
 \end{center}
@@ -309,8 +328,9 @@ Weitere Anpassungen auf symmetrischen Intervallen bestimmter (reziproke) Tempera
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.8]{Bilder/lokaler_fit_2B}
-\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich}
+\includegraphics[width=\linewidth]{Bilder/lokaler_fit_2B}\\
+\includegraphics[width=\linewidth]{Bilder/lokale_residuen_2B}
+\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich und Residuen}
 \label{fig:fit_2B}
 \end{center}
 \end{figure}
@@ -334,7 +354,7 @@ Weitere Anpassungen auf symmetrischen Intervallen bestimmter (reziproke) Tempera
 		341 & -5654.39 $\pm$ 34.72 & -0.067 $\pm$ 0.009 & 1.72 & 47.001 $\pm$ 0.289 \\
 		\hline
 	\end{tabular}
-	\caption{Ergebnisse für die Verdampfungsenthalpie nach Temperatur}
+	\caption{Ergebnisse für die Verdampfungsenthalpie nach Temperatur für Versuch B}
 	\label{tab:enthalpie_B}
 \end{table}
 
