@@ -5,6 +5,7 @@ Created on Wed Mar 15 13:42:15 2017
 @author: Sebastian
 """
 
+
 import Praktikum as p
 import numpy as np
 import matplotlib.pyplot as plt
@@ -43,7 +44,7 @@ sigma_m = 0.002
 b = -0.53
 sigma_b = 0.0002
 #sigma_sys_t = np.srt( (m*temperatur)**2 *(sigma_m/m)**2 + sigma_b**2)
-offset_druck = -16
+offset_druck = 0
 
 
 
@@ -106,7 +107,7 @@ plt.ylabel("ln($p/p_0$)")
 n = 6
 n = n+2
 intervall = kehrwert_temp.size/n
-unterteilung = np.arange(n-1)[1:] * intervall
+unterteilung = np.arange(1,n-1) * intervall
 
 
 
@@ -118,8 +119,8 @@ for i in range(unterteilung.size):
     x, y, ex, ey, a, ea, b, eb, chi2, cov = gerade_an_intervall(kehrwert_temp, log_druck, sigma_t_kehr, sigma_p_log, unterteilung[i], intervall/2)
     steigung_array[i] = a
     sigma_steigung_array[i] = ea
-    if (1 == 1):
-        plt.figure(3+2*i+1)
+    if (i == 1):
+        plt.figure(4)
         plt.errorbar(x, y, xerr=ex, yerr=ey, fmt=".")
         plt.xlabel( "$(1/T - 1/T_0) [1/s]$")
         plt.ylabel( "$ln(p/p_0) [hPa]$")
@@ -134,7 +135,7 @@ for i in range(unterteilung.size):
         plt.axvline(x[0])
         plt.axvline(x[-1])
         # Plot Residuen
-        plt.figure(3+2*i+2)
+        plt.figure(5)
         plt.subplot(2, 1, 1)
         plt.errorbar(x, y-(a*x+b), yerr=np.sqrt(ey**2 + a**2*ex**2), fmt="k.")
         plt.xlabel("$(1/T - 1/T_0) [1/s]$")
@@ -154,6 +155,10 @@ plt.errorbar(1/(kehrwert_temp[intervall:(n-1)*intervall:intervall]+(1/temp0)), e
 plt.xlabel("Temperatur [K]")
 plt.ylabel("Verdampfungsenthalpie [kJ/mol]")
 
+x = [60+273.15, 100+273.15]
+y = [42.482, 40.657]
+plt.xlim(60+273.15, 100+273.15)
+plt.plot(x, y)
 
 #plt.figure(4+2*n+2)
 #plt.plot(laufzeit, kehrwert_temp, linestyle="dotted")
