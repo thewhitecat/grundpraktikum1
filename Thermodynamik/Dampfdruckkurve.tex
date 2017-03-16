@@ -87,6 +87,43 @@ Temperatur & 2.12 & 0.12\\
 
 Die Ergebnisse der Rauschmessungen sind in Abb. \ref{fig:RauschenA} und Tab. \ref{tab:RauschenA} dargestellt.
 
+\subsubsection{Kalibrierung des Temperatursensors}
+Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in Tabelle \ref{tab:KaliA} aufgeführt.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+$T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
+\hline 
+$0$ & $2.12\pm0.12$ \\ 
+\hline 
+$100$ & $99.39\pm0.14$ \\ 
+\hline 
+\end{tabular}
+\caption[Ergebnisse Kalibrierung A]{Ergebnisse Kalibrierung A} 
+\label{tab:KaliA}
+\end{center}
+\end{table}
+
+Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt:
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\linewidth]{Bilder/KalibrationA}
+\caption[Gerade Kalibration A]{Ausgleichsgerade bei der Kalibration(VersuchA)\\
+Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
+\label{fig:GeradeKaliA}
+\end{center}
+\end{figure}
+
+
+Die Kalibrierung (Abb.\ref{fig:GeradeKaliA}) hat eine Steigung von $1.028\pm 0.002$ und einen Offset von $-2.1801\pm 0.0003$.\\
+Damit können die wirklichen Temperaturen berechnet werden:
+\begin{equation}
+T_{erwartet}=1.028\cdot T_{gemessen}-2.1801C
+\end{equation}
+
 \subsubsection{Dichtigkeitsmessung}
 Eine sehr wichtige Voraussetzung für sinnvolle Ergebnisse ist, dass die Messapparatur dicht ist. Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind in Abbildung \ref{fig:DichtigkeitA} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitA} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
 Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.
@@ -103,35 +140,10 @@ Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur
 \label{fig:ResiduenDichtigkeitA}
 \end{figure}
 
-\subsubsection{Kalibrierung des Temperatursensors}
-Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in folgender Tabelle aufgelistet:
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline 
-$T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
-\hline 
-0 & $2.12\pm0.12$ \\ 
-\hline 
-100 & $99.39\pm0.14$ \\ 
-\hline 
-\end{tabular} 
-\end{center}
 
-Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt:
-
-\includegraphics[width=\linewidth]{Bilder/KalibrationA}\\
-\begin{center}
-Grafik: Ausgleichsgerade bei der Kalibration(VersuchA)\\
-\end{center}
-Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.\\\\
-
-Die Kalibrierung hat eine Steigung von $1.028\pm 0.002$ und einen offset von $-2.1801\pm 0.0003$.\\
-Damit können die wirklichen Temperaturen berechnet werden:
-\begin{equation}
-T_{erwartet}=1.028\cdot T_{gemessen}-2.1801
-\end{equation}
 
 \subsection{Versuch B}
+
 \subsubsection{Rauschmessung}
 
 \begin{figure}
@@ -162,7 +174,9 @@ Die Ergebnisse der Rauschmessungen für Versuch B finden sich in Abb. \ref{fig:R
 
 
 \subsubsection{Kalibrierung des Temperatursensors}
-Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in folgender Tabelle aufgelistet:
+Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in Tabelle \ref{tab:KaliB} dargestellt.
+
+\begin{table}
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline 
@@ -172,17 +186,20 @@ $T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\
 \hline 
 100 & $99.39\pm0.14$ \\ 
 \hline 
-\end{tabular} 
+\end{tabular}
+\caption[Ergebnisse Kalibrierung B]{Ergebnisse Kalibrierung B}
+\label{tab:KaliB}
 \end{center}
+\end{table}
 
-Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt. (vgl. \ref{fig:KalibrationB}
+Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt. (vgl. \ref{fig:GeradeKaliB}
 
 \begin{figure}
 \includegraphics[width=\linewidth]{Bilder/KalibrationB}
 \begin{center}
 \caption[KalibrationB]{Ausgleichsgerade bei der Kalibration (VersuchB)\\
 Anm.: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
-\label{fig:KalibrationB}
+\label{fig:GeradeKaliB}
 \end{center}
 \end{figure}
 

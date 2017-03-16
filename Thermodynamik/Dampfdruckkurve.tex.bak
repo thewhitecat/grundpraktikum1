@@ -104,34 +104,44 @@ Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur
 \end{figure}
 
 \subsubsection{Kalibrierung des Temperatursensors}
-Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in folgender Tabelle aufgelistet:
+Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in Tabelle \ref{tab:KaliA} aufgeführt.
+
+\begin{table}
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline 
 $T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
 \hline 
-0 & $2.12\pm0.12$ \\ 
+$0$ & $2.12\pm0.12$ \\ 
 \hline 
-100 & $99.39\pm0.14$ \\ 
+$100$ & $99.39\pm0.14$ \\ 
 \hline 
-\end{tabular} 
+\end{tabular}
+\caption[Ergebnisse Kalibrierung A]{Ergebnisse Kalibrierung A} 
+\label{tab:KaliA}
 \end{center}
+\end{table}
 
 Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt:
 
-\includegraphics[width=\linewidth]{Bilder/KalibrationA}\\
+\begin{figure}
 \begin{center}
-Grafik: Ausgleichsgerade bei der Kalibration(VersuchA)\\
+\includegraphics[width=\linewidth]{Bilder/KalibrationA}
+\caption[Gerade Kalibration A]{Ausgleichsgerade bei der Kalibration(VersuchA)\\
+Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
+\label{fig:GeradeKaliA}
 \end{center}
-Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.\\\\
+\end{figure}
 
-Die Kalibrierung hat eine Steigung von $1.028\pm 0.002$ und einen offset von $-2.1801\pm 0.0003$.\\
+
+Die Kalibrierung (Abb.\ref{fig:GeradeKaliA} hat eine Steigung von $1.028\pm 0.002$ und einen Offset von $-2.1801\pm 0.0003$.\\
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
-T_{erwartet}=1.028\cdot T_{gemessen}-2.1801
+T_{erwartet}=1.028\cdot T_{gemessen}-2.1801C
 \end{equation}
 
 \subsection{Versuch B}
+
 \subsubsection{Rauschmessung}
 
 \begin{figure}
@@ -162,7 +172,9 @@ Die Ergebnisse der Rauschmessungen für Versuch B finden sich in Abb. \ref{fig:R
 
 
 \subsubsection{Kalibrierung des Temperatursensors}
-Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in folgender Tabelle aufgelistet:
+Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in Tabelle \ref{tab:KaliB} dargestellt.
+
+\begin{table}
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline 
@@ -172,17 +184,20 @@ $T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\
 \hline 
 100 & $99.39\pm0.14$ \\ 
 \hline 
-\end{tabular} 
+\end{tabular}
+\caption[Ergebnisse Kalibrierung B]{Ergebnisse Kalibrierung B}
+\label{tab:KaliB}
 \end{center}
+\end{table}
 
-Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt. (vgl. \ref{fig:KalibrationB}
+Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt. (vgl. \ref{fig:GeradeKaliB}
 
 \begin{figure}
 \includegraphics[width=\linewidth]{Bilder/KalibrationB}
 \begin{center}
 \caption[KalibrationB]{Ausgleichsgerade bei der Kalibration (VersuchB)\\
 Anm.: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
-\label{fig:KalibrationB}
+\label{fig:GeradeKaliB}
 \end{center}
 \end{figure}
 
@@ -257,7 +272,7 @@ Weitere Anpassungen auf symmetrischen Intervallen bestimmter (reziproke) Tempera
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.5]{Bilder/lokaler_fit_2B}
+\includegraphics[scale=0.8]{Bilder/lokaler_fit_2B}
 \caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich}
 \label{fig:fit_2B}
 \end{center}
