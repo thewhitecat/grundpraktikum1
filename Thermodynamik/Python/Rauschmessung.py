@@ -12,7 +12,7 @@ import scipy.constants as const
 import math
 import numpy as np
 
-data = p.lese_lab_datei('lab/Druck_Temperatur_Rauschmessung.lab')
+data = p.lese_lab_datei('lab/Rauschmessungen.lab')
 T = data[:,2]
 p = data[:,4]
 
