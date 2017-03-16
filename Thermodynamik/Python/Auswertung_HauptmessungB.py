@@ -118,8 +118,8 @@ for i in range(unterteilung.size):
     x, y, ex, ey, a, ea, b, eb, chi2, cov = gerade_an_intervall(kehrwert_temp, log_druck, sigma_t_kehr, sigma_p_log, unterteilung[i], intervall/2)
     steigung_array[i] = a
     sigma_steigung_array[i] = ea
-    if (i == 1):
-        plt.figure(4)
+    if (1 == 1):
+        plt.figure(3+2*i+1)
         plt.errorbar(x, y, xerr=ex, yerr=ey, fmt=".")
         plt.xlabel( "$(1/T - 1/T_0) [1/s]$")
         plt.ylabel( "$ln(p/p_0) [hPa]$")
@@ -134,14 +134,14 @@ for i in range(unterteilung.size):
         plt.axvline(x[0])
         plt.axvline(x[-1])
         # Plot Residuen
-        plt.figure(5)
+        plt.figure(3+2*i+2)
         plt.subplot(2, 1, 1)
         plt.errorbar(x, y-(a*x+b), yerr=np.sqrt(ey**2 + a**2*ex**2), fmt="k.")
         plt.xlabel("$(1/T - 1/T_0) [1/s]$")
         plt.ylabel("Residuen [hPa]")
         plt.axhline(0, linestyle="dashed")
         plt.xticks(rotation=0)
-        temp = 1/(kehrwert_temp[unterteilung[i]]+(1/temp0))
+    temp = 1/(kehrwert_temp[unterteilung[i]]+(1/temp0))
     print ("\nTemperatur = {:3.3f}\n$\Lambda$ = {:3.3f}, $\sigma_\Lambda$ = {:3.3f}\n".format(temp, -a*R/1000, ea*R/1000))
 
 
