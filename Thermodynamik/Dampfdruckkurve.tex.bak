@@ -87,22 +87,6 @@ Temperatur & 2.12 & 0.12\\
 
 Die Ergebnisse der Rauschmessungen sind in Abb. \ref{fig:RauschenA} und Tab. \ref{tab:RauschenA} dargestellt.
 
-\subsubsection{Dichtigkeitsmessung}
-Eine sehr wichtige Voraussetzung für sinnvolle Ergebnisse ist, dass die Messapparatur dicht ist. Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind in Abbildung \ref{fig:DichtigkeitA} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitA} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
-Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.
-
-\begin{figure}
-\includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_A.png}
-\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Dichtigkeit vor Hauptversuch Apparatur A}
-\label{fig:DichtigkeitA}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_A.png}
-\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Residuen der Dichtigkeit vor Hauptversuch Apparatur A}
-\label{fig:ResiduenDichtigkeitA}
-\end{figure}
-
 \subsubsection{Kalibrierung des Temperatursensors}
 Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in Tabelle \ref{tab:KaliA} aufgeführt.
 
@@ -134,11 +118,59 @@ Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht 
 \end{figure}
 
 
-Die Kalibrierung (Abb.\ref{fig:GeradeKaliA} hat eine Steigung von $1.028\pm 0.002$ und einen Offset von $-2.1801\pm 0.0003$.\\
+Die Kalibrierung (Abb.\ref{fig:GeradeKaliA}) hat eine Steigung von $1.028\pm 0.002$ und einen Offset von $-2.1801\pm 0.0003$.\\
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
 T_{erwartet}=1.028\cdot T_{gemessen}-2.1801C
 \end{equation}
+
+\subsubsection{Dichtigkeitsmessung}
+Eine sehr wichtige Voraussetzung für sinnvolle Ergebnisse ist, dass die Messapparatur dicht ist. Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind in Abbildung \ref{fig:DichtigkeitA} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitA} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
+Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_A.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Dichtigkeit vor Hauptversuch Apparatur A}
+\label{fig:DichtigkeitA}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_A.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Residuen der Dichtigkeit vor Hauptversuch Apparatur A}
+\label{fig:ResiduenDichtigkeitA}
+\end{figure}
+
+\subsubsection{Auswertung der Rohdaten}
+Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich in Abbildung \ref{fig:RohdatenA}. Fügt man diese Daten über die Zeiten zusammen erhält man die Dampfdruckkurve (siehe Abbildung \ref{fig:DampfA}).\\
+Trägt man nun den logarithmierten Druck gegen den Kehrwert der Temperatur auf, lässt sich der (lokal) lineare Zusammenhang gut erkennen(vgl. Abbildung \ref{fig:logA}). Für den in Abbildung \ref{fig:logA} markierten Bereich ist die lineare Anpassung in Abbildung \ref{fig:fit_2A} exemplarisch gezeigt.\\
+Dieses Vorgehen wurde für insgesamt 6, symmetrisch um eine bestimmte Temperatur verteilte, Teilintervalle durchgeführt. Die jeweiligen Ergebnisse sind in Tabelle %hier ref 
+aufgeführt.
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Rohdaten_HauptmessungA.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Druck und Temperatur im Verlauf der Messung}
+\label{fig:RohdatenA}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/DampfdruckkurveA.png}
+\caption[]{Dampfdruckkurve in Versuch A}
+\label{fig:DampfA}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/log_RohdatenA.png}
+\caption[]{Transformierte Rohdaten}
+\label{fig:logA}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/lokaler_fit_2A.png}
+\caption[]{Lokale Anpassung im markierten Bereich}
+\label{fig:fit_2A}
+\end{figure}
+
+%hier fit-Tabelle
 
 \subsection{Versuch B}
 
@@ -268,7 +300,7 @@ Bei entsprechender Transformation der Messwerte (erfolgt durch direkte Aufzeichn
 \end{figure}
 
 Für den markierten Bereich in der transformierten Darstellung ist die lokale Anpassung exemplarisch in Abb.\ref{fig:fit_2B} durchgeführt worden.\\
-Weitere Anpassungen auf symmetrischen Intervallen bestimmter (reziproke) Temperaturwerte wurden durchgeführt. Die Ergebnisse finden sich in Tab. %hier ref
+Weitere Anpassungen auf symmetrischen Intervallen bestimmter (reziproke) Temperaturwerte wurden durchgeführt. Die Ergebnisse finden sich in Tab. \ref{tab:enthalpie_B}.
 
 \begin{figure}
 \begin{center}
@@ -279,9 +311,39 @@ Weitere Anpassungen auf symmetrischen Intervallen bestimmter (reziproke) Tempera
 \end{figure}
 
 
-%hier fit tabelle
+\begin{table}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{Temperatur [K]} & \textbf{Steigung fit [K]} & \textbf{y-Achsenabschnitt} & $\chi ^2/dof$ & \textbf{$\Lambda$ [kJ/mol]} \\
+		\hline
+		367 & -5020.08 $\pm$ 9.44 & -0.165 $\pm$ 0.001 & 2.29 & 41.737 $\pm$ 0.079 \\
+		\hline
+		359 & -5156.11 $\pm$ 11.95 & -0.154 $\pm$ 0.001 & 1.75 & 42.868 $\pm$ 0.099 \\
+		\hline
+		353 & -5307.76 $\pm$ 21.64 & -0.135 $\pm$ 0.003 & 2.84 & 44.129 $\pm$ 0.180 \\
+		\hline
+		348 & -5425.55 $\pm$ 20.72 & -0.118 $\pm$ 0.004 & 1.55 & 45.108 $\pm$ 0.172 \\
+		\hline
+		344 & -5476.23 $\pm$ 24.03 & -0.108 $\pm$ 0.005 & 1.50 & 45.529 $\pm$ 0.200 \\
+		\hline
+		341 & -5654.39 $\pm$ 34.72 & -0.067 $\pm$ 0.009 & 1.72 & 47.001 $\pm$ 0.289 \\
+		\hline
+	\end{tabular}
+	\caption{Ergebnisse für die Verdampfungsenthalpie nach Temperatur}
+	\label{tab:enthalpie_B}
+\end{table}
 
 
+Die so erhaltenen Werte für die Verdampfungsenthalpie können gegen die dazugehörige Temperatur aufgetragen werden. Man erhält dann Abb.\ref{fig:EntTempB}.
 
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.8]{Bilder/Enthalpie_gegen_TempB}
+\caption[Enthalpie - Temperatur]{Errechnete Enthalpiewerte aufgetragen gegen die entsprechende Temperatur}
+\label{fig:EntTempB}
+\end{center}
+\end{figure}
+
+Es ist direkt ersichtlich, dass der prinzipielle Verlauf von Verdampfungsenthalpie gegen Temperatur mit dem Verlauf aus der Literatur übereinstimmt. Allerdings sind die individuellen Werte im Vergleich zu den Literaturwerten zum Teil mehrere Standardabweichungen zu groß, was dafür spricht, dass das Versuchsergebnis durch eine unerkannte Systematik stark nach oben verfälscht wird.
 
 \end{document}
