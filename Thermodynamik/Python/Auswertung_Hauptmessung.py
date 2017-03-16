@@ -29,8 +29,8 @@ temperatur = data[:,3] + 273.15
 R = 8.314
                  
 # Rauschwerte -> Fehler auf Einzelwerte
-sigma_p = 0.1
-sigma_t = 0.14
+sigma_p = np.sqrt(1.0/12 + 0.06**2) #Digitalisierung + stat. Fehler
+sigma_t = 0.12 # Statistischer Fehler
 
 
 # Druck und Temperatur beim Sieden
