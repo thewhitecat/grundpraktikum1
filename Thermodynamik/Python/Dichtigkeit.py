@@ -26,7 +26,7 @@ t_n = M_S_2[:, 1]
 #lineare Regression an Druckverlauf für Leckrate und Fehler auf Leckrate
 def func(t, p):
     a, var, c = Rm.mean(p)
-    sig_einzel = np.sqrt(var**2 + 0.75**2)
+    sig_einzel = np.sqrt(var**2 + (0.75/np.sqrt(12))**2)
     p_err = np.full(p.size, sig_einzel)
     rate, rate_var, b, eb, chiq, corr = prak.lineare_regression(t, p, p_err)
     return rate, rate_var, b, eb, chiq, var
@@ -41,7 +41,7 @@ x = np.array([0, p_v.size])
 y = np.array([0.0, 0.0])
 for i in range(p_v.size):
     Y[i] = p_v[i] - leckrate_v * t_v[i] - b_v
-Y_err = np.full(p_v.size, np.sqrt(var_v**2 + 0.75**2))
+Y_err = np.full(p_v.size, np.sqrt(var_v**2 + (0.75/np.sqrt(12))**2))
 fig1, ax1 = plt.subplots()
 plt.font = {'family' : 'monospace',
         'weight' : 'bold',
@@ -60,7 +60,7 @@ y = np.array([0.0, 0.0])
 Y_n = np.full(p_n.size, 1)
 for i in range(p_n.size):
     Y_n[i] = p_n[i] - leckrate_n * t_n[i] - b_n
-Y_n_err = np.full(p_n.size, np.sqrt(var_n**2 + 0.75**2))
+Y_n_err = np.full(p_n.size, np.sqrt(var_n**2 + (0.75/np.sqrt(12))**2))
 fig2, ax1 = plt.subplots()
 plt.font = {'family' : 'monospace',
         'weight' : 'bold',
@@ -75,7 +75,7 @@ fig2.show()
 #plotte lineare Regression an Messung vorher
 x = np.array([0, p_v.size])
 y = leckrate_v * x + b_v
-sig_einzel = np.sqrt(Fehler_v**2 + 0.75**2)
+sig_einzel = np.sqrt(Fehler_v**2 + (0.75/np.sqrt(12))**2)
 p_err = np.full(p_v.size, sig_einzel)
 chiq_dof_v = chiq_v/(p_v.size-2)
 fig3, ax3 = plt.subplots()
@@ -96,7 +96,7 @@ fig3.show()
 #plotte lineare Regression an Messung nachher
 x = np.array([0, p_n.size])
 y = leckrate_n * x + b_n
-sig_einzel = np.sqrt(Fehler_n**2 + 0.75**2)
+sig_einzel = np.sqrt(Fehler_n**2 + (0.75/np.sqrt(12))**2)
 p_n_err = np.full(p_n.size, sig_einzel)
 fig4, ax3 = plt.subplots()
 plt.font = {'family' : 'monospace',
