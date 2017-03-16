@@ -89,17 +89,25 @@ Die Ergebnisse der Rauschmessungen sind in Abb. \ref{fig:RauschenA} und Tab. \re
 \subsubsection{Kalibrierung des Temperatursensors}
 \begin{tabular}{|c|c|}
 \hline 
+<<<<<<< HEAD
 $T_{erwartet}$ & $T_{gemessen}$ \\ 
+=======
+$T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
+>>>>>>> origin/master
 \hline 
-• & • \\ 
+0 & $2.12\pm0.12$ \\ 
+\hline 
+100 & $99.39\pm0.14$ \\ 
 \hline 
 \end{tabular} 
+
 \includegraphics[width=\linewidth]{Bilder/KalibrationA}\\
+
 Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.\\
 Die Kalibrierung hat eine Steigung von $1.028\pm 0.002$ und einen offset von $-2.1801\pm 0.0003$.\\
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
-T_{erwartet}=1.028*T_{gemessen}-2.1801
+T_{erwartet}=1.028\cdot T_{gemessen}-2.1801
 \end{equation}
 
 \subsection{Versuch B}
@@ -133,11 +141,22 @@ Die Ergebnisse der Rauschmessungen für Versuch B finden sich in Abb. \ref{fig:R
 
 
 \subsubsection{Kalibrierung des Temperatursensors}
-\includegraphics[width=\linewidth]{Bilder/KalibrationB}
+\begin{tabular}{|c|c|}
+\hline 
+$T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
+\hline 
+0 & $2.12\pm0.12$ \\ 
+\hline 
+100 & $99.39\pm0.14$ \\ 
+\hline 
+\end{tabular} 
+
+\includegraphics[width=\linewidth]{Bilder/KalibrationB}\\
+
 Die Kalibrierung hat eine Steigung von $1.013\pm 0.002$ und einen offset von $-0.5304\pm 0.0002$.\\
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
-T_{erwartet}=1.013*T_{gemessen}-0.5304
+T_{erwartet}=1.013\cdot T_{gemessen}-0.5304
 \end{equation}
 
 

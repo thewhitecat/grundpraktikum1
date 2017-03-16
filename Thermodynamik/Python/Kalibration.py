@@ -27,7 +27,9 @@ def func(T_E, T_S):
     T_E_std = np.std(T_E)
     T_S_mw = np.mean(T_S)
     T_S_std = np.std(T_S)
-
+    print T_E_mw,T_E_std
+    print T_S_mw,T_S_std
+    
     #Bestimme Steigung und Offset
     m = 100/(T_S_mw - T_E_mw)
     T_0 = 100 - m * T_S_mw
