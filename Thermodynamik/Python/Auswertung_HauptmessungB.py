@@ -51,7 +51,6 @@ offset_druck = -16
 
 # Plot Rohdaten vs Zeit
 plt.figure(1)
-plt.title("Rohdaten")
 plt.subplot(2, 1, 1)
 plt.plot(laufzeit, druck, linestyle="dotted")
 plt.xlabel("Laufzeit / s")
@@ -66,6 +65,8 @@ plt.ylabel("Temperatur / K")
 plt.figure(2)
 plt.plot(temperatur, druck, linestyle="dotted")
 plt.title("Dampfdruckkurve")
+plt.xlabel("Temperatur [K]")
+plt.ylabel("Druck [hPa]")
 
 
 # Temperatur korrigieren
@@ -102,7 +103,7 @@ plt.ylabel("ln($p/p_0$)")
 
 
 # Stückweiser fit, jeweils
-n = 15
+n = 6
 n = n+2
 intervall = kehrwert_temp.size/n
 unterteilung = np.arange(n-1)[1:] * intervall
@@ -119,16 +120,20 @@ for i in range(unterteilung.size):
     steigung_array[i] = a
     sigma_steigung_array[i] = ea
     plt.errorbar(x, y, xerr=ex, yerr=ey, fmt=".")
+    plt.xlabel( "$(1/T - 1/T_0) [1/s]$")
+    plt.ylabel( "$ln(p/p_0) [hPa]$")
     x2 = np.array([x[-1], x[0]])
     y2 = a*x2+b
     plt.plot(x2, y2, color="k")
     dof = intervall-1
     plt.figtext(0.7, 0.6, "a = {:2.3f}K\n$\sigma_a$ = {:2.3f}K\nb= {:2.3f}\n$\sigma_b$={:2.3f}\n$chi^2$/dof = {:2.3f}".format(a, ea, b, eb, chi2/dof))
     
-    # Plot Residuen ohne Fehler
+    # Plot Residuen
     plt.figure(5+2*i+1)
     plt.subplot(2, 1, 1)
     plt.errorbar(x, y-(a*x+b), yerr=np.sqrt(ey**2 + a**2*ex**2), fmt="k.")
+    plt.xlabel("$(1/T - 1/T_0) [1/s]$")
+    plt.ylabel("Residuen [hPa]")
     plt.axhline(0, linestyle="dashed")
     temp = 1/(kehrwert_temp[unterteilung[i]]+(1/temp0))
     print ("\nTemperatur = {:3.3f}\n$\Lambda$ = {:3.3f}, $\sigma_\Lambda$ = {:3.3f}\n".format(temp, -a*R/1000, ea*R/1000))
@@ -139,6 +144,8 @@ plt.figure(4+2*(n-2)+2)
 enthalpie = -steigung_array * R /1000
 sigma_enthalpie = sigma_steigung_array * R /1000
 plt.errorbar(1/(kehrwert_temp[intervall:(n-1)*intervall:intervall]+(1/temp0)), enthalpie, xerr=sigma_t, yerr=sigma_enthalpie, fmt=".")
+plt.xlabel("Temperatur [K]")
+plt.ylabel("Verdampfungsenthalpie [kJ/mol]")
 
 
 #plt.figure(4+2*n+2)
