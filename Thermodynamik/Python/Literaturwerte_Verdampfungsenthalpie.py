@@ -29,6 +29,7 @@ b_2 = [42.482, 40.657]
 m = (y_2[2] - y_2[0])/(x_C_2[2] - x_C_2[0])
 b = y_2[0] - m * x_C_2[0]
 
+#plotte Literaturwerte als blaue Punkte und fit als rote Linie
 fig1, ax1 = plt.subplots()
 ax1.set_xlabel("Temperatur [K]")
 ax1.set_ylabel("Verdampfungsenthalpie [kJ/mol]")
@@ -40,7 +41,7 @@ plt.figtext(0.6,0.7,
             +' b= '+str(np.round(b,3)))
 fig1.show()
 
-#Gibt Literaturwert für Lambda in Abhängigkeit von T
+#Gibt Literaturwert für Lambda in Abhängigkeit von T in Celsius
 def Lambda(T):
     x_C_2 = [60, 80, 100]
     y_2 = [42.482, 41.585, 40.657]
