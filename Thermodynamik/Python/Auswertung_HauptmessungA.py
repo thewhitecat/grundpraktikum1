@@ -20,12 +20,13 @@ def gerade_an_intervall(x, y, ex, ey, wert = 0, intervall = 0):
     
 
 
-data = p.lese_lab_datei("Lab\Hauptmessung.lab")
+data = p.lese_lab_datei("CASSY\Hauptmessung.lab")
 
-laufzeit = data[50:,1]
-druck = data[50:,4]
-temperatur = data[50:,2]
-
+laufzeit = data[:,1]
+druck = data[:,2]
+temperatur = data[:,3] + 273.15
+                 
+                 
 R = 8.314
                  
 # Rauschwerte -> Fehler auf Einzelwerte
@@ -38,12 +39,12 @@ p0 = 1000
 temp0 = 373.15
 
 # Korrekturwerte für Druck und Temperatur
-m = 1.013
+m = 1.028
 sigma_m = 0.002
-b = -0.53
-sigma_b = 0.0002
+b = -2.18
+sigma_b = 0.0003
 #sigma_sys_t = np.srt( (m*temperatur)**2 *(sigma_m/m)**2 + sigma_b**2)
-offset_druck = -16
+offset_druck = 12.3
 
 
 
@@ -63,7 +64,7 @@ plt.ylabel("Temperatur / K")
 
 # Dampdruckkruve
 plt.figure(2)
-plt.plot(temperatur, druck, linestyle="dotted")
+plt.errorbar(temperatur, druck, linestyle="dotted")
 plt.title("Dampfdruckkurve")
 plt.xlabel("Temperatur [K]")
 plt.ylabel("Druck [hPa]")
@@ -145,8 +146,7 @@ for i in range(unterteilung.size):
     print ("\nTemperatur = {:3.3f}\n$\Lambda$ = {:3.3f}, $\sigma_\Lambda$ = {:3.3f}\n".format(temp, -a*R/1000, ea*R/1000))
 
 
-
-plt.figure(4+2*(n-2)+2)
+plt.figure(6)
 # Verdampfungsenthalpie in kJ/mol
 enthalpie = -steigung_array * R /1000
 sigma_enthalpie = sigma_steigung_array * R /1000
