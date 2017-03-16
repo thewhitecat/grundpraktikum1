@@ -1,7 +1,6 @@
 # Project specific files
 *.pdf
 *.pyc
-#TeX
 *.aux
 *.log
 *.nav

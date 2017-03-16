@@ -87,19 +87,31 @@ Temperatur & 2.12 & 0.12\\
 Die Ergebnisse der Rauschmessungen sind in Abb. \ref{fig:RauschenA} und Tab. \ref{tab:RauschenA} dargestellt.
 
 \subsubsection{Kalibrierung des Temperatursensors}
+Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in folgender Tabelle aufgelistet:
+\begin{center}
 \begin{tabular}{|c|c|}
 \hline 
-$T_{erwartet}$ & $T_{gemessen}$ \\ 
+$T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
 \hline 
-• & • \\ 
+0 & $2.12\pm0.12$ \\ 
+\hline 
+100 & $99.39\pm0.14$ \\ 
 \hline 
 \end{tabular} 
+\end{center}
+
+Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt:
+
 \includegraphics[width=\linewidth]{Bilder/KalibrationA}\\
-Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.\\
+\begin{center}
+Grafik: Ausgleichsgerade bei der Kalibration(VersuchA)\\
+\end{center}
+Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.\\\\
+
 Die Kalibrierung hat eine Steigung von $1.028\pm 0.002$ und einen offset von $-2.1801\pm 0.0003$.\\
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
-T_{erwartet}=1.028*T_{gemessen}-2.1801
+T_{erwartet}=1.028\cdot T_{gemessen}-2.1801
 \end{equation}
 
 \subsection{Versuch B}
@@ -128,15 +140,63 @@ Druck[hPa] & 1021.04 & 0.37\\
 \end{center}
 \end{table}
 
+Die Ergebnisse der Rauschmessungen für Versuch B finden sich in Abb. \ref{fig:RauschenB} und Tab. \ref{tab:RauschenB}.
+
 
 
 \subsubsection{Kalibrierung des Temperatursensors}
-\includegraphics[width=\linewidth]{Bilder/KalibrationB}
+Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in folgender Tabelle aufgelistet:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+$T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
+\hline 
+0 & $2.12\pm0.12$ \\ 
+\hline 
+100 & $99.39\pm0.14$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt:
+
+\includegraphics[width=\linewidth]{Bilder/KalibrationB}\\
+\begin{center}
+Grafik: Ausgleichsgerade bei der Kalibration(VersuchB)\\
+\end{center}
+Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.\\\\
+
 Die Kalibrierung hat eine Steigung von $1.013\pm 0.002$ und einen offset von $-0.5304\pm 0.0002$.\\
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
-T_{erwartet}=1.013*T_{gemessen}-0.5304
+T_{erwartet}=1.013\cdot T_{gemessen}-0.5304
 \end{equation}
+
+
+\subsubsection{Auswertung Rohdaten}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/Rohdaten_HauptmessungB}
+\caption[Rohdaten B]{Druck und Temperatur im Verlauf der Messung}
+\label{fig:RohdatenB}
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/DampfdruckkurveB}
+\caption[Dampfdruckkurve B]{Dampfdruckkurve in Versuch B}
+\label{fig:DampfB}
+\end{center}
+\end{figure}
+
+%hier Rohdaten
+
+%hier exemplarischen fit
+
+%hier fit tabelle
 
 
 
