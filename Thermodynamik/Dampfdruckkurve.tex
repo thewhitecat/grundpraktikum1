@@ -39,6 +39,7 @@ Da $V_{gas} >> V_{flüssig}$ folgt unter der Annahme das sich die Verdampfungsen
 Mit diesem Zusammenhang kann die Verdampfungsenthalpie $\Lambda$ für verschiedene Temperaturen bestimmt werden, indem um diese Punkte innerhalb kleiner Temperaturänderungen eine Gerade angepasst wird.
 
 \section{Aufbau und Durchführung}
+\label{sec:Aufbau und Durchfühung}
 \begin{figure}
 \includegraphics[width=\linewidth]{Bilder/AufbauB}
 \caption[AufbauB]{Aufbau}
@@ -85,6 +86,22 @@ Temperatur & 2.12 & 0.12\\
 \end{table}
 
 Die Ergebnisse der Rauschmessungen sind in Abb. \ref{fig:RauschenA} und Tab. \ref{tab:RauschenA} dargestellt.
+
+\subsubsection{Dichtigkeitsmessung}
+Eine sehr wichtige Voraussetzung für sinnvolle Ergebnisse ist, dass die Messapparatur dicht ist. Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind in Abbildung \ref{fig:DichtigkeitA} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitA} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
+Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_A.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Dichtigkeit vor Hauptversuch Apparatur A}
+\label{fig:DichtigkeitA}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_A.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Residuen der Dichtigkeit vor Hauptversuch Apparatur A}
+\label{fig:ResiduenDichtigkeitA}
+\end{figure}
 
 \subsubsection{Kalibrierung des Temperatursensors}
 Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in folgender Tabelle aufgelistet:
@@ -175,6 +192,35 @@ Damit können die wirklichen Temperaturen berechnet werden:
 T_{erwartet}=1.013\cdot T_{gemessen}-0.5304
 \end{equation}
 
+\subsubsection{Dichtigkeitsmessung}
+Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind in Abbildung \ref{fig:DichtigkeitB} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitB} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
+Aufgrund der Leckrate von $(0,236 \pm 0,035) \dfrac{hPa}{min}$ kann die Apparatur als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.\\
+\\Für die Apparatur wurde noch eine zweite Dichtigkeitsmessung nach dem Hauptversuch durchgeführt. Die Daten sind in Abbildung \ref{fig:DichtigkeitNachherB} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitNachherB}.\\
+Die Leckrate ist mit $(2,718 \pm 0,160) \dfrac{hPa}{min}$ deutlich schlechter geworden im Vergleich zu der Leckrate vor dem Hauptversuch. Dies könnte daran liegen, dass die Dichtigkeitsmessung nicht mit dem nach dem Hauptversuch vorhandenen Unterdruck durchgeführt wurde, sondern wie zu Beginn mit der Handvakuumpumpe. Durch das Wackeln an der Apparatur beim Anschließen dieser könnten sich Undichtigkeiten aufgetan haben, welche dann den Wert der zweiten Messung verschlechtert haben, auf die Hauptmessung aber keinen Einfluss haben, weil sie erst nach dieser aufgetreten sind. Daher wird im Folgenden davon dennoch ausgegangen, dass die Undichtigkeit vernachlässigbar gering ist.
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_B.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur B]{Dichtigkeit vor Hauptversuch Apparatur B}
+\label{fig:DichtigkeitB}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_B.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur B]{Residuen der Dichtigkeit vor Hauptversuch Apparatur B}
+\label{fig:ResiduenDichtigkeitB}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Dichtigkeit_nachher_B.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur B]{Dichtigkeit nach Hauptversuch Apparatur B}
+\label{fig:DichtigkeitNachherB}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_nachher_B.png}
+\caption[Dichtigkeit nach Hauptversuch Apparatur B]{Residuen der Dichtigkeit nach Hauptversuch Apparatur B}
+\label{fig:ResiduenDichtigkeitNachherB}
+\end{figure}
 
 \subsubsection{Auswertung Rohdaten}
 
