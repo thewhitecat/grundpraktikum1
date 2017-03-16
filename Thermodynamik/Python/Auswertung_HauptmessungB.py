@@ -22,9 +22,9 @@ def gerade_an_intervall(x, y, ex, ey, wert = 0, intervall = 0):
 
 data = p.lese_lab_datei("Lab\Hauptmessung.lab")
 
-laufzeit = data[50:,1]
-druck = data[50:,4]
-temperatur = data[50:,2]
+laufzeit = data[5:,1]
+druck = data[5:,4]
+temperatur = data[5:,2]
 
 R = 8.314
                  
@@ -103,7 +103,7 @@ plt.ylabel("ln($p/p_0$)")
 
 
 # Stückweiser fit, jeweils
-n = 6
+n = 3
 n = n+2
 intervall = kehrwert_temp.size/n
 unterteilung = np.arange(n-1)[1:] * intervall
@@ -115,7 +115,7 @@ steigung_array = np.empty(n-2)
 
 for i in range(unterteilung.size):
     # Plot Daten
-    x, y, ex, ey, a, ea, b, eb, chi2, cov = gerade_an_intervall(kehrwert_temp, log_druck, sigma_t_kehr, sigma_p_log, unterteilung[i], intervall/2)
+    x, y, ex, ey, a, ea, b, eb, chi2, cov = gerade_an_intervall(kehrwert_temp, log_druck, sigma_t_kehr, sigma_p_log, unterteilung[i], intervall)
     steigung_array[i] = a
     sigma_steigung_array[i] = ea
     if (1 == 1):
@@ -153,6 +153,13 @@ sigma_enthalpie = sigma_steigung_array * R /1000
 plt.errorbar(1/(kehrwert_temp[intervall:(n-1)*intervall:intervall]+(1/temp0)), enthalpie, xerr=sigma_t, yerr=sigma_enthalpie, fmt=".")
 plt.xlabel("Temperatur [K]")
 plt.ylabel("Verdampfungsenthalpie [kJ/mol]")
+
+
+# Literaturwerte
+literatur_T = np.array([60, 100])+273.15
+literatur_enthalpie = np.array([42.482, 40.657])
+plt.plot(literatur_T, literatur_enthalpie)
+plt.xlim([339,369])
 
 
 #plt.figure(4+2*n+2)
