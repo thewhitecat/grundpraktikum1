@@ -14,11 +14,11 @@ import matplotlib.pyplot as plt
 start_time=timeit.default_timer()
 
 #Lese alle Datensätze ein
-M_S_1 = p.lese_lab_datei('CASSY/Rauschmessungen.lab')
-T_E = M_S_1[:, 3]
+M_S_1 = p.lese_lab_datei('lab/Temperatur_Eiswasser.lab')
+T_E = M_S_1[:, 2]
 
-M_S_2 = p.lese_lab_datei('CASSY/Temperatur_siedend.lab')
-T_S = M_S_2[:, 3]
+M_S_2 = p.lese_lab_datei('lab/Temperatur_siedend.lab')
+T_S = M_S_2[:, 2]
 T_S = T_S[730:]
 
 def func(T_E, T_S):
