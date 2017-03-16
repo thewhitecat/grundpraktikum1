@@ -146,7 +146,7 @@ Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich in
 Der Fehler auf die Druckmessung ist gegeben durch die Digitalisierung und den Fehler der Rauschmessung:
 
 \begin{equation}
-\sigma_p=\sqrt{(\frac{0.75 hPa}{\sqrt(12)})^2+(0.006)^2 hPa)^2}=0.22 hPa
+\sigma_p=\sqrt{\left(\frac{0.75 hPa}{\sqrt{12}}\right)^2+((0.006)^2 hPa)^2}=0.22 hPa
 \end{equation}
 
 Der Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und ist damit gegeben durch $\sigma_T=0.12$.\\
@@ -163,6 +163,7 @@ Für den in Abbildung \ref{fig:logA} markierten Bereich ist die lineare Anpassun
 Dieses Vorgehen wurde für insgesamt sechs, symmetrisch um eine bestimmte Temperatur verteilte, Teilintervalle durchgeführt. Die jeweiligen Ergebnisse sind in Tabelle %hier ref 
 aufgeführt.\\
 Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda}=R \cdot \sigma_a$.\\
+Da $\Lambda$ temperaturabhängig ist, muss der zur Messung passende Literaturwert erst noch bestimmt werden. Da die Literaturwerte nicht trivial von der Temperatur abhängen, lassen sich diese nicht konkret ausrechnen. Abbildung \ref{fig:LiteraturwertLambda} zeigt die Literaturwerte als blaue Punkte und eine lineare Näherung als rote Linie. Es lässt sich leicht erkennen, dass die Näherung in diesem Temperaturbereich gut funktioniert. Daher wird mit dieser gerechnet und diese ist auch in die Ergebnisplots eingezeichnet. \\
 In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte von $\Lambda$ bei den entsprechenden Temperaturen.
 
 
@@ -183,6 +184,12 @@ In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte vo
 \includegraphics[width=\linewidth]{Bilder/log_RohdatenA.png}
 \caption[Transformierte Daten A]{Transformierte Rohdaten für Versuch A}
 \label{fig:logA}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Lambda_Literaturwert_fit.png}
+\caption[Literaturwerte für $\Lambda$ in Abhängigkeit von der Temperatur]{Literaturwerte für $\Lambda$ in Abhängigkeit von der Temperatur}
+\label{fig:LiteraturwertLambda}
 \end{figure}
 
 \begin{figure}
