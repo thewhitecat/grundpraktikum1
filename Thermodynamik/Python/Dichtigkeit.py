@@ -15,8 +15,8 @@ import Rauschmessung as Rm
 start_time=timeit.default_timer()
 
 #Lese alle Datensätze ein
-M_S_1 = prak.lese_lab_datei('lab/Dichtigkeitsmessung_vorher.lab')
-p_v = M_S_1[:, 4]
+M_S_1 = prak.lese_lab_datei('CASSY/Dichtigkeitsmessung_vorher.lab')
+p_v = M_S_1[:, 2]
 t_v = M_S_1[:, 1]
 
 M_S_2 = prak.lese_lab_datei('lab/Dichtigkeitsmessung_nachher_2.lab')
@@ -37,6 +37,8 @@ leckrate_n, Fehler_n, b_n, eb_n, chiq_n, var_n = func(t_n, p_n)
 #plotte Residuen für Messung vorher
 X = t_v
 Y = np.full(p_v.size, 1)
+x = np.array([0, p_v.size])
+y = np.array([0.0, 0.0])
 for i in range(p_v.size):
     Y[i] = p_v[i] - leckrate_v * t_v[i] - b_v
 Y_err = np.full(p_v.size, np.sqrt(var_v**2 + 0.75**2))
@@ -44,11 +46,14 @@ fig1, ax1 = plt.subplots()
 ax1.set_xlabel("Zeit [s]")
 ax1.set_ylabel("Residuen [hPa]")
 ax1.set_title("Residuen Dichtigkeitsmessung vorher")
-plt.errorbar(X, Y, yerr=Y_err, fmt='.')
+plt.plot(x, y, color='r')
+plt.errorbar(X, Y, yerr=Y_err, fmt='.', color='b')
 fig1.show()
 
 #plotte Residuen für Messung nachher
 X_n = t_n
+x = np.array([0, p_v.size])
+y = np.array([0.0, 0.0])
 Y_n = np.full(p_n.size, 1)
 for i in range(p_n.size):
     Y_n[i] = p_n[i] - leckrate_n * t_n[i] - b_n
@@ -57,7 +62,8 @@ fig2, ax1 = plt.subplots()
 ax1.set_xlabel("Zeit [s]")
 ax1.set_ylabel("Residuen [hPa]")
 ax1.set_title("Residuen Dichtigkeitsmessung nachher")
-plt.errorbar(X_n, Y_n, yerr=Y_n_err, fmt='.')
+plt.plot(x, y, color='r')
+plt.errorbar(X_n, Y_n, yerr=Y_n_err, fmt='.', color='b')
 fig2.show()
 
 #plotte lineare Regression an Messung vorher
