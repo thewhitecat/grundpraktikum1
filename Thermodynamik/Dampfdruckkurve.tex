@@ -74,9 +74,12 @@ Im Hauptversuch wird bei geöffnetem Auslass das Wasser im Glaskolben bis zum Si
 Am Ende des Messvorgangs lässt man das Wasser weiter bis auf Raumtemperatur abkühlen und führt gegebenenfalls eine zweite Dichtigkeitsmessung durch, um sich davon zu überzeugen, dass die Undichtigkeit des Aufbaus während des Versuchs nicht gestiegen ist. 
 
 \section{Versuchsauswertung}
+Der Versuch wurde von zwei Teilgruppen unabhängig voneinander durchgeführt. Im folgenden werden diese mit "Versuch A" und "Versuch B" bezeichnet und einzeln ausgewertet 
+
 \subsection{Versuch A}
 
 \subsubsection{Rauschmessung}
+
 \begin{figure}[H]
 \includegraphics[scale=0.5]{Bilder/DruckrauschenA}
 \includegraphics[scale=0.5]{Bilder/TemprauschenA}
@@ -84,13 +87,13 @@ Am Ende des Messvorgangs lässt man das Wasser weiter bis auf Raumtemperatur abk
 \label{fig:RauschenA}
 \end{figure}
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
 - & $\mu$ & $\sigma$\\
 \hline
-Druck & 993.75 & 0.006\\
+Druck & 993.75 & 0.22\\
 \hline
 Temperatur & 2.12 & 0.12\\
 \hline
@@ -100,10 +103,17 @@ Temperatur & 2.12 & 0.12\\
 \end{center}
 \end{table}
 
-Die Ergebnisse der Rauschmessungen sind in Abb. \ref{fig:RauschenA} und Tab. \ref{tab:RauschenA} dargestellt.
+Die Ergebnisse der Rauschmessungen sind in Abb. \ref{fig:RauschenA} und Tab. \ref{tab:RauschenA} dargestellt.\\
+Dabei wurde der Fehler auf das Druckrauschen durch eine Gleichverteilung bestimmt:
+\begin{equation}
+\sigma_p =\dfrac{0.75}{\sqrt{12}} = 0.22hPa
+\end{equation}
+
+Der Fehler auf die Temperatur folgt aus der Gaußverteilung als Standardabweichung.
+
 
 \subsubsection{Kalibrierung des Temperatursensors}
-Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in Tabelle \ref{tab:KaliA} aufgeführt.
+Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Da am Versuchstag nicht Normaldruck, sondern ein Druck von 1005hPa geherrscht hat, muss die Siedetemperatur noch auf 99.72C korrigiert werden. Die Ergebnisse sind in Tabelle \ref{tab:KaliA} aufgeführt. Die angegebenen Fehler sind die Fehler des Mittelwertes.
 
 \begin{table}[H]
 \begin{center}
@@ -111,9 +121,9 @@ Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. D
 \hline 
 $T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
 \hline 
-$0$ & $2.12\pm0.12$ \\ 
+$0$ & $2.121\pm0.007$ \\ 
 \hline 
-$100$ & $99.39\pm0.14$ \\ 
+$99.72$ & $99.39\pm0.01$ \\ 
 \hline 
 \end{tabular}
 \caption[Ergebnisse Kalibrierung A]{Ergebnisse Kalibrierung A} 
@@ -133,17 +143,34 @@ Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht 
 \end{figure}
 
 
-Die Kalibrierung (Abb.\ref{fig:GeradeKaliA}) hat eine Steigung von $1.028\pm 0.002$ und einen Offset von $-2.1801\pm 0.005$.\\
+Die Kalibrierung (Abb.\ref{fig:GeradeKaliA}) ergibt für die Steigung:
+\begin{equation}
+m = \dfrac{99.72}{T_{Eis}-T_{siedend}} = 1.0252
+\end{equation}
+
+\begin{equation}
+\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
+\end{equation}
+
+\begin{equation}
+b = 99.72-m\cdot T_{siedend} = -2.1740C
+\end{equation}
+
+\begin{equation}
+\sigma_{b} = \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0003C
+\end{equation}
+
+
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
-T_{erwartet}=1.028\cdot T_{gemessen}-2.1801C
+T_{erwartet}=1.0252\cdot T_{gemessen}-2.1740C
 \end{equation}
 
 Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
 \begin{equation}
-\sigma_{T}=\sqrt{\sigma_{m}^{2}+\sigma_{b}^{2}}=0.005
+\sigma_{T}=\sqrt{\left(m\cdot T_{gemessen}\cdot \sqrt{ (\dfrac{\sigma_m}{m})^{2}+(\dfrac{\sigma_T}{T})^{2}}\right)^{2}+\sigma_{b}^{2}}=0.13
 \end{equation}
-Dieser Fehler ist so klein, dass man ihn ignorieren kann.
+Wobei $\sigma_T = 0.12$ und eine Temperatur von 100C angenommen wurde.
 
 \subsubsection{Dichtigkeitsmessung}
 Eine sehr wichtige Voraussetzung für sinnvolle Ergebnisse ist, dass die Messapparatur dicht ist. Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind in Abbildung \ref{fig:DichtigkeitA} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitA} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
@@ -274,7 +301,7 @@ Es ist deutlich zu erkennen, dass die gemessenen Werte stark und ohne erkennbare
 \hline 
 Temperatur[C] & 22.99 & 0.04 \\ 
 \hline 
-Druck[hPa] & 1021.04 & 0.37\\ 
+Druck[hPa] & 1021.04 & 0.22\\ 
 \hline 
 \end{tabular}
 \caption[Tabelle Rauschenmessung B]{Ergbenisse der Rauschmessung für Versuch B}
@@ -287,7 +314,7 @@ Die Ergebnisse der Rauschmessungen für Versuch B finden sich in Abb. \ref{fig:R
 
 
 \subsubsection{Kalibrierung des Temperatursensors}
-Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Die Ergebnisse sind in Tabelle \ref{tab:KaliB} dargestellt.
+Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. Da am Versuchstag nicht Normaldruck, sondern ein Druck von 1005hPa geherrscht hat, muss die Siedetemperatur noch auf 99.72C korrigiert werden. Die Ergebnisse sind in Tabelle \ref{tab:KaliB} aufgeführt. Die angegebenen Fehler sind die Fehler des Mittelwertes.
 
 \begin{table}[H]
 \begin{center}
@@ -295,9 +322,9 @@ Bei jeweils 0C und 100C wurde eine Rauschmessung der Temperatur durchgeführt. D
 \hline 
 $T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
 \hline 
-0 & $0.52 \pm 0.17$ \\ 
+0 & $0.52 \pm 0.01$ \\ 
 \hline 
-100 & $99.24\pm 0.09$ \\ 
+100 & $99.24\pm 0.005$ \\ 
 \hline 
 \end{tabular}
 \caption[Ergebnisse Kalibrierung B]{Ergebnisse Kalibrierung B}
@@ -315,17 +342,34 @@ Anm.: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sicht
 \end{center}
 \end{figure}
 
-Die Kalibrierung hat eine Steigung von $1.013\pm 0.002$ und einen Offset von $-0.5304\pm 0.001$.\\
+Die Kalibrierung (Abb.\ref{fig:GeradeKaliA}) ergibt für die Steigung:
+\begin{equation}
+m = \dfrac{99.72}{T_{Eis}-T_{siedend}} = 1.0101
+\end{equation}
+
+\begin{equation}
+\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
+\end{equation}
+
+\begin{equation}
+b = 99.72-m\cdot T_{siedend} = -0.5290C
+\end{equation}
+
+\begin{equation}
+\sigma_{b} = b\cdot \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0001C
+\end{equation}
+
+
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
-T_{erwartet}=1.013\cdot T_{gemessen}-0.5304
+T_{erwartet}=1.0101\cdot T_{gemessen}-0.5290C
 \end{equation}
 
 Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
 \begin{equation}
-\sigma_{T}=\sqrt{\sigma_{m}^{2}+\sigma_{b}^{2}}=0.002
+\sigma_{T}=\sqrt{\left(m\cdot T_{gemessen}\cdot \sqrt{ (\dfrac{\sigma_m}{m})^{2}+(\dfrac{\sigma_T}{T})^{2}}\right)^{2}+\sigma_{b}^{2}}=0.05
 \end{equation}
-Dieser Fehler ist so klein, dass man ihn ignorieren kann.
+Wobei $\sigma_T = 0.04$ und eine Temperatur von 100C angenommen wurde
 
 \subsubsection{Dichtigkeitsmessung}
 Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind in Abbildung \ref{fig:DichtigkeitB} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitB} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\

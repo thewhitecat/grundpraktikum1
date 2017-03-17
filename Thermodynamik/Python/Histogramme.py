@@ -27,12 +27,13 @@ def gauss(x,m,s):
 
 #druck a
 m_a_druck,s_a_druck=stat(druck_a)
+s_a_druck = 0.22
 x=np.linspace(993,994.5,1000)
 bins_a_druck=np.arange(993-0.375,995.25-0.375,0.75)
 plt.figure(1)
-plt.hist(druck_a,bins=bins_a_druck,normed=True)
+plt.hist(druck_a,bins=bins_a_druck)
 #plt.xticks()
-plt.plot(x,gauss(x,m_a_druck,s_a_druck),color='red')
+#plt.plot(x,gauss(x,m_a_druck,s_a_druck),color='red')
 plt.xlabel('Druck [hPa]')
 plt.ylabel('#')
 plt.title('Druckrauschen Versuch A')
@@ -45,7 +46,7 @@ m_a_temp,s_a_temp=stat(temp_a)
 x=np.linspace(1.5,3,1000)
 bins_a_temp=np.arange(1.5,2.75,0.1)
 plt.figure(2)
-plt.hist(temp_a,bins=bins_a_temp,normed=True)
+plt.hist(temp_a,bins=bins_a_temp)
 plt.plot(x,gauss(x,m_a_temp,s_a_temp),color='red')
 plt.xlabel('Temperatur [C]')
 plt.ylabel('#')
@@ -57,15 +58,16 @@ plt.figtext(0.2,0.7,
 
 #druck b
 m_b_druck,s_b_druck=stat(druck_b)
+s_b_druck = 0.22
 x=np.linspace(1020,1022.5,1000)
 bins_b_druck=np.arange(1020-0.375,1023.75-0.375,0.75)
 plt.figure(3)
-plt.hist(druck_b,bins=bins_b_druck,normed=True)
-plt.plot(x,gauss(x,m_b_druck,s_b_druck),color='red')
+plt.hist(druck_b,bins=bins_b_druck)
+#plt.plot(x,gauss(x,m_b_druck,s_b_druck),color='red')
 plt.xlabel('Druck [hPa]')
 plt.ylabel('#')
 plt.title('Druckrauschen Versuch B')
-plt.figtext(0.2,0.7,
+plt.figtext(0.15,0.7,
             '\n$\mu=$'+str(np.round(m_b_druck,2))+'hPa\n'
             +'$\sigma=$'+str(np.round(s_b_druck,2))+'hPa')
 
