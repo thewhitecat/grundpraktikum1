@@ -41,7 +41,7 @@ x = np.array([0, p_v.size])
 y = np.array([0.0, 0.0])
 for i in range(p_v.size):
     Y[i] = p_v[i] - leckrate_v * t_v[i] - b_v
-Y_err = np.full(p_v.size, np.sqrt(var_v**2 + (0.75/np.sqrt(12))**2))
+Y_err = np.full(p_v.size, np.sqrt(Fehler_v**2 + (0.75/np.sqrt(12))**2))
 fig1, ax1 = plt.subplots()
 plt.font = {'family' : 'monospace',
         'weight' : 'bold',
@@ -60,7 +60,7 @@ y = np.array([0.0, 0.0])
 Y_n = np.full(p_n.size, 1)
 for i in range(p_n.size):
     Y_n[i] = p_n[i] - leckrate_n * t_n[i] - b_n
-Y_n_err = np.full(p_n.size, np.sqrt(var_n**2 + (0.75/np.sqrt(12))**2))
+Y_n_err = np.full(p_n.size, np.sqrt(Fehler_n**2 + (0.75/np.sqrt(12))**2))
 fig2, ax1 = plt.subplots()
 plt.font = {'family' : 'monospace',
         'weight' : 'bold',
