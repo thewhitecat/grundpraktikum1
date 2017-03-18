@@ -1,0 +1,530 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Tim}
+
+\begin{document}
+\setlength{\parindent}{0pt} 
+\begin{center}
+{\LARGE Versuchsprotokoll}\\
+\begin{large}
+zum Grundpraktikum Physik Teil I\\[0.4cm]
+an der RWTH Aachen\\
+I. Physikalisches Institut B\\[4.5cm]
+\Large\textbf{\textsl{Thermodynamik}}\\[4cm]
+\normalsize\textit{vorgelegt\\von}\\[0.4cm]
+\large{Moritz Berger\\Tim Herbermann\\Gerald Kolter\\Sebastian Siebert}\\[1cm]
+\large \textit{Gruppe B07} \\ [3cm]
+\large \textbf{Wintersemester 2016/2017}
+\end{large}
+\end{center}
+\newpage
+\tableofcontents
+\newpage
+
+\section{Versuchsbeschreibung}
+Ziel des Versuches ist die Vermessung der Dampfdruckkurve und die Bestimmung der Verdampfungsenthalpie von Wasser.\\
+
+\subsection{Dampfdruckkurve}
+In diesem Versuch soll nur der Übergang zwischen dem flüssigen und gasförmigen Aggregatzustand betrachtet werden. \\
+In einer Flüssigkeit in einem evakuiertem, abgeschlossenem Gefäß verdampfen und kondensieren die Moleküle bis sich ein Gleichgewicht einstellt. Der Druck des Dampfes ist von der Temperatur und der Flüssigkeit abhängig und wird als Dampfdruck oder Sättigungsdruck bezeichnet. Der Zusammenhang von Sättigungsdampfdruck und Temperatur wird als Dampfdruckkurve bezeichnet. Wäre das Gefäß nicht evakuiert, würde sich das Gleichgewicht langsamer einstellen, der Dampfdruck wäre allerdings der gleiche, da die Partialdrücke einzelner Gase von der Anwesenheit anderer Gase nicht beeinflusst werden.
+
+\subsection{Verdampfungsenthalpie}
+Die Verdampfungsenthalpie beschreibt, wie viel Energie notwendig ist, um ein Mol des jeweiligen Stoffs (in diesem Fall Wasser) zu Verdampfen. Führt man einer gewissen Menge flüssigem Wasser langsam immer mehr Wärmeenergie zu und misst dabei die Temperatur, so ist die Verdampfungsenthalpie als Plateau beobachtbar. Trotz des Zuführens weiterer Wärmeenergie ändert sich die Temperatur nicht. \\
+
+Der Sättigungsdampfdruck wird quantitativ durch die Clausius-Clapeyron-Gleichung beim Phasenübergang flüssig-gasförmig beschrieben.
+
+\begin{equation}
+\frac{dp}{dT}=\frac{\nu \Lambda}{T(V_{gas}-			V_{fl"ussig})}
+\end{equation}
+
+Da $V_{gas} >> V_{fl"ussig}$ folgt unter der Annahme das sich die Verdampfungsenthalpie $\Lambda$ innerhalb von kleinen Temperaturbereichen nicht ändert mittels Integration den für diesen Versuch entscheidenden Zusammenhang:
+
+\begin{equation}
+\ln{(p/p_0)}=-\frac{\Lambda}{R} \left(\frac{1}{T}-			\frac{1}{T_0}\right)
+\end{equation}
+
+Mit diesem Zusammenhang kann die Verdampfungsenthalpie $\Lambda$ für verschiedene Temperaturen bestimmt werden, indem um diese Punkte innerhalb kleiner Temperaturänderungen eine Gerade angepasst wird.
+
+\section{Aufbau und Durchführung}
+\label{sec:Aufbau und Durchfühung}
+
+\subsection{Aufbau}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{Bilder/AufbauB}
+\caption[AufbauB]{Aufbau}
+\label{fig:AufbauB}
+\end{figure}
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+- & Messbereich & Messintervalle\\
+\hline
+Drucksensor & 0hPa bis 1500hPa& 1s\\
+\hline
+Temperaturfühler & -20C bis 120C& 1s\\
+\hline
+\end{tabular}
+\caption{Einstellungen CASSY}
+\label{tab:CASSY}
+\end{center}
+\end{table}
+
+
+Der Glaskolben wird etwa zur Hälfte mit Wasser gefüllt und über die entsprechenden Anschlüsse mit Temperaturfühler und Drucksensor verbunden. Sowohl der Kolben als auch die Messinstrumente werden am Stativ befestigt. Der Heizpilz wird auf dem ausgefahrenen Laborheber so unter den Kolben montiert, dass er schnell entfernt werden kann. Eine Handvakuumpumpe wird über den Dreiwegehahn mit dem Kolben verbunden. Der Aufbau ist in Abbildung \ref{fig:AufbauB} gezeigt.\\
+Das Thermometer wird über die Thermobox und der Drucksensor direkt über die Anschlüsse mit dem CASSY verbundenen. Die Einstellungen finden sich in Tabelle \ref{tab:CASSY}. \\
+
+\subsection{Durchführung}
+
+Um eine aussagekräftige Hauptmessung durchführen zu können ist es nötig die Messgeräte zu kalibrieren sowie den Fehler auf die Messung abzuschätzen. Dazu werden entsprechende Kalibrierungsmessungen und Rauschmessungen durchgeführt.\\
+
+%hier ggf. ausführlicher werden!
+Die Rauschmessung des Drucksensors wird zusammen mit der Kalibrierung des Temperaturfühlers durchgeführt. Dazu werden etwa $300$ Messwerte aufgezeichnet.\\
+Zur Überprüfung der Gasdichtigkeit wird mit der Handvakuumpumpe bei verschlossenem Auslass der Druck im Glaskolben unter $200hPa$ gesenkt und der zeitliche Verlauf des Drucks gemessen. Aus dem Anstieg des Druckes kann die Undichtigkeit des Aufbaus bestimmt werden. Die Druckveränderung sollte nach Möglichkeit nicht $0,2 \dfrac{mbar}{min}$ übersteigen damit eine vernachlässigbare Undichtigkeit erreicht ist. \\
+
+Im Hauptversuch wird bei geöffnetem Auslass das Wasser im Glaskolben bis zum Sieden erhitzt. Hat man sich davon überzeugt das der Kolben keine Luft mehr enthält wird der Auslass geschlossen, der Heizpilz entfernt und die Messung gestartet. Während des Abkühlens wird dann die Dampfdruckkurve aufgezeichnet bis das Wasser im Kolben aufhört zu sieden.\\
+Am Ende des Messvorgangs lässt man das Wasser weiter bis auf Raumtemperatur abkühlen und führt gegebenenfalls eine zweite Dichtigkeitsmessung durch, um sich davon zu überzeugen, dass die Undichtigkeit des Aufbaus während des Versuchs nicht gestiegen ist. 
+
+\section{Versuchsauswertung}
+Der Versuch wurde von zwei Teilgruppen unabhängig voneinander durchgeführt. Im folgenden werden diese mit \glqq Versuch A \grqq und \glqq Versuch B \grqq bezeichnet und nebeneinander ausgewertet.
+
+
+
+\subsection{Rauschmessung}
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{Bilder/DruckrauschenA}
+\includegraphics[scale=0.5]{Bilder/TemprauschenA}
+\caption[Rauschen Versuch A]{Rauschmessung des Drucksensors (links) und des Temperaturfühlers (rechts). Eine Gaußkurve mit entsprechenden Parametern ist zusätzlich eingezeichnet.}
+\label{fig:RauschenA}
+\end{figure}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+- & $\mu$ & $\sigma$\\
+\hline
+Druck & 993.75 & 0.22\\
+\hline
+Temperatur & 2.12 & 0.12\\
+\hline
+\end{tabular}
+\caption[Tab. Rauschen A]{Ergebnisse der Rauschmessungen für Versuch A}
+\label{tab:RauschenA}
+\end{center}
+\end{table}
+
+Die Ergebnisse der Rauschmessungen für Versuch A sind in Abb. \ref{fig:RauschenA} und Tab. \ref{tab:RauschenA} dargestellt.\\
+Dabei wurde der Fehler auf das Druckrauschen durch eine Gleichverteilung bestimmt:
+\begin{equation}
+\sigma_p =\dfrac{0.75}{\sqrt{12}} = 0.22hPa
+\end{equation}
+
+Der Fehler auf die Temperatur folgt aus der Gaußverteilung als Standardabweichung.
+
+
+
+
+
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{Bilder/DruckrauschenB}
+\includegraphics[scale=0.5]{Bilder/TemprauschenB}
+\caption[Rauschmessung Versuch B]{Rauschmessung des Drucksensors (links) und des Temperaturfühlers (rechts) für B.}
+\label{fig:RauschenB}
+\end{figure}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+- & $\mu$ & $\sigma$\\ 
+\hline 
+Temperatur[C] & 22.99 & 0.04 \\ 
+\hline 
+Druck[hPa] & 1021.04 & 0.22\\ 
+\hline 
+\end{tabular}
+\caption[Tabelle Rauschenmessung B]{Ergbenisse der Rauschmessung für Versuch B}
+\label{tab:RauschenB}
+\end{center}
+\end{table}
+
+Die Ergebnisse der Rauschmessungen für Versuch B finden sich in Abb. \ref{fig:RauschenB} und Tab. \ref{tab:RauschenB}. Die Fehler ergeben sich dabei durch völlig analoges Vorgehen zu Versuch A.
+
+
+
+\subsection{Kalibrierung des Temperatursensors}
+
+Bei jeweils 0C und Siedetemperatur wurde eine Rauschmessung der Temperatur durchgeführt. Da am Versuchstag nicht Normaldruck, sondern ein Druck von 1005hPa geherrscht hat, muss die Siedetemperatur noch auf 99.72C korrigiert werden. Die Ergebnisse sind in Tabelle \ref{tab:KaliA} aufgeführt. Die angegebenen Fehler sind die Fehler des Mittelwertes.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+$T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
+\hline 
+$0$ & $2.121\pm0.007$ \\ 
+\hline 
+$99.72$ & $99.39\pm0.01$ \\ 
+\hline 
+\end{tabular}
+\caption[Ergebnisse Kalibrierung A]{Ergebnisse Kalibrierung A} 
+\label{tab:KaliA}
+\end{center}
+\end{table}
+
+Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt (Abb.\ref{fig:GeradeKaliA}).
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\linewidth]{Bilder/KalibrationA}
+\caption[Gerade Kalibration A]{Ausgleichsgerade bei der Kalibration(VersuchA)\\
+Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
+\label{fig:GeradeKaliA}
+\end{center}
+\end{figure}
+
+
+Die Kalibrierung (Abb.\ref{fig:GeradeKaliA}) ergibt für die Steigung:
+\begin{equation}
+m = \dfrac{99.72}{T_{Eis}-T_{siedend}} = 1.0252
+\end{equation}
+
+\begin{equation}
+\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
+\end{equation}
+
+\begin{equation}
+b = 99.72-m\cdot T_{siedend} = -2.1740C
+\end{equation}
+
+\begin{equation}
+\sigma_{b} = \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0003C
+\end{equation}
+
+Damit können die wirklichen Temperaturen berechnet werden:
+
+\begin{equation}
+T_{erwartet}=1.0252\cdot T_{gemessen}-2.1740C
+\end{equation}
+
+Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
+
+\begin{equation}
+\sigma_{T}=\sqrt{\left(m\cdot T_{gemessen}\cdot \sqrt{ (\dfrac{\sigma_m}{m})^{2}+(\dfrac{\sigma_T}{T})^{2}}\right)^{2}+\sigma_{b}^{2}}=0.13
+\end{equation}
+
+Wobei $\sigma_T = 0.12$ und eine Temperatur von 100C angenommen wurde.\\
+%100C ?
+Durch analoges Vorgehen für Versuch B ergeben sich die in Tabelle \ref{tab:KaliB} dargestellten Ergebnisse. Die angegeben Fehler sind wieder die Fehler des Mittelwertes.
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+$T_{erwartet}[C]$ & $T_{gemessen}[C]$ \\ 
+\hline 
+0 & $0.52 \pm 0.01$ \\ 
+\hline 
+100 & $99.24\pm 0.005$ \\ 
+\hline 
+\end{tabular}
+\caption[Ergebnisse Kalibrierung B]{Ergebnisse Kalibrierung B}
+\label{tab:KaliB}
+\end{center}
+\end{table}
+
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{Bilder/KalibrationB}
+\begin{center}
+\caption[KalibrationB]{Ausgleichsgerade bei der Kalibration (VersuchB)\\
+Anm.: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
+\label{fig:GeradeKaliB}
+\end{center}
+\end{figure}
+
+
+Die Kalibrierung (Abb.\ref{fig:GeradeKaliA}) ergibt für die Steigung:
+\begin{equation}
+m = \dfrac{99.72}{T_{Eis}-T_{siedend}} = 1.0101
+\end{equation}
+
+\begin{equation}
+\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
+\end{equation}
+
+\begin{equation}
+b = 99.72-m\cdot T_{siedend} = -0.5290C
+\end{equation}
+
+\begin{equation}
+\sigma_{b} = b\cdot \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0001C
+\end{equation}
+
+
+Damit können die wirklichen Temperaturen berechnet werden:
+\begin{equation}
+T_{erwartet}=1.0101\cdot T_{gemessen}-0.5290C
+\end{equation}
+
+Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
+\begin{equation}
+\sigma_{T}=\sqrt{\left(m\cdot T_{gemessen}\cdot \sqrt{ (\dfrac{\sigma_m}{m})^{2}+(\dfrac{\sigma_T}{T})^{2}}\right)^{2}+\sigma_{b}^{2}}=0.05
+\end{equation}
+Wobei $\sigma_T = 0.04$ und eine Temperatur von 100C angenommen wurde\\
+%100C?
+
+
+
+
+
+
+
+
+
+\subsection{Dichtigkeitsmessung}
+Eine sehr wichtige Voraussetzung für sinnvolle Ergebnisse ist, dass die Messapparatur dicht ist. Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind für Aufbau A in Abbildung \ref{fig:DichtigkeitA} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitA} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
+Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.\\
+Auf eine Dichtigkeitsmessung nach dem Hauptversuch wurde verzichtet da während des Abkühlens der Aufbau empfindlich gestört wurde und keine Dichtigkeit mehr gegeben war. Es wird im weiteren Verlauf der Auswertung angenommen das die Undichtigkeit von Versuchsaufbau A während des Hauptversuchs vernachlässigbar klein blieb.
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_A.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Dichtigkeit vor Hauptversuch Apparatur A}
+\label{fig:DichtigkeitA}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_A.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Residuen der Dichtigkeit vor Hauptversuch Apparatur A}
+\label{fig:ResiduenDichtigkeitA}
+\end{figure}
+
+Die Ergebnisse der Dichtigkeit für Aufbau B vor der Hauptmessung sind ähnlich und finden sich den Abbildungen \ref{fig:DichtigkeitB} und \ref{fig:ResiduenDichtigkeitB}.\\
+Aufgrund der Leckrate von $(0,236 \pm 0,035) \dfrac{hPa}{min}$ kann die Apparatur auch hier als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.\\
+Nach Durchführung des Hauptversuches wurde für Aufbau B eine erneute Dichtigkeitsmessung vorgenommen (Abb. \ref{fig:DichtigkeitNachherB} und \ref{fig:ResiduenDichtigkeitNachherB}).\\
+Die Leckrate ist mit $(2,718 \pm 0,160) \dfrac{hPa}{min}$ deutlich schlechter geworden im Vergleich zu der Leckrate vor dem Hauptversuch. Dies könnte daran liegen, dass die Dichtigkeitsmessung nicht mit dem nach dem Hauptversuch vorhandenen Unterdruck durchgeführt wurde, sondern wie zu Beginn mit der Handvakuumpumpe. Durch das Wackeln an der Apparatur beim Anschließen dieser könnten sich Undichtigkeiten aufgetan haben, welche dann den Wert der zweiten Messung verschlechtert haben, auf die Hauptmessung aber keinen Einfluss haben, weil sie erst nach dieser aufgetreten sind. Daher wird im Folgenden davon dennoch ausgegangen, dass die Undichtigkeit vernachlässigbar gering ist.
+
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_B.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur B]{Dichtigkeit vor Hauptversuch Apparatur B}
+\label{fig:DichtigkeitB}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_B.png}
+\caption[Dichtigkeit vor Hauptversuch Apparatur B]{Residuen der Dichtigkeit vor Hauptversuch Apparatur B}
+\label{fig:ResiduenDichtigkeitB}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Dichtigkeit_nachher_B.png}
+\caption[Dichtigkeit B nachher]{Dichtigkeit nach Haupversuch (B).}
+\label{fig:DichtigkeitNachherB}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_nachher_B}
+\caption{Residuen für Dichtigkeit nach dem Hauptversuch (B).}
+\label{fig:ResiduenDichtigkeitNachherB}
+\end{figure}
+
+
+
+\subsection{Hauptmessung}
+
+
+Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich für beide Verusche in Abbildung \ref{fig:RohdatenA} und \ref{fig:RohdatenB}. Fügt man diese Daten über die Zeiten zusammen erhält man die Dampfdruckkurven (siehe Abbildung \ref{fig:DampfA} und \ref{fig:DampfB}).\\
+
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{Bilder/Rohdaten_HauptmessungA.png}
+\caption[Rohdaten A]{Druck und Temperatur im Verlauf der Messung (A).}
+\label{fig:RohdatenA}
+\end{figure}
+
+
+\begin{figure}[H]
+\includegraphics[scale=0.9]{Bilder/DampfdruckkurveA.png}
+\caption[Dampfdruckkurve A]{Dampfdruckkurve in Versuch A}
+\label{fig:DampfA}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{Bilder/Rohdaten_HauptmessungB}
+\caption[Rohdaten B]{Druck und Temperatur im Verlauf der Messung (B).}
+\label{fig:RohdatenB}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.8]{Bilder/DampfdruckkurveB}
+\caption[Dampfdruckkurve B]{Dampfdruckkurve in Versuch B.}
+\label{fig:DampfB}
+\end{center}
+\end{figure}
+
+
+Der Fehler auf die Druckmessung ist gegeben durch die Digitalisierung und den Fehler der Rauschmessung.
+Die Berechnung folgt hier exemplarisch für A:
+
+\begin{equation}
+\sigma_p=\sqrt{\left(\frac{0.75 hPa}{\sqrt{12}}\right)^2+(0.006 hPa)^2}=0.22 hPa
+\end{equation}
+
+
+Der Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und ist damit gegeben durch $\sigma_T=0.12C$.\\
+Trägt man nun den logarithmierten Druck gegen den Kehrwert der Temperatur auf, lässt sich der (lokale) lineare Zusammenhang gut erkennen(vgl. Abbildung \ref{fig:logA} und \ref{fig:logB}).\\
+Dabei ergeben sich die Fehler der transformierten Daten durch Fehlerfortpflanzung:
+
+\begin{equation}
+\sigma_{log(p/p_0}=\frac{\sigma_p}{p} ; \quad \sigma_{1/T}=\frac{\sigma_T}{T^2}
+\end{equation}
+
+Für die in den Abbildungen \ref{fig:logA} und \ref{fig:logB} markierten Bereich ist die lineare Anpassung in Abbildung \ref{fig:fit_2A} und \ref{fig:fit_2B} exemplarisch gezeigt.\\
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{Bilder/log_RohdatenA.png}
+\caption[Transformierte Daten A]{Transformierte Rohdaten für Versuch A}
+\label{fig:logA}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{Bilder/lokaler_fit_2A.png}
+\includegraphics[width=\linewidth]{Bilder/lokale_Residuen_2A}
+\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich und Residuen für A}
+\label{fig:fit_2A}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\linewidth]{Bilder/log_RohdatenB}
+\caption[Rohdaten logarith. B]{Transformierte Rohdaten B}
+\label{fig:logB}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\linewidth]{Bilder/lokaler_fit_2B}\\
+\includegraphics[width=\linewidth]{Bilder/lokale_residuen_2B}
+\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich und Residuen für B}
+\label{fig:fit_2B}
+\end{center}
+\end{figure}
+
+
+Dieses Vorgehen wurde für jeweils sechs, symmetrisch um eine bestimmte Temperatur verteilte, Teilintervalle durchgeführt. Die jeweiligen Ergebnisse sind in Tabelle \ref{tab:enthalpie_A}
+aufgeführt.\\
+
+
+\begin{table}[H]
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		\textbf{Temp. [K]} & \textbf{Steigung fit [K]} & \textbf{y-Achsenabschn.} & $\chi ^2/dof$ & \textbf{$\Lambda$ [kJ/mol]} & \textbf{Abweichung} \\
+		\hline
+		373 & -5050.70 $\pm$ 16.62 & -0.266 $\pm$ 0.001 & 5.23 & 41.992 $\pm$ 0.138 & 9.6$\sigma$ \\
+		\hline
+		366 & -4989.34 $\pm$ 17.64 & -0.267 $\pm$ 0.001 & 3.59 & 41.481 $\pm$ 0.147 & 3.7$\sigma$ \\
+		\hline
+		361 & -4984.58 $\pm$ 19.38 & -0.269 $\pm$ 0.002 & 3.16 & 41.442 $\pm$ 0.161 & 1.6$\sigma$ \\
+		\hline
+		357 & -4954.29 $\pm$ 24.25 & -0.274 $\pm$ 0.003 & 2.65 & 41.190 $\pm$ 0.202 & 0.8$\sigma$ \\
+		\hline
+		353 & -5078.28 $\pm$ 26.35 & -0.258 $\pm$ 0.004 & 2.23 & 42.221 $\pm$ 0.219 & 3.3$\sigma$ \\
+		\hline
+		350 & -4736.43 $\pm$ 25.14 & -0.314 $\pm$ 0.004 & 1.90 & 39.379 $\pm$ 0.209 & 10$\sigma$ \\
+		\hline 
+	\end{tabular}\\		
+\\
+
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		\textbf{Temp. [K]} & \textbf{Steigung fit [K]} & \textbf{y-Achsenabschn.} & $\chi ^2/dof$ & \textbf{$\Lambda$ [kJ/mol]} & \textbf{Abweichung} \\
+		\hline
+		367 & -5020.08 $\pm$ 9.44 & -0.165 $\pm$ 0.001 & 2.29 & 40.783 $\pm$ 0.076 & 1.9$\sigma$ \\
+		\hline
+		359 & -5156.11 $\pm$ 11.95 & -0.154 $\pm$ 0.001 & 1.75 & 41.559 $\pm$ 0.096 & 2.9$\sigma$ \\
+		\hline
+		353 & -5307.76 $\pm$ 21.64 & -0.135 $\pm$ 0.003 & 2.84 & 42.428 $\pm$ 0.172 & 5.3$\sigma$ \\
+		\hline
+		348 & -5425.55 $\pm$ 20.72 & -0.118 $\pm$ 0.004 & 1.55 & 42.995 $\pm$ 0.165 & 7.6$\sigma$ \\
+		\hline
+		344 & -5476.23 $\pm$ 24.03 & -0.108 $\pm$ 0.005 & 1.50 & 42.991 $\pm$ 0.188 & 5.8$\sigma$ \\
+		\hline
+		341 & -5654.39 $\pm$ 34.72 & -0.067 $\pm$ 0.009 & 1.72 & 43.932 $\pm$ 0.270 & 7.1$\sigma$ \\
+		\hline
+	\end{tabular}
+
+
+
+	\caption{Ergebnisse für die Verdampfungsenthalpie nach Temperatur (Mittelwert der Intervalle) für Versuch A (oben) und Versuch B (unten).}
+	\label{tab:enthalpie_A}
+\end{table}
+
+Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda}=R \cdot \sigma_a$.\\
+Da $\Lambda$ temperaturabhängig ist, muss der zur Messung passende Literaturwert erst noch bestimmt werden. Die Literaturwerte lassen sich nicht direkt aus der Temperatur ausrechnen. Abbildung \ref{fig:LiteraturwertLambda} zeigt die Literaturwerte als blaue Punkte und eine lineare Näherung als rote Linie. Es lässt sich leicht erkennen, dass die Näherung in diesem Temperaturbereich gut funktioniert. Daher wird mit dieser gerechnet und diese ist auch in die Ergebnisplots eingezeichnet. \\
+In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte von $\Lambda$ bei den entsprechenden Temperaturen. In Abb. \ref{fig:EntTempB} findet sich die selbe Darstellung für Aufbau B.\\
+
+Für Versuch A fällt besonders auf, dass der erste und der letzte Wert massiv vom Literaturwert abweichen. Es ist denkbar, dass zu Beginn der Messung das Gleichgewicht noch nicht vollständig eingestellt war, was zu einer Verfälschung der Werte zu Beginn der Messung, also insbesondere dem in Abb.\ref{fig:EntTempA} rechten Wert für $\Lambda$.
+Der Wert links in der Abbildung ist zeitlich gesehen der letzte Wert. Eine naheliegende Erklärung für diesen Wert ist, dass das Wasser zu diesem Zeitpunkt bereits nicht mehr richtig am sieden war.\\
+
+Für Aufbau B ist direkt ersichtlich, dass der prinzipielle Verlauf von Verdampfungsenthalpie gegen Temperatur mit dem Verlauf aus der Literatur übereinstimmt. Allerdings sind die individuellen Werte im Vergleich zu den Literaturwerten zum Teil mehrere Standardabweichungen zu groß, was dafür spricht, dass das Versuchsergebnis durch eine unerkannte Systematik stark nach oben verfälscht wird.\\
+Denn ein zu großer Druck (z.B. durch den Partialdruck zusätzlich eingeschlossener Luft) sorgt für eine betragsmäßig größere Steigung und infolge dessen zu einem erhöhten Wert für $\Lambda$.
+Ebenso ist klar erkennbar, dass die Abweichung mit zunehmender Messdauer (entspricht kleinerer Temperatur) immer mehr zunimmt. Berücksichtigt man noch die zweite Dichtigkeitsmessung, welche deutlich schlechter als die erste ausgefallen ist, lässt sich zusammenfassend sagen das wahrscheinlich während des Versuches eine ausreichend große Menge Luft in den Kolben eingedrungen ist und somit der gemessene Druck zunehmend größer als der tatsächliche Dampfdruck des Wassers wurde.
+
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.9]{Bilder/Lambda_Literaturwert_fit.png}
+\caption[Literaturwerte für $\Lambda$ in Abhängigkeit von der Temperatur]{Literaturwerte für $\Lambda$ in Abhängigkeit von der Temperatur}
+\label{fig:LiteraturwertLambda}
+\end{center}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.9]{Bilder/Enthalpie_gegen_TempA}
+\caption{Enthalpie gegen Temperatur und Literaturwerte (Gerade).}
+\label{fig:EntTempA}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.8]{Bilder/Enthalpie_gegen_TempB}
+\caption[Enthalpie - Temperatur]{Errechnete Enthalpiewerte aufgetragen gegen die entsprechende Temperatur und Literaturwerte (Gerade).}
+\label{fig:EntTempB}
+\end{center}
+\end{figure}
+
+
+
+
+
+
+\section{Fazit}
+to be continued...
+
+
+
+\end{document}
