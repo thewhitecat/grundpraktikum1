@@ -149,7 +149,7 @@ m = \dfrac{99.72}{T_{Eis}-T_{siedend}} = 1.0252
 \end{equation}
 
 \begin{equation}
-\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
+\sigma_{m} = m\cdot \sqrt{\left( \dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis}^{2}}\right) ^{2}+\left( \dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}}\right) ^{2}} = 0.0001
 \end{equation}
 
 \begin{equation}
@@ -157,7 +157,7 @@ b = 99.72-m\cdot T_{siedend} = -2.1740C
 \end{equation}
 
 \begin{equation}
-\sigma_{b} = \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0003C
+\sigma_{b} = \sqrt{\left( \dfrac{\sigma_{m}}{m}\right) ^{2}+\left( \dfrac{\sigma_{T_{siedend}}}{T_{siedend}}\right) ^{2}} = 0.0003C
 \end{equation}
 
 
@@ -348,7 +348,7 @@ m = \dfrac{99.72}{T_{Eis}-T_{siedend}} = 1.0101
 \end{equation}
 
 \begin{equation}
-\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
+\sigma_{m} = m\cdot \sqrt{\left( \dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis})^{2}} \right) ^{2}+\left( \dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}}\right) ^{2}} = 0.0001
 \end{equation}
 
 \begin{equation}
@@ -356,7 +356,7 @@ b = 99.72-m\cdot T_{siedend} = -0.5290C
 \end{equation}
 
 \begin{equation}
-\sigma_{b} = b\cdot \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0001C
+\sigma_{b} = b\cdot \sqrt{\left( \dfrac{\sigma_{m}}{m}\right) ^{2}+\left( \dfrac{\sigma_{T_{siedend}}}{T_{siedend}}\right) ^{2}} = 0.0001C
 \end{equation}
 
 
@@ -367,7 +367,7 @@ T_{erwartet}=1.0101\cdot T_{gemessen}-0.5290C
 
 Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
 \begin{equation}
-\sigma_{T}=\sqrt{\left(m\cdot T_{gemessen}\cdot \sqrt{ (\dfrac{\sigma_m}{m})^{2}+(\dfrac{\sigma_T}{T})^{2}}\right)^{2}+\sigma_{b}^{2}}=0.05
+\sigma_{T}=\sqrt{\left(m\cdot T_{gemessen}\cdot \sqrt{ \left( \dfrac{\sigma_m}{m}\right) ^{2}+\left( \dfrac{\sigma_T}{T}\right) ^{2}}\right)^{2}+\sigma_{b}^{2}}=0.05
 \end{equation}
 Wobei $\sigma_T = 0.04$ und eine Temperatur von 100C angenommen wurde
 
