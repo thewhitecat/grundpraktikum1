@@ -41,8 +41,8 @@ temperatur = data[:,3] + 273.15
 R = 8.314
                  
 # Rauschwerte -> Fehler auf Einzelwerte
-sigma_p = np.sqrt( (0.75/np.sqrt(12))**2+0.37**2)
-sigma_t = 0.12
+sigma_p_stat = 0.75/np.sqrt(12)
+sigma_t_stat = 0.04
 
 
 # Druck und Temperatur beim Sieden
