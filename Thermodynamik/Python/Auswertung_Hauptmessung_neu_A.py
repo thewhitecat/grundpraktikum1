@@ -151,6 +151,8 @@ sigma_stat_steigung_array = np.empty(n)
 sigma_sys_steigung_array = np.empty(n)
 steigung_array = np.empty(n)
 temp_array = np.empty(n)
+enthalpie = np.empty(n)
+sigma_sys_enthalpie_array = np.empty(n)
 
 for i in range(n):
     # Temperaturbereich auswählen
@@ -178,8 +180,14 @@ for i in range(n):
                              
     # Systematische Unsicherheit auf Steigung berechnen
     sigma_sys_steigung_array[i] = np.sqrt( (np.abs(a_t2-a)+np.abs(a_t1-a))**2/4 + (np.abs(a_p2-a)+ np.abs(a_p1-a))**2/4 )
+    enthalpie[i] = -a *R /1000
+    enthalpie_1 = - a_t1*R/1000
+    enthalpie_2 = - a_t2*R/1000
+    enthalpie_3 = - a_p1*R/1000
+    enthalpie_4 = - a_p2*R/1000
+    sigma_sys_enthalpie_array[i] = np.sqrt( (np.abs(enthalpie_2-enthalpie[i])+np.abs(enthalpie_1-enthalpie[i]))**2/4 + (np.abs(enthalpie_3-enthalpie[i])+ np.abs(enthalpie_4-enthalpie[i]))**2/4 )
     
-    if (i == 3):
+    if (i == 4):
         plt.figure(5)
         plt.errorbar(x, y, xerr=ex_stat, yerr=ey_stat, fmt=".")
         plt.xlabel( "$(1/T - 1/T_0) [1/K]$")
@@ -206,7 +214,7 @@ for i in range(n):
         plt.xticks(rotation=0)
     mittlere_temp = (tmin+tmax)/2
     temp_array[i] = mittlere_temp
-    print ("\nTemperatur = {:3.3f} ({:3.3f} bis {:3.3f})\n$\literaturwert$ = {:3.3f}, $\sigma_\literaturwert$ = {:3.3f}\n"\
+    print ("\nTemperatur = {:3.3f} ({:3.3f} bis {:3.3f})\n$\Lambda$ = {:3.3f}, $\sigma_\Lamda$ = {:3.3f}\n"\
            .format(mittlere_temp, tmin, tmax, -a*R/1000, ea*R/1000))
 
 
@@ -218,7 +226,7 @@ for i in range(n):
 
 plt.figure(7)
 # Verdampfungsenthalpie in kJ/mol
-enthalpie = -steigung_array * R /1000
+#enthalpie = -steigung_array * R /1000
 sigma_enthalpie_stat = sigma_stat_steigung_array * R /1000
 sigma_enthalpie_sys = sigma_sys_steigung_array * R/1000
 sigma_enthalpie = np.sqrt(sigma_enthalpie_stat**2 + sigma_enthalpie_sys**2)
