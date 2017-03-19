@@ -382,20 +382,21 @@ Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich f�
 \end{figure}
 
 
-Der Fehler auf die Druckmessung ist gegeben durch die Digitalisierung und den Fehler der Rauschmessung.
-Die Berechnung folgt hier exemplarisch für A:
+Der statistische Fehler auf die Druckmessung ist durch die Digitalisierung gegeben.
 
 \begin{equation}
-\sigma_p=\sqrt{\left(\frac{0.75 hPa}{\sqrt{12}}\right)^2+(0.006 hPa)^2}=0.22 hPa
+\sigma_{p, stat}=\frac{0.75 hPa}{\sqrt{12}}=0.22 hPa
 \end{equation}
 
 
-Der Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und ist damit gegeben durch $\sigma_T=0.12C$.\\
+Der statistische Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und ist damit gegeben durch $\sigma_{T, stat}=0.12K$ (siehe Tabelle \ref{tab:RauschenA}).\\
+
 Trägt man nun den logarithmierten Druck gegen den Kehrwert der Temperatur auf, lässt sich der (lokale) lineare Zusammenhang gut erkennen(vgl. Abbildung \ref{fig:logA} und \ref{fig:logB}).\\
-Dabei ergeben sich die Fehler der transformierten Daten durch Fehlerfortpflanzung:
+
+Dabei ergeben sich die statistischen und systematischen Fehler der transformierten Daten durch Fehlerfortpflanzung. Es gilt jeweils:
 
 \begin{equation}
-\sigma_{log(p/p_0}=\frac{\sigma_p}{p} ; \quad \sigma_{1/T}=\frac{\sigma_T}{T^2}
+\sigma_{log(p/p_0)}=\frac{\sigma_p}{p} ; \quad \sigma_{1/T}=\frac{\sigma_T}{T^2}
 \end{equation}
 
 Für die in den Abbildungen \ref{fig:logA} und \ref{fig:logB} markierten Bereich ist die lineare Anpassung in Abbildung \ref{fig:fit_2A} und \ref{fig:fit_2B} exemplarisch gezeigt.\\
@@ -425,7 +426,7 @@ Für die in den Abbildungen \ref{fig:logA} und \ref{fig:logB} markierten Bereich
 \begin{center}
 \includegraphics[width=\linewidth]{Bilder/lokaler_fit_2B}\\
 \includegraphics[width=\linewidth]{Bilder/lokale_residuen_2B}
-\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich und Residuen für B}
+\caption[Lokale Anpassung]{Lokale Anpassung im Bereich von  und Residuen für B}
 \label{fig:fit_2B}
 \end{center}
 \end{figure}
@@ -479,7 +480,21 @@ aufgeführt.\\
 	\label{tab:enthalpie_A}
 \end{table}
 
-Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda}=R \cdot \sigma_a$.\\
+Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der statistische Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda, stat}=R \cdot \sigma_a$. Um einen systematischen Fehler abzuschätzen eignet sich die Verschiebemethode. Dazu werden die Messpunkte mit ihren statistischen Fehlern um die systematischen Fehler verschoben, einmal nach oben und einmal nach unten,   \\
+
+\begin{equation}
+	ln(p/p_0)_{i, verschoben} = ln(p/p_0)_{i} - \sigma _{ln(p/p_0), syst}
+\end{equation}
+bzw.
+\begin{equation}
+	ln(p/p_0)_{i, verschoben} = ln(p/p_0)_{i} + \sigma _{ln(p/p_0), syst}
+\end{equation}
+
+und man wiederholt jeweils die lineare Regression. So erhält man zwei neue Werte für die Verdampfungsenthalpie. Der Teil des systematischen Fehlers, der von der Druckmessung herrührt, ist dann der Mittelwert der Abweichungen,
+\begin{equation}
+	\Delta \Lambda _{syst,p} = ( |\Lambda_{p,-}-\Lambda| + |\Lambda_{p,+} - \Lambda|)/2 .
+\end{equation}
+
 Da $\Lambda$ temperaturabhängig ist, muss der zur Messung passende Literaturwert erst noch bestimmt werden. Die Literaturwerte lassen sich nicht direkt aus der Temperatur ausrechnen. Abbildung \ref{fig:LiteraturwertLambda} zeigt die Literaturwerte als blaue Punkte und eine lineare Näherung als rote Linie. Es lässt sich leicht erkennen, dass die Näherung in diesem Temperaturbereich gut funktioniert. Daher wird mit dieser gerechnet und diese ist auch in die Ergebnisplots eingezeichnet. \\
 In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte von $\Lambda$ bei den entsprechenden Temperaturen. In Abb. \ref{fig:EntTempB} findet sich die selbe Darstellung für Aufbau B.\\
 
