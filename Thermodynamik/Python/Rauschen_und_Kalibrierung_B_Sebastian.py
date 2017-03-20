@@ -10,14 +10,25 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-# Auswertung Rauschen
-data = p.lese_lab_datei("CASSY\Rauschmessungen.lab")
-temperatur = data[:,3] +273.15
-druck = data[:,2]
+# Auswertung Eiswasser
+data = p.lese_lab_datei("Lab\Temperatur_Eiswasser.lab")
+temperatur = data[:,2] +273.15
+druck = data[:,4]
 
 
 # Rauschen -> Unsicherheit auf Einzelwerte
 sigma_temp = np.std(temperatur, ddof=1)
+
+minimum = 1000
+for i in range(temperatur.size-1):
+    neu = np.abs(temperatur[i]-temperatur[i+1])
+    if (neu < minimum and neu > 0):
+        minimum = neu
+        
+print(minimum)
+# Plot Histogramm Rauschen im Eiswasser
+plt.figure(2)
+plt.hist(temperatur-273.15, bins = 30)
 
 
 # Luftdruck im Raum mit Unsicherheit:
@@ -26,11 +37,9 @@ luftdruck = np.mean(druck)
 sigma_luftdruck = 0.75 / np.sqrt(12)
 
 
-
-
 # Kalibration Thermometer
-data = p.lese_lab_datei("CASSY\Temperatur_siedend.lab")
-temperatur2 = data[-301:,3] + 273.15
+data = p.lese_lab_datei("Lab\Temperatur_siedend.lab")
+temperatur2 = data[-301:,2] + 273.15
 
 
 # Schmelztemperatur von Wasser -> 273.15K erwartet

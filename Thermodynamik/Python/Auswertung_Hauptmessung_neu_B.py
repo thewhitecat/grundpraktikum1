@@ -58,16 +58,16 @@ temperatur = data[100:,2]
 R = 8.314
 
 # Korrekturwerte für Druck und Temperatur
-m = 1.0101
+m = 1.01
 sigma_m = 0.0001
-b = -3.29
+b = -3.27
 sigma_b = 0.0001
 offset_druck = -16.04
               
 # Rauschwerte -> Fehler auf Einzelwerte
 sigma_p_stat = 0.75/np.sqrt(12)
 sigma_p_sys = 0.75/np.sqrt(12)
-sigma_t_stat = 0.04
+sigma_t_stat = 0.17
 sigma_t_sys = np.sqrt(temperatur**2*sigma_m**2 + m**2*sigma_t_stat**2 + sigma_b**2)
 
 # Druck und Temperatur beim Sieden
