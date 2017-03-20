@@ -329,56 +329,51 @@ B & $1021.04 \pm 0.22$ & $-16.04 \pm 0.22$\\
 
 
 \subsection{Dichtigkeitsmessung}
-Eine sehr wichtige Voraussetzung für sinnvolle Ergebnisse ist, dass die Messapparatur dicht ist. Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch sind für Aufbau A in Abbildung \ref{fig:DichtigkeitA} und die zugehörigen Residuen in Abbildung \ref{fig:ResiduenDichtigkeitA} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
+Eine sehr wichtige Voraussetzung für sinnvolle Ergebnisse ist, dass die Messapparatur dicht ist. Die Daten aus dem in Abschnitt \ref{sec:Aufbau und Durchfühung} erklärten Messverfahren vor dem Hauptversuch und die zugehörigen Residuen sind für Aufbau A in Abbildung \ref{fig:DichtigkeitA} zu sehen. Das Muster, dass sich in den Residuen zeigt, ist bedingt durch das Auflösungsvermögen des Drucksensor, welches eindrucksvoll anhand der Stufenform des Plots der Rohdaten zu sehen ist. \\
 Aufgrund der Leckrate von $(0,215 \pm 0,02) \dfrac{hPa}{min}$ kann die Apparatur als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.\\
 Auf eine Dichtigkeitsmessung nach dem Hauptversuch wurde verzichtet da während des Abkühlens der Aufbau empfindlich gestört wurde und keine Dichtigkeit mehr gegeben war. Es wird im weiteren Verlauf der Auswertung angenommen das die Undichtigkeit von Versuchsaufbau A während des Hauptversuchs vernachlässigbar klein blieb.
 
 \begin{figure}
+\centering
 \includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_A.png}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_A.png}
 \caption[Dichtigkeit vor Hauptversuch Apparatur A]{Dichtigkeit vor Hauptversuch Apparatur A}
 \label{fig:DichtigkeitA}
 \end{figure}
 
-\begin{figure}
-\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_A.png}
-\caption[Dichtigkeit vor Hauptversuch Apparatur A]{Residuen der Dichtigkeit vor Hauptversuch Apparatur A}
-\label{fig:ResiduenDichtigkeitA}
-\end{figure}
-
-Die Ergebnisse der Dichtigkeit für Aufbau B vor der Hauptmessung sind ähnlich und finden sich den Abbildungen \ref{fig:DichtigkeitB} und \ref{fig:ResiduenDichtigkeitB}.\\
+Die Ergebnisse der Dichtigkeit für Aufbau B vor der Hauptmessung sind ähnlich und finden sich in Abbildung \ref{fig:DichtigkeitB}.\\
 Aufgrund der Leckrate von $(0,236 \pm 0,035) \dfrac{hPa}{min}$ kann die Apparatur auch hier als dicht angenommen werden und der gemessene Druck kann direkt verwendet werden und muss nicht korrigiert werden.\\
-Nach Durchführung des Hauptversuches wurde für Aufbau B eine erneute Dichtigkeitsmessung vorgenommen (Abb. \ref{fig:DichtigkeitNachherB} und \ref{fig:ResiduenDichtigkeitNachherB}).\\
+Nach Durchführung des Hauptversuches wurde für Aufbau B eine erneute Dichtigkeitsmessung vorgenommen (Abb. \ref{fig:DichtigkeitNachherB}).\\
 Die Leckrate ist mit $(2,718 \pm 0,160) \dfrac{hPa}{min}$ deutlich schlechter geworden im Vergleich zu der Leckrate vor dem Hauptversuch. Dies könnte daran liegen, dass die Dichtigkeitsmessung nicht mit dem nach dem Hauptversuch vorhandenen Unterdruck durchgeführt wurde, sondern wie zu Beginn mit der Handvakuumpumpe. Durch das Wackeln an der Apparatur beim Anschließen dieser könnten sich Undichtigkeiten aufgetan haben, welche dann den Wert der zweiten Messung verschlechtert haben, auf die Hauptmessung aber keinen Einfluss haben, weil sie erst nach dieser aufgetreten sind. Daher wird im Folgenden davon dennoch ausgegangen, dass die Undichtigkeit vernachlässigbar gering ist.
 
 
 \begin{figure}
+\centering
 \includegraphics[width=\linewidth]{Bilder/Dichtigkeit_vorher_B.png}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_B.png}
 \caption[Dichtigkeit vor Hauptversuch Apparatur B]{Dichtigkeit vor Hauptversuch Apparatur B}
 \label{fig:DichtigkeitB}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_vorher_B.png}
-\caption[Dichtigkeit vor Hauptversuch Apparatur B]{Residuen der Dichtigkeit vor Hauptversuch Apparatur B}
-\label{fig:ResiduenDichtigkeitB}
-\end{figure}
-
-\begin{figure}
+\centering
 \includegraphics[width=\linewidth]{Bilder/Dichtigkeit_nachher_B.png}
+\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_nachher_B}
 \caption[Dichtigkeit B nachher]{Dichtigkeit nach Haupversuch (B).}
 \label{fig:DichtigkeitNachherB}
-\end{figure}
-
-\begin{figure}
-\includegraphics[width=\linewidth]{Bilder/Residuen_Dichtigkeit_nachher_B}
-\caption{Residuen für Dichtigkeit nach dem Hauptversuch (B).}
-\label{fig:ResiduenDichtigkeitNachherB}
 \end{figure}
 
 
 
 \subsection{Hauptmessung}
 
+Für die Hauptmessung wurden folgende Cassy Einstellungen verwendet:\\
+
+\begin{tabular}{l l l}
+CASSY & Kanal A & Druck p1 0-1500hPa Momentanwert\\
+& Kanal B & Temperatur T1 -20C-120C Momentanwert\\
+Messparameter & automatisch & Intervall 1s
+\end{tabular}\\
 
 Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich für beide Verusche in Abbildung \ref{fig:RohdatenA} und \ref{fig:RohdatenB}. Fügt man diese Daten über die Zeiten zusammen erhält man die Dampfdruckkurven (siehe Abbildung \ref{fig:DampfA} und \ref{fig:DampfB}).\\
 
@@ -475,17 +470,17 @@ aufgeführt.\\
 		\hline
 		\textbf{Temp. [K]} & \textbf{Steigung $\pm \sigma_{stat} \pm \sigma_{sys}$ [K]} & $\chi ^2/dof$ & \textbf{$\Lambda$ $\pm \sigma_{stat} \pm \sigma_{sys}$ [kJ/mol]} & \textbf{Abweichung} \\
 		\hline
-		367.0 bis 372.7 & -4917.19 $\pm$ 28.41 $\pm$ 3.60 & 0.54 & 40.88 $\pm$ 0.24 $\pm$ 0.03 & 0.3$\sigma$ \\
+		367.0 bis 372.7 & -4917.2 $\pm$ 28.4 $\pm$ 3.6 & 0.54 & 40.88 $\pm$ 0.24 $\pm$ 0.03 & 0.3$\sigma$ \\
 		\hline
-		361.3 bis 367.0 & -4883.06 $\pm$ 19.96 $\pm$ 3.72 & 0.43 & 40.60 $\pm$ 0.17 $\pm$ 0.03 & 2.8$\sigma$ \\
+		361.3 bis 367.0 & -4883.1 $\pm$ 20.0 $\pm$ 3.7 & 0.43 & 40.60 $\pm$ 0.17 $\pm$ 0.03 & 2.8$\sigma$ \\
 		\hline
-		355.6 bis 361.3 & -4817.71 $\pm$ 16.88 $\pm$ 3.86 & 0.05 & 40.05 $\pm$ 0.14 $\pm$ 0.03 & 8.8$\sigma$ \\
+		355.6 bis 361.3 & -4817.7 $\pm$ 16.9 $\pm$ 3.9 & 0.05 & 40.05 $\pm$ 0.14 $\pm$ 0.03 & 8.8$\sigma$ \\
 		\hline
-		349.9 bis 355.6 & -4814.17 $\pm$ 14.84 $\pm$ 4.12 & 0.06 & 40.03 $\pm$ 0.12 $\pm$ 0.03 & 12.2$\sigma$ \\
+		349.9 bis 355.6 & -4814.2 $\pm$ 14.8 $\pm$ 4.1 & 0.06 & 40.03 $\pm$ 0.12 $\pm$ 0.03 & 12.2$\sigma$ \\
 		\hline
-		344.2 bis 349.9 & -4867.60 $\pm$ 12.75 $\pm$ 4.53 & 0.08 & 40.47 $\pm$ 0.11 $\pm$ 0.04 & 12.2$\sigma$ \\
+		344.2 bis 349.9 & -4867.6 $\pm$ 12.8 $\pm$ 4.5 & 0.08 & 40.47 $\pm$ 0.11 $\pm$ 0.04 & 12.2$\sigma$ \\
 		\hline
-		338.5 bis 344.2 & -4505.32 $\pm$ 10.65 $\pm$ 4.65 & 0.07 & 37.46 $\pm$ 0.09 $\pm$ 0.04 & 48.1$\sigma$ \\
+		338.5 bis 344.2 & -4505.3 $\pm$ 10.7 $\pm$ 4.7 & 0.07 & 37.46 $\pm$ 0.09 $\pm$ 0.04 & 48.1$\sigma$ \\
 		\hline 
 	\end{tabular}\\		
 \\
@@ -494,17 +489,17 @@ aufgeführt.\\
 		\hline
 		\textbf{Temp. [K]} & \textbf{Steigung $\pm \sigma_{stat} \pm \sigma_{sys}$ [K]} & $\chi ^2/dof$ & \textbf{$\Lambda$ $\pm \sigma_{stat} \pm \sigma_{sys}$ [kJ/mol]} & \textbf{Abweichung} \\
 		\hline
-		363.5 bis 369.8 & -4981.91 $\pm$ 18.63 $\pm$ 1.82 & 1.91 & 41.42 $\pm$ 0.15 $\pm$ 0.02 & 3.0$\sigma$ \\
+		363.4 bis 369.7 & -4981.9 $\pm$ 18.6 $\pm$ 4.9 & 0.11 & 41.42 $\pm$ 0.15 $\pm$ 0.04 & 2.9$\sigma$ \\
 		\hline
-		357.1 bis 363.5 & -4973.27 $\pm$ 13.70 $\pm$ 2.13 & 1.75 & 41.35 $\pm$ 0.11 $\pm$ 0.02 & 0.9$\sigma$ \\
+		357.1 bis 363.4 & -4973.6 $\pm$ 13.7 $\pm$ 5.1 & 0.10 & 41.35 $\pm$ 0.11 $\pm$ 0.04 & 0.9$\sigma$ \\
 		\hline
-		350.8 bis 357.1 & -5095.07 $\pm$ 15.91 $\pm$ 2.64 & 0.34 & 42.36 $\pm$ 0.13 $\pm$ 0.02 & 6.2$\sigma$ \\
+		350.8 bis 357.1 & -5095.7 $\pm$ 15.9 $\pm$ 5.5 & 0.02 & 42.37 $\pm$ 0.13 $\pm$ 0.05 & 5.9$\sigma$ \\
 		\hline
-		344.5 bis 350.8 & -5365.19 $\pm$ 12.57 $\pm$ 3.47 & 0.37 & 44.61 $\pm$ 0.10 $\pm$ 0.03 & 25.7$\sigma$ \\
+		344.5 bis 350.8 & -5366.2 $\pm$ 12.6 $\pm$ 6.2 & 0.02 & 44.61 $\pm$ 0.10 $\pm$ 0.05 & 24.0$\sigma$ \\
 		\hline
-		338.2 bis 344.5 & -5409.06 $\pm$ 12.33 $\pm$ 4.52 & 0.47 & 44.97 $\pm$ 0.10 $\pm$ 0.04 & 26.2$\sigma$ \\
+		338.2 bis 344.5 & -5411.0 $\pm$ 12.4 $\pm$ 7.0 & 0.03 & 44.99 $\pm$ 0.10 $\pm$ 0.06 & 24.4$\sigma$ \\
 		\hline
-		331.9 bis 338.2 & -5483.66 $\pm$ 11.13 $\pm$ 6.06 & 0.58 & 45.59 $\pm$ 0.09 $\pm$ 0.05 & 30.3$\sigma$ \\
+		331.9 bis 338.2 & -5484.1 $\pm$ 11.2 $\pm$ 8.2 & 0.04 & 45.59 $\pm$ 0.09 $\pm$ 0.07 & 27.8$\sigma$ \\
 		\hline
 	\end{tabular}
 
@@ -539,9 +534,10 @@ Den Beitrag durch den systematischen Temperaturfehler erhält man ebenfalls durc
 Da $\Lambda$ temperaturabhängig ist, muss der zur Messung passende Literaturwert erst noch bestimmt werden. Dazu haben wir als lineare Approximation eine Gerade durch die Literaturwerte zu 60C und 100C gelegt. Abbildung \ref{fig:LiteraturwertLambda} zeigt die Literaturwerte (60C, 80C, 100C) als blaue Punkte und die lineare Näherung als rote Linie. Es lässt sich leicht erkennen, dass die Näherung in diesem Temperaturbereich gut funktioniert. Daher wird mit dieser gerechnet und diese ist auch in die Ergebnisplots eingezeichnet. \\
 In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte von $\Lambda$ bei den entsprechenden Temperaturen. In Abb. \ref{fig:EntTempB} findet sich die selbe Darstellung für Aufbau B.\\
 
-Es fällt auf, dass bei beiden Versuchen die zeitlich ersten Werte im Rahmen ihrer Fehler relativ gut mit dem Literaturwert übereinstimmen (Jeweils die zwei Werte rechts in den Abbildungen \ref{fig:EntTempA} und \ref{fig:EntTempB}).\\
+Es fällt auf, dass bei beiden Versuchen die zeitlich ersten Werte im Rahmen ihrer Fehler relativ gut mit dem Literaturwert übereinstimmen (Jeweils die zwei Werte rechts in den Abbildungen \ref{fig:EntTempA} und \ref{fig:EntTempB}).
 Allerdings sind die restlichen Werte für $\Lambda$ in Aufbau A deutlich kleiner als die Literaturwerte und auch unter Berücksichtigung der Fehler nicht mehr mit dem Literaturwert vereinbar. Der Wert links in der Abbildung ist zeitlich gesehen der letzte Wert. Eine zumindest für diesen Wert naheliegende Erklärung ist, dass das Wasser zu diesem Zeitpunkt bereits nicht mehr am Sieden war. Für die übrigen Abweichungen liegen keine konkreten Erklärungen vor, am wahrscheinlichsten erscheint hier ein nicht näher bekanntes Problem mit dem Aufbau. \\
 Ähnlich verhält es sich für B, hier sind die übrigen Werte jedoch deutlich zu groß.\\
+Es ist naheliegend, dass die angegebenen Unsicherheiten um etwa eine Größenordnung zu klein sind, allerdings ist uns nicht klar woran dies liegt.\\
 Man beachte, dass ein zu großer Druck (z.B. durch den Partialdruck zusätzlich eingeschlossener Luft) für eine betragsmäßig größere Steigung sorgt und infolge dessen zu einem erhöhten Wert für $\Lambda$ führt.
 Die Abweichung nimmt mit zunehmender Messdauer (entspricht kleinerer Temperatur) immer mehr zu. Berücksichtigt man noch die zweite Dichtigkeitsmessung, welche deutlich schlechter als die erste ausgefallen ist, lässt sich zusammenfassend sagen, dass Aufbau B möglicherweise doch zu undicht war und während des Versuches eine ausreichend große Menge Luft in den Kolben eingedrungen ist und somit der gemessene Druck zunehmend größer als der tatsächliche Dampfdruck des Wassers wurde.\\
 
@@ -580,7 +576,7 @@ Die Abweichung nimmt mit zunehmender Messdauer (entspricht kleinerer Temperatur)
 
 \section{Fazit}
 Beiden Gruppen ist es nicht gelungen ein zufriedenstellendes Ergebnis zu erzielen. Nur zu Beginn der Messung stimmen wenige gemessene Werte im Rahmen der Messunsicherheit mit den Literaturwerten überein. Die übrigen Werte sind entweder viel kleiner (A) oder viel zu groß (B).\\
-Die Ursache für diese Abweichungen liegt wahrscheinlich im sehr empfindlichen Aufbau des Versuchs, welcher  während oder kurz vor der Hauptmessung gestört wurde. Dadurch ist die vernachlässigbare Undichtigkeit nicht mehr gewährleistet gewesen und es kommt zu den größtenteils massiven Abweichungen. 
+Die Ursache für diese Abweichungen liegt wahrscheinlich im sehr empfindlichen Aufbau des Versuchs, welcher  während oder kurz vor der Hauptmessung gestört wurde. Dadurch ist die vernachlässigbare Undichtigkeit nicht mehr gewährleistet gewesen und es kommt zu den größtenteils massiven Abweichungen.
 
 
 \end{document}
