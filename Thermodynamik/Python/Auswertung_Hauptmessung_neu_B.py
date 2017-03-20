@@ -60,7 +60,7 @@ R = 8.314
 # Korrekturwerte für Druck und Temperatur
 m = 1.0101
 sigma_m = 0.0001
-b = -3.28
+b = -3.29
 sigma_b = 0.0001
 offset_druck = -16.04
               
@@ -187,7 +187,7 @@ for i in range(n):
     enthalpie_4 = - a_p2*R/1000
     sigma_sys_enthalpie_array[i] = np.sqrt( (np.abs(enthalpie_2-enthalpie[i])+np.abs(enthalpie_1-enthalpie[i]))**2/4 + (np.abs(enthalpie_3-enthalpie[i])+ np.abs(enthalpie_4-enthalpie[i]))**2/4 )
     
-    if (i == 3):
+    if (i == 4):
         plt.figure(5)
         plt.errorbar(x, y, xerr=ex_stat, yerr=ey_stat, fmt=".")
         plt.xlabel( "$(1/T - 1/T_0) [1/K]$")
@@ -214,8 +214,8 @@ for i in range(n):
         plt.xticks(rotation=0)
     mittlere_temp = (tmin+tmax)/2
     temp_array[i] = mittlere_temp
-    print ("\nTemperatur = {:3.3f} ({:3.3f} bis {:3.3f})\n$\literaturwert$ = {:3.3f}, $\sigma_\literaturwert$ = {:3.3f}\n"\
-           .format(mittlere_temp, tmin, tmax, -a*R/1000, ea*R/1000))
+    print ("\n{:3.1f} bis {:3.1f} & {:3.2f} $\pm$ {:3.2f} $\pm$ {:3.2f} & {:3.2f} & {:3.2f} $\pm$ {:3.2f} $\pm$ {:3.2f}\n"\
+           .format(tmin, tmax, a, ea, sigma_sys_steigung_array[i], chi2/dof, enthalpie[i], ea*R/1000, sigma_sys_enthalpie_array[i]))
 
 
 

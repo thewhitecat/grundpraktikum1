@@ -237,8 +237,8 @@ for i in range(n):
         plt.xticks(rotation=0)
     mittlere_temp = (tmin+tmax)/2
     temp_array[i] = mittlere_temp
-    print ("\nTemperatur = {:3.3f} ({:3.3f} bis {:3.3f})\n$\Lambda$ = {:3.3f}, $\sigma_\Lamda$ = {:3.3f}\n"\
-           .format(mittlere_temp, tmin, tmax, -a*R/1000, ea*R/1000))
+    print ("\n{:3.1f} bis {:3.1f} & {:3.2f} $\pm$ {:3.2f} $\pm$ {:3.2f} & {:3.2f} & {:3.2f} $\pm$ {:3.2f} $\pm$ {:3.2f}\n"\
+           .format(tmin, tmax, a, ea, sigma_sys_steigung_array[i], chi2/dof, enthalpie[i], ea*R/1000, sigma_sys_enthalpie_array[i]))
 
 
 
