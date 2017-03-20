@@ -13,7 +13,8 @@ import math
 import numpy as np
 
 data = p.lese_lab_datei('lab/Rauschmessungen.lab')
-T = data[:,2]
+data2 = p.lese_lab_datei('lab/Temperatur_Eiswasser.lab')
+T = data2[:,2]
 p = data[:,4]
 
 def mean(data):

@@ -15,8 +15,9 @@ druck_a=data_a[:,2]
 temp_a=data_a[:,3]
 
 data_b=p.lese_lab_datei('Lab/Rauschmessungen.lab')
+data2 = p.lese_lab_datei('lab/Temperatur_Eiswasser.lab')
 druck_b=data_b[:,4]
-temp_b=data_b[:,2]
+temp_b=data2[:,2]
 
 def stat(x):
     return np.mean(x),np.std(x,ddof=1)
@@ -74,8 +75,8 @@ plt.figtext(0.15,0.7,
 
 #temp b
 m_b_temp,s_b_temp=stat(temp_b)
-x=np.linspace(22.5,23.3,1000)
-bins_b_temp=np.arange(22.7,23.3,0.1)
+x=np.linspace(0,1,1000)
+bins_b_temp=np.arange(0,1,0.1)
 plt.figure(4)
 plt.hist(temp_b,bins=bins_b_temp)
 plt.plot(x,len(temp_b)*0.1*gauss(x,m_b_temp,s_b_temp),color='red')
