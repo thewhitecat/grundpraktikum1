@@ -193,7 +193,7 @@ Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt (Abb.\ref{fig:Ger
 \centering
 \includegraphics[width=0.9\linewidth]{Bilder/KalibrationA}
 \caption[Gerade Kalibration A]{Ausgleichsgerade bei der Kalibration(VersuchA)\\
-Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
+Anmerkung: Die Fehler auf den Mittelwerten sind sehr klein und deswegen hier nicht sichtbar.}
 \label{fig:GeradeKaliA}
 \end{center}
 \end{figure}
@@ -201,25 +201,25 @@ Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht 
 
 Die Kalibrierung (Abb.\ref{fig:GeradeKaliA}) ergibt für die Steigung:
 \begin{equation}
-m = \dfrac{99.72}{T_{Eis}-T_{siedend}} = 1.0252
+m = \dfrac{99.72K}{T_{Eis}-T_{siedend}} = 1.0257
 \end{equation}
 
 \begin{equation}
-\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
+\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72K}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72K}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
 \end{equation}
 
 \begin{equation}
-b = 99.72-m\cdot T_{siedend} = -2.1740C
+b = 372.87K-m\cdot T_{siedend} = -9.20810K
 \end{equation}
 
 \begin{equation}
-\sigma_{b} = \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0003C
+\sigma_{b} = \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0001K
 \end{equation}
 
 Damit können die wirklichen Temperaturen berechnet werden:
 
 \begin{equation}
-T_{erwartet}=1.0252\cdot T_{gemessen}-2.1740C
+T_{erwartet}=1.0257\cdot T_{gemessen}-9.2081K
 \end{equation}
 
 Aus der Fehlerfortpflanzung folgt der (im Hauptversuch als systematisch betrachtete) Fehler auf die Temperatur:
@@ -255,7 +255,7 @@ $99.72$ & $99.24\pm 0.005$ \\ %nachkommastellen
 \includegraphics[width=0.9\linewidth]{Bilder/KalibrationB}
 \begin{center}
 \caption[KalibrationB]{Ausgleichsgerade bei der Kalibration (VersuchB)\\
-Anm.: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
+Anm.: Die Fehler auf den Mittelwerten sind sehr klein und deswegen hier nicht sichtbar.}
 \label{fig:GeradeKaliB}
 \end{center}
 \end{figure}
@@ -263,25 +263,25 @@ Anm.: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sicht
 
 Die Kalibrierung (Abb.\ref{fig:GeradeKaliA}) ergibt für die Steigung:
 \begin{equation}
-m = \dfrac{99.72}{T_{Eis}-T_{siedend}} = 1.0101
+m = \dfrac{99.72K}{T_{Eis}-T_{siedend}} = 1.0100
 \end{equation}
 
 \begin{equation}
-\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
+\sigma_{m} = m\cdot \sqrt{(\dfrac{\sigma_{T_{siedend}}\cdot 99.72K}{(T_{siedend}-T_{Eis})^{2}})^{2}+(\dfrac{\sigma_{T_{Eis}}\cdot 99.72K}{T_{siedend}-T_{Eis}})^{2}} = 0.0001
 \end{equation}
 
 \begin{equation}
-b = 99.72-m\cdot T_{siedend} = -0.5290C
+b = 372.87K-m\cdot T_{siedend} = -3.2664K
 \end{equation}
 
 \begin{equation}
-\sigma_{b} = b\cdot \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0001C
+\sigma_{b} = b\cdot \sqrt{(\dfrac{\sigma_{m}}{m})^{2}+(\dfrac{\sigma_{T_{siedend}}}{T_{siedend}})^{2}} = 0.0001K
 \end{equation}
 
 
 Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
-T_{erwartet}=1.0101\cdot T_{gemessen}-0.5290C
+T_{erwartet}=1.01\cdot T_{gemessen}-3.2664K
 \end{equation}
  
 %Wobei $\sigma_T = 0.04$ und eine Temperatur von 100C angenommen wurde\\
@@ -426,7 +426,9 @@ Dabei ergeben sich die statistischen und systematischen Fehler der transformiert
 \sigma_{log(p/p_0)}=\frac{\sigma_p}{p} ; \quad \sigma_{1/T}=\frac{\sigma_T}{T^2}
 \end{equation}
 
-Für die in den Abbildungen \ref{fig:logA} und \ref{fig:logB} markierten Bereich ist die lineare Anpassung in Abbildung \ref{fig:fit_2A} und \ref{fig:fit_2B} exemplarisch gezeigt.\\
+In Abbildungen \ref{fig:logA} und \ref{fig:logB} ist jeweils ein linearer Fit über den gesamten Messbereich durchgeführt worden. Betrachtet man die Residuen in Abbildung \ref{fig:logB}, so ist deutlich zu erkennen, dass der lineare Zusammenhang nicht global gültig ist ($\chi^2/dof = 28.6$). Dies ist aufgrund der Temperaturabhängigkeit von $\Lambda$ erwartet. Daher war ein ähnliches Ergebnis auch für Abbildung \ref{fig:logA} zu erwarten, dort liegen die Messwerte allerdings auch im Gesamten Bereich nah an einer Geraden ($\chi^2/dof = 0.7$).
+
+Für die in den Abbildungen  markierten Bereich ist die lineare Anpassung in Abbildung \ref{fig:fit_2A} und \ref{fig:fit_2B} exemplarisch gezeigt.\\
 
 \begin{figure}[H]
 \begin{center}
@@ -464,7 +466,7 @@ Für die in den Abbildungen \ref{fig:logA} und \ref{fig:logB} markierten Bereich
 \end{figure}
 
 
-Dieses Vorgehen wurde für jeweils sechs, symmetrisch um eine bestimmte Temperatur verteilte, Teilintervalle durchgeführt. Die jeweiligen Ergebnisse sind in Tabelle \ref{tab:enthalpie_A}
+Dieses Vorgehen wurde für jeweils sechs Teilintervalle mit gleich großen Temperaturbereichen durchgeführt. Die jeweiligen Ergebnisse sind in Tabelle \ref{tab:enthalpie_A}
 aufgeführt.\\
 
 
@@ -512,7 +514,7 @@ aufgeführt.\\
 	\label{tab:enthalpie_A}
 \end{table}
 
-Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der statistische Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda, stat}=R \cdot \sigma_a$.\\
+Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der statistische Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda, stat}=R \cdot \sigma_{a,stat}$.\\
 Um einen systematischen Fehler abzuschätzen eignet sich die Verschiebemethode. Dazu werden die Messpunkte mit ihren statistischen Fehlern um die systematischen Fehler verschoben, einmal nach oben und einmal nach unten,   \\
 
 \begin{equation}
@@ -523,7 +525,7 @@ bzw.
 	ln(p/p_0)_{i, verschoben} = ln(p/p_0)_{i} + \sigma _{ln(p/p_0), syst}
 \end{equation}
 
-und man wiederholt jeweils die lineare Regression. So erhält man zwei neue Werte für die Verdampfungsenthalpie. Der Teil des systematischen Fehlers, der von der Druckmessung herrührt, ist dann der Mittelwert der Abweichungen:
+und man wiederholt jeweils die lineare Regression. So erhält man zwei neue Werte $\Lambda_{p,-}$ bzw. $\Lambda_{p,+}$ für die Verdampfungsenthalpie. Der Teil des systematischen Fehlers, der von der Druckmessung herrührt, ist dann der Mittelwert der Abweichungen:
 \begin{equation}
 	\Delta \Lambda _{syst,p} = ( |\Lambda_{p,-}-\Lambda| + |\Lambda_{p,+} - \Lambda|)/2 .
 \end{equation}
@@ -577,8 +579,8 @@ Die Abweichung nimmt mit zunehmender Messdauer (entspricht kleinerer Temperatur)
 
 
 \section{Fazit}
-Beiden Gruppen ist es nicht gelungen ein zufriedenstellendes Ergebnis zu erzielen. Nur zu Beginn der Messung stimmen wenige gemessene Werte im Rahmen der Messunsicherheit mit den Literaturwerten überein. Die übrigen Werte sind entweder viel kleiner (A) oder viel größer (B).\\
-Die Ursache für diese Abweichungen liegt wahrscheinlich im sehr empfindlichen Aufbau des Versuchs, welcher  während oder kurz vor der Hauptmessung stark gestört wurde. Dadurch ist die vernachlässigbare Undichtigkeit nicht mehr gewährleistet gewesen und es kommt zu den teils massiven Abweichungen. 
+Beiden Gruppen ist es nicht gelungen ein zufriedenstellendes Ergebnis zu erzielen. Nur zu Beginn der Messung stimmen wenige gemessene Werte im Rahmen der Messunsicherheit mit den Literaturwerten überein. Die übrigen Werte sind entweder viel kleiner (A) oder viel zu groß (B).\\
+Die Ursache für diese Abweichungen liegt wahrscheinlich im sehr empfindlichen Aufbau des Versuchs, welcher  während oder kurz vor der Hauptmessung gestört wurde. Dadurch ist die vernachlässigbare Undichtigkeit nicht mehr gewährleistet gewesen und es kommt zu den größtenteils massiven Abweichungen. 
 
 
 \end{document}
