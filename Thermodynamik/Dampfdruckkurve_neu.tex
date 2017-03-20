@@ -190,7 +190,8 @@ Aus diesen Ergebnissen wird nun eine Ausgleichsgerade bestimmt (Abb.\ref{fig:Ger
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=\linewidth]{Bilder/KalibrationA}
+\centering
+\includegraphics[width=0.9\linewidth]{Bilder/KalibrationA}
 \caption[Gerade Kalibration A]{Ausgleichsgerade bei der Kalibration(VersuchA)\\
 Anmerkung: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
 \label{fig:GeradeKaliA}
@@ -221,10 +222,10 @@ Damit können die wirklichen Temperaturen berechnet werden:
 T_{erwartet}=1.0252\cdot T_{gemessen}-2.1740C
 \end{equation}
 
-Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
+Aus der Fehlerfortpflanzung folgt der (im Hauptversuch als systematisch betrachtete) Fehler auf die Temperatur:
 
 \begin{equation}
-\sigma_{T_{erwartet}}=\sqrt{\left(m\cdot T_{gemessen}\cdot \sqrt{ (\dfrac{\sigma_m}{m})^{2}+(\dfrac{\sigma_{T_{gemessen}}}{T_{gemessen}})^{2}}\right)^{2}+\sigma_{b}^{2}}=0.13C
+\sigma_{T_{erwartet}} = \sqrt{(T_{gemessen} \cdot \sigma_m)^2 + (m \cdot \sigma_{T_{gemessen}})^2 + \sigma_b^2}
 \end{equation}
 
 %Wobei $\sigma_T = 0.12$ und eine Temperatur von 100C angenommen wurde.\\
@@ -250,7 +251,8 @@ $99.72$ & $99.24\pm 0.005$ \\ %nachkommastellen
 
 
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{Bilder/KalibrationB}
+\centering
+\includegraphics[width=0.9\linewidth]{Bilder/KalibrationB}
 \begin{center}
 \caption[KalibrationB]{Ausgleichsgerade bei der Kalibration (VersuchB)\\
 Anm.: Die Fehler auf den Messungen sind sehr klein und deswegen hier nicht sichtbar.}
@@ -281,11 +283,7 @@ Damit können die wirklichen Temperaturen berechnet werden:
 \begin{equation}
 T_{erwartet}=1.0101\cdot T_{gemessen}-0.5290C
 \end{equation}
-
-Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
-\begin{equation}
-\sigma_{T_{erwartet}}=\sqrt{\left(m\cdot T_{gemessen}\cdot \sqrt{ (\dfrac{\sigma_m}{m})^{2}+(\dfrac{\sigma_{T_{gemessen}}}{T_{gemessen}})^{2}}\right)^{2}+\sigma_{b}^{2}}=0.05C
-\end{equation}
+ 
 %Wobei $\sigma_T = 0.04$ und eine Temperatur von 100C angenommen wurde\\
 %100C? 0.04 ist doch wieder einzelfehler und nicht mittelwert?
 
@@ -386,21 +384,23 @@ Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich f�
 
 
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{Bilder/Rohdaten_HauptmessungA.png}
+\centering
+\includegraphics[width=0.9\linewidth]{Bilder/Rohdaten_HauptmessungA.png}
 \caption[Rohdaten A]{Druck und Temperatur im Verlauf der Messung (A).}
 \label{fig:RohdatenA}
 \end{figure}
 
 
 \begin{figure}[H]
-\includegraphics[scale=0.9]{Bilder/DampfdruckkurveA.png}
+\centering
+\includegraphics[width=0.8\linewidth]{Bilder/DampfdruckkurveA.png}
 \caption[Dampfdruckkurve A]{Dampfdruckkurve in Versuch A}
 \label{fig:DampfA}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.4]{Bilder/Rohdaten_HauptmessungB}
+\includegraphics[width=0.9\linewidth]{Bilder/Rohdaten_HauptmessungB}
 \caption[Rohdaten B]{Druck und Temperatur im Verlauf der Messung (B).}
 \label{fig:RohdatenB}
 \end{center}
@@ -408,7 +408,7 @@ Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich f�
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.8]{Bilder/DampfdruckkurveB}
+\includegraphics[width=0.8\linewidth]{Bilder/DampfdruckkurveB}
 \caption[Dampfdruckkurve B]{Dampfdruckkurve in Versuch B.}
 \label{fig:DampfB}
 \end{center}
@@ -429,31 +429,36 @@ Dabei ergeben sich die statistischen und systematischen Fehler der transformiert
 Für die in den Abbildungen \ref{fig:logA} und \ref{fig:logB} markierten Bereich ist die lineare Anpassung in Abbildung \ref{fig:fit_2A} und \ref{fig:fit_2B} exemplarisch gezeigt.\\
 
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{Bilder/log_RohdatenA.png}
-\caption[Transformierte Daten A]{Transformierte Rohdaten für Versuch A}
+\begin{center}
+\includegraphics[width=0.75\linewidth]{Bilder/log_RohdatenA}
+\includegraphics[width=0.75\linewidth]{Bilder/residuen_gesamt_A}
+\caption[Rohdaten logarith. A]{Transformierte Daten A mit linearem Fit über Gesamten Bereich.}
 \label{fig:logA}
+\end{center}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=\linewidth]{Bilder/lokaler_fit_2A.png}
-\includegraphics[width=\linewidth]{Bilder/lokale_Residuen_2A}
-\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich und Residuen für A}
+\centering
+\includegraphics[width=0.8\linewidth]{Bilder/lokaler_fit_2A.png}
+\includegraphics[width=0.8\linewidth]{Bilder/lokale_Residuen_2A}
+\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich (ca. 361.3K bis 367.0K) und Residuen für A. Eingezeichnet sind die stat. Fehler.}
 \label{fig:fit_2A}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=\linewidth]{Bilder/log_RohdatenB}
-\caption[Rohdaten logarith. B]{Transformierte Rohdaten B}
+\includegraphics[width=0.9\linewidth]{Bilder/log_RohdatenB}
+\includegraphics[width=0.9\linewidth]{Bilder/residuen_gesamt_B}
+\caption[Rohdaten logarith. B]{Transformierte Daten B mit linearem Fit über Gesamten Bereich.}
 \label{fig:logB}
 \end{center}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=\linewidth]{Bilder/lokaler_fit_2B}\\
-\includegraphics[width=\linewidth]{Bilder/lokale_residuen_2B}
-\caption[Lokale Anpassung]{Lokale Anpassung im Bereich von  und Residuen für B}
+\includegraphics[width=0.9\linewidth]{Bilder/lokaler_fit_2B}\\
+\includegraphics[width=0.9\linewidth]{Bilder/lokale_residuen_2B}
+\caption[Lokale Anpassung]{Lokale Anpassung im markierten Bereich (ca. 357.1K bis 363.5K) und Residuen für B. Eingezeichnet sind die stat. Fehler.}
 \label{fig:fit_2B}
 \end{center}
 \end{figure}
@@ -464,46 +469,46 @@ aufgeführt.\\
 
 
 \begin{table}[H]
-	\begin{tabular}{|c|c|c|c|c|c|}
+	\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		\textbf{Temp. [K]} & \textbf{Steigung fit [K]} & \textbf{y-Achsenabschn.} & $\chi ^2/dof$ & \textbf{$\Lambda$ [kJ/mol]} & \textbf{Abweichung} \\
+		\textbf{Temp. [K]} & \textbf{Steigung $\pm \sigma_{stat} \pm \sigma_{sys}$ [K]} & $\chi ^2/dof$ & \textbf{$\Lambda$ $\pm \sigma_{stat} \pm \sigma_{sys}$ [kJ/mol]} & \textbf{Abweichung} \\
 		\hline
-		373 & -5050.70 $\pm$ 16.62 & -0.266 $\pm$ 0.001 & 5.23 & 41.992 $\pm$ 0.138 & 9.6$\sigma$ \\
+		367.0 bis 372.7 & -4917.19 $\pm$ 28.41 $\pm$ 3.60 & 0.54 & 40.88 $\pm$ 0.24 $\pm$ 0.03 & 9.6$\sigma$ \\
 		\hline
-		366 & -4989.34 $\pm$ 17.64 & -0.267 $\pm$ 0.001 & 3.59 & 41.481 $\pm$ 0.147 & 3.7$\sigma$ \\
+		361.3 bis 367.0 & -4883.06 $\pm$ 19.96 $\pm$ 3.72 & 0.43 & 40.60 $\pm$ 0.17 $\pm$ 0.03 & 3.7$\sigma$ \\
 		\hline
-		361 & -4984.58 $\pm$ 19.38 & -0.269 $\pm$ 0.002 & 3.16 & 41.442 $\pm$ 0.161 & 1.6$\sigma$ \\
+		355.6 bis 361.3 & -4817.71 $\pm$ 16.88 $\pm$ 3.86 & 0.05 & 40.05 $\pm$ 0.14 $\pm$ 0.03 & 1.6$\sigma$ \\
 		\hline
-		357 & -4954.29 $\pm$ 24.25 & -0.274 $\pm$ 0.003 & 2.65 & 41.190 $\pm$ 0.202 & 0.8$\sigma$ \\
+		349.9 bis 355.6 & -4814.17 $\pm$ 14.84 $\pm$ 4.12 & 0.06 & 40.03 $\pm$ 0.12 $\pm$ 0.03 & 0.8$\sigma$ \\
 		\hline
-		353 & -5078.28 $\pm$ 26.35 & -0.258 $\pm$ 0.004 & 2.23 & 42.221 $\pm$ 0.219 & 3.3$\sigma$ \\
+		344.2 bis 349.9 & -4867.60 $\pm$ 12.75 $\pm$ 4.53 & 0.08 & 40.47 $\pm$ 0.11 $\pm$ 0.04 & 3.3$\sigma$ \\
 		\hline
-		350 & -4736.43 $\pm$ 25.14 & -0.314 $\pm$ 0.004 & 1.90 & 39.379 $\pm$ 0.209 & 10$\sigma$ \\
+		338.5 bis 344.2 & -4505.32 $\pm$ 10.65 $\pm$ 4.65 & 0.07 & 37.46 $\pm$ 0.09 $\pm$ 0.04 & 10$\sigma$ \\
 		\hline 
 	\end{tabular}\\		
 \\
 
-	\begin{tabular}{|c|c|c|c|c|c|}
+	\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		\textbf{Temp. [K]} & \textbf{Steigung fit [K]} & \textbf{y-Achsenabschn.} & $\chi ^2/dof$ & \textbf{$\Lambda$ [kJ/mol]} & \textbf{Abweichung} \\
+		\textbf{Temp. [K]} & \textbf{Steigung $\pm \sigma_{stat} \pm \sigma_{sys}$ [K]} & $\chi ^2/dof$ & \textbf{$\Lambda$ $\pm \sigma_{stat} \pm \sigma_{sys}$ [kJ/mol]} & \textbf{Abweichung} \\
 		\hline
-		367 & -5020.08 $\pm$ 9.44 & -0.165 $\pm$ 0.001 & 2.29 & 40.783 $\pm$ 0.076 & 1.9$\sigma$ \\
+		363.5 bis 369.8 & -4981.91 $\pm$ 18.63 $\pm$ 1.82 & 1.91 & 41.42 $\pm$ 0.15 $\pm$ 0.02 & 1.9$\sigma$ \\
 		\hline
-		359 & -5156.11 $\pm$ 11.95 & -0.154 $\pm$ 0.001 & 1.75 & 41.559 $\pm$ 0.096 & 2.9$\sigma$ \\
+		357.1 bis 363.5 & -4973.27 $\pm$ 13.70 $\pm$ 2.13 & 1.75 & 41.35 $\pm$ 0.11 $\pm$ 0.02 & 2.9$\sigma$ \\
 		\hline
-		353 & -5307.76 $\pm$ 21.64 & -0.135 $\pm$ 0.003 & 2.84 & 42.428 $\pm$ 0.172 & 5.3$\sigma$ \\
+		350.8 bis 357.1 & -5095.07 $\pm$ 15.91 $\pm$ 2.64 & 0.34 & 42.36 $\pm$ 0.13 $\pm$ 0.02 & 5.3$\sigma$ \\
 		\hline
-		348 & -5425.55 $\pm$ 20.72 & -0.118 $\pm$ 0.004 & 1.55 & 42.995 $\pm$ 0.165 & 7.6$\sigma$ \\
+		344.5 bis 350.8 & -5365.19 $\pm$ 12.57 $\pm$ 3.47 & 0.37 & 44.61 $\pm$ 0.10 $\pm$ 0.03 & 7.6$\sigma$ \\
 		\hline
-		344 & -5476.23 $\pm$ 24.03 & -0.108 $\pm$ 0.005 & 1.50 & 42.991 $\pm$ 0.188 & 5.8$\sigma$ \\
+		338.2 bis 344.5 & -5409.06 $\pm$ 12.33 $\pm$ 4.52 & 0.47 & 44.97 $\pm$ 0.10 $\pm$ 0.04 & 5.8$\sigma$ \\
 		\hline
-		341 & -5654.39 $\pm$ 34.72 & -0.067 $\pm$ 0.009 & 1.72 & 43.932 $\pm$ 0.270 & 7.1$\sigma$ \\
+		331.9 bis 338.2 & -5483.66 $\pm$ 11.13 $\pm$ 6.06 & 0.58 & 45.59 $\pm$ 0.09 $\pm$ 0.05 & 7.1$\sigma$ \\
 		\hline
 	\end{tabular}
 
 
 
-	\caption{Ergebnisse für die Verdampfungsenthalpie nach Temperatur (Mittelwert der Intervalle) für Versuch A (oben) und Versuch B (unten).}
+	\caption{Ergebnisse für die Verdampfungsenthalpie nach Temperatur für Versuch A (oben) und Versuch B (unten).}
 	\label{tab:enthalpie_A}
 \end{table}
 
@@ -523,13 +528,17 @@ und man wiederholt jeweils die lineare Regression. So erhält man zwei neue Wert
 	\Delta \Lambda _{syst,p} = ( |\Lambda_{p,-}-\Lambda| + |\Lambda_{p,+} - \Lambda|)/2 .
 \end{equation}
 
-Den systematischen Temperaturfehler erhält man ebenfalls durch die Verschiebemethode. Der systematische Gesamtfehler ergibt sich dann durch quadratische Addition.\\
+Den Beitrag durch den systematischen Temperaturfehler erhält man ebenfalls durch die Verschiebemethode. Der systematische Gesamtfehler ergibt sich dann durch quadratische Addition.\\
 
-Da $\Lambda$ temperaturabhängig ist, muss der zur Messung passende Literaturwert erst noch bestimmt werden. Die Literaturwerte lassen sich nicht direkt aus der Temperatur ausrechnen. Abbildung \ref{fig:LiteraturwertLambda} zeigt die Literaturwerte als blaue Punkte und eine lineare Näherung als rote Linie. Es lässt sich leicht erkennen, dass die Näherung in diesem Temperaturbereich gut funktioniert. Daher wird mit dieser gerechnet und diese ist auch in die Ergebnisplots eingezeichnet. \\
+\begin{equation}
+\Delta \Lambda_{syst}^2 = \Delta \Lambda_{syst,p}^2 + \Delta \Lambda_{syst,T}^2
+\end{equation}
+
+Da $\Lambda$ temperaturabhängig ist, muss der zur Messung passende Literaturwert erst noch bestimmt werden. Dazu haben wir als lineare Approximation eine Gerade durch die Literaturwerte zu 60C und 100C gelegt. Abbildung \ref{fig:LiteraturwertLambda} zeigt die Literaturwerte (60C, 80C, 100C) als blaue Punkte und die lineare Näherung als rote Linie. Es lässt sich leicht erkennen, dass die Näherung in diesem Temperaturbereich gut funktioniert. Daher wird mit dieser gerechnet und diese ist auch in die Ergebnisplots eingezeichnet. \\
 In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte von $\Lambda$ bei den entsprechenden Temperaturen. In Abb. \ref{fig:EntTempB} findet sich die selbe Darstellung für Aufbau B.\\
 
 Es fällt auf, dass bei beiden Versuchen die zeitlich ersten Werte im Rahmen ihrer Fehler relativ gut mit dem Literaturwert übereinstimmen (Jeweils die zwei Werte rechts in den Abbildungen \ref{fig:EntTempA} und \ref{fig:EntTempB}).\\
-Allerdings sind die restlichen Werte für $\Lambda$ in Aufbau A deutlich kleiner als die Literaturwerte und auch unter Berücksichtigung der Fehler nicht mehr mit dem Literaturwert vereinbar. Der Wert links in der Abbildung ist zeitlich gesehen der letzte Wert. Eine zumindest für diesen Wert naheliegende Erklärung ist, dass das Wasser zu diesem Zeitpunkt bereits nicht mehr richtig am sieden war. Für die übrigen Abweichungen liegen keine konkreten Erklärungen vor, am wahrscheinlichsten erscheint hier ein nicht näher bekanntes Problem mit dem Aufbau. \\
+Allerdings sind die restlichen Werte für $\Lambda$ in Aufbau A deutlich kleiner als die Literaturwerte und auch unter Berücksichtigung der Fehler nicht mehr mit dem Literaturwert vereinbar. Der Wert links in der Abbildung ist zeitlich gesehen der letzte Wert. Eine zumindest für diesen Wert naheliegende Erklärung ist, dass das Wasser zu diesem Zeitpunkt bereits nicht mehr am Sieden war. Für die übrigen Abweichungen liegen keine konkreten Erklärungen vor, am wahrscheinlichsten erscheint hier ein nicht näher bekanntes Problem mit dem Aufbau. \\
 Ähnlich verhält es sich für B, hier sind die übrigen Werte jedoch deutlich zu groß.\\
 Man beachte, dass ein zu großer Druck (z.B. durch den Partialdruck zusätzlich eingeschlossener Luft) für eine betragsmäßig größere Steigung sorgt und infolge dessen zu einem erhöhten Wert für $\Lambda$ führt.
 Die Abweichung nimmt mit zunehmender Messdauer (entspricht kleinerer Temperatur) immer mehr zu. Berücksichtigt man noch die zweite Dichtigkeitsmessung, welche deutlich schlechter als die erste ausgefallen ist, lässt sich zusammenfassend sagen, dass Aufbau B möglicherweise doch zu undicht war und während des Versuches eine ausreichend große Menge Luft in den Kolben eingedrungen ist und somit der gemessene Druck zunehmend größer als der tatsächliche Dampfdruck des Wassers wurde.\\
@@ -549,16 +558,15 @@ Die Abweichung nimmt mit zunehmender Messdauer (entspricht kleinerer Temperatur)
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.9]{Bilder/Enthalpie_gegen_TempA}
-\caption{Enthalpie gegen Temperatur und Literaturwerte (Gerade).}
+\includegraphics[width=0.8\linewidth]{Bilder/Enthalpie_gegen_TempA}
+\caption{Versuch A: Enthalpie mit stat. und syst. Fehlern gegen Temperatur und Literaturwerte (Gerade).}
 \label{fig:EntTempA}
 \end{center}
 \end{figure}
-
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.8]{Bilder/Enthalpie_gegen_TempB}
-\caption[Enthalpie - Temperatur]{Errechnete Enthalpiewerte aufgetragen gegen die entsprechende Temperatur und Literaturwerte (Gerade).}
+\includegraphics[width=0.8\linewidth]{Bilder/Enthalpie_gegen_TempB}
+\caption{Versuch B: Enthalpie mit stat. und syst. Fehlern gegen Temperatur und Literaturwerte (Gerade).}
 \label{fig:EntTempB}
 \end{center}
 \end{figure}
