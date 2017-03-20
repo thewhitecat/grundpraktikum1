@@ -166,7 +166,7 @@ Die Ergebnisse der Rauschmessungen für Versuch B finden sich in Abb. \ref{fig:R
 
 
 
-\subsection{Kalibrierung des Temperatursensors}
+\subsection{Kalibrierung der Sensoren}
 
 Bei jeweils 0C und Siedetemperatur wurde eine Rauschmessung der Temperatur durchgeführt. Da am Versuchstag nicht Normaldruck, sondern ein Druck von 1005hPa geherrscht hat, muss die Siedetemperatur noch auf 99.72C korrigiert werden. Die Ergebnisse sind in Tabelle \ref{tab:KaliA} aufgeführt. Die angegebenen Fehler sind die Fehler des Mittelwertes.
 
@@ -289,7 +289,40 @@ Aus der Fehlerfortpflanzung folgt der Fehler auf die Temperatur:
 %Wobei $\sigma_T = 0.04$ und eine Temperatur von 100C angenommen wurde\\
 %100C? 0.04 ist doch wieder einzelfehler und nicht mittelwert?
 
+Für die Korrekturen am Drucksensor siehe Tabelle \ref{tab:Druckoffsets}.
 
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Versuch & Steigung & Offset[C]\\
+\hline
+A & $1.0252 \pm 0.0001$ & $-2.1740 \pm 0.0003$\\
+\hline
+B & $1.0101 \pm 0.0001$ & $-0.5290 \pm 0.0001$\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Zusammenfassung der Ergebnisse der Kalibrierung für A und B}
+\label{tab:KaliErgebnisseAundB}
+\end{table}
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Versuch & Druck (gemessen)[hPa] & Offset [hPa]\\
+\hline
+A & $993.75 \pm 0.22$ & $11.25 \pm 0.22$\\
+\hline
+B & $1021.04 \pm 0.22$ & $-16.04 \pm 0.22$\\
+\hline
+\end{tabular}
+\end{center}
+\caption[Offsets]{Druckoffsets für A und B.}
+\label{tab:Druckoffsets}
+\end{table}
 
 
 
@@ -382,14 +415,8 @@ Die Rohdaten für Druck- und die Temperaturverlauf über die Zeit finden sich f�
 \end{figure}
 
 
-Der statistische Fehler auf die Druckmessung ist durch die Digitalisierung gegeben.
-
-\begin{equation}
-\sigma_{p, stat}=\frac{0.75 hPa}{\sqrt{12}}=0.22 hPa
-\end{equation}
-
-
-Der statistische Fehler auf die Temperaturmessung wird maßgeblich durch das Rauschen dominiert und ist damit gegeben durch $\sigma_{T, stat}=0.12K$ (siehe Tabelle \ref{tab:RauschenA}).\\
+Die statistischen Fehler der Einzelmessungen von Druck und Temperatur finden sich in den Tabellen \ref{tab:RauschenA} und \ref{tab:RauschenB}.\\
+Die systematischen Fehler sind gegeben durch die Kalibrierung des Temperaturfühlers und den Fehler des Druckoffsets gegeben (vgl. Abschnitt Kalibrierung).
 
 Trägt man nun den logarithmierten Druck gegen den Kehrwert der Temperatur auf, lässt sich der (lokale) lineare Zusammenhang gut erkennen(vgl. Abbildung \ref{fig:logA} und \ref{fig:logB}).\\
 
@@ -480,7 +507,8 @@ aufgeführt.\\
 	\label{tab:enthalpie_A}
 \end{table}
 
-Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der statistische Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda, stat}=R \cdot \sigma_a$. Um einen systematischen Fehler abzuschätzen eignet sich die Verschiebemethode. Dazu werden die Messpunkte mit ihren statistischen Fehlern um die systematischen Fehler verschoben, einmal nach oben und einmal nach unten,   \\
+Die Verdampfungsenthalpie ist dabei gegeben durch $\Lambda=-a \cdot R$ und der statistische Fehler ergibt sich mittels Fehlerfortpflanzung zu $\sigma_{\Lambda, stat}=R \cdot \sigma_a$.\\
+Um einen systematischen Fehler abzuschätzen eignet sich die Verschiebemethode. Dazu werden die Messpunkte mit ihren statistischen Fehlern um die systematischen Fehler verschoben, einmal nach oben und einmal nach unten,   \\
 
 \begin{equation}
 	ln(p/p_0)_{i, verschoben} = ln(p/p_0)_{i} - \sigma _{ln(p/p_0), syst}
@@ -490,20 +518,23 @@ bzw.
 	ln(p/p_0)_{i, verschoben} = ln(p/p_0)_{i} + \sigma _{ln(p/p_0), syst}
 \end{equation}
 
-und man wiederholt jeweils die lineare Regression. So erhält man zwei neue Werte für die Verdampfungsenthalpie. Der Teil des systematischen Fehlers, der von der Druckmessung herrührt, ist dann der Mittelwert der Abweichungen,
+und man wiederholt jeweils die lineare Regression. So erhält man zwei neue Werte für die Verdampfungsenthalpie. Der Teil des systematischen Fehlers, der von der Druckmessung herrührt, ist dann der Mittelwert der Abweichungen:
 \begin{equation}
 	\Delta \Lambda _{syst,p} = ( |\Lambda_{p,-}-\Lambda| + |\Lambda_{p,+} - \Lambda|)/2 .
 \end{equation}
 
+Den systematischen Temperaturfehler erhält man ebenfalls durch die Verschiebemethode. Der systematische Gesamtfehler ergibt sich dann durch quadratische Addition.\\
+
 Da $\Lambda$ temperaturabhängig ist, muss der zur Messung passende Literaturwert erst noch bestimmt werden. Die Literaturwerte lassen sich nicht direkt aus der Temperatur ausrechnen. Abbildung \ref{fig:LiteraturwertLambda} zeigt die Literaturwerte als blaue Punkte und eine lineare Näherung als rote Linie. Es lässt sich leicht erkennen, dass die Näherung in diesem Temperaturbereich gut funktioniert. Daher wird mit dieser gerechnet und diese ist auch in die Ergebnisplots eingezeichnet. \\
 In Abb. \ref{fig:EntTempA} findet sich die Auftragung der verschiedenen Werte von $\Lambda$ bei den entsprechenden Temperaturen. In Abb. \ref{fig:EntTempB} findet sich die selbe Darstellung für Aufbau B.\\
 
-Für Versuch A fällt besonders auf, dass der erste und der letzte Wert massiv vom Literaturwert abweichen. Es ist denkbar, dass zu Beginn der Messung das Gleichgewicht noch nicht vollständig eingestellt war, was zu einer Verfälschung der Werte zu Beginn der Messung, also insbesondere dem in Abb.\ref{fig:EntTempA} rechten Wert für $\Lambda$.
-Der Wert links in der Abbildung ist zeitlich gesehen der letzte Wert. Eine naheliegende Erklärung für diesen Wert ist, dass das Wasser zu diesem Zeitpunkt bereits nicht mehr richtig am sieden war.\\
+Es fällt auf, dass bei beiden Versuchen die zeitlich ersten Werte im Rahmen ihrer Fehler relativ gut mit dem Literaturwert übereinstimmen (Jeweils die zwei Werte rechts in den Abbildungen \ref{fig:EntTempA} und \ref{fig:EntTempB}).\\
+Allerdings sind die restlichen Werte für $\Lambda$ in Aufbau A deutlich kleiner als die Literaturwerte und auch unter Berücksichtigung der Fehler nicht mehr mit dem Literaturwert vereinbar. Der Wert links in der Abbildung ist zeitlich gesehen der letzte Wert. Eine zumindest für diesen Wert naheliegende Erklärung ist, dass das Wasser zu diesem Zeitpunkt bereits nicht mehr richtig am sieden war. Für die übrigen Abweichungen liegen keine konkreten Erklärungen vor, am wahrscheinlichsten erscheint hier ein nicht näher bekanntes Problem mit dem Aufbau. \\
+Ähnlich verhält es sich für B, hier sind die übrigen Werte jedoch deutlich zu groß.\\
+Man beachte, dass ein zu großer Druck (z.B. durch den Partialdruck zusätzlich eingeschlossener Luft) für eine betragsmäßig größere Steigung sorgt und infolge dessen zu einem erhöhten Wert für $\Lambda$ führt.
+Die Abweichung nimmt mit zunehmender Messdauer (entspricht kleinerer Temperatur) immer mehr zu. Berücksichtigt man noch die zweite Dichtigkeitsmessung, welche deutlich schlechter als die erste ausgefallen ist, lässt sich zusammenfassend sagen, dass Aufbau B möglicherweise doch zu undicht war und während des Versuches eine ausreichend große Menge Luft in den Kolben eingedrungen ist und somit der gemessene Druck zunehmend größer als der tatsächliche Dampfdruck des Wassers wurde.\\
 
-Für Aufbau B ist direkt ersichtlich, dass der prinzipielle Verlauf von Verdampfungsenthalpie gegen Temperatur mit dem Verlauf aus der Literatur übereinstimmt. Allerdings sind die individuellen Werte im Vergleich zu den Literaturwerten zum Teil mehrere Standardabweichungen zu groß, was dafür spricht, dass das Versuchsergebnis durch eine unerkannte Systematik stark nach oben verfälscht wird.\\
-Denn ein zu großer Druck (z.B. durch den Partialdruck zusätzlich eingeschlossener Luft) sorgt für eine betragsmäßig größere Steigung und infolge dessen zu einem erhöhten Wert für $\Lambda$.
-Ebenso ist klar erkennbar, dass die Abweichung mit zunehmender Messdauer (entspricht kleinerer Temperatur) immer mehr zunimmt. Berücksichtigt man noch die zweite Dichtigkeitsmessung, welche deutlich schlechter als die erste ausgefallen ist, lässt sich zusammenfassend sagen das wahrscheinlich während des Versuches eine ausreichend große Menge Luft in den Kolben eingedrungen ist und somit der gemessene Druck zunehmend größer als der tatsächliche Dampfdruck des Wassers wurde.
+
 
 
 
@@ -538,8 +569,8 @@ Ebenso ist klar erkennbar, dass die Abweichung mit zunehmender Messdauer (entspr
 
 
 \section{Fazit}
-to be continued...
-
+Beiden Gruppen ist es nicht gelungen ein zufriedenstellendes Ergebnis zu erzielen. Nur zu Beginn der Messung stimmen wenige gemessene Werte im Rahmen der Messunsicherheit mit den Literaturwerten überein. Die übrigen Werte sind entweder viel kleiner (A) oder viel größer (B).\\
+Die Ursache für diese Abweichungen liegt wahrscheinlich im sehr empfindlichen Aufbau des Versuchs, welcher  während oder kurz vor der Hauptmessung gestört wurde. Dadurch ist die vernachlässigbare Undichtigkeit nicht mehr gewährleistet. 
 
 
 \end{document}
