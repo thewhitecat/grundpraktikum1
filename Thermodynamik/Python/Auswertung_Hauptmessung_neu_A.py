@@ -10,6 +10,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+def untermenge_daten_3(x,a,b,c,x0,x1):
+    '''
+    Extrahiere kleinere Datensaetze aus (x,y), so dass x0 <= x <= x1
+    '''
+    xn=[]
+    an=[]
+    bn=[]
+    for i,v in enumerate(x):
+        if x0<=v<=x1:
+            xn.append(x[i])
+            an.append(a[i])
+            bn.append(b[i])
+
+    return (np.array(xn),np.array(an), np.array(bn))
+    
 def untermenge_daten(x,a,b,c,d,e,f,x0,x1):
     '''
     Extrahiere kleinere Datensaetze aus (x,y), so dass x0 <= x <= x1
@@ -58,16 +73,16 @@ temperatur = data[:-140,3] + 273.15
 R = 8.314
 
 # Korrekturwerte für Druck und Temperatur
-m = 1.0252
+m = 1.0257
 sigma_m = 0.0001
-b = -9.06
-sigma_b = 0.0003
+b = -9.21
+sigma_b = 0.0001
 offset_druck = 11.25   
               
 # Rauschwerte -> Fehler auf Einzelwerte
 sigma_p_stat = 0.75/np.sqrt(12)
 sigma_p_sys = 0.75/np.sqrt(12)
-sigma_t_stat = 0.12
+sigma_t_stat = 0.1245
 sigma_t_sys = np.sqrt(temperatur**2*sigma_m**2 + m**2*sigma_t_stat**2 + sigma_b**2)
 
 # Druck und Temperatur beim Sieden
@@ -160,9 +175,13 @@ for i in range(n):
     tmax = intervallgrenzen[i+1]
     
     # Untermengen selektieren und fit durchführen
-    egal, x, y, ex_stat, ey_stat, ex_sys, ey_sys = \
+    sel_temp, x, y, ex_stat, ey_stat, ex_sys, ey_sys = \
     untermenge_daten(temperatur, kehrwert_temp, log_druck, sigma_t_kehr_stat,
                      sigma_p_log_stat, sigma_t_kehr_sys, sigma_p_log_sys, tmin, tmax)
+    
+    sel_temp, fehler_temp, sel_druck = \
+    untermenge_daten_3(temperatur, sigma_t_sys, druck, sigma_p_sys, tmin, tmax)
+    
     # Eigentlicher Fit
     a, ea, b, eb, chi2, cov = p.lineare_regression_xy(x, y, ex_stat, ey_stat)
     
@@ -170,9 +189,13 @@ for i in range(n):
     # Verschiebung in 1/T
     a_t1, ea_p1, b_t1, eb_t1, chi2_t1, cov_t1 = p.lineare_regression_xy(x-ex_sys, y, ex_stat, ey_stat)
     a_t2, ea_t2, b_t2, eb_t2, chi2_t2, cov_t2 = p.lineare_regression_xy(x+ex_sys, y, ex_stat, ey_stat)
+    #a_t1, ea_p1, b_t1, eb_t1, chi2_t1, cov_t1 = p.lineare_regression_xy((1/(sel_temp-fehler_temp)+1/temp0), y, ex_stat, ey_stat)
+    #a_t2, ea_t2, b_t2, eb_t2, chi2_t2, cov_t2 = p.lineare_regression_xy((1/(sel_temp+fehler_temp)+1/temp0), y, ex_stat, ey_stat)
     # Verschiebung in ln(p)
     a_p1, ea_p1, b_p1, eb_p1, chi2_p1, cov_p1 = p.lineare_regression_xy(x, y-ey_sys, ex_stat, ey_stat)
     a_p2, ea_p2, b_p2, eb_p2, chi2_p2, cov_p2 = p.lineare_regression_xy(x, y+ey_sys, ex_stat, ey_stat)
+    #a_p1, ea_p1, b_p1, eb_p1, chi2_p1, cov_p1 = p.lineare_regression_xy(x, np.log((sel_druck-sigma_p_sys)/p0), ex_stat, ey_stat)
+    #a_p2, ea_p2, b_p2, eb_p2, chi2_p2, cov_p2 = p.lineare_regression_xy(x, np.log((sel_druck+sigma_p_sys)/p0), ex_stat, ey_stat)
     
     # Eigentliche Steigung für aktuellen Bereich speichern
     steigung_array[i] = a
