@@ -9,7 +9,6 @@ import Praktikum as p
 import numpy as np
 from pylab import *
 import matplotlib.pyplot as plt
-import itertools
 
 data = p.lese_lab_datei('lab/Auf_47_01.lab')
 
