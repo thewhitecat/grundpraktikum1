@@ -722,8 +722,17 @@ R_{ap}=192.5\Omega \quad \quad \sigma_{R_{ap}}=4.3\Omega
 
 Den Wert den man erwarten würde ergibt sich aus der Kapazität und der Induktivität:
 \begin{equation}
-R_{ap}=2\cdot \sqrt{\frac{L}{C}}=?
+R_{ap}=2\cdot \sqrt{\frac{L}{C}}=2\sqrt{\frac{35.8mH}{4.7\mu F}}=174.6\Omega
 \end{equation}
+
+Und für den Fehler:
+
+\begin{equation}
+\sigma_{R_{ap}}=\sqrt{\frac{\sigma_L^2}{CL}+\frac{\sigma_C^2 L}{C^3}}=5.1 \Omega
+\end{equation}
+
+Die relativ große Abweichung von etwa 4.2 Standardabweichungen zum erwarten Wert ist wahrscheinlich darauf zurückzuführen, dass es sich bei dem Spannungsverlauf an dem die Anpassung von Einhüllenden vorgenommen wurde nur um die beste Approximation des aperiodischen Grenzfalls handelt. Bei besserer Abtastung und besserer Annäherung an den Grenzfall wäre dann zu erwarten, dass der dann bestimmte Widerstandswert näher an der Erwartung liegt.
+
 
 
 \section{Gekoppelte Schwingkreise - Schwebung}
