@@ -321,3 +321,26 @@ sig_L = 1000*ea/2
 R_rest = -b
 sig_R_rest = eb
 
+
+# Kondensator berechnen
+omega = np.array([382.78, 376.84, 373.21, 364.84, 350.75])*2*np.pi
+sig_omega = np.array([0.16, 0.18, 0.20, 0.22, 0.24])*2*np.pi
+
+sq_omega = omega**2
+sig_sq_omega = 2*omega*sig_omega
+
+
+sq_delta = delta**2
+sig_sq_delta = 2*delta*sig_delta
+
+
+plt.figure(25)
+plt.errorbar(sq_delta, sq_omega, xerr=sig_sq_delta, yerr=sig_sq_omega, fmt=".")
+# Lineare Regression mit Steigung 
+b, eb, chi2 = p.lineare_regression_y_achsenabschnitt_xy(sq_delta, sq_omega, sig_sq_delta, sig_sq_omega)
+
+C = 1000/(b*L)
+sig_C=C*np.sqrt( (eb/b)**2 + (sig_L/L)**2 )
+
+
+plt.plot()

@@ -150,7 +150,7 @@ def lineare_regression_y_achsenabschnitt_xy(x,y,ex,ey):
     a_ini,ea_ini,b_ini,eb_ini,chiq_ini,corr_ini = lineare_regression(x,y,ey)
 
     def f(B, x):
-        return x + B[0]
+        return -x + B[0]
 
     model  = scipy.odr.Model(f)
     data   = scipy.odr.RealData(x, y, sx=ex, sy=ey)
