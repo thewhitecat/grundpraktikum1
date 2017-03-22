@@ -458,6 +458,8 @@ Einstellungen & Messbereich U: -10V bis 10V\\
 \hline
 Trigger & fallend, 6V\\
 \hline
+Anm. & \\
+\hline
 \end{tabular}
 \caption[CASSY]{Einstellungen CASSY}
 \label{tab:CASSY}
@@ -677,7 +679,7 @@ Weiterhin kann man dann die Kapazität bestimmen, indem man das Quadrat der Krei
 \end{equation}
 Passt man eine Gerade mit Steigung -1 an diese Daten an, erhält man als y-Achsenabschnitt $y = \frac{1}{LC}$.
 
-Für unsere Daten ergab dies C = (4.72$\pm$0.28)$\mu F$ (siehe Abbildung \ref{pic:fit_C_RLC}).
+Für unsere Daten ergab dies C = (4.72$\pm$0.28)$\mu F$.
 
 Sowohl für die Spule, als auch den Kondensator stimmen die von uns bestimmten Werte, die Angaben des Hersteller und gegebenenfalls der an der Brücke gemessene Wert sehr gut überein.
 
@@ -692,13 +694,6 @@ Sowohl für die Spule, als auch den Kondensator stimmen die von uns bestimmten W
 		\hline
 	\end{tabular}
 \end{table}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\linewidth]{Bilder/fit_C_RLC}
-	\caption{$\omega^2$ gegen $\delta^2$ mit angepasster Geraden der Steigung -1.}
-	\label{pic:fit_C_RLC}
-\end{figure}
 
 
 \subsubsection{Aperiodischer Grenzfall}
