@@ -334,13 +334,24 @@ sq_delta = delta**2
 sig_sq_delta = 2*delta*sig_delta
 
 
-plt.figure(25)
-plt.errorbar(sq_delta, sq_omega, xerr=sig_sq_delta, yerr=sig_sq_omega, fmt=".")
-# Lineare Regression mit Steigung 
+
+# Lineare Regression mit Steigung -1 festgelegt
 b, eb, chi2 = p.lineare_regression_y_achsenabschnitt_xy(sq_delta, sq_omega, sig_sq_delta, sig_sq_omega)
 
 C = 1000/(b*L)
 sig_C=C*np.sqrt( (eb/b)**2 + (sig_L/L)**2 )
 
+# Plot
+plt.figure(25)
+plt.subplot2grid((6,1),(0,0), rowspan=4)
+plt.errorbar(sq_delta, sq_omega, xerr=sig_sq_delta, yerr=sig_sq_omega, fmt=".")
+plt.plot(sq_delta, b-sq_delta)
+plt.ylabel("$\omega ^2 [1/s^2]$")
 
-plt.plot()
+# Residuen
+plt.subplot2grid((6,1),(-2,0), rowspan=2)
+plt.errorbar(sq_delta, sq_omega+sq_delta-b, yerr= np.sqrt(sig_sq_delta**2 + sig_sq_omega**2), fmt=".")
+plt.axhline(linestyle="dashed")
+plt.ylabel("Residuen [$1/s^2$]")
+plt.xlabel("$\delta ^2 [1/s^2]$")
+plt.figtext(0.55, 0.75, "y = ({:7.0f}$\pm${:5.0f}) $1/s^2$\n $\chi ^2$/ndof = {:1.1f}".format(b, eb, chi2/4))
