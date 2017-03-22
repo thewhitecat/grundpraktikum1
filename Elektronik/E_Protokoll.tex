@@ -43,10 +43,111 @@ U_C(t) = U_0 \cdot e^{-\dfrac{t}{R\cdot C}}
 I(t) = -I_0 \cdot e^{-\dfrac{t}{R\cdot C}}
 \end{equation}
 \subsection{Aufbau und Durchführung}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.75\linewidth]{Bilder/Kondensator_Aufbau}
+\caption[Aufbau Kondensator]{Aufbau Kondensator}
+\label{fig:Kond_Aufbau}
+\end{center}
+\end{figure}
 
-\subsection{Auswertung}
+\begin{tabular}{|c|c|c|}
+\hline 
+Bauteil & Angegebener Wert & Bestimmter Wert \\ 
+\hline 
+Widerstand & 100 & • \\ 
+\hline 
+Kondensator & 4.7 & 4.88 \\ 
+\hline 
+\end{tabular} 
+
+Der Versuch wird gemäß Abb. \ref{fig:Kond_Aufbau} aufgebaut. Dabei wird als Spannungsquelle die des CASSY benutzt.Diese wird mit dem Stromkreis, bestehend aus einem Widerstand, einem Kondensator und dem Strommessgerät, verbunden. Um die Entladung des Kondensators durchführen zu können wird noch ein Schalter so eingebaut, dass die Spannungsquelle kurzgeschlossen werden kann.\\ 
+Die Bauteileigenschaften  der verwendeten Teile sind in Tabelle ... aufgelistet.
+Über Kanal A des CASSY wird der Stromfluss gemessen und über Kanal B die Spannung am Kondensator.\\
+Gleichzeitig wird auch Strom und Spannung mit einem Oszilloskop gemessen. Dafür wird an Kanal 2 des Oszilloskopes der Spannungsabfall über den Widerstand und an Kanal 1 die Spannung über den Kondensator angeschlossen. Die Erde wird zwischen Kondensator und Widerstand gelegt.\\
+\\
+Um den Aufladevorgang zu messen, wird die Spannungsquelle beim Start einer Messung aktiviert.
+Beim Entladevorgang bleibt die Spannungsquelle eingeschaltet. Der Messvorgang wird über einen Trigger gestartet, der den Spannungsabfall registriert.
+\subsubsection{Messung mit dem Oszilloskop}
+\begin{tabular}{c c c}
+\hline 
+Messparameter & Zeitauflösung: $500\mu s$  & Spannungsauflösung: $0.2V$ \\ 
+\hline
+\end{tabular} 
+\subsubsection{Messung mit CASSY}
+\begin{tabular}{c c c c}
+Messparameter & Messintervall: $10\mu s$  & Anzahl Messwerte: 1000 & automatische Aufnahme \\ 
+Messbereiche & Strom: 0.3A & Spannung: 3V \\
+Trigger: 2V & angelegte Spannung: 2.1V\\
+\end{tabular} 
+
+\subsection{Auswertung Oszilloskop}
+Während der Versuchdurchführung wurde bereits mit dem Oszilloskop eine Schnellauswertung durchgeführt.
+Um die Kapazität zu bestimmen wurden jeweils bei Auf- und Entladung zwei Zeiten mit dazugehörigen Spannungen aufgenommen. Dabei wurden immer Werte an der Spannungskurve aufgenommen, da die Stromkurve sehr starke Schwankungen hatte und dadurch vermutlich ungenauer gewesen wäre. Die gemessenen Werte sind in Tab... aufgeführt. Die Kapazität wird folgendermaßen bestimmt:
+\begin{equation}
+\dfrac{U1}{U2} = e^{-\dfrac{t1-t2}{R\cdot C}}
+\end{equation}
+Nach C auflösen ergibt:
+\begin{equation}
+C = \dfrac{t1-t2}{R\cdot \ln(\dfrac{U1}{U2}}
+\end{equation}
 
 
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+• & Offset & t1 & U1 & t2 & U2 \\ 
+\hline 
+Aufladung & -1.18V & -5.2ms & -0.928V & $0.5ms$ & -0.240V \\ 
+\hline 
+Entladung & -16mV & $0.34ms$ & -1.18V & $0.98ms$ & -0.08V \\ 
+\hline 
+\end{tabular} 
+Die statistischen Fehler dieser Werte ist durch die Ableseungenauigkeit bestimmt. Dabei gilt:
+\begin{equation}
+\sigma_t = \dfrac{0.1ms}{\sqrt{12}} = 0.03ms
+\end{equation}
+\begin{equation}
+\sigma_U = \dfrac{0.01V}{\sqrt{12}} = 0.003V
+\end{equation}
+
+\begin{tabular}{|c|c|}
+\hline 
+• & Gemessener Wert \\ 
+\hline 
+Aufladung & $4.69\pm 0.05\pm 0.08$ \\ 
+\hline 
+Entladung & $4.88\pm 0.02\pm 0.05$ \\ 
+\hline 
+\end{tabular} 
+\begin{equation}
+\sigma_{C_stat} = \sqrt{2\cdot\left(\dfrac{\sigma_t}{R\cdot ln(\dfrac{U1}{U2})}\right)^{2}+\left(\dfrac{-\sigma_U\cdot(t1-t2)}{R\cdot U1\cdot ln(\dfrac{U1}{U2})^{2}}\right)^{2}+\left(\dfrac{\sigma_U\cdot(t1-t2)}{R\cdot U2\cdot ln(\dfrac{U1}{U2})^{2}}\right)^{2}}
+\end{equation}
+\begin{equation}
+\sigma_{C_sys} = \dfrac{(t2-t1)\cdot \sigma_R}{R^{2}\cdot ln(\dfrac{U1}{U2}}
+\end{equation}
+
+\subsection{Auswertung CASSY}
+Es wurden ebenfalls Werte über das CASSY aufgezeichnet.
+\subsubsection{Rohdaten}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.75\linewidth]{Bilder/Kondensator_U}
+\includegraphics[width=0.75\linewidth]{Bilder/Kondensator_logU}
+\caption[Rohdaten logarith. A]{Rohdaten Spannung}
+\label{fig:RohU}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.75\linewidth]{Bilder/Kondensator_I}
+\includegraphics[width=0.75\linewidth]{Bilder/Kondensator_logI}
+\caption[Rohdaten logarith. A]{Rohdaten Spannung}
+\label{fig:RohU}
+\end{center}
+\end{figure}
+
+\subsubsection{lineare Regressionen}
 
 \section{RLC-Schwingkreis}
 \subsection{Versuchsbeschreibung}

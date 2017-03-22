@@ -9,6 +9,7 @@ import Praktikum as p
 import numpy as np
 from pylab import *
 import matplotlib.pyplot as plt
+import Kondensator_entladung_neu as k
 
 def merge(list1, list2):
     for i in list2:
@@ -98,8 +99,9 @@ Ichiqs = []
 ITs = []
 ITstat  = []
 
-R = 99
-dR = 2.1
+R = 98.76
+dR = 0.06
+dRsys = 2.2
 
 for i in range(len(data)):
     array = data[i]
@@ -112,7 +114,7 @@ for i in range(len(data)):
     dlogI = dI/I
     
     U = array[:,3]
-    dU = 0.047
+    dU = 0.045
     U0 = array[500:,3]
     mU0,dU0 = np.mean(U0),np.std(U0,ddof=1)
     Udiff = np.absolute((mU0-U))
@@ -130,13 +132,20 @@ for i in range(len(data)):
     Ichiqs.append(chiq/(len(x)-1))
     ITs.append(-1/a)
     ITstat.append(ea/(a**2))
-    if i==4:
-        pictures(t,lnI=logI,dlnI=dlogI)
-    
+    if i==0:
+        pictures(t,lnI=logI,lnU=logU,dlnI=dlogI,dlnU=dlogU)
+
+Tend,Tendstat = k.alles()
 Ts = merge(UTs,ITs)
+Ts = merge(Ts,Tend)
 Tstat = merge(UTstat,ITstat)
+Tstat = merge(Tstat,Tendstat)
 Tstat = np.array(Tstat)
 Tmu,Terr = p.gewichtetes_mittel(Ts,Tstat)
 C = Tmu/R
 Cerr = np.sqrt((Terr/R)**2+(Tmu*dR/R**2)**2)
-print C,Cerr
+Csys = (Tmu*dRsys/R**2)
+print C,Cerr,Csys
+Cerrall = np.sqrt(Cerr**2+Csys**2)
+Cgesamt, Cgesamtstat = p.gewichtetes_mittel(np.array([C,4.88*10**(-6)]),np.array([Cerr,0.0122*10**(-6)]))
+print Cgesamt, Cgesamtstat

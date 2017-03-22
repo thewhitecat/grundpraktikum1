@@ -82,61 +82,61 @@ def pictures(t,I=None,U=None,lnI=None,lnU=None,dlnI=None,dlnU=None):
         plt.ylabel("Residuen")
         plt.title("Residuen ln(U)")
         plt.errorbar(x,res,yerr = dy,fmt='.')
+        
+def alles():
+    data = []
+    data.append(p.lese_lab_datei('lab/Ent_47_01.lab'))
+    data.append(p.lese_lab_datei('lab/Ent_47_02.lab'))
+    data.append(p.lese_lab_datei('lab/Ent_47_03.lab'))
+    data.append(p.lese_lab_datei('lab/Ent_47_04.lab'))
+    data.append(p.lese_lab_datei('lab/Ent_47_05.lab'))
     
-
-data = []
-data.append(p.lese_lab_datei('lab/Ent_47_01.lab'))
-data.append(p.lese_lab_datei('lab/Ent_47_02.lab'))
-data.append(p.lese_lab_datei('lab/Ent_47_03.lab'))
-data.append(p.lese_lab_datei('lab/Ent_47_04.lab'))
-data.append(p.lese_lab_datei('lab/Ent_47_05.lab'))
-
-Uchiqs = []
-UTs = []
-UTstat  = []
-Ichiqs = []
-ITs = []
-ITstat  = []
-
-R = 99
-dR = 2.1
-
-for i in range(len(data)):
-    array = data[i]
-    t = array[:,1]
-
-    I = -array[:,2]-0.0004#offset
-    dI = 0.00045
-    I = np.absolute(I)
-    logI = log(I)
-    dlogI = dI/I
+    Uchiqs = []
+    UTs = []
+    UTstat  = []
+    Ichiqs = []
+    ITs = []
+    ITstat  = []
     
-    U = array[:,3]-0.005
-    dU = 0.047
-    U0 = array[500:,3]
-    mU0,dU0 = np.mean(U0),np.std(U0,ddof=1)
-    Udiff = np.absolute(U)
-    logU = log(Udiff)
-    dlogU = dU/U
+    R = 99
+    dR = 2.1
     
-    a,ea,b,eb,chiq,x,y,dy = linreg(t,logU,dlogU)
+    for i in range(len(data)):
+        array = data[i]
+        t = array[:,1]
     
-    Uchiqs.append(chiq/len(x))
-    UTs.append(-1/a)
-    UTstat.append(ea/(a**2))
-    
-    a,ea,b,eb,chiq,x,y,dy = linreg(t,logI,dlogI)
-    
-    Ichiqs.append(chiq/len(x))
-    ITs.append(-1/a)
-    ITstat.append(ea/(a**2))
-    if i==1:
-        pictures(t,lnI=logI,dlnI=dlogI)
-    
-Ts = merge(UTs,ITs)
-Tstat = merge(UTstat,ITstat)
-Tstat = np.array(Tstat)
-Tmu,Terr = p.gewichtetes_mittel(Ts,Tstat)
-C = Tmu/R
-Cerr = np.sqrt((Terr/R)**2+(Tmu*dR/R**2)**2)
-print C,Cerr
+        I = -array[:,2]-0.0004#offset
+        dI = 0.00045
+        I = np.absolute(I)
+        logI = log(I)
+        dlogI = dI/I
+        
+        U = array[:,3]-0.005
+        dU = 0.047
+        U0 = array[500:,3]
+        mU0,dU0 = np.mean(U0),np.std(U0,ddof=1)
+        Udiff = np.absolute(U)
+        logU = log(Udiff)
+        dlogU = dU/U
+        
+        a,ea,b,eb,chiq,x,y,dy = linreg(t,logU,dlogU)
+        
+        Uchiqs.append(chiq/len(x))
+        UTs.append(-1/a)
+        UTstat.append(ea/(a**2))
+        
+        a,ea,b,eb,chiq,x,y,dy = linreg(t,logI,dlogI)
+        
+        Ichiqs.append(chiq/len(x))
+        ITs.append(-1/a)
+        ITstat.append(ea/(a**2))
+        if i==5:
+            pictures(t,lnI=logI,dlnI=dlogI)
+        
+    Ts = merge(UTs,ITs)
+    Tstat = merge(UTstat,ITstat)
+    Tstat = np.array(Tstat)
+    Tmu,Terr = p.gewichtetes_mittel(Ts,Tstat)
+    C = Tmu/R
+    Cerr = np.sqrt((Terr/R)**2+(Tmu*dR/R**2)**2)
+    return Ts, Tstat
