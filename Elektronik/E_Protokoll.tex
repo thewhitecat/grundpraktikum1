@@ -15,6 +15,78 @@
 \tableofcontents
 \newpage
 
+\section{Charakterisierung Ohm'scher Widerstand}
+\subsection{Versuchsbeschreibung}
+Es soll der in den nachfolgenden Versuchen verwendete Ohm'sche Widerstand charakterisiert werden. Dazu wird der Widerstand in einen Gleichstromkreis mit einer Spannungsquelle und einem Strommessgerät eingebaut. Nach dem Ohm'schen Gesetz gilt dann:
+\begin{equation}
+R = \dfrac{U}{I}
+\label{eq:Ohm}
+\end{equation}
+\subsection{Aufbau und Durchführung}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1.2]{Bilder/Charakterisierung_Widerstand_Aufbau.PNG}
+\end{center}
+\caption[Widerstand Schaltung]{Aufbau für die Charakterisierung des Widerstands}
+\label{fig:Widerstand_Aufbau}
+\end{figure}
+Abbildung \ref{fig:Widerstand_Aufbau} zeigt den Aufbau. Es wird ein Stromkreis aus Spannungsquelle, Strommessgerät, Widerstand und Spannungsmessgerät über den Widerstand aufgebaut.\\
+\\ Die Spannungsquelle wird auf einen Wert eingestellt und die Messung gestartet. Dabei werden viele Werte für Strom und Spannung aufgezeichnet. Die verwendeten CASSY-Einstellungen sind:\\
+\begin{center}
+\begin{tabular}{|c|c|}
+
+\hline 
+Intervall & $10 \mu s$ \\ 
+\hline 
+Anzahl Messwerte pro Messreihe & 4000 \\ 
+\hline 
+Messbereich I & $|I| \leq 0,3A$ \\ 
+\hline 
+Messbereich U & $|U| \leq 10A$ \\ 
+\hline 
+
+\end{tabular} 
+\end{center}
+\subsection{Auswertung}
+Stellt man Gleichung \ref{eq:Ohm} um, erhält man folgenden Ausdruck:
+\begin{equation}
+U = R \cdot I
+\end{equation}
+Daran lässt sich direkt ersehen, dass sich bei Auftragung des Stroms auf die X-Achse und der Spannung auf die Y-Achse der Widerstand als Steigung der Geraden ergibt. Da auf den Achsen direkt die gemessenen Größen aufgetragen werden können, wird die lineare Regression direkt auf die Rohdaten angewandt. 
+\subsubsection{Lineare Regression und Statistischer Fehler}
+Aus den Messungen von Strom und Spannung für jede eingestellte Spannung kann jeweils Mittelwert und Standardabweichung bestimmt werden. Abbildung \ref{fig:Widerstand_lineare_Regression} zeigt die Rohdaten als blaue Punkte mit Fehlerbalken und das Ergebnis der lineare Regression als rote Gerade. Die negative Steigung der Geraden ist bedingt durch das negative Vorzeichen des Stroms und das liegt lediglich an der Polung des Messgerätes. Für den realen Wert des Widerstandes muss der Betrag der Steigung genommen werden; am Fehler ändert sich nichts.
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.45]{Bilder/Widerstand_Fit.png}
+\end{center}
+\caption[Widerstand Lineare Regression]{Lineare Regression an Strom und Spannung}
+\label{fig:Widerstand_lineare_Regression}
+\end{figure}
+\subsubsection{Systematischer Fehler}
+Um den Einfluss der Systematik auf den Widerstand zu erhalten, wird die sogenannte Verschiebemethode angewandt. Dabei werden Strom und Spannung jeweils um den systematischen Fehler einmal nach oben und einmal nach unten verschoben und die lineare Regression erneut durchgeführt. Dabei werden die Spannung und der Strom jeweils um den vom Hersteller angegebenen systematischen Fehler verschoben:
+\begin{equation}
+U_{i, verschoben} = U_i \pm (0,01 \cdot U_i + 0,005 \cdot U_{Bereichsendwert})
+\end{equation}
+\begin{equation}
+I_{i, verschoben} = I_i \pm (0,02 \cdot I_i + 0,005 \cdot I_{Bereichsendwert})
+\end{equation}
+Der systematische Fehler auf den Widerstand berechnet sich dann zu:
+\begin{equation}
+\Delta R_{sys}^2 = \left(\dfrac{|R_{U,-}-R| + |R_{U,+}-R|}{2}\right)^2 + \left(\dfrac{|R_{I,-}-R| + |R_{I,+}-R|}{2}\right)^2
+\end{equation}
+Die Endergebnisse, die Messergebnisse von der Brücke und dem Multimeter sowie die Herstellerangaben für die Widerstände finden sich in folgender Tabelle:\\
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Herstellerangabe [$\Omega$] & Multimeter [$\Omega$] & Brücke [$\Omega$] & lineare Regression [$\Omega$] \\ 
+\hline 
+10 $\pm$ 0,5 & 10,1 $\pm$ 0,03 $\pm$ 0,58 & 9,98 $\pm$ 0,02 $\pm$ 0,01 & 9,94 $\pm$ 0,01 $\pm$ 0,22 \\ 
+\hline 
+100 $\pm$ 5 & 99,4 $\pm$ 0,03 $\pm$ 1,30 & 99,4 $\pm$ 0,25 $\pm$ 0,10 & 98,74 $\pm$ 0,06 $\pm$ 2,20 \\ 
+\hline 
+\label{tab:Widerstand_Ergebnisse}
+\end{tabular} \\
+Es lässt sich gut erkennen, dass die Messwerte aller Messmethoden sehr nah an der Herstellerangabe liegen. Insbesondere liegen alle Messwerte innerhalb der vom Hersteller angegebenen Toleranz.
+
 \section{Kondensator}
 \subsection{Versuchsbeschreibung}
 In diesem Teilversuch soll die Kapazität eines Kondensators durch Auf- und Entladung von diesem bestimmt werden.
