@@ -237,7 +237,7 @@ def exp_einhuellende(t,y,ey,Sens=0.1):
     sigmaA0=LR[3]*exp(LR[2])
     delta=-LR[0]
     sigmaDelta=LR[1]
-    return(A0,sigmaA0,delta,sigmaDelta)
+    return(A0,sigmaA0,delta,sigmaDelta, GutePeaks, GutePeakZeiten, GutePeakFehler)
 
 def untermenge_daten(x,y,x0,x1):
     '''
