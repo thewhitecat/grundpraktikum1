@@ -650,7 +650,7 @@ R_{ap}=2\cdot \sqrt{\frac{L}{C}}=?
 \end{equation}
 
 
-\section{Gekoppelte Schwingkreise}
+\section{Gekoppelte Schwingkreise - Schwebung}
 \subsection{Versuchsbeschreibung}
 Ein LC-Schwingkreis kann induktiv mit einem zweiten LC-Schwingkreis gekoppelt werden, der dadurch zu erzwungenen Schwingungen angeregt wird. Falls die Eigenfrequenzen der Schwingkreise gleich ist $w_1 = w_2$, tritt eine Resonanz auf. In diesem Fall kann eine Schwebung beobachtet werden. Bedeutet: Die Schwingungsenergie "schwingt" zwischen den Schwingkreisen hin und her. \\
 Bei diesem Versuch werden die Fundamentalschwingungen und die Schwebung zweier gekoppelter Schwingkreise aufgenommen. Die Differentialgleichungen der gekoppelten Schwingkreise lauten:
@@ -668,10 +668,12 @@ Dabei ist $w_0$ die Eigenfrequenz des Schwingkreises im ungekoppelten Fall ($w_0
 Die Kopplung kann aus den Frequenzen der Fundamentalschwingungen berechnet werden:
 \begin{equation}
 k = \dfrac{f_-^2 - f_+^2}{f_-^2 + f_+^2}
+\label{eq:Kopplung}
 \end{equation}
 \\ Die Erwartung bei dieser Versuchskonfiguration ist, dass die Amplitudennullstellen des einen Schwingkreises mit einem Amplitudenextremum des anderen zusammenfallen. Die Dämpfung durch Ohm'sche Widerstände in allen Bauteilen verschiebt diese beiden allerdings gegeneinander. Für Kopplungen k < 0,2 lässt sich die Verschiebung näherungsweise berechnen:
 \begin{equation}
 \Delta t \approx \dfrac{1}{w_{Schwebung}} \cdot \left[\dfrac{\pi}{2} - \arctan \left( \dfrac{k}{R} \cdot \sqrt{\dfrac{L}{C}} \right)\right]
+\label{eq:delta_t}
 \end{equation}
 \subsection{Aufbau und Durchführung}
 \begin{figure}
@@ -729,7 +731,22 @@ Abbildung \ref{fig:Schwebung_Roh} zeigt die Rohdaten der Messung in Form von dem
 Um die Frequenzen der Schwingung zu erhalten, wird auf die Rohdaten eine Fouriertransformation angewandt. Hier wurde die Fast-Fourier-Transformation (kurz: FFT) verwendet. Diese ist deutlich schneller als die eigentliche Fouriertransformation und liefert in diesem Fall auch dieselben Ergebnisse (das wurde stichprobenartig überprüft). Abbildung \ref{fig:Schwebung_Frequenzspektrum} zeigt das Frequenzspektrum der Schwingung. Die beiden Peaks sind zwar gut zu sehen, allerdings auch nicht sehr gut voneinander getrennt bzw. die Amplitude sinkt zwischen den beiden Peaks nur wenig ab.
 
 \subsubsection{Ergebnis und Fazit}
-Der beschriebene Versuch wurde mit 3 verschiedenen Kopplungen durchgeführt: Einmal wurden die Spulen direkt nebeneinander gestellt (1), einmal mit etwa einer handbreit Abstand (2) und einmal direkt nebeneinander mit einem gemeinsamen Eisenkern(3).
+Der beschriebene Versuch wurde mit 3 verschiedenen Kopplungen durchgeführt: Einmal wurden die Spulen direkt nebeneinander gestellt (1), einmal mit etwa einer handbreit Abstand (2) und einmal direkt nebeneinander mit einem gemeinsamen Eisenkern(3). \\
+Die Kopplung wurde jeweils mit Gleichung \ref{eq:Kopplung} bestimmt. Der Fehler ergibt sich aus der gauß'schen Fehlerfortpflanzung zu:
+\begin{equation}
+\sigma_k = \sqrt{\left( \left( \dfrac{2 \cdot f_-}{f_+^2 + f_-^2} - 2 \cdot f_- \cdot \dfrac{f_-^2 - f_+^2}{(f_+^2 + f_-^2)^2} \right) \cdot \sigma_{f_-} \right)^2 + \left( \left( \dfrac{2 \cdot f_+}{f_+^2 + f_-^2} + 2 \cdot f_+ \cdot \dfrac{f_-^2 - f_+^2}{(f_+^2 + f_-^2)^2} \right) \cdot \sigma_{f_+} \right)^2}
+\end{equation}
+Außerdem wurde die Zeitverschiebung aus den Daten jeweils über den zeitlichen Abstand zwischen einem Extremum in der einen und einer Nullstelle in der anderen Spannung bestimmt. Berechnet man die Zeitverschiebung mit Gleichung \ref{eq:delta_t}, so findet man mit der gauß'schen Fehlerfortpflanzung den Fehler auf $\Delta t$ zu:
+\begin{equation}
+\sigma_{\Delta t} = \sqrt{\left( \dfrac{d(\Delta t)}{dk} \cdot \sigma_k \right)^2 + \left( \dfrac{d(\Delta t)}{dR} \cdot \sigma_R \right)^2 + \left( \dfrac{d(\Delta t)}{dL} \cdot \sigma_L \right)^2 + \left( \dfrac{d(\Delta t)}{dR} \cdot \sigma_R \right)^2}
+\end{equation}
+mit
+\[\dfrac{d(\Delta t)}{dk} = \dfrac{-1}{2 \cdot \pi \cdot f_s} \cdot \dfrac{1}{R} \cdot \sqrt{\dfrac{L}{C}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
+\[\dfrac{d(\Delta t)}{dR} = \dfrac{1}{2 \cdot \pi \cdot f_s} \cdot \dfrac{k}{R^2} \cdot \sqrt{\dfrac{L}{C}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
+\[\dfrac{d(\Delta t)}{dC} = \dfrac{1}{4 \cdot \pi \cdot f_s} \cdot \dfrac{k}{R} \cdot \sqrt{\dfrac{L}{C^3}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
+\[\dfrac{d(\Delta t)}{dL} = \dfrac{-1}{4 \cdot \pi \cdot f_s} \cdot \dfrac{k}{R} \cdot \sqrt{\dfrac{1}{L \cdot C}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
+
+Die Ergebnisse für k und $\Delta t$ sowie der errechnete Erwartungswert für $\Delta t$ finden sich in nachfolgender Tabelle: \\
 
 
 
