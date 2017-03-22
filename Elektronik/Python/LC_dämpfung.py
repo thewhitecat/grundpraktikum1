@@ -90,10 +90,16 @@ def daempfung_peaks (datei="19,6", eU_stat=0.001496, figure=6):
     sig_t_diff = 0.0001
     delta_peaks = []
     sig_delta_peaks = []
+    delta_fit = []
+    sig_delta_fit = []
+    sig_delta_sys = []
+    
     for i in range(5):
         data = p.lese_lab_datei("lab/{:s}Ohm/messung{:1d}.lab".format(datei, i+1))
         t = data[:,1]
         U = data[:,3]
+        
+        sig_U_sys = 0.01*U + 0.005*10
         
         #offset_U = np.mean(U[-U.size/8:])
 
@@ -104,28 +110,28 @@ def daempfung_peaks (datei="19,6", eU_stat=0.001496, figure=6):
         index = []
         
         
-        for i in range(len(zeros)-1):
-            peaks.append(p.peak(t, U, zeros[i][0], zeros[i+1][0]))
+        for n in range(len(zeros)-1):
+            peaks.append(p.peak(t, U, zeros[n][0], zeros[n+1][0]))
         for peak in peaks:
             indx = find_nearest(t, peak)
             if (np.abs(U[indx]) > 0.05*np.mean(U[0:5])):
                 index.append(indx)
-        
+        index = np.array(index)
         peaks = []
         
         
-        plt.figure(figure)
-        plt.errorbar(t, U)
-        for x in index:
-            plt.axvline(t[x])
+        #plt.figure(figure)
+        #plt.errorbar(t, U)
+        #for x in index:
+        #    plt.axvline(t[x])
         
-        U = np.abs(U)
+        absU = np.abs(U)
         
         for a in index:
-            peaks.append(np.array([t[a], U[a]]))
+            peaks.append(np.array([t[a], absU[a]]))
         
         
-        
+        # Delta direkt ausrechnen
         delta_peaks_temp = []
         sig_delta_temp = []
         for x in range(len(peaks)-1):
@@ -141,20 +147,72 @@ def daempfung_peaks (datei="19,6", eU_stat=0.001496, figure=6):
             
             delta_peaks.append(delta_peaks_temp)
             sig_delta_peaks.append(sig_delta_temp)
-    
+        
+        
+        
+        # Delta durch fit ausrechnen
+        
+        if (index.size>1):                
+            
+            a, ea, b, eb, chi2, cov = p.lineare_regression(t[index], np.log(absU[index]), sig_U_stat/U[index])
+            delta_fit.append(-a)
+            sig_delta_fit.append(ea)
+            
+            if (i == 1 and datei == "68,6"):
+                
+                # Lin Reg
+                plt.figure(20)
+                plt.subplot2grid((6,1),(0,0), rowspan=4)
+                plt.errorbar(t[index], np.log(absU[index]), sig_U_stat/U[index], fmt = ".")
+                plt.plot(t[index], a*t[index]+b)
+                plt.ylabel("ln($U/U_0$)")
+                # Residuen
+                plt.subplot2grid((6,1),(-2,0), rowspan=2)
+                plt.errorbar(t[index], np.log(absU[index])-a*t[index]-b, yerr=sig_U_stat/U[index], fmt = ".")
+                plt.axhline(linestyle="dashed")
+                
+                
+                # Plot Ergebnis
+                plt.figure(21)
+                plt.plot(t, U)
+                plt.xlabel("t (s)")
+                plt.ylabel("U (V)")
+                
+                x = np.arange(0, 0.02, 0.0005)
+                y = np.exp(b)*np.exp(a*x)
+                plt.plot(x, y)
+                plt.plot(x, -y)
+            
+            # Verschiebemethode
+            a1, ea1, b1, eb1, chi2, cov = p.lineare_regression(t[index], np.log(absU[index])-sig_U_sys[index]/absU[index], sig_U_stat/U[index])
+            a2, ea2, b2, eb2, chi2, cov = p.lineare_regression(t[index], np.log(absU[index])+sig_U_sys[index]/absU[index], sig_U_stat/U[index])
+            
+            sig_delta_sys.append((np.abs(a1-a)+np.abs(a2-a))/2)
+        
+        
+        
     if (figure <= 10):
         delta_peaks = np.array(delta_peaks)
         sig_delta_peaks = np.array(sig_delta_peaks)
         
         delta_peaks, sig_delta_peaks = p.gewichtetes_mittel(delta_peaks, sig_delta_peaks)
         
-    return (delta_peaks, sig_delta_peaks)
+        delta_fit = np.array(delta_fit)
+        sig_delta_fit = np.array(sig_delta_fit)
+        sig_delta_sys = np.array(sig_delta_sys)
+        sig_delta_sys = np.mean(sig_delta_sys)
+        delta_fit, sig_delta_fit = p.gewichtetes_mittel(delta_fit, sig_delta_fit)
+        
+        
+        
+    return (delta_peaks, sig_delta_peaks, delta_fit, sig_delta_fit, sig_delta_sys)
     
 
 
     
 Ordnernamen = np.array(["19,6", "28,5", "38,9", "52,2", "68,6", "90,0", "112,0", "130", "140", "150", "200"])
 
+"""
 # Delta aus fit bekommen
 delta_fit = np.empty(4)
 sig_delta_fit = np.empty(4)
@@ -195,51 +253,68 @@ sig_L_fit = 1000*ea/2
 R_rest_fit = -b
 sig_R_rest_fit = eb
 
-
+"""
 
 
 # Delta aus Peaks bekommen
 delta_peaks = []
 sig_delta_peaks = []
+delta_fit = []
+sig_delta_fit_stat = []
+sig_delta_fit_sys = []
 for i in range(Ordnernamen.size):
-    temp1, temp2 = daempfung_peaks(datei=Ordnernamen[i], figure = 6+i)
+    temp1, temp2, temp3, temp4, temp5 = daempfung_peaks(datei=Ordnernamen[i], figure = 6+i)
     if (temp1):
         delta_peaks.append(temp1)
         sig_delta_peaks.append(temp2)
+        delta_fit.append(temp3)
+        sig_delta_fit_stat.append(temp4)
+        sig_delta_fit_sys.append(temp5)
 
 delta_peaks = np.array(delta_peaks)
 sig_delta_peaks = np.array(sig_delta_peaks)
 
+delta = []
+sig_delta = []
+for i in range(5):
+    temp1, temp2 = p.gewichtetes_mittel(np.array([delta_fit[i], delta_peaks[i]]), np.array([sig_delta_fit_sys[i], sig_delta_peaks[i]]))
+    delta.append(temp1)
+    sig_delta.append(temp2)
+
+delta = np.array(delta)
+sig_delta = np.array(sig_delta)
 
 R = np.array([19.6, 28.5, 38.9, 52.2, 68.6])
 sig_R_stat = np.full(5, 0.2/np.sqrt(12))
 
 # Fit mit Peaks
-a, ea, b, eb, chi2, cov = p.lineare_regression_xy(delta_peaks, R, sig_delta_peaks, sig_R_stat)
+a, ea, b, eb, chi2, cov = p.lineare_regression_xy(delta, R, sig_delta, sig_R_stat)
+ndof=len(delta)-2
 
-
-plt.figure(16)
+plt.figure(17)
 plt.subplot2grid((6,1),(0,0), rowspan=4)
-plt.errorbar(delta_peaks, R, xerr=sig_delta_peaks, yerr=sig_R_stat, fmt=".")
-x = np.array([delta_peaks[0]*0.90, delta_peaks[-1]*1.06])
+plt.errorbar(delta, R, xerr=sig_delta, yerr=sig_R_stat, fmt=".")
+x = np.array([delta[0]*0.90, delta[-1]*1.06])
 plt.xlim(x)
 y = a*x+b
 plt.plot(x, y)
 #plt.xlabel("$\delta$ [1/s]")
 plt.ylabel("R [$\Omega$]")
+plt.figtext(0.15, 0.7, "m = {:2.3f}$\pm${:2.3f}[mH]\nb = {:2.2f}$\pm${:2.2f}[$\Omega$]\n$\chi^2$/ndof = {:2.2f}".format(a, ea, b, eb, chi2/ndof))
 
 
 plt.subplot2grid((6,1),(-2,0), rowspan=2)
-y = R-a*delta_peaks - b
-plt.errorbar(delta_peaks, y, yerr = np.sqrt(sig_delta_peaks**2 + a**2*sig_R_stat**2), fmt=".")
+y = R-a*delta - b
+plt.errorbar(delta, y, yerr = np.sqrt(sig_delta**2* a**2 + sig_R_stat**2), fmt=".")
 plt.xlim(x)
 plt.axhline(linestyle="dashed")
-plt.ylabel("Residuen")
+plt.ylabel("Residuen [$\Omega$]")
 plt.xlabel("delta [1/s]")
 
 
-L_peaks = 1000*a/2
-sig_L_peaks = 1000*ea/2
+L = 1000*a/2
+sig_L = 1000*ea/2
 
-R_rest_peaks = -b
-sig_R_rest_peaks = eb
+R_rest = -b
+sig_R_rest = eb
+
