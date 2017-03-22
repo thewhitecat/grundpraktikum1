@@ -342,21 +342,25 @@ n & $U_n[V]$ & $\delta_n[1/ms]$ & $\sigma_{\delta_n}[ms]$\\
 \label{tab:DämpfungOszi}
 \end{table}
 
-Die Ergebnisse der Dämpfung werden in einem gewichteten Mittelwert zusammengefasst zu $\delta=(0.28 \pm 0.01)1/ms$.
+Die Ergebnisse der Dämpfung werden in einem gewichteten Mittelwert zusammengefasst zu $\delta=(0.28 \pm 0.01)kHz$.
 
 \subsection{Auswertung CASSY}
 \subsubsection{Rohdaten}
-Der prinzipielle Verlauf ist bei fast allen Messungen weitesgehend identisch, deswegen werden hier nur einige Spannungsverläufe exemplarisch gezeigt.
+Der prinzipielle Verlauf ist bei fast allen Messungen weitesgehend identisch (gedämpfte Schwingung/Exponentieller Abfall), deswegen werden hier nur einige Spannungsverläufe exemplarisch gezeigt (Abb. \ref{fig:Spannung19,6})
+
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.75]{Bilder/Spannungsverlauf19,6Ohm}
+\includegraphics[scale=0.5]{Bilder/Spannungsverlauf19,6Ohm}
+\includegraphics[scale=0.5]{Bilder/Spannungsverlauf52,2Ohm}
+\includegraphics[scale=0.5]{Bilder/Spannungsverlauf150Ohm}
+\includegraphics[scale=0.5]{Bilder/Spannungsverlauf200}
 \end{center}
-\caption[Spannungsverlauf]{Spannungsverlauf für Messung 1 bei $R=19.6 \Omega$ am Potentiometer (Multimeterangabe).}
+\caption[Spannungsverlauf]{Spannungssignal für verschiedene Einstellungen des Potentiometers (Wert vom Multimeter).}
 \label{fig:Spannung19,6}
 \end{figure}
 
-...to be continued....
+
 
 \subsubsection{Frequenzbestimmung}
 In diesem Versuch stehen einem prinzipiell zwei Möglichkeiten zur Frequenzbestimmung zur Verfügung.
@@ -377,7 +381,7 @@ Dazu wurden im Spannungssignal Vorzeichenwechsel gesucht. Die Nullstelle ist dan
 
 \begin{equation}
 t_i=(t_++t_-)/2 \quad \quad \quad
-\sigma_{t_i}=\frac{t_+-t_-}{\sqrt{12}}
+\sigma_{t_i}=\frac{|t_+-t_-|}{\sqrt{12}}
 \end{equation}
 
 Mit der Zeitspanne zwischen zwei Nullstellen ergibt sich für die Periodendauer:
@@ -387,7 +391,7 @@ T_i=2\cdot (t_{i+1}-t_i) \quad \quad
 \sigma_{T_i}=2\cdot \sqrt{\sigma_{t_{i+1}}^2+\sigma_{t_i}^2}
 \end{equation}
 
-Mittels Mittelwert und Fehler auf diesen ergibt sich für jede der fünf Messungen pro eingestelltem Widerstand eine mittlere Periodendauer mit Fehler. Mittels einem gewichteten Mittelwert werden diese zu einem Endergebnis für jede Widerstandseinstellung zusammengefasst.\\
+Mittels Mittelwert und Fehler auf diesen ergibt sich für jede der fünf Messungen pro eingestelltem Widerstand eine mittlere Periodendauer mit Fehler. Durch gewichteten Mittelwert werden diese zu einem Endergebnis für jede Widerstandseinstellung zusammengefasst.\\
 Für die Frequenz folgt dann:
 
 \begin{equation}
@@ -395,7 +399,7 @@ f=\frac{1}{\overline{T}} \quad \quad \quad
 \sigma_f=\frac{\sigma_{\overline{T}}}{\overline{T}^2}
 \end{equation}
 
-Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen finden sich in Tabelle \ref{tab:Frequenzen}.
+Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen finden sich in Tabelle \ref{tab:Frequenzen}. Für noch größere Widerstände lieferte die Bestimmung der Frequenz auf diese Weise keine sinnvollen Ergebnisse.
 
 \begin{table}
 \begin{center}
@@ -500,14 +504,14 @@ Die Einzelergebnisse werden dann durch den gewichteten Mittelwert zusammengefass
 
 \subsubsection{Aperiodischer Grenzfall}
 Bei einer nominellen Einstellung von $R_{gesteckt}=0.150k\Omega$ am Potentiometer kam der zeitliche Verlauf des Spannungssignals dem aperiodischen Grenzfall am nächsten. Aus zeitlichen Gründen war es nicht möglich den Bereich mit einer feineren Einstellung abzutasten um sich dem Grenzfall noch besser zu nähern.\\
-Es wurde versucht zwei Einhüllende anzupassen, so dass der gemessene Verlauf möglichst innerhalb der Einhüllenden verbleibt. Die beste Einhüllung ergab sich für $R=185\Omega$ und $R=200\Omega$, wobei $L=35.8mH$ verwendet wurden. (vgl. Abb.\ref{fig:Aperiodisch} )
+Es wurde versucht zwei Einhüllende der Form $U(t)=U_0 e^{-\delta (t-t_0)}\cdot (1+\delta (t-t_0))$ anzupassen, so dass der gemessene Verlauf möglichst innerhalb der Einhüllenden verbleibt. Der Parameter $t_0$ ist so zu wählen, dass dem verspäteten Messstart aufgrund des Triggers Rechnung getragen wird. Die beste Einhüllung ergab sich für $R=185\Omega$ und $R=200\Omega$, wobei $L=35.8mH$ verwendet wurden. (vgl. Abb.\ref{fig:Aperiodisch} )
 
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.4]{Bilder/Aperiodisch1}
 \includegraphics[scale=0.4]{Bilder/Aperiodisch2}
 \end{center}
-\caption{Zoom auf zwei Bereiche. Das gemessene Spannungssignal ist durchgezogen gezeichnet. Im zweiten Bild ist der einzige Bereich gezeigt indem das Einhüllen wenig gut gelingt.}
+\caption{Zoom auf zwei Bereiche. Das gemessene Spannungssignal ist durchgezogen gezeichnet. Im zweiten Bild ist der einzige Bereich gezeigt indem das Einhüllen nicht gut gelingt.}
 \label{fig:Aperiodisch}
 \end{figure}
 
@@ -518,12 +522,14 @@ R_{ap}=192.5\Omega \quad \quad \sigma_{R_{ap}}=4.3\Omega
 
 Den Wert den man erwarten würde ergibt sich aus der Kapazität und der Induktivität:
 \begin{equation}
-R_{ap}=2\cdot \sqrt{\frac{L}{C}}=2\cdot \sqrt{\frac{35.8mH}{4.7\mu F}}=175.6\Omega
+R_{ap}=2\cdot \sqrt{\frac{L}{C}}=2\cdot \sqrt{\frac{35.8mH}{4.7\mu F}}=174.6\Omega
 \end{equation}
 
 \begin{equation}
 \sigma_{R_{ap}}=\sqrt{(\frac{\sigma_L^2}{CL})^2+(\frac{\sigma_C^2 L}{C^3})^2}=?
 \end{equation}
+
+Die große Abweichung von rund 4.2 Standardabweichungen zum erwarteten Wert ist wohl darauf zurückzuführen, dass es sich bei dem Spannungsverlauf für den Einhüllende bestimmt wurden nur um die beste Approximation des aperiodischen Grenzfalls handelt die in der verbliebenen Zeit noch möglich war. Bei genauerem Abtasten des entscheidenden Bereichs wäre zu erwarten, dass das Ergebnis weniger stark abweicht.
 
 \section{Gekoppelte Schwingkreise}
 \subsection{Versuchsbeschreibung}
