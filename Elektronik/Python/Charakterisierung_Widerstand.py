@@ -38,7 +38,7 @@ mw_U, std_U = mw_std_best(index, U)
 mw_I, std_I = mw_std_best(index, I)
 
 #lineare Regression
-R, dR_stat, b_R, eb_R, chiq_R, cov = prak.lineare_regression_xy(mw_I, mw_U, std_I/np.sqrt(4001), std_U/np.sqrt(4001))
+R, dR_stat, b_R, eb_R, chiq_R, cov = prak.lineare_regression_xy(mw_I, mw_U, std_I, std_U)
 
 #verschiebemethode
 def verschiebemethode(x, y, ind, R):
@@ -54,17 +54,21 @@ def verschiebemethode(x, y, ind, R):
     mw_x_o, std_x_o = mw_std_best(ind, x_o)
     mw_x_u, std_x_u = mw_std_best(ind, x_u)
     mw_y, std_y = mw_std_best(index, y)
-    R_x_o, ea, b, eb, chiq, cov = prak.lineare_regression_xy(mw_y, mw_x_o, std_y/np.sqrt(4001), std_x_o/np.sqrt(4001))
-    R_x_u, ea, b, eb, chiq, cov = prak.lineare_regression_xy(mw_y, mw_x_u, std_y/np.sqrt(4001), std_x_u/np.sqrt(4001))
+    R_x_o, ea, b, eb, chiq, cov = prak.lineare_regression_xy(mw_y, mw_x_o, std_y, std_x_o)
+    R_x_u, ea, b, eb, chiq, cov = prak.lineare_regression_xy(mw_y, mw_x_u, std_y, std_x_u)
     mw_y_o, std_y_o = mw_std_best(ind, y_o)
     mw_y_u, std_y_u = mw_std_best(ind, y_u)
     mw_x, std_x = mw_std_best(index, x)
-    R_y_o, ea, b, eb, chiq, cov = prak.lineare_regression_xy(mw_y_o, mw_x, std_y_o/np.sqrt(4001), std_x/np.sqrt(4001))
-    R_y_u, ea, b, eb, chiq, cov = prak.lineare_regression_xy(mw_y_u, mw_x, std_y_u/np.sqrt(4001), std_x/np.sqrt(4001))
+    R_y_o, ea, b, eb, chiq, cov = prak.lineare_regression_xy(mw_y_o, mw_x, std_y_o, std_x)
+    R_y_u, ea, b, eb, chiq, cov = prak.lineare_regression_xy(mw_y_u, mw_x, std_y_u, std_x)
     R_sys = np.sqrt(((np.sqrt((R_x_u - R)**2) + np.sqrt((R_x_o - R)**2))/2)**2 + ((np.sqrt((R_y_u - R)**2) + np.sqrt((R_y_o - R)**2))/2)**2)
     return R_sys
 
 R_sys = verschiebemethode(U, I, index, R)
+
+#statistischer Fehler auf Strom und Spannung aus Rauschmessung
+stat_I = np.mean(std_I)
+stat_U = np.mean(std_U)
 
 #plotte lineare Regression
 x = np.array([-0.09, 0])
@@ -79,7 +83,7 @@ ax1.set_title("Strom gegen Spannung", **plt.font)
 plt.figtext(0.5,0.7,
             '\n a= ('+str(np.round(R,3))+' +/- '+str(np.round(dR_stat,3))+') Ohm\n'
             +' b= ('+str(np.round(b_R,3))+' +/- '+str(np.round(eb_R,3))+') V\n'
-            +'$\chi ^2 / ndof$= ' + str(chiq_R/(3999)), **plt.font)
+            +'$\chi ^2 / ndof$= ' + str(chiq_R/(mw_I.size-2)), **plt.font)
 plt.plot(x, y, color='r')
 plt.errorbar(mw_I, mw_U, xerr=std_I, yerr=std_U, fmt='.', color='b')
 fig1.show()
