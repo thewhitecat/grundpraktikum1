@@ -382,20 +382,21 @@ Man erhält die Dämpfungskonstante $\delta$ und deren Fehler $\sigma_\delta$ au
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 		\hline
-		\textbf{Widerstand [$\Omega$]} & \textbf{$\delta_1 [1/s]$} & \textbf{$\delta_2 [1/s]$} & \textbf{Mittelwert} \\
+		\textbf{Widerstand [$\Omega$]} & \textbf{$\delta_1 \pm \sigma_{stat} [1/s]$} & \textbf{$\delta_2 \pm \sigma_{stat} \pm \sigma_{sys} [1/s]$} & \textbf{Mittelwert [1/s]} \\
 		\hline
-		19.6 & 388.05 $\pm$ 0.05 & 370.3 $\pm$ 5.3 & \\
+		19.6 & 370.3 $\pm$ 5.3 & 397.9 $\pm$ 0.1 $\pm$ 14.4 & 373.5 $\pm$ 5.0 \\
 		\hline
-		28.5 & 518.91 $\pm$ 0.07 & 506.4 $\pm$ 9.9 & \\
+		28.5 & 506.4 $\pm$ 9.9 & 526.4 $\pm$ 0.2 $\pm$ 23.9 & 509.3 $\pm$ 9.1 \\
 		\hline
-		38.9 & 672.83 $\pm$ 0.10 & 694.8 $\pm$ 16.4 & \\
+		38.9 & 694.8 $\pm$ 16.4 & 671.9 $\pm$ 0.4 $\pm$ 35.3 & 690.8 $\pm$ 14.9 \\
 		\hline
-		52.2 & 868.31 $\pm$ 15 & 820.1 $\pm$ 26.4 & \\
+		52.2 & 820.1 $\pm$ 26.4 & 820.2 $\pm$ 0.8 $\pm$ 51.5 & 820.2 $\pm$ 23.5 \\
 		\hline
-		68.6 & & 1010.5 $\pm$ 25.9 & \\
+		68.6 & 1010.5 $\pm$ 25.9 & 1087.1 $\pm$ 0.7 $\pm$ 79.4 & 1017.9 $\pm$ 24.6 \\
 		\hline
 	\end{tabular}
 	\caption{Ergebnisse für die Dämpfungskonstanten nach gestecktem Widerstand}
+	\label{tab:delta}
 \end{table}
 
 
@@ -404,7 +405,25 @@ Aus der Differentialgleichung des RLC-Schwingkreises folgt:
 \begin{equation}
 \delta = \frac{R_{gesamt}}{2L} \quad \rightarrow \quad R_{gesteckt} = 2 L \cdot \delta - (R_L + R_{Rest})
 \end{equation}
-Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskonstante $\delta$ auf, erhält man als Steigung der angepassten Geraden $m = 2L$ und als y-Achsenabschnitt $b = R_{Rest}$.\\
+Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskonstante $\delta$ auf, erhält man als Steigung der angepassten Geraden $m = 2L$ und als y-Achsenabschnitt $b = R_{Rest}$. Unsere Messungen ergaben L = (35.8$\pm$2.1)mH und $R_L + R_{Rest}$ = (7.4 $\pm$ 2.0)$\Omega$ (Abbildung \ref{pic:fit_L_RLC}).
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		- & \textbf{Gemessen} & \textbf{Brücke} & \textbf{Herstellerangabe} \\
+		\hline
+		Induktivität [mH] & 35.8 $\pm$ 2.1 & 36.2 & 35 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{Bilder/fit_L_RLC}
+	\caption{Gesteckter Widerstand gegen Dämpfungskonstante}
+	\label{pic:fit_L_RLC}
+\end{figure}
 
 Weiterhin kann man dann die Kapazität bestimmen, indem man das Quadrat der Kreisfrequenz $\omega$ gegen das Quadrat der Dämpfungskonstante $\delta$ aufträgt.
 \begin{equation}
