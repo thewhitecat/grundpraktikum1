@@ -1,0 +1,44 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Tim}
+
+\begin{document}
+\section{Kondensator}
+\subsection{Versuchsbeschreibung}
+In diesem Teilversuch soll die Kapazität eines Kondensators durch Auf- und Entladung von diesem bestimmt werden.
+\subsubsection{Aufladung}
+Wird eine Spannung an einen Kondensator angelegt, so wird dieser geladen, bis die Quellspannung kompensiert wird. Der Ladevorgang dauert umso länger, je größer der Widerstand des Stromkreises ist.\\
+Aus der Maschenregel folgt:
+\begin{equation}
+U_0 = U_R + U_C \Rightarrow U_0 - U_C = R\cdot C\cdot \dfrac{dU_c}{dt}
+\label{Kondensator_DGL}
+\end{equation}
+Bei der Aufladung kann man daraus den Strom und die Spannung bestimmen:
+\begin{equation}
+U_C(t) = U_0 \cdot (1-e^{-\dfrac{t}{R\cdot C}})
+\end{equation}
+\begin{equation}
+I(t) = I_0 \cdot e^{-\dfrac{t}{R\cdot C}}
+\end{equation}
+Dabei ist $\tau = R \cdot C$ die Zeitkonstante des R-C-Kreises.
+\subsubsection{Entladung}
+Bei der Entladung liegt keine externe Spannung mehr an. Es gilt also: $U_0 = 0$\\
+Mit dieser Annahme und Gl. \ref{Kondensator_DGL} folgt:
+\begin{equation}
+U_C(t) = U_0 \cdot e^{-\dfrac{t}{R\cdot C}}
+\end{equation}
+\begin{equation}
+I(t) = -I_0 \cdot e^{-\dfrac{t}{R\cdot C}}
+\end{equation}
+\subsection{Aufbau und Durchführung}
+
+\subsection{Auswertung}
+\end{document}

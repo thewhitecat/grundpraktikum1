@@ -36,7 +36,7 @@ for i in range(len(data)):
     U2 = dat[:,3]
     freq,amp = p.fourier_fft(t,U1)
     freq,amp = p.untermenge_daten(freq,amp,200,1000)
-    #pictures(freq,amp)
+    pictures(freq,amp)
     if i < 3:
         freq,amp = p.untermenge_daten(freq,amp,680,780)
         sp = p.peakfinder_schwerpunkt(freq,amp)
@@ -50,7 +50,7 @@ for i in range(len(data)):
         
     freq,amp = p.fourier_fft(t,U2)
     freq,amp = p.untermenge_daten(freq,amp,200,1000)
-    #pictures(freq,amp)
+    pictures(freq,amp)
     if i < 3:
         freq,amp = p.untermenge_daten(freq,amp,680,780)
         sp = p.peakfinder_schwerpunkt(freq,amp)
