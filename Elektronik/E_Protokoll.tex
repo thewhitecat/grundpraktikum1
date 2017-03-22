@@ -95,6 +95,8 @@ Der Schwingkreis wird gemäß dem Schaltplan (Abb. \ref{fig:RLCSchaltung}) aufge
 \hline
 Messparameter &  $10 \mu s$ Messintervall;  2000 Messwerte \\
 \hline
+Einstellungen & Messbereich U: -10V bis 10V\\
+\hline
 Trigger & fallend, 6V\\
 \hline
 Anm. & \\
@@ -117,7 +119,7 @@ Der prinzipielle Verlauf ist bei fast allen Messungen weitesgehend identisch, de
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.5]{Bilder/Spannungsverlauf19,6Ohm}
+\includegraphics[scale=0.75]{Bilder/Spannungsverlauf19,6Ohm}
 \end{center}
 \caption[Spannungsverlauf]{Spannungsverlauf für Messung 1 bei $R=19.6 \Omega$ am Potentiometer (Multimeterangabe).}
 \label{fig:Spannung19,6}
@@ -129,7 +131,64 @@ Der prinzipielle Verlauf ist bei fast allen Messungen weitesgehend identisch, de
 In diesem Versuch stehen einem prinzipiell zwei Möglichkeiten zur Frequenzbestimmung zur Verfügung.
 Einmal durch Fouriertransformation des gemessenen Spannungssignals und anschließender Peakbestimmung, die zweite Möglichkeit durch Bestimmung der mittleren Periodendauer des Spannungssignals.\\
 
-Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend, da die Auflösung des Spektrums zu grob ist (siehe Abb. für das zu Abb.\ref{fig:Spannung19,6} zugehörige Frequenzspektrum).
+Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend, da die Auflösung des Spektrums zu grob ist (siehe Abb.\ref{fig:Fourier19,6} für das zu Abb.\ref{fig:Spannung19,6} zugehörige Frequenzspektrum).\\
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.75]{Bilder/fft_19,6Ohm}
+\end{center}
+\caption{Frequenzspektrum von Messung 1 bei $R=19.6 \Omega$. Die Auflösung ist mit $\approx 50Hz$ viel zu grob.}
+\label{fig:Fourier19,6}
+\end{figure}
+
+Für die Bestimmung der Frequenz aus der mittleren Periodendauer sind bessere Ergebnisse erzielt worden.\\
+Dazu wurden im Spannungssignal Vorzeichenwechsel gesucht. Die Nullstelle ist dann der Mittelwert der Zeitpunkte eines solchen Vorzeichenwechsels, als Fehler auf die Nullstelle wurde eine Gleichverteilung zwischen den beiden Zeitpunkten angenommen. Es ergibt sich dann für Nullstellen $t_i$:
+
+\begin{equation}
+t_i=(t_++t_-)/2 \quad \quad \quad
+\sigma_{t_i}=\frac{t_+-t_-}{\sqrt{12}}
+\end{equation}
+
+Mit der Zeitspanne zwischen zwei Nullstellen ergibt sich für die Periodendauer:
+
+\begin{equation}
+T_i=2\cdot (t_{i+1}-t_i) \quad \quad
+\sigma_{T_i}=2\cdot \sqrt{\sigma_{t_{i+1}}^2+\sigma_{t_i}^2}
+\end{equation}
+
+Mittels Mittelwert und Fehler auf diesen ergibt sich für jede der fünf Messungen pro eingestelltem Widerstand eine mittlere Periodendauer mit Fehler. Mittels einem gewichteten Mittelwert werden diese zu einem Endergebnis für jede Widerstandseinstellung zusammengefasst.\\
+Für die Frequenz folgt dann:
+
+\begin{equation}
+f=\frac{1}{\overline{T}} \quad \quad \quad
+\sigma_f=\frac{\sigma_{\overline{T}}}{\overline{T}^2}
+\end{equation}
+
+Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen finden sich in Tabelle \ref{tab:Frequenzen}.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$R[\Omega]$ & $f[Hz]$ & $\sigma_f[Hz]$ \\
+\hline
+ 19.6 & 382.78 & 0.16\\
+\hline
+ 28.5 & 376.84 & 0.18\\
+\hline
+ 38.9 & 373.21 & 0.20\\
+\hline
+ 52.2 & 364.84 & 0.22\\
+\hline
+ 68.8 & 350.75 & 0.24\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Ergebnisse der Frequenzbestimmung durch Nullstellen}
+\label{tab:Frequenzen}
+\end{table}
+
+
 
 
 \end{document}
