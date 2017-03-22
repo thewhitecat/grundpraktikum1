@@ -84,7 +84,7 @@ def get_zeros(t,U,index_output=True):
             index.append((x[2],x[2]+1))
         return index    
 
-def daempfung_peaks (datei="19,6", eU_stat=0.001496, figure=6):
+def daempfung_peaks (datei="19,6", eU_stat=0.002, figure=6):
 
     sig_U_stat = eU_stat
     sig_t_diff = 0.0001
@@ -158,18 +158,20 @@ def daempfung_peaks (datei="19,6", eU_stat=0.001496, figure=6):
             delta_fit.append(-a)
             sig_delta_fit.append(ea)
             
-            if (i == 1 and datei == "68,6"):
+            if (i == 1 and datei == "28,5"):
                 
                 # Lin Reg
                 plt.figure(20)
-                plt.subplot2grid((6,1),(0,0), rowspan=4)
+                plt.subplot2grid((7,1),(0,0), rowspan=4)
                 plt.errorbar(t[index], np.log(absU[index]), sig_U_stat/U[index], fmt = ".")
                 plt.plot(t[index], a*t[index]+b)
-                plt.ylabel("ln($U/U_0$)")
+                plt.ylabel("ln ($U / U_0$) ")
                 # Residuen
-                plt.subplot2grid((6,1),(-2,0), rowspan=2)
+                plt.subplot2grid((7,1),(-2,0), rowspan=2)
                 plt.errorbar(t[index], np.log(absU[index])-a*t[index]-b, yerr=sig_U_stat/U[index], fmt = ".")
                 plt.axhline(linestyle="dashed")
+                plt.ylabel("Residuen")
+                plt.xlabel("t [s]")
                 
                 
                 # Plot Ergebnis
@@ -178,10 +180,11 @@ def daempfung_peaks (datei="19,6", eU_stat=0.001496, figure=6):
                 plt.xlabel("t (s)")
                 plt.ylabel("U (V)")
                 
-                x = np.arange(0, 0.02, 0.0005)
+                x = np.arange(0, 0.0205, 0.0005)
                 y = np.exp(b)*np.exp(a*x)
-                plt.plot(x, y)
-                plt.plot(x, -y)
+                plt.plot(x, y, color="red")
+                plt.plot(x, -y, color="red")
+
             
             # Verschiebemethode
             a1, ea1, b1, eb1, chi2, cov = p.lineare_regression(t[index], np.log(absU[index])-sig_U_sys[index]/absU[index], sig_U_stat/U[index])
@@ -300,7 +303,7 @@ y = a*x+b
 plt.plot(x, y)
 #plt.xlabel("$\delta$ [1/s]")
 plt.ylabel("R [$\Omega$]")
-plt.figtext(0.15, 0.7, "m = {:2.3f}$\pm${:2.3f}[mH]\nb = {:2.2f}$\pm${:2.2f}[$\Omega$]\n$\chi^2$/ndof = {:2.2f}".format(a, ea, b, eb, chi2/ndof))
+plt.figtext(0.15, 0.7, "m = {:2.3f}$\pm${:2.3f}[H]\nb = {:2.2f}$\pm${:2.2f}[$\Omega$]\n$\chi^2$/ndof = {:2.2f}".format(a, ea, b, eb, chi2/ndof))
 
 
 plt.subplot2grid((6,1),(-2,0), rowspan=2)
