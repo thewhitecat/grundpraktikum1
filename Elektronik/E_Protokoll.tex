@@ -54,7 +54,8 @@ U = R \cdot I
 \end{equation}
 Daran lässt sich direkt ersehen, dass sich bei Auftragung des Stroms auf die X-Achse und der Spannung auf die Y-Achse der Widerstand als Steigung der Geraden ergibt. Da auf den Achsen direkt die gemessenen Größen aufgetragen werden können, wird die lineare Regression direkt auf die Rohdaten angewandt. 
 \subsubsection{Lineare Regression und Statistischer Fehler}
-Aus den Messungen von Strom und Spannung für jede eingestellte Spannung kann jeweils Mittelwert und Standardabweichung bestimmt werden. Abbildung \ref{fig:Widerstand_lineare_Regression} zeigt die Rohdaten als blaue Punkte mit Fehlerbalken und das Ergebnis der lineare Regression als rote Gerade. Die negative Steigung der Geraden ist bedingt durch das negative Vorzeichen des Stroms und das liegt lediglich an der Polung des Messgerätes. Für den realen Wert des Widerstandes muss der Betrag der Steigung genommen werden; am Fehler ändert sich nichts.
+Aus den Messungen von Strom und Spannung für jede eingestellte Spannung kann jeweils Mittelwert und Standardabweichung bestimmt werden. Abbildung \ref{fig:Widerstand_lineare_Regression} zeigt die Rohdaten als blaue Punkte mit Fehlerbalken und das Ergebnis der lineare Regression als rote Gerade. Die negative Steigung der Geraden ist bedingt durch das negative Vorzeichen des Stroms und das liegt lediglich an der Polung des Messgerätes. Für den realen Wert des Widerstandes muss der Betrag der Steigung genommen werden; am Fehler ändert sich nichts.\\
+Die linearen Regressionen ergeben ein sehr kleines $\chi^2$ pro Freiheitsgrad (siehe beispielsweise Abbildung \ref{fig:Widerstand_lineare_Regression}). Dies bedeutet, dass die Fehler zu groß sind. Vermutlich liegt das an dem anfangs verwendeten CASSY. Dieses zeigte zum Teil extrem schwankende und dabei (für kurze Zeiten) physikalisch unsinnige Werte an. Das CASSY wurde nach der Charakterisierung des 100 $\Omega$ Widerstands ausgewechselt. Aus Zeitgründen konnten die mit dem ersten (scheinbar kaputten) CASSY durchgeführten Messungen nicht wiederholt werden. Da die falschen Werte immer nur für eine kurze Zeit angezeigt wurden, stimmt der Wert im Mittel über viele in der Zeit gleichverteilte Werte wieder (wie sich am Ergebnis auch zeigen wird), daher kann die Messung dennoch verwendet werden.
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.45]{Bilder/Widerstand_Fit.png}
@@ -446,7 +447,7 @@ k = \dfrac{f_-^2 - f_+^2}{f_-^2 + f_+^2}
 \end{equation}
 \\ Die Erwartung bei dieser Versuchskonfiguration ist, dass die Amplitudennullstellen des einen Schwingkreises mit einem Amplitudenextremum des anderen zusammenfallen. Die Dämpfung durch Ohm'sche Widerstände in allen Bauteilen verschiebt diese beiden allerdings gegeneinander. Für Kopplungen k < 0,2 lässt sich die Verschiebung näherungsweise berechnen:
 \begin{equation}
-\Delta t \approx \dfrac{1}{w_Schwebung} \cdot \left[\dfrac{\pi}{2} - \arctan \left( \dfrac{k}{R} \cdot \sqrt{\dfrac{L}{C}} \right)\right]
+\Delta t \approx \dfrac{1}{w_{Schwebung}} \cdot \left[\dfrac{\pi}{2} - \arctan \left( \dfrac{k}{R} \cdot \sqrt{\dfrac{L}{C}} \right)\right]
 \end{equation}  
 \subsection{Aufbau und Durchführung}
 \subsection{Auswertung}
