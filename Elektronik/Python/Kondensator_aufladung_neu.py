@@ -54,9 +54,9 @@ def pictures(t,I=None,U=None,lnI=None,lnU=None,dlnI=None,dlnU=None):
         plt.xlabel("Zeit[s]")
         plt.ylabel("Strom[ln(A)]")
         plt.title("Lineare Regression ln(I)")
-        plt.figtext(0.7,0.7,
-            '\n$\mu=$'+str(np.round(a,2))+'hPa\n'
-            +'$\sigma=$'+str(np.round(ea,2))+'hPa\n'
+        plt.figtext(0.6,0.7,
+            '\n$\mu_{Steigung}=$'+str(np.round(a,2))+'\n'
+            +'$\sigma_{Steigung}=$'+str(np.round(ea,2))+'\n'
             +'chi^2/f='+str(np.round(chiq/(len(x)-1),2)))
         res = y-(x*a+b)
         plt.subplots()
@@ -70,11 +70,11 @@ def pictures(t,I=None,U=None,lnI=None,lnU=None,dlnI=None,dlnU=None):
         plt.subplots()
         plt.errorbar(x,a*x+b,yerr = dy)
         plt.xlabel("Zeit[s]")
-        plt.ylabel("Strom[ln(V)]")
+        plt.ylabel("Spannung[ln(V)]")
         plt.title("Lineare Regression ln(U)")
         plt.figtext(0.7,0.7,
-            '\n$\mu=$'+str(np.round(a,2))+'hPa\n'
-            +'$\sigma=$'+str(np.round(ea,2))+'hPa\n'
+            '\n$\mu=$'+str(np.round(a,2))+'\n'
+            +'$\sigma=$'+str(np.round(ea,2))+'\n'
             +'chi^2/f='+str(np.round(chiq/(len(x)-1),2)))
         res = y-(x*a+b)
         plt.subplots()
@@ -139,7 +139,7 @@ for i in range(len(data)):
     ITstat.append(ea/(a**2))
     Ia.append(a)
     Iastd.append(ea)
-    if i==8:
+    if i==0:
         pictures(t,lnI=logI,lnU=logU,dlnI=dlogI,dlnU=dlogU)
 
 CUE,CUEerr,CIE,CIEerr = k.alles()

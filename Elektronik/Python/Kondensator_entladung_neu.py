@@ -53,9 +53,9 @@ def pictures(t,I=None,U=None,lnI=None,lnU=None,dlnI=None,dlnU=None):
         plt.xlabel("Zeit[s]")
         plt.ylabel("Strom[ln(A)]")
         plt.title("Lineare Regression ln(I)")
-        plt.figtext(0.7,0.7,
-            '\n$\mu=$'+str(np.round(a,2))+'hPa\n'
-            +'$\sigma=$'+str(np.round(ea,2))+'hPa\n'
+        plt.figtext(0.6,0.7,
+            '\n$\mu_{Steigung}=$'+str(np.round(a,2))+'\n'
+            +'$\sigma_{Steigung}=$'+str(np.round(ea,2))+'\n'
             +'chi^2/f='+str(np.round(chiq/len(x),2)))
         res = y-(x*a+b)
         plt.subplots()
@@ -71,9 +71,9 @@ def pictures(t,I=None,U=None,lnI=None,lnU=None,dlnI=None,dlnU=None):
         plt.xlabel("Zeit[s]")
         plt.ylabel("Strom[ln(V)]")
         plt.title("Lineare Regression ln(U)")
-        plt.figtext(0.7,0.7,
-            '\n$\mu=$'+str(np.round(a,2))+'hPa\n'
-            +'$\sigma=$'+str(np.round(ea,2))+'hPa\n'
+        plt.figtext(0.6,0.7,
+            '\n$\mu_{Steigung}=$'+str(np.round(a,2))+'\n'
+            +'$\sigma_{Steigung}=$'+str(np.round(ea,2))+'\n'
             +'chi^2/f='+str(np.round(chiq/len(x),2)))
         res = y-(x*a+b)
         plt.subplots()
@@ -140,7 +140,7 @@ def alles():
         Ia.append(a)
         Iastd.append(ea)
         
-        if i==6:
+        if i==1:
             pictures(t,lnI=logI,lnU=logU,dlnI=dlogI,dlnU=dlogU)
     
     mittelTU,stdTU = p.gewichtetes_mittel(UTs,np.array(UTstat))

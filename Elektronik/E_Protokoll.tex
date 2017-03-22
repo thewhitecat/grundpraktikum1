@@ -118,7 +118,7 @@ Herstellerangabe [$\Omega$] & Multimeter [$\Omega$] & Brücke [$\Omega$] & linea
 \label{tab:Widerstand_Ergebnisse}
 \end{tabular} \\
 Es lässt sich gut erkennen, dass die Messwerte aller Messmethoden sehr nah an der Herstellerangabe liegen. Insbesondere liegen alle Messwerte innerhalb der vom Hersteller angegebenen Toleranz.
-
+\newpage
 \section{Kondensator}
 \subsection{Versuchsbeschreibung}
 In diesem Teilversuch soll die Kapazität eines Kondensators durch Auf- und Entladung von diesem bestimmt werden.
@@ -181,8 +181,10 @@ Beim Entladevorgang bleibt die Spannungsquelle eingeschaltet. Der Messvorgang wi
 \subsubsection{Messung mit dem Oszilloskop}
 Messeinstellungen:
 \begin{tabular}{c c c}
-Messparameter & Zeitauflösung: $500\mu s$  & Spannungsauflösung: $0.2V$ \\ 
+Messeinstellungen: & Zeitauflösung: $500\mu s$  & Spannungsauflösung: $0.2V$ \\ 
 \end{tabular} 
+\\
+\\
 Die Achsenauflösungen sollten so gewählt werden, dass man die Werte möglichst gut ablesen kann.
 Der Trigger sollte an der Spannungskurve anliegen.
 \subsubsection{Messung mit CASSY}
@@ -203,7 +205,7 @@ Um die Kapazität zu bestimmen wurden jeweils bei Auf- und Entladung zwei Zeiten
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
-• & Offset & t1 & U1 & t2 & U2 \\ 
+ & Offset & t1 & U1 & t2 & U2 \\ 
 \hline 
 Aufladung & -1.18V & -5.2ms & -0.928V & $0.5ms$ & -0.240V \\ 
 \hline 
@@ -220,7 +222,7 @@ Die gemessenen Werte sind in Tab\ref{tab:Kond_Osz} aufgeführt. Die Kapazität w
 \end{equation}
 Nach C auflösen ergibt:
 \begin{equation}
-C = \dfrac{t1-t2}{R\cdot \ln(\dfrac{U1}{U2}}
+C = \dfrac{t1-t2}{R\cdot \ln(\dfrac{U1}{U2})}
 \end{equation}
 
 
@@ -259,7 +261,7 @@ Die Fehler wurden dabei folgendermaßen bestimmt:
 \subsection{Auswertung CASSY}
 Über das CASSY wurden bei Auf- und Entladung jeweils 5 Datensätze aufgenommen.
 \subsubsection{Rohdaten}
-Die Rohdaten Folgen einem logarithmischem Verlauf. Es ist also sinnvoll, diese zu logarithmieren. Dabei wird die Spannung beim Aufladen mit
+Die Rohdaten Folgen einem logarithmischem Verlauf. Es ist also sinnvoll, diese zu logarithmieren. Dabei wird die \textbf{Spannung beim Aufladen} mit
 \begin{equation}
 U_{log} = log(U_0-U)
 \end{equation}
@@ -271,7 +273,8 @@ U_{log} = log(U)
 I_{log} = log(I)
 \end{equation}
 logarithmiert.\\
-In den folgenden Beispielplots erkennt man, dass diese logarithmische Darstellung nur am Anfang des Messbereiches sinnvoll ist, da im späteren die Schwankung zu stark wird und der Verlauf nicht mehr logarithmisch ist.
+In den folgenden Beispielplots erkennt man, dass diese logarithmische Darstellung nur am Anfang des Messbereiches sinnvoll ist, da im späteren die Schwankung zu stark wird und der Verlauf nicht mehr logarithmisch ist.\\
+Es wurde immer der Betrag der Messwerte genommen. Deswegen ist der Strom beim Entladen positiv.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_U}
@@ -315,7 +318,7 @@ In den folgenden Beispielplots erkennt man, dass diese logarithmische Darstellun
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_linU}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_resI}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_resU}
-\caption[Rohdaten logarith. A]{Lineare Regressionen bei der Aufladung}
+\caption[Rohdaten logarith. A]{Lineare Regressionen bei der Aufladung(links: Strom, rechts: Spannung}
 \label{fig:linAuf}
 \end{center}
 \end{figure}
@@ -326,7 +329,7 @@ In den folgenden Beispielplots erkennt man, dass diese logarithmische Darstellun
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_linU}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_resI}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_resU}
-\caption[Rohdaten logarith. A]{Lineare Regressionen bei der Entladung}
+\caption[Rohdaten logarith. A]{Lineare Regressionen bei der Entladung(links: Strom, rechts: Spannung)}
 \label{fig:linEnt}
 \end{center}
 \end{figure}
@@ -340,7 +343,7 @@ Als Einzelfehler für die lineare Regression wurde der durch Fehlerfortpflanzung
 \begin{equation}
 \sigma_{log(I)} = \dfrac{\sigma_I}{I}
 \end{equation}
-Wobei $\sigma_U$ und $\sigma_I$ den Rauschmessungsfehlern aus dem vorherigen Versuch entsprechen.
+Wobei $\sigma_U$ und $\sigma_I$ den Rauschmessungsfehlern aus dem vorherigen Versuch entsprechen.\\
 Anmerkung: Da die Rauschmessung mit dem kapputen CASSY durchgeführt wurde, sind die Fehler vermutlich viel zu groß. Dies resultiert in zu kleinen $\chi ^{2}/f$.
 
 \begin{table}
@@ -367,10 +370,11 @@ Der Fehler auf $\tau$ ergibt sich dabei folgendermaßen:
 \begin{equation}
 \sigma_{\tau}=\dfrac{\sigma_{a}}{a^{2}}
 \end{equation}
-Der Fehler auf C ergibt sich durch
+Der statistische Fehler auf C ergibt sich durch
 \begin{equation}
 \sigma_C = \sqrt{(\dfrac{\sigma_{\tau}}{R})^{2}+(\dfrac{\tau \cdot \sigma_{R}}{R^{2}})^{2}}
 \end{equation}
+Der systematische Fehler auf C wird aus dem systematischen des Widerstandes fortgepflanzt.
 \begin{table}[H]
 \begin{tabular}{|c|c|c|}
 \hline 
@@ -395,17 +399,22 @@ C_{ges} = (4.951\pm 0.006\pm0.123)\mu F
 
 \begin{tabular}{|c|c|}
 \hline 
-Herstellerangaben & 4.7\\ 
+Herstellerangaben & $(4.7\pm0.235)\mu F$\\ 
 \hline 
-CASSY & $4.951\pm 0.006\pm0.123$\\
+CASSY & $(4.951\pm 0.006\pm0.123)\mu F$\\
 \hline 
-Oszilloskop(Aufladung) & $4.69\pm 0.05\pm 0.08$ \\ 
+Oszilloskop(Aufladung) & $(4.69\pm 0.05\pm 0.08)\mu F$ \\ 
 \hline 
-Oszilloskop(Entladung) & $4.88\pm 0.02\pm 0.05$ \\ 
+Oszilloskop(Entladung) & $(4.88\pm 0.02\pm 0.05)\mu F$ \\ 
 \hline 
-Brücke & $4.88\pm0.01\pm0.01$ \\ 
+Brücke & $(4.88\pm0.01\pm0.01)\mu F$ \\ 
 \hline 
 \end{tabular} 
+
+\subsubsection{Fazit}
+Die meisten Messungen haben einen Wert ergeben, der größer als die Herstellerangabe. Auffallend ist der riesige Systematische Fehler auf die CASSY-Messung. Dieser macht die CASSY-Messung sehr ungenau und vermutlich wurde hier ein zu großer Wert gemessen.\\
+Alle vier Messergebnisse liegen im Bereich einer Standardabweichung um den Wert $4.9\mu F$. Dieser Wert liegt im Rahmen der vom Hersteller angegebenen Ungenauigkeit. Es ist also sinnvoll anzunehmen, dass der Kondensator eine Kapazität von $4.9\mu F$ hat.
+\newpage
 
 \section{RLC-Schwingkreis}
 \subsection{Versuchsbeschreibung}
@@ -739,7 +748,7 @@ Herstellerangaben und von uns bestimmte Werte weichen dabei in der Regel um weni
 Lediglich die Aufzeichnung und Bestimmung des aperiodischen Grenzfalls ist nicht vollständig gelungen. Der bestimmte Wert weicht um mehrere Standardabweichungen von der theoretischen Vorhersage ab. Ursächlich dafür ist wahrscheinlich, dass eine exakte Aufzeichnung des Grenzfalls nicht gelungen ist und mit der besten vorhandenen Approximation gearbeitet werden musste.
 
 
-
+\newpage
 \section{Gekoppelte Schwingkreise - Schwebung}
 \subsection{Versuchsbeschreibung}
 Ein LC-Schwingkreis kann induktiv mit einem zweiten LC-Schwingkreis gekoppelt werden, der dadurch zu erzwungenen Schwingungen angeregt wird. Falls die Eigenfrequenzen der Schwingkreise gleich ist $w_1 = w_2$, tritt eine Resonanz auf. In diesem Fall kann eine Schwebung beobachtet werden. Bedeutet: Die Schwingungsenergie "schwingt" zwischen den Schwingkreisen hin und her. \\
@@ -825,6 +834,7 @@ Der beschriebene Versuch wurde mit 3 verschiedenen Kopplungen durchgeführt: Ein
 Die Kopplung wurde jeweils mit Gleichung \ref{eq:Kopplung} bestimmt. Der Fehler ergibt sich aus der gauß'schen Fehlerfortpflanzung zu:
 \begin{equation}
 \sigma_k = \sqrt{\left( \left( \dfrac{2 \cdot f_-}{f_+^2 + f_-^2} - 2 \cdot f_- \cdot \dfrac{f_-^2 - f_+^2}{(f_+^2 + f_-^2)^2} \right) \cdot \sigma_{f_-} \right)^2 + \left( \left( \dfrac{2 \cdot f_+}{f_+^2 + f_-^2} + 2 \cdot f_+ \cdot \dfrac{f_-^2 - f_+^2}{(f_+^2 + f_-^2)^2} \right) \cdot \sigma_{f_+} \right)^2}
+\label{eq:Kopplung_k}
 \end{equation}
 Außerdem wurde die Zeitverschiebung aus den Daten jeweils über den zeitlichen Abstand zwischen einem Extremum in der einen und einer Nullstelle in der anderen Spannung bestimmt. Berechnet man die Zeitverschiebung mit Gleichung \ref{eq:delta_t}, so findet man mit der gauß'schen Fehlerfortpflanzung den Fehler auf $\Delta t$ zu:
 \begin{equation}
@@ -854,5 +864,126 @@ Messung & $k_{gemessen}$ & $\Delta t_{berechnet}$ [ms] & $\Delta t_{gemessen}$ [
 
 Die Kopplung der beiden Schwingkreise konnte durch die Bestimmung der beiden Frequenzen aus dem Frequenzspektrum der Schwingung der Spannung sehr gut bestimmt werden (insbesondere mit kleinem Fehler). Einen Vergleichswert anzugeben gestaltet sich an dieser Stelle als recht schwierig, da dafür viele Faktoren eine Rolle spielen. \\
 Die Bestimmung der Zeitverschiebung zwischen den beiden Schwingungen durch Bestimmung der zeitlichen Differenz zwischen einem Extremum in der einen und einer Nullstelle in der anderen Spannung hat nicht so gut funktioniert. Liegen die Werte zum Teil zwar nur wenige Standardabweichungen von den errechneten Werten entfernt, so liegt dies doch daran, dass die Fehler recht groß sind.
+\newpage
+\section{Gekoppelte Schwingkreise Teil 2 - Fundamentalschwingungen}
+\subsection{Versuchsbeschreibung}
+In diesem Teilversuch sollen nun die Fundamentalschwingungen bestimmt werden. Dazu werden zwei über die Spulen gekoppelte baugleiche Schwingkreise einmal gleichläufig und einmal gegenläufig angeregt.
+
+Bei gleicher Anregung werden die Ströme addiert, was dazu führt, dass die resultierende Fundamentalschwingung gegeben ist durch
+\begin{equation}
+\omega_+ =\dfrac{\omega_0}{\sqrt{1+k}}
+\end{equation}
+wobei $\omega_0 = \dfrac{1}{\sqrt{L\cdot C}}$ die ungekoppelte Frequenz und k der Kopplungsfaktor ist.\\
+Bei entgegengesetzter Anregung werden die Ströme subtrahiert. Damit ist die Frequenz:
+\begin{equation}
+\omega_- =\dfrac{\omega_0}{\sqrt{1-k}}
+\end{equation}
+\\
+Der Kopplungsfaktor k kann nun wie im vorherigen versuchsteil bestimmt werden durch
+\begin{equation}
+k = \dfrac{f_-^2 - f_+^2}{f_-^2 + f_+^2}
+\label{eq:Kopplung2}
+\end{equation}
+
+\subsection{Aufbau und Durchführung}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\linewidth]{Bilder/Fund_Aufbau.PNG}
+\end{center}
+\caption[Aufbau Schwebung]{Aufbau für Messung der Schwebung zweier gekoppelter Schwingkreise}
+\label{fig:Fund_Aufbau}
+\end{figure}
+
+Der Aufbau ist ähnlich zu dem von Teil 1, nur wird jetzt an beiden Schwingkreisen eine Spannung angelegt. Es sollte auch hier vor allem darauf geachtet werden, dass die Schwingkreise möglichst identische Bauteile haben.
+Bei dem gleichsinnigen Schwingkreis sollten diese in unterschiedliche Richtung gepolt sein, im gegensinnigen in die gleiche Richtung. Da es oft schwer ist, die Windungsrichung der Spulen herauszufinden, kann während der Messung einfachheitshalber eine Spule umgepolt werden und erst bei der Auswertung analysiert werden, welcher Aufbau nun der gleichsinnige und welcher der gegensinnige war.\\
+In dem von uns gewählten Aufbau standen die Spulen dicht hintereinander. Es wurde kein Eisenkern benutzt.\\
+\\
+Bei der Durchführung sollte möglichst bei beiden Spannungsquellen die gleichen Werte eingestellt werden. Die Schwingungen werden gleichzeitig über einen Schalter gestartet.\\
+\\
+Es wurden die gleichen Messeinstellungen wie bei Teil 1 verwendet.
+
+\subsection{Auswertung}
+
+\subsubsection{Rohdaten und Frequenzspektren}
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.49\linewidth]{Bilder/Fund_Rohdaten1.PNG}
+\includegraphics[width=0.49\linewidth]{Bilder/Fund_Frequenz1.PNG}
+\end{center}
+\caption[Aufbau Schwebung]{Rohdaten und dazugehörige FFT der Fundamentalschwingung $\omega_+$, gemessen am 1.Schwingkreis}
+\label{fig:Fund_Roh1}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.49\linewidth]{Bilder/Fund_Rohdaten2.PNG}
+\includegraphics[width=0.49\linewidth]{Bilder/Fund_Frequenz2.PNG}
+\end{center}
+\caption[Aufbau Schwebung]{Rohdaten und dazugehörige FFT der Fundamentalschwingung $\omega_-$, gemessen am 1.Schwingkreis}
+\label{fig:Fund_Roh2}
+\end{figure}
+
+Abb.\ref{fig:Fund_Roh1} zeigt einen ausgewählten Rohdatenplot und die dazugehörige FFT der niedrigeren Frequenz $\omega_+$. Abb.\ref{fig:Fund_Roh2} zeigt das Gleiche für $\omega_-$.\\
+Vorallem in Abb.\ref{fig:Fund_Roh2} kann man neben einem großen Peak noch einen kleineren Peak erkennen. Dies liegt daran, dass die Schwingkreise nicht völlig identisch waren, wodurch trotz allen Bemühungen eine Schwebung entstanden ist.
+Diese ist sogar in den Rohdaten erkennbar.\\
+\\
+Eine lokale Peakschwerpunktsanalyse ergibt, dass
+\begin{equation}
+\omega_+ \approx 721Hz
+\end{equation}
+und
+\begin{equation}
+\omega_- \approx 812Hz
+\end{equation}
+
+\subsubsection{Ergebnis und Fazit}
+Für beide Orientierungen wurden jeweils 3 Messungen aufgenommen und jeweils für die Spannung am 1. und 2.Kondensator ausgewertet. Die Ergebnisse sind in Tab.\ref{tab:Fund_Ergebnis} aufgelistet.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+ & $\omega_+[Hz]$ & $\omega_-[Hz]$ \\ 
+\hline 
+Spannung 1 & $721.03\pm0.32$ & $812.00\pm0.17$ \\ 
+\hline 
+Spannung 2 & $726.13\pm0.44$ & $815.61\pm1.97$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\label{tab:Fund_Ergebnis}
+\caption{Ergebnisse Fundamentalschwingungen}
+\end{table}
+
+Man erkennt schnell, dass die Schwinkreise nicht ganz identisch eingestellt waren. Dies ist nicht weiter verwunderlich, da schon in den anderen Versuchen für die beiden Kondensatoren unterschiedliche Werte ermittelt wurden.\\
+\\
+Die angegebenen Fehler sind die Fehler auf den Mittelwert durch die Mehrfachbestimmung.\\
+Anmerkung: Der Fehler auf $\omega_-$ bei Spannung 2 ist größer als die anderen, da hier eine Messreihe eine sehr starke Schwebung ergab und der Peak somit sehr schwer zu bestimmen war.\\
+\\
+Mit \ref{eq:Kopplung2} kann man nun den Kopplungsgrad bestimmen:
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+ & Ergebnis\\ 
+\hline 
+Schwingkreis 1  & $0.1183\pm 0.0005$ \\ 
+\hline 
+Schwingkreis 2 & $0.1157\pm  0.0025$\\ 
+\hline 
+aus Teil 1 & $0.1303\pm  0.0007$\\ 
+\hline 
+\end{tabular} 
+\end{center}
+\label{tab:Ergebnisse_k}
+\caption{Ergebnisse für die Kopplung}
+\end{table}
+
+Der Fehler wurde genau so wie in Teil 1 mit Gl.\ref{eq:Kopplung_k} bestimmt.\\
+\\
+Man kann abschließend sagen, dass der Kopplungsgrad auch mit dieser Methode sehr gut bestimmt worden konnte. Der Kopplungsgrad unterscheidet sich trotz leicht unterschiedlicher Schwingkreise kaum.\\
+Das Ergebnis ist allerdings etwas abweichend von dem bei der Schwebung ermittelten, bei dem die Spulen ähnlich aufgebaut waren. Diese Abweichung kann aber dadurch erklärt werden, dass der Versuchsaufbau zwischen beiden Versuchen vollständig Umgebaut wurde. Ein Vergleich ist also nicht sehr aussagekräftig.
 
 \end{document}

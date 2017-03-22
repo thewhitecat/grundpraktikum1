@@ -21,15 +21,15 @@ def pictures(freq=None,amp=None,t=None,U1=None,U2=None):
         t,U1 = p.untermenge_daten(t,U1,0,0.08)
         plt.subplots()
         plt.plot(t,U1)
-        plt.xlabel("Spannung[V]")
-        plt.ylabel("Zeit[s]")
+        plt.ylabel("Spannung[V]")
+        plt.xlabel("Zeit[s]")
         plt.title("Rohdaten")
     if t!=None and U2!=None:
         t,U2 = p.untermenge_daten(t,U2,0,0.08)
         plt.subplots()
         plt.plot(t,U2)
-        plt.xlabel("Spannung[V]")
-        plt.ylabel("Zeit[s]")
+        plt.ylabel("Spannung[V]")
+        plt.xlabel("Zeit[s]")
         plt.title("Rohdaten")
 
 data = []
