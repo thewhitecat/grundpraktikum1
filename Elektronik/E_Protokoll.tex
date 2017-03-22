@@ -291,6 +291,58 @@ $R[\Omega]$ & $f[Hz]$ & $\sigma_f[Hz]$ \\
 
 
 
+\subsubsection{Bestimmung der Dämpfungskonstanten}
+Die Dämpfungskonstante $\delta$ kann auf zwei verschiedene Weisen bestimmt werden.\\
+
+Erstes Verfahren:\\
+Da die Amplitude der Kondensatorspannung $U_C(t)$ mit der Zeit exponentiell abfällt, gilt für das Verhältnis der Amplituden $A_n$:
+\begin{equation}
+A_{n+1} = A_n \cdot e^{-\delta \cdot (t_{n+1} - t_n)} \quad \rightarrow \quad \delta_n = \frac{\ln ( A_n / A_{n+1})}{t_{n+1}-t_n}
+\end{equation}
+
+So erhält man aus jeder Messung eine mittlere Dämpfungskonstante. Diese kann man noch über die 5 Messungen mitteln, die wir je Widerstand durchführten. Der statistische Fehler auf $\delta$ ergibt sich aus der linearen Regression, der systematische Fehler ist Null.\\
+
+Zweites Verfahren:\\
+Man erhält die Dämpfungskonstante $\delta$ und deren Fehler $\sigma_\delta$ aus der Anpassung einer Einhüllenden an die Messung der Kondensatorspannung $U_C(t)$. So ergibt sich der statistische Fehler ebenfalls aus der Anpassung und den systematischen Fehler erhält man durch die Verschiebemethode.  Die Ergebnisse finden sich in Tabelle \ref{tab:delta}.
+
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Widerstand [$\Omega$]} & \textbf{$\delta_1 [1/s]$} & \textbf{$\delta_2 [1/s]$} & \textbf{Mittelwert} \\
+		\hline
+		19.6 & 388.05 $\pm$ 0.05 & 370.3 $\pm$ 5.3 & \\
+		\hline
+		28.5 & 518.91 $\pm$ 0.07 & 506.4 $\pm$ 9.9 & \\
+		\hline
+		38.9 & 672.83 $\pm$ 0.10 & 694.8 $\pm$ 16.4 & \\
+		\hline
+		52.2 & 868.31 $\pm$ 15 & 820.1 $\pm$ 26.4 & \\
+		\hline
+		68.6 & & 1010.5 $\pm$ 25.9 & \\
+		\hline
+	\end{tabular}
+	\caption{Ergebnisse für die Dämpfungskonstanten nach gestecktem Widerstand}
+\end{table}
+
+
+\subsubsection{Berechnung von R, L und C}
+Aus der Differentialgleichung des RLC-Schwingkreises folgt:
+\begin{equation}
+\delta = \frac{R_{gesamt}}{2L} \quad \rightarrow \quad R_{gesteckt} = 2 L \cdot \delta - (R_L + R_{Rest})
+\end{equation}
+Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskonstante $\delta$ auf, erhält man als Steigung der angepassten Geraden $m = 2L$ und als y-Achsenabschnitt $b = R_{Rest}$.\\
+
+Weiterhin kann man dann die Kapazität bestimmen, indem man das Quadrat der Kreisfrequenz $\omega$ gegen das Quadrat der Dämpfungskonstante $\delta$ aufträgt.
+\begin{equation}
+\omega^2 = \omega_0^2 -\delta^2 = \frac{1}{LC} - \delta^2
+\end{equation}
+Passt man eine Gerade mit Steigung -1 an diese Daten an, erhält man als y-Achsenabschnitt $y = \frac{1}{LC}$.
+
+
+
+
+
 \subsubsection{Charakterisierung des Kondensators}
 Mit den zuvor ermittelten Werten für die Dämpfung, die Schwingungsfrequenz und die Induktivität kann der verwendete Kondensator charakterisiert werden. Man nutzt dafür den Zusammenhang:
 
