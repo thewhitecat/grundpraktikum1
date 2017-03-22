@@ -307,7 +307,31 @@ Die Einzelergebnisse werden dann durch den gewichteten Mittelwert zusammengefass
 
 
 
-
+\section{Gekoppelte Schwingkreise}
+\subsection{Versuchsbeschreibung}
+Ein LC-Schwingkreis kann induktiv mit einem zweiten LC-Schwingkreis gekoppelt werden, der dadurch zu erzwungenen Schwingungen angeregt wird. Falls die Eigenfrequenzen der Schwingkreise gleich ist $w_1 = w_2$, tritt eine Resonanz auf. In diesem Fall kann eine Schwebung beobachtet werden. Bedeutet: Die Schwingungsenergie "schwingt" zwischen den Schwingkreisen hin und her. \\
+Bei diesem Versuch werden die Fundamentalschwingungen und die Schwebung zweier gekoppelter Schwingkreise aufgenommen. Die Differentialgleichungen der gekoppelten Schwingkreise lauten:
+\begin{equation}
+\ddot{I_1} + k \cdot \ddot{I_2} + \dfrac{I_1}{L \cdot C} = 0
+\end{equation}
+\begin{equation}
+\ddot{I_2} + k \cdot \ddot{I_1} + \dfrac{I_2}{L \cdot C} = 0
+\end{equation}
+mit Kopplung k ($0 < k < 1)$ folgen die Eigenfrequenzen zu
+\begin{equation}
+\dfrac{w_0}{\sqrt{1+k}} = w_+ < w_0 < w_- = \dfrac{w_0}{\sqrt{1-k}} 
+\end{equation}
+Dabei ist $w_0$ die Eigenfrequenz des Schwingkreises im ungekoppelten Fall ($w_0 = \dfrac{1}{\sqrt{LC}}$)
+Die Kopplung kann aus den Frequenzen der Fundamentalschwingungen berechnet werden:
+\begin{equation}
+k = \dfrac{f_-^2 - f_+^2}{f_-^2 + f_+^2}
+\end{equation}
+\\ Die Erwartung bei dieser Versuchskonfiguration ist, dass die Amplitudennullstellen des einen Schwingkreises mit einem Amplitudenextremum des anderen zusammenfallen. Die Dämpfung durch Ohm'sche Widerstände in allen Bauteilen verschiebt diese beiden allerdings gegeneinander. Für Kopplungen k < 0,2 lässt sich die Verschiebung näherungsweise berechnen:
+\begin{equation}
+\Delta t \approx \dfrac{1}{w_Schwebung} \cdot \left[\dfrac{\pi}{2} - \arctan \left( \dfrac{k}{R} \cdot \sqrt{\dfrac{L}{C}} \right)\right]
+\end{equation}  
+\subsection{Aufbau und Durchführung}
+\subsection{Auswertung}
 
 
 
