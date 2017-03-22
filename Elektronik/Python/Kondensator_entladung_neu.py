@@ -92,14 +92,19 @@ def alles():
     data.append(p.lese_lab_datei('lab/Ent_47_05.lab'))
     
     Uchiqs = []
+    Ua = []
+    Ia = []
+    Uastd = []
+    Iastd = []
     UTs = []
     UTstat  = []
     Ichiqs = []
     ITs = []
     ITstat  = []
     
-    R = 99
-    dR = 2.1
+    R = 98.74
+    dR = 0.06
+    dRsys = 2.2
     
     for i in range(len(data)):
         array = data[i]
@@ -124,19 +129,47 @@ def alles():
         Uchiqs.append(chiq/len(x))
         UTs.append(-1/a)
         UTstat.append(ea/(a**2))
+        Ua.append(a)
+        Uastd.append(ea)
         
         a,ea,b,eb,chiq,x,y,dy = linreg(t,logI,dlogI)
         
         Ichiqs.append(chiq/len(x))
         ITs.append(-1/a)
         ITstat.append(ea/(a**2))
-        if i==5:
-            pictures(t,lnI=logI,dlnI=dlogI)
+        Ia.append(a)
+        Iastd.append(ea)
         
+        if i==6:
+            pictures(t,lnI=logI,lnU=logU,dlnI=dlogI,dlnU=dlogU)
+    
+    mittelTU,stdTU = p.gewichtetes_mittel(UTs,np.array(UTstat))
+    mittelTI,stdTI = p.gewichtetes_mittel(ITs,np.array(ITstat))
+    CU = mittelTU/R
+    CUerr = np.sqrt((stdTU/R)**2+(mittelTU*dR/R**2)**2)
+    CUsys = (mittelTU*dRsys/R**2)
+    CI = mittelTI/R
+    CIerr = np.sqrt((stdTI/R)**2+(mittelTI*dR/R**2)**2)
+    CIsys = (mittelTU*dRsys/R**2)
+    print CU, CUerr,CUsys
+    print CI, CIerr,CIsys
+   # mittelUa = np.mean(Ua)
+  #  mittelUastd = np.mean(Uastd)
+  #  mittelIa = np.mean(Ia)
+  #  mittelIastd = np.mean(Iastd)
+  #  mittelUa = np.mean(Ua)
+   # mittelUastd = np.mean(Uastd)
+  #  mittelIa = np.mean(Ia)
+  #  mittelIastd = np.mean(Iastd)
+  #  mittelchiU = np.mean(Uchiqs)
+  #  mittelchiI = np.mean(Ichiqs)
+   # print mittelUa, mittelUastd,mittelchiU
+   # print mittelIa, mittelIastd,mittelchiI
     Ts = merge(UTs,ITs)
     Tstat = merge(UTstat,ITstat)
     Tstat = np.array(Tstat)
     Tmu,Terr = p.gewichtetes_mittel(Ts,Tstat)
     C = Tmu/R
     Cerr = np.sqrt((Terr/R)**2+(Tmu*dR/R**2)**2)
-    return Ts, Tstat
+    return CU,CUerr,CI,CIerr
+alles()

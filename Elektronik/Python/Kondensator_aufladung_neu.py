@@ -98,8 +98,12 @@ UTstat  = []
 Ichiqs = []
 ITs = []
 ITstat  = []
+Ua = []
+Ia = []
+Uastd = []
+Iastd = []
 
-R = 98.76
+R = 98.74
 dR = 0.06
 dRsys = 2.2
 
@@ -112,7 +116,6 @@ for i in range(len(data)):
     I = np.absolute(I)
     logI = log(I)
     dlogI = dI/I
-    
     U = array[:,3]
     dU = 0.045
     U0 = array[500:,3]
@@ -126,26 +129,52 @@ for i in range(len(data)):
     Uchiqs.append(chiq/(len(x)-1))
     UTs.append(-1/a)
     UTstat.append(ea/(a**2))
+    Ua.append(a)
+    Uastd.append(ea)
     
     a,ea,b,eb,chiq,x,y,dy = linreg(t,logI,dlogI)
     
     Ichiqs.append(chiq/(len(x)-1))
     ITs.append(-1/a)
     ITstat.append(ea/(a**2))
-    if i==0:
+    Ia.append(a)
+    Iastd.append(ea)
+    if i==8:
         pictures(t,lnI=logI,lnU=logU,dlnI=dlogI,dlnU=dlogU)
 
-Tend,Tendstat = k.alles()
-Ts = merge(UTs,ITs)
-Ts = merge(Ts,Tend)
-Tstat = merge(UTstat,ITstat)
-Tstat = merge(Tstat,Tendstat)
-Tstat = np.array(Tstat)
-Tmu,Terr = p.gewichtetes_mittel(Ts,Tstat)
-C = Tmu/R
-Cerr = np.sqrt((Terr/R)**2+(Tmu*dR/R**2)**2)
-Csys = (Tmu*dRsys/R**2)
-print C,Cerr,Csys
-Cerrall = np.sqrt(Cerr**2+Csys**2)
-Cgesamt, Cgesamtstat = p.gewichtetes_mittel(np.array([C,4.88*10**(-6)]),np.array([Cerr,0.0122*10**(-6)]))
-print Cgesamt, Cgesamtstat
+CUE,CUEerr,CIE,CIEerr = k.alles()
+mittelTU,stdTU = p.gewichtetes_mittel(UTs,np.array(UTstat))
+mittelTI,stdTI = p.gewichtetes_mittel(ITs,np.array(ITstat))
+print mittelTU,stdTU
+print mittelTI,stdTI
+CU = mittelTU/R
+CUerr = np.sqrt((stdTU/R)**2+(mittelTU*dR/R**2)**2)
+CUsys = (mittelTU*dRsys/R**2)
+CI = mittelTI/R
+CIerr = np.sqrt((stdTI/R)**2+(mittelTI*dR/R**2)**2)
+CIsys = (mittelTI*dRsys/R**2)
+print CU, CUerr
+print CI, CIerr
+
+Cmittel,Cstd = p.gewichtetes_mittel([CU,CI,CUE,CIE],np.array([CUerr,CIerr,CUEerr,CIEerr]))
+print "alles:",Cmittel,Cstd
+#mittelUa = np.mean(Ua)
+#mittelUastd = np.mean(Uastd)
+#mittelIa = np.mean(Ia)
+#mittelIastd = np.mean(Iastd)
+#mittelchiU = np.mean(Uchiqs)
+#mittelchiI = np.mean(Ichiqs)
+#print mittelUa, mittelUastd,mittelchiU
+#print mittelIa, mittelIastd,mittelchiI
+#Ts = merge(UTs,ITs)
+#Ts = merge(Ts,Tend)
+#Tstat = merge(UTstat,ITstat)
+#Tstat = merge(Tstat,Tendstat)
+#Tstat = np.array(Tstat)
+#Tmu,Terr = p.gewichtetes_mittel(Ts,Tstat)
+#print Tmu,Terr
+#C = Tmu/R
+#Cerr = np.sqrt((Terr/R)**2+(Tmu*dR/R**2)**2)
+#Csys = (Tmu*dRsys/R**2)
+#print C,Cerr,Csys
+#Cerrall = np.sqrt(Cerr**2+Csys**2)
