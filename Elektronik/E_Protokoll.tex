@@ -48,13 +48,44 @@ Messbereich U & $|U| \leq 10A$ \\
 \end{tabular} 
 \end{center}
 \subsection{Auswertung}
+\subsubsection{Rauschmessungen}
+Die Mehrfachmessungen bei gleichem Aufbau können zusätzlich auch als Rauschmessung für die Spannung und den Strom verwendet werden. Dazu wird für jede eingestellte Spannung die Standardabweichung aus der Mehrfachmessung bestimmt. Die Standardabweichungen finden sich in folgender Tabelle: \\
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Messung & Standardabweichung auf Strom [mA] & Standardabweichung auf Spannung [mV] \\ 
+\hline 
+1 & 0,08 & 2,3 \\ 
+\hline 
+2 & 0,08 & 2,5 \\ 
+\hline 
+3 & 0,10 & 2,4 \\ 
+\hline 
+4 & 0,09 & 2,8 \\ 
+\hline 
+5 & 0,11 & 2,7 \\ 
+\hline 
+6 & 0,08 & 2,5 \\ 
+\hline 
+7 & 0,07 & 2,3 \\ 
+\hline 
+8 & 0,10 & 2,3 \\ 
+\hline 
+9 & 0,09 & 2,7 \\ 
+\hline 
+\end{tabular}
+\end{center}
+In den nachfolgenden Versuchen wurde, um nur einen Wert für den Fehler auf Strom und Spannung zu haben und trotzdem alle Messungen zu berücksichtigen, der Mittelwert der Standardabweichungen aus den neun Messungen verwendet:
+\[\sigma_U = 2,48 mV \quad und \quad \sigma_I = 0,088 mA \]
+
+
+\subsubsection{Lineare Regression und Statistischer Fehler}
 Stellt man Gleichung \ref{eq:Ohm} um, erhält man folgenden Ausdruck:
 \begin{equation}
 U = R \cdot I
 \end{equation}
-Daran lässt sich direkt ersehen, dass sich bei Auftragung des Stroms auf die X-Achse und der Spannung auf die Y-Achse der Widerstand als Steigung der Geraden ergibt. Da auf den Achsen direkt die gemessenen Größen aufgetragen werden können, wird die lineare Regression direkt auf die Rohdaten angewandt. 
-\subsubsection{Lineare Regression und Statistischer Fehler}
-Aus den Messungen von Strom und Spannung für jede eingestellte Spannung kann jeweils Mittelwert und Standardabweichung bestimmt werden. Abbildung \ref{fig:Widerstand_lineare_Regression} zeigt die Rohdaten als blaue Punkte mit Fehlerbalken und das Ergebnis der lineare Regression als rote Gerade. Die negative Steigung der Geraden ist bedingt durch das negative Vorzeichen des Stroms und das liegt lediglich an der Polung des Messgerätes. Für den realen Wert des Widerstandes muss der Betrag der Steigung genommen werden; am Fehler ändert sich nichts.\\
+Daran lässt sich direkt ersehen, dass sich bei Auftragung des Stroms auf die X-Achse und der Spannung auf die Y-Achse der Widerstand als Steigung der Geraden ergibt. Da auf den Achsen direkt die gemessenen Größen aufgetragen werden können, wird die lineare Regression direkt auf die Rohdaten angewandt. \\
+Aus den Messungen von Strom und Spannung für jede eingestellte Spannung kann jeweils Mittelwert und Standardabweichung bestimmt werden. Abbildung \ref{fig:Widerstand_lineare_Regression} zeigt die Rohdaten als blaue Punkte mit Fehlerbalken und das Ergebnis der lineare Regression als rote Gerade. Die negative Steigung der Geraden ist bedingt durch das negative Vorzeichen des Stroms und das liegt lediglich an der Polung des Messgerätes. Für den realen Wert des Widerstandes muss der Betrag der Steigung genommen werden; am Fehler ändert sich nichts. \\
 Die linearen Regressionen ergeben ein sehr kleines $\chi^2$ pro Freiheitsgrad (siehe beispielsweise Abbildung \ref{fig:Widerstand_lineare_Regression}). Dies bedeutet, dass die Fehler zu groß sind. Vermutlich liegt das an dem anfangs verwendeten CASSY. Dieses zeigte zum Teil extrem schwankende und dabei (für kurze Zeiten) physikalisch unsinnige Werte an. Das CASSY wurde nach der Charakterisierung des 100 $\Omega$ Widerstands ausgewechselt. Aus Zeitgründen konnten die mit dem ersten (scheinbar kaputten) CASSY durchgeführten Messungen nicht wiederholt werden. Da die falschen Werte immer nur für eine kurze Zeit angezeigt wurden, stimmt der Wert im Mittel über viele in der Zeit gleichverteilte Werte wieder (wie sich am Ergebnis auch zeigen wird), daher kann die Messung dennoch verwendet werden.
 \begin{figure}
 \begin{center}
@@ -124,48 +155,52 @@ I(t) = -I_0 \cdot e^{-\dfrac{t}{R\cdot C}}
 \end{center}
 \end{figure}
 
+\begin{table}[H]
+\begin{center}
 \begin{tabular}{|c|c|c|}
 \hline 
 Bauteil & Angegebener Wert & Bestimmter Wert \\ 
 \hline 
-Widerstand & 100 & • \\ 
+Widerstand & 100 & $98.74\pm 0.06\pm2.2$ \\ 
 \hline 
-Kondensator & 4.7 & 4.88 \\ 
+Kondensator & 4.7 & zu bestimmen \\ 
 \hline 
 \end{tabular} 
+\end{center}
+\caption{Angaben zu verwendeten Bauteilen}
+\label{tab:Kond_Hersteller} 
+\end{table}
 
 Der Versuch wird gemäß Abb. \ref{fig:Kond_Aufbau} aufgebaut. Dabei wird als Spannungsquelle die des CASSY benutzt.Diese wird mit dem Stromkreis, bestehend aus einem Widerstand, einem Kondensator und dem Strommessgerät, verbunden. Um die Entladung des Kondensators durchführen zu können wird noch ein Schalter so eingebaut, dass die Spannungsquelle kurzgeschlossen werden kann.\\ 
-Die Bauteileigenschaften  der verwendeten Teile sind in Tabelle ... aufgelistet.
+Die Bauteileigenschaften  der verwendeten Teile sind in Tabelle \ref{tab:Kond_Hersteller} aufgelistet.
 Über Kanal A des CASSY wird der Stromfluss gemessen und über Kanal B die Spannung am Kondensator.\\
 Gleichzeitig wird auch Strom und Spannung mit einem Oszilloskop gemessen. Dafür wird an Kanal 2 des Oszilloskopes der Spannungsabfall über den Widerstand und an Kanal 1 die Spannung über den Kondensator angeschlossen. Die Erde wird zwischen Kondensator und Widerstand gelegt.\\
 \\
 Um den Aufladevorgang zu messen, wird die Spannungsquelle beim Start einer Messung aktiviert.
 Beim Entladevorgang bleibt die Spannungsquelle eingeschaltet. Der Messvorgang wird über einen Trigger gestartet, der den Spannungsabfall registriert.
 \subsubsection{Messung mit dem Oszilloskop}
+Messeinstellungen:
 \begin{tabular}{c c c}
-\hline 
 Messparameter & Zeitauflösung: $500\mu s$  & Spannungsauflösung: $0.2V$ \\ 
-\hline
 \end{tabular} 
+Die Achsenauflösungen sollten so gewählt werden, dass man die Werte möglichst gut ablesen kann.
+Der Trigger sollte an der Spannungskurve anliegen.
 \subsubsection{Messung mit CASSY}
 \begin{tabular}{c c c c}
 Messparameter & Messintervall: $10\mu s$  & Anzahl Messwerte: 1000 & automatische Aufnahme \\ 
 Messbereiche & Strom: 0.3A & Spannung: 3V \\
 Trigger: 2V & angelegte Spannung: 2.1V\\
 \end{tabular} 
-
+\paragraph{Aufladung}
+Die Spannungsquelle sollte so eingestellt sein, dass sie sich bei Versuchstart automatisch aktiviert. Durch die zeitgleiche Aktivierung der Quelle und dem Start der Messreihe kann es geschehen, dass die ersten paar Messwerte verfälscht werden.
+\paragraph{Entladung}
+Hier sollte die Spannungsquelle dauerhaft eingestellt sein. Die Messreihe wird gestartet, sobald der Trigger ausgelöst wird.
+\newpage
 \subsection{Auswertung Oszilloskop}
 Während der Versuchdurchführung wurde bereits mit dem Oszilloskop eine Schnellauswertung durchgeführt.
-Um die Kapazität zu bestimmen wurden jeweils bei Auf- und Entladung zwei Zeiten mit dazugehörigen Spannungen aufgenommen. Dabei wurden immer Werte an der Spannungskurve aufgenommen, da die Stromkurve sehr starke Schwankungen hatte und dadurch vermutlich ungenauer gewesen wäre. Die gemessenen Werte sind in Tab... aufgeführt. Die Kapazität wird folgendermaßen bestimmt:
-\begin{equation}
-\dfrac{U1}{U2} = e^{-\dfrac{t1-t2}{R\cdot C}}
-\end{equation}
-Nach C auflösen ergibt:
-\begin{equation}
-C = \dfrac{t1-t2}{R\cdot \ln(\dfrac{U1}{U2}}
-\end{equation}
-
-
+Um die Kapazität zu bestimmen wurden jeweils bei Auf- und Entladung zwei Zeiten mit dazugehörigen Spannungen aufgenommen. Dabei wurden immer Werte an der Spannungskurve aufgenommen, da die Stromkurve sehr starke Schwankungen hatte und dadurch vermutlich ungenauer gewesen wäre.\\
+\begin{table}[H]
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline 
 • & Offset & t1 & U1 & t2 & U2 \\ 
@@ -175,52 +210,202 @@ Aufladung & -1.18V & -5.2ms & -0.928V & $0.5ms$ & -0.240V \\
 Entladung & -16mV & $0.34ms$ & -1.18V & $0.98ms$ & -0.08V \\ 
 \hline 
 \end{tabular} 
-Die statistischen Fehler dieser Werte ist durch die Ableseungenauigkeit bestimmt. Dabei gilt:
+\end{center}
+\label{tab:Kond_Osz}
+\caption{Messdaten mit Oszilloskop}
+\end{table}
+Die gemessenen Werte sind in Tab\ref{tab:Kond_Osz} aufgeführt. Die Kapazität wird folgendermaßen bestimmt:
+\begin{equation}
+\dfrac{U1}{U2} = e^{-\dfrac{t1-t2}{R\cdot C}}
+\end{equation}
+Nach C auflösen ergibt:
+\begin{equation}
+C = \dfrac{t1-t2}{R\cdot \ln(\dfrac{U1}{U2}}
+\end{equation}
+
+
+
+
+Die statistischen Fehler dieser Werte werden durch die Ableseungenauigkeit bestimmt. Dabei gilt:
 \begin{equation}
 \sigma_t = \dfrac{0.1ms}{\sqrt{12}} = 0.03ms
 \end{equation}
 \begin{equation}
 \sigma_U = \dfrac{0.01V}{\sqrt{12}} = 0.003V
 \end{equation}
-
+Es ergeben sich schließlich folgende Werte
+\begin{table}[H]
+\begin{center}
 \begin{tabular}{|c|c|}
 \hline 
-• & Gemessener Wert \\ 
+ & Gemessener Wert \\ 
 \hline 
 Aufladung & $4.69\pm 0.05\pm 0.08$ \\ 
 \hline 
 Entladung & $4.88\pm 0.02\pm 0.05$ \\ 
 \hline 
 \end{tabular} 
+\end{center}
+\caption{Endergebnisse Oszilloskopmessung}
+\end{table}
+Die Fehler wurden dabei folgendermaßen bestimmt:
 \begin{equation}
-\sigma_{C_stat} = \sqrt{2\cdot\left(\dfrac{\sigma_t}{R\cdot ln(\dfrac{U1}{U2})}\right)^{2}+\left(\dfrac{-\sigma_U\cdot(t1-t2)}{R\cdot U1\cdot ln(\dfrac{U1}{U2})^{2}}\right)^{2}+\left(\dfrac{\sigma_U\cdot(t1-t2)}{R\cdot U2\cdot ln(\dfrac{U1}{U2})^{2}}\right)^{2}}
+\sigma_{Cstat} = \sqrt{2\cdot\left(\dfrac{\sigma_t}{R\cdot ln(\dfrac{U1}{U2})}\right)^{2}+\left(\dfrac{-\sigma_U\cdot(t1-t2)}{R\cdot U1\cdot ln(\dfrac{U1}{U2})^{2}}\right)^{2}+\left(\dfrac{\sigma_U\cdot(t1-t2)}{R\cdot U2\cdot ln(\dfrac{U1}{U2})^{2}}\right)^{2}}
 \end{equation}
 \begin{equation}
-\sigma_{C_sys} = \dfrac{(t2-t1)\cdot \sigma_R}{R^{2}\cdot ln(\dfrac{U1}{U2}}
+\sigma_{Csys} = \dfrac{(t2-t1)\cdot \sigma_R}{R^{2}\cdot ln(\dfrac{U1}{U2})}
 \end{equation}
 
 \subsection{Auswertung CASSY}
-Es wurden ebenfalls Werte über das CASSY aufgezeichnet.
+Über das CASSY wurden bei Auf- und Entladung jeweils 5 Datensätze aufgenommen.
 \subsubsection{Rohdaten}
+Die Rohdaten Folgen einem logarithmischem Verlauf. Es ist also sinnvoll, diese zu logarithmieren. Dabei wird die Spannung beim Aufladen mit
+\begin{equation}
+U_{log} = log(U_0-U)
+\end{equation}
+geändert. Alle anderen Werte wurden mit
+\begin{equation}
+U_{log} = log(U)
+\end{equation}
+\begin{equation}
+I_{log} = log(I)
+\end{equation}
+logarithmiert.\\
+In den folgenden Beispielplots erkennt man, dass diese logarithmische Darstellung nur am Anfang des Messbereiches sinnvoll ist, da im späteren die Schwankung zu stark wird und der Verlauf nicht mehr logarithmisch ist.
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=0.75\linewidth]{Bilder/Kondensator_U}
-\includegraphics[width=0.75\linewidth]{Bilder/Kondensator_logU}
-\caption[Rohdaten logarith. A]{Rohdaten Spannung}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_U}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_logU}
+\caption[Rohdaten logarith. A]{Rohdaten Spannung beim Aufladen}
 \label{fig:RohU}
 \end{center}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=0.75\linewidth]{Bilder/Kondensator_I}
-\includegraphics[width=0.75\linewidth]{Bilder/Kondensator_logI}
-\caption[Rohdaten logarith. A]{Rohdaten Spannung}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_I}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_logI}
+\caption[Rohdaten logarith. A]{Rohdaten Strom beim Aufladen}
 \label{fig:RohU}
 \end{center}
 \end{figure}
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_U}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_logU}
+\caption[Rohdaten logarith. A]{Rohdaten Spannung beim Entladen}
+\label{fig:RohU}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_I}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_logI}
+\caption[Rohdaten logarith. A]{Rohdaten Strom beim Entladen}
+\label{fig:RohU}
+\end{center}
+\end{figure}
 \subsubsection{lineare Regressionen}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_linI}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_linU}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_resI}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_resU}
+\caption[Rohdaten logarith. A]{Lineare Regressionen bei der Aufladung}
+\label{fig:linAuf}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_linI}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_linU}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_resI}
+\includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_resU}
+\caption[Rohdaten logarith. A]{Lineare Regressionen bei der Entladung}
+\label{fig:linEnt}
+\end{center}
+\end{figure}
+
+Zur Bestimmung der Kapazität wird nun für jeden Datensatz eine lineare Regression an den logarithmisirten Daten durchgeführt. Da die Daten aber zum messende hin von der logarithmischen Darstellung abweichen, wurde nur das Zeitivervall von 0.1ms bis 1.5ms für die Auswertung genommen.\\
+In Tab.\ref{tab:kond_linreg} sind dabei jeweils die Mittelwerte der fünf Datensätze für die Auswertung am Strom und an der Spannung aufgelistet.\\
+Als Einzelfehler für die lineare Regression wurde der durch Fehlerfortpflanzung errechnete Fehler auf den logarithmisirten Daten verwendet:
+\begin{equation}
+\sigma_{log(U)} = \dfrac{\sigma_U}{U}
+\end{equation}
+\begin{equation}
+\sigma_{log(I)} = \dfrac{\sigma_I}{I}
+\end{equation}
+Wobei $\sigma_U$ und $\sigma_I$ den Rauschmessungsfehlern aus dem vorherigen Versuch entsprechen.
+Anmerkung: Da die Rauschmessung mit dem kapputen CASSY durchgeführt wurde, sind die Fehler vermutlich viel zu groß. Dies resultiert in zu kleinen $\chi ^{2}/f$.
+
+\begin{table}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & Steigung & Fehler Steigung & $\chi ^{2}/f$ \\ 
+\hline 
+Aufladung U & -2049 & 6 & 0.04 \\ 
+\hline 
+Aufladung I  & -2051 & 14 & 0.03 \\ 
+\hline 
+Entladung U & -2009 & 20 & 0.03 \\ 
+\hline 
+Entladung I  & -2028 & 20 & 0.12 \\ 
+\hline 
+\end{tabular} 
+\caption{Mittelergebnisse für die Linearen Regressionen}
+\label{tab:kond_linreg} 
+\end{table}
+
+\subsubsection{gemessene Daten}
+Über die bei der linearen Regression ermittelte Steigung kann man nun durch $\tau = -1/a$ die Zeitkonstante $\tau$ ausrechnen und daraus schließlich mit $C=\dfrac{\tau}{R}$ die Kapazität.
+Der Fehler auf $\tau$ ergibt sich dabei folgendermaßen:
+\begin{equation}
+\sigma_{\tau}=\dfrac{\sigma_{a}}{a^{2}}
+\end{equation}
+Der Fehler auf C ergibt sich durch
+\begin{equation}
+\sigma_C = \sqrt{(\dfrac{\sigma_{\tau}}{R})^{2}+(\dfrac{\tau \cdot \sigma_{R}}{R^{2}})^{2}}
+\end{equation}
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline 
+ & Zeitkonstante[$ \mu F\Omega$] & Kapazität[$ \mu F$] \\ 
+\hline 
+Spannung Aufladung & $0.4880\pm0.0006$ & $4.941\pm0.007\pm0.123$ \\ 
+\hline 
+Strom Aufladung & $0.4877\pm0.0015$ & $4.938\pm0.015\pm0.123$ \\ 
+\hline 
+Spannung Entladung & $0.4977\pm0.0022$ & $5.027\pm0.023\pm0.123$ \\ 
+\hline 
+Strom Entladung & $0.4924\pm0.0022$ & $4.974\pm0.023\pm0.123$ \\ 
+\hline 
+\end{tabular}
+\caption{Ergebnisse für Kapazität und die Zeitkonstante}
+\end{table}
+
+Um einen endgültigen Endwert zu bestimmen, werden nun alle Ergebnisse für die Kapazität mit ihrem statistischen Fehler gewichtet gemittelt. Damit erhält man folgendes Endergebnis:
+\begin{equation}
+C_{ges} = (4.951\pm 0.006\pm0.123)\mu F
+\end{equation}
+
+\begin{tabular}{|c|c|}
+\hline 
+Herstellerangaben & 4.7\\ 
+\hline 
+CASSY & $4.951\pm 0.006\pm0.123$\\
+\hline 
+Oszilloskop(Aufladung) & $4.69\pm 0.05\pm 0.08$ \\ 
+\hline 
+Oszilloskop(Entladung) & $4.88\pm 0.02\pm 0.05$ \\ 
+\hline 
+Brücke & $4.88\pm0.01\pm0.01$ \\ 
+\hline 
+\end{tabular} 
 
 \section{RLC-Schwingkreis}
 \subsection{Versuchsbeschreibung}
@@ -286,65 +471,8 @@ Anm. & \\
 Es wird die durch Entladen des Kondensators angeregte Schwingung aufgezeichnet. Dazu wird der Kondensator zunächst mit 7V Ladespannung geladen. Nach Einstellen des Widerstandes am Potentiometer (Eingesteller Wert wurde mit dem Multimeter bestimmt) wird der Schalter geschlossen. Durch den Kurzschluss der Spannungsquelle entlädt sich der Kondensator über den Widerstand. Der Verlauf der Kondensatorspannung und des Stroms werden aufgezeichnet.\\
 Der Entladevorgang wurde für jede Widerstandseinstellung insgesamt fünf mal durchgeführt.
 
-\subsection{Auswertung Oszilloskop}
-Mittels Oszilloskop wurde eine Vorauswertung bei einem gesteckten $10\Omega$ Widerstand vorgenommen. Der Kondensator wurde mit 7V geladen und der durch kurzschließen der Spannungsquelle eingeleitete Entladevorgang und die dadurch angeregte Schwingung mit dem Oszilloskop aufgezeichnet.\\
-Im Oszilloskop war kein Offset der Spannung erkennbar. Für die Bestimmung wurden Minima der Spannung abgezählt. Dabei ergab sich für drei vollständige Perioden die Start- und Endwerte:
-\begin{equation}
-t_1=0.76ms \quad \quad t_2=8.64ms \quad \rightarrow \quad \Delta t=7.88ms
-\end{equation}
 
-Für den Fehler auf die Zeitbestimmung wurde der Cursor nach links und rechts bewegt und der erste gegenüber $t_i$ veränderte Wert notiert. Für das so entstehende Intervall wurde eine Gleichverteilung angenommen:
-\begin{equation}
-\sigma_{t_2}=\frac{8.64-8.52}{\sqrt{12}}ms=0.03ms \quad \quad 
-\sigma_{t_1}=\frac{0.79-0.73}{\sqrt{12}}ms=0.02ms
-\end{equation}
-
-Es wurden drei Perioden erfasst. Damit ergibt sich mit $T=(t_2-t_1)/3$:
-
-\begin{equation}
-\Rightarrow \quad T=2.63ms \quad \quad \sigma_T=0.01ms
-\end{equation}
-
-Und schlussendlich für die Kreisfrequenz:
-\begin{equation}
-\omega=\frac{2\pi}{T}=2389Hz \quad \quad \sigma_{\omega}=\omega \frac{\sigma_T}{T}=21Hz
-\end{equation}
-
-Für die Bestimmung der Dämpfung wurden die Amplituden von vier aufeinanderfolgenden Minima abgelesen. Der Fehler ergibt sich wieder durch Bewegen des Cursors (vgl. Zeitmessung).\\
-Für zwei aufeinanderfolgende Amplituden $A_n$ und $A_{n+1}$ im Abstand einer Periode gilt:
-\begin{equation}
-\delta_n=\frac{\ln{\frac{A_n}{A_{n+a}}}}{T}
-\end{equation}
-
-Mittels Fehlerfortpflanzung folgt:
-\begin{equation}
-\sigma_{\delta_n}=\delta_n \sqrt{(\frac{\sigma_{x_n}}{x_n \ln{x_n}})^2+(\frac{\sigma_T}{T})^2} \quad \text{mit} \quad x=\frac{A_n}{A_{n+a}} \rightarrow \sigma_x=x\cdot \sqrt{(\frac{\sigma_{A_n}}{A_n})^2+(\frac{\sigma_{A_{n+1}}}{A_{n+1}})^2}
-\end{equation}
-
-Eine Zusammenfassung von Amplituden und Werten für die Dämpfung findet sich in Tab.\ref{tab:DämpfungOszi}
-\begin{table}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-n & $U_n[V]$ & $\delta_n[1/ms]$ & $\sigma_{\delta_n}[ms]$\\
-\hline
-1 & $-4.96 \pm 0.03$ & 0.28 & 0.01\\
-\hline
-2 & $-2.40 \pm 0.05$ & 0.29 & 0.02\\
-\hline
-3 & $-1.12 \pm 0.03$ & 0.26 & 0.03\\
-\hline
-4 & $-0.56 \pm 0.03$ & - & -\\
-\hline
-\end{tabular}
-\end{center}
-\caption{Dämpfungswerte bei der Auswertung mittels Oszilloskop}
-\label{tab:DämpfungOszi}
-\end{table}
-
-Die Ergebnisse der Dämpfung werden in einem gewichteten Mittelwert zusammengefasst zu $\delta=(0.28 \pm 0.01)1/ms$.
-
-\subsection{Auswertung CASSY}
+\subsection{Auswertung}
 \subsubsection{Rohdaten}
 Der prinzipielle Verlauf ist bei fast allen Messungen weitesgehend identisch, deswegen werden hier nur einige Spannungsverläufe exemplarisch gezeigt.
 
@@ -500,7 +628,7 @@ Die Einzelergebnisse werden dann durch den gewichteten Mittelwert zusammengefass
 
 \subsubsection{Aperiodischer Grenzfall}
 Bei einer nominellen Einstellung von $R_{gesteckt}=0.150k\Omega$ am Potentiometer kam der zeitliche Verlauf des Spannungssignals dem aperiodischen Grenzfall am nächsten. Aus zeitlichen Gründen war es nicht möglich den Bereich mit einer feineren Einstellung abzutasten um sich dem Grenzfall noch besser zu nähern.\\
-Es wurde versucht zwei Einhüllende anzupassen, so dass der gemessene Verlauf möglichst innerhalb der Einhüllenden verbleibt. Die beste Einhüllung ergab sich für $R=185\Omega$ und $R=200\Omega$, wobei $L=35.8mH$ verwendet wurden. (vgl. Abb.\ref{fig:Aperiodisch} )
+Es wurde versucht zwei Einhüllende anzupassen, so dass der gemessene Verlauf möglichst innerhalb der Einhüllenden verbleibt. Die beste Einhüllung ergab sich für $R=185\Omega$ und $R=200\Omega$, wobei $L=35.72mH$ verwendet wurden. (vgl. Abb.\ref{fig:Aperiodisch} )
 
 \begin{figure}
 \begin{center}
@@ -518,14 +646,11 @@ R_{ap}=192.5\Omega \quad \quad \sigma_{R_{ap}}=4.3\Omega
 
 Den Wert den man erwarten würde ergibt sich aus der Kapazität und der Induktivität:
 \begin{equation}
-R_{ap}=2\cdot \sqrt{\frac{L}{C}}=2\cdot \sqrt{\frac{35.8mH}{4.7\mu F}}=175.6\Omega
+R_{ap}=2\cdot \sqrt{\frac{L}{C}}=?
 \end{equation}
 
-\begin{equation}
-\sigma_{R_{ap}}=\sqrt{(\frac{\sigma_L^2}{CL})^2+(\frac{\sigma_C^2 L}{C^3})^2}=?
-\end{equation}
 
-\section{Gekoppelte Schwingkreise}
+\section{Gekoppelte Schwingkreise - Schwebung}
 \subsection{Versuchsbeschreibung}
 Ein LC-Schwingkreis kann induktiv mit einem zweiten LC-Schwingkreis gekoppelt werden, der dadurch zu erzwungenen Schwingungen angeregt wird. Falls die Eigenfrequenzen der Schwingkreise gleich ist $w_1 = w_2$, tritt eine Resonanz auf. In diesem Fall kann eine Schwebung beobachtet werden. Bedeutet: Die Schwingungsenergie "schwingt" zwischen den Schwingkreisen hin und her. \\
 Bei diesem Versuch werden die Fundamentalschwingungen und die Schwebung zweier gekoppelter Schwingkreise aufgenommen. Die Differentialgleichungen der gekoppelten Schwingkreise lauten:
@@ -543,13 +668,85 @@ Dabei ist $w_0$ die Eigenfrequenz des Schwingkreises im ungekoppelten Fall ($w_0
 Die Kopplung kann aus den Frequenzen der Fundamentalschwingungen berechnet werden:
 \begin{equation}
 k = \dfrac{f_-^2 - f_+^2}{f_-^2 + f_+^2}
+\label{eq:Kopplung}
 \end{equation}
 \\ Die Erwartung bei dieser Versuchskonfiguration ist, dass die Amplitudennullstellen des einen Schwingkreises mit einem Amplitudenextremum des anderen zusammenfallen. Die Dämpfung durch Ohm'sche Widerstände in allen Bauteilen verschiebt diese beiden allerdings gegeneinander. Für Kopplungen k < 0,2 lässt sich die Verschiebung näherungsweise berechnen:
 \begin{equation}
 \Delta t \approx \dfrac{1}{w_{Schwebung}} \cdot \left[\dfrac{\pi}{2} - \arctan \left( \dfrac{k}{R} \cdot \sqrt{\dfrac{L}{C}} \right)\right]
-\end{equation}  
+\label{eq:delta_t}
+\end{equation}
 \subsection{Aufbau und Durchführung}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1.2]{Bilder/Schwebung_Aufbau.PNG}
+\end{center}
+\caption[Aufbau Schwebung]{Aufbau für Messung der Schwebung zweier gekoppelter Schwingkreise}
+\label{fig:Schwebung_Aufbau}
+\end{figure}
+Abbildung \ref{fig:Schwebung_Aufbau} zeigt den Aufbau. Es werden zwei LC-Schwingkreise von einander getrennt aufgebaut. Dabei wird nur eine Spannungsquelle verwendet, die einen der beiden Kondensatoren auflädt. Anschließend werden die beiden Spulen direkt nebeneinander gestellt, wie im Bild zu sehen. \\
+Mit der Spannungsquelle wird einer der beiden Kondensatoren aufgeladen (der andere bleibt ungeladen). Anschließend wird mittels eines Schalters die Spannungsquelle kurzgeschlossen. Mithilfe eines Triggers wird die Messung gleichzeitig gestartet. \\
+Die CASSY Einstellungen sind: \\
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+Messintervall & 10 $\mu s$ \\ 
+\hline 
+Messwerte & 16000 \\ 
+\hline 
+Messbereich Spannung & $|U| \leq 3V$ \\ 
+\hline 
+\end{tabular}
+\end{center}
+
+Die verwendeten Spulen wurden mit der Brücke vermessen: \\
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Spule 1 & (9,047 $\pm$ 0,023 $\pm$ 0,001) mH & (2,85 $\pm$ 0,01 $\pm$ 0,01) $\Omega$ \\ 
+\hline 
+Spule 2 & (9,123 $\pm$ 0,023 $\pm$ 0,001) mH & (2,77 $\pm$ 0,01 $\pm$ 0,01) $\Omega$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
 \subsection{Auswertung}
+\subsubsection{Rohdaten}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{Bilder/Schwebung_Rohdaten.png}
+\end{center}
+\caption[Rohdaten Schwebung]{Rohdaten der Messung zweier gekoppelter Schwingkreise}
+\label{fig:Schwebung_Roh}
+\end{figure}
+Abbildung \ref{fig:Schwebung_Roh} zeigt die Rohdaten der Messung in Form von dem zeitlichen Spannungsverlauf. Die Schwebung ist hier bereits gut zu sehen.  
+
+\subsubsection{Fouriertransformation}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{Bilder/Schwebung_Frequenzspektrum.png}
+\end{center}
+\caption[Frequenzspektrum Schwebung]{Frequenzspektrum der Schwingung zweier gekoppelter Schwingkreise}
+\label{fig:Schwebung_Frequenzspektrum}
+\end{figure}
+Um die Frequenzen der Schwingung zu erhalten, wird auf die Rohdaten eine Fouriertransformation angewandt. Hier wurde die Fast-Fourier-Transformation (kurz: FFT) verwendet. Diese ist deutlich schneller als die eigentliche Fouriertransformation und liefert in diesem Fall auch dieselben Ergebnisse (das wurde stichprobenartig überprüft). Abbildung \ref{fig:Schwebung_Frequenzspektrum} zeigt das Frequenzspektrum der Schwingung. Die beiden Peaks sind zwar gut zu sehen, allerdings auch nicht sehr gut voneinander getrennt bzw. die Amplitude sinkt zwischen den beiden Peaks nur wenig ab.
+
+\subsubsection{Ergebnis und Fazit}
+Der beschriebene Versuch wurde mit 3 verschiedenen Kopplungen durchgeführt: Einmal wurden die Spulen direkt nebeneinander gestellt (1), einmal mit etwa einer handbreit Abstand (2) und einmal direkt nebeneinander mit einem gemeinsamen Eisenkern(3). \\
+Die Kopplung wurde jeweils mit Gleichung \ref{eq:Kopplung} bestimmt. Der Fehler ergibt sich aus der gauß'schen Fehlerfortpflanzung zu:
+\begin{equation}
+\sigma_k = \sqrt{\left( \left( \dfrac{2 \cdot f_-}{f_+^2 + f_-^2} - 2 \cdot f_- \cdot \dfrac{f_-^2 - f_+^2}{(f_+^2 + f_-^2)^2} \right) \cdot \sigma_{f_-} \right)^2 + \left( \left( \dfrac{2 \cdot f_+}{f_+^2 + f_-^2} + 2 \cdot f_+ \cdot \dfrac{f_-^2 - f_+^2}{(f_+^2 + f_-^2)^2} \right) \cdot \sigma_{f_+} \right)^2}
+\end{equation}
+Außerdem wurde die Zeitverschiebung aus den Daten jeweils über den zeitlichen Abstand zwischen einem Extremum in der einen und einer Nullstelle in der anderen Spannung bestimmt. Berechnet man die Zeitverschiebung mit Gleichung \ref{eq:delta_t}, so findet man mit der gauß'schen Fehlerfortpflanzung den Fehler auf $\Delta t$ zu:
+\begin{equation}
+\sigma_{\Delta t} = \sqrt{\left( \dfrac{d(\Delta t)}{dk} \cdot \sigma_k \right)^2 + \left( \dfrac{d(\Delta t)}{dR} \cdot \sigma_R \right)^2 + \left( \dfrac{d(\Delta t)}{dL} \cdot \sigma_L \right)^2 + \left( \dfrac{d(\Delta t)}{dR} \cdot \sigma_R \right)^2}
+\end{equation}
+mit
+\[\dfrac{d(\Delta t)}{dk} = \dfrac{-1}{2 \cdot \pi \cdot f_s} \cdot \dfrac{1}{R} \cdot \sqrt{\dfrac{L}{C}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
+\[\dfrac{d(\Delta t)}{dR} = \dfrac{1}{2 \cdot \pi \cdot f_s} \cdot \dfrac{k}{R^2} \cdot \sqrt{\dfrac{L}{C}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
+\[\dfrac{d(\Delta t)}{dC} = \dfrac{1}{4 \cdot \pi \cdot f_s} \cdot \dfrac{k}{R} \cdot \sqrt{\dfrac{L}{C^3}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
+\[\dfrac{d(\Delta t)}{dL} = \dfrac{-1}{4 \cdot \pi \cdot f_s} \cdot \dfrac{k}{R} \cdot \sqrt{\dfrac{1}{L \cdot C}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
+
+Die Ergebnisse für k und $\Delta t$ sowie der errechnete Erwartungswert für $\Delta t$ finden sich in nachfolgender Tabelle: \\
 
 
 
