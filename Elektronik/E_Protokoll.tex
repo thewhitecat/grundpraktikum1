@@ -471,20 +471,83 @@ Anm. & \\
 Es wird die durch Entladen des Kondensators angeregte Schwingung aufgezeichnet. Dazu wird der Kondensator zunächst mit 7V Ladespannung geladen. Nach Einstellen des Widerstandes am Potentiometer (Eingesteller Wert wurde mit dem Multimeter bestimmt) wird der Schalter geschlossen. Durch den Kurzschluss der Spannungsquelle entlädt sich der Kondensator über den Widerstand. Der Verlauf der Kondensatorspannung und des Stroms werden aufgezeichnet.\\
 Der Entladevorgang wurde für jede Widerstandseinstellung insgesamt fünf mal durchgeführt.
 
+\subsection{Auswertung Oszilloskop}
+Mittels Oszilloskop wurde eine Vorauswertung bei einem gesteckten $10\Omega$ Widerstand vorgenommen. Der Kondensator wurde mit 7V geladen und der durch kurzschließen der Spannungsquelle eingeleitete Entladevorgang und die dadurch angeregte Schwingung mit dem Oszilloskop aufgezeichnet.\\
+Im Oszilloskop war kein Offset der Spannung erkennbar. Für die Bestimmung wurden Minima der Spannung abgezählt. Dabei ergab sich für drei vollständige Perioden die Start- und Endwerte:
+\begin{equation}
+t_1=0.76ms \quad \quad t_2=8.64ms \quad \rightarrow \quad \Delta t=7.88ms
+\end{equation}
 
-\subsection{Auswertung}
+Für den Fehler auf die Zeitbestimmung wurde der Cursor nach links und rechts bewegt und der erste gegenüber $t_i$ veränderte Wert notiert. Für das so entstehende Intervall wurde eine Gleichverteilung angenommen:
+\begin{equation}
+\sigma_{t_2}=\frac{8.64-8.52}{\sqrt{12}}ms=0.03ms \quad \quad 
+\sigma_{t_1}=\frac{0.79-0.73}{\sqrt{12}}ms=0.02ms
+\end{equation}
+
+Es wurden drei Perioden erfasst. Damit ergibt sich mit $T=(t_2-t_1)/3$:
+
+\begin{equation}
+\Rightarrow \quad T=2.63ms \quad \quad \sigma_T=0.01ms
+\end{equation}
+
+Und schlussendlich für die Kreisfrequenz:
+\begin{equation}
+\omega=\frac{2\pi}{T}=2389Hz \quad \quad \sigma_{\omega}=\omega \frac{\sigma_T}{T}=21Hz
+\end{equation}
+
+Für die Bestimmung der Dämpfung wurden die Amplituden von vier aufeinanderfolgenden Minima abgelesen. Der Fehler ergibt sich wieder durch Bewegen des Cursors (vgl. Zeitmessung).\\
+Für zwei aufeinanderfolgende Amplituden $A_n$ und $A_{n+1}$ im Abstand einer Periode gilt:
+\begin{equation}
+\delta_n=\frac{\ln{\frac{A_n}{A_{n+a}}}}{T}
+\end{equation}
+
+Mittels Fehlerfortpflanzung folgt:
+\begin{equation}
+\sigma_{\delta_n}=\delta_n \sqrt{(\frac{\sigma_{x_n}}{x_n \ln{x_n}})^2+(\frac{\sigma_T}{T})^2} \quad \text{mit} \quad x_n=\frac{A_n}{A_{n+a}} \rightarrow \sigma_{x_n}=x_n\cdot \sqrt{(\frac{\sigma_{A_n}}{A_n})^2+(\frac{\sigma_{A_{n+1}}}{A_{n+1}})^2}
+\end{equation}
+
+Eine Zusammenfassung von Amplituden und Werten für die Dämpfung findet sich in Tab.\ref{tab:DämpfungOszi}
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+n & $U_n[V]$ & $\delta_n[1/ms]$ & $\sigma_{\delta_n}[ms]$\\
+\hline
+1 & $-4.96 \pm 0.03$ & 0.28 & 0.01\\
+\hline
+2 & $-2.40 \pm 0.05$ & 0.29 & 0.02\\
+\hline
+3 & $-1.12 \pm 0.03$ & 0.26 & 0.03\\
+\hline
+4 & $-0.56 \pm 0.03$ & - & -\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Dämpfungswerte bei der Auswertung mittels Oszilloskop}
+\label{tab:DämpfungOszi}
+\end{table}
+
+Die Ergebnisse der Dämpfung werden in einem gewichteten Mittelwert zusammengefasst zu $\delta=(0.28 \pm 0.01)kHz$.
+
+
+
+\subsection{Auswertung CASSY}
 \subsubsection{Rohdaten}
-Der prinzipielle Verlauf ist bei fast allen Messungen weitesgehend identisch, deswegen werden hier nur einige Spannungsverläufe exemplarisch gezeigt.
+Der prinzipielle Verlauf ist bei fast allen Messungen weitesgehend identisch (gedämpfte Schwingung/Exponentieller Abfall), deswegen werden hier nur einige Spannungsverläufe exemplarisch gezeigt (Abb. \ref{fig:Spannung19,6})
+
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.75]{Bilder/Spannungsverlauf19,6Ohm}
+\includegraphics[scale=0.5]{Bilder/Spannungsverlauf19,6Ohm}
+\includegraphics[scale=0.5]{Bilder/Spannungsverlauf52,2Ohm}
+\includegraphics[scale=0.5]{Bilder/Spannungsverlauf150Ohm}
+\includegraphics[scale=0.5]{Bilder/Spannungsverlauf200}
 \end{center}
-\caption[Spannungsverlauf]{Spannungsverlauf für Messung 1 bei $R=19.6 \Omega$ am Potentiometer (Multimeterangabe).}
+\caption[Spannungsverlauf]{Spannungssignal für verschiedene Einstellungen des Potentiometers (Wert vom Multimeter).}
 \label{fig:Spannung19,6}
 \end{figure}
 
-...to be continued....
+
 
 \subsubsection{Frequenzbestimmung}
 In diesem Versuch stehen einem prinzipiell zwei Möglichkeiten zur Frequenzbestimmung zur Verfügung.
