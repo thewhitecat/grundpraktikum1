@@ -423,7 +423,27 @@ Die Einzelergebnisse werden dann durch den gewichteten Mittelwert zusammengefass
 
 
 \subsubsection{Aperiodischer Grenzfall}
+Bei einer nominellen Einstellung von $R_{gesteckt}=0.150k\Omega$ am Potentiometer kam der zeitliche Verlauf des Spannungssignals dem aperiodischen Grenzfall am nächsten. Aus zeitlichen Gründen war es nicht möglich den Bereich mit einer feineren Einstellung abzutasten um sich dem Grenzfall noch besser zu nähern.\\
+Es wurde versucht zwei Einhüllende anzupassen, so dass der gemessene Verlauf möglichst innerhalb der Einhüllenden verbleibt. Die beste Einhüllung ergab sich für $R=185\Omega$ und $R=200\Omega$, wobei $L=35.72mH$ verwendet wurden. (vgl. Abb.\ref{fig:Aperiodisch} )
 
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{Bilder/Aperiodisch1}
+\includegraphics[scale=0.4]{Bilder/Aperiodisch2}
+\end{center}
+\caption{Zoom auf zwei Bereiche. Das gemessene Spannungssignal ist durchgezogen gezeichnet. Im zweiten Bild ist der einzige Bereich gezeigt indem das Einhüllen wenig gut gelingt.}
+\label{fig:Aperiodisch}
+\end{figure}
+
+Als Widerstand des aperiodischen Grenzfalls wird der Mittelwert der beiden Einhüllungswiderstände verwendet, als Fehler wird ein Gleichverteilungsfehler zwischen den Widerständen angenommen. Damit erhält man:
+\begin{equation}
+R_{ap}=192.5\Omega \quad \quad \sigma_{R_{ap}}=4.3\Omega
+\end{equation}
+
+Den Wert den man erwarten würde ergibt sich aus der Kapazität und der Induktivität:
+\begin{equation}
+R_{ap}=2\cdot \sqrt{\frac{L}{C}}=?
+\end{equation}
 
 
 \section{Gekoppelte Schwingkreise}
