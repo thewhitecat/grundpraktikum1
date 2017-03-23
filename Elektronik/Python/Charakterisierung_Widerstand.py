@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 start_time=timeit.default_timer()
 
 #Lese Daten ein
-M_S_1 = prak.lese_lab_datei('lab/100Ohm_ges.lab')
+M_S_1 = prak.lese_lab_datei('lab/10Ohm_ges.lab')
 index = M_S_1[:, 0]
 U = M_S_1[:, 3]
 I = M_S_1[:, 2]
@@ -71,7 +71,7 @@ stat_I = np.mean(std_I)
 stat_U = np.mean(std_U)
 
 #plotte lineare Regression
-x = np.array([-0.09, 0])
+x = np.array([-0.12, 0])
 y = R * x + b_R
 fig1, ax1 = plt.subplots()
 plt.font = {'family' : 'monospace',
@@ -89,7 +89,7 @@ plt.errorbar(mw_I, mw_U, xerr=std_I, yerr=std_U, fmt='.', color='b')
 fig1.show()
 
 #plotte Residuen
-x_r = np.array([-0.09, 0])
+x_r = np.array([-0.12, 0])
 y_r = np.array([0, 0])
 X = mw_I
 Y = np.full(mw_I.size, 1)
@@ -101,12 +101,47 @@ fig2, ax1 = plt.subplots()
 plt.font = {'family' : 'monospace',
         'weight' : 'bold',
         'size'   : 21}
-ax1.set_xlabel("Zeit [s]", **plt.font)
-ax1.set_ylabel("Residuen [hPa]", **plt.font)
+ax1.set_xlabel("Strom [A]", **plt.font)
+ax1.set_ylabel("Residuen [V]", **plt.font)
 ax1.set_title("Residuen Charakterisierung Widerstand", **plt.font)
 plt.plot(x_r, y_r, color='r')
 plt.errorbar(X, Y, yerr=Y_err, fmt='.', color='b')
 fig2.show()
+
+#plotte verschiebemethode für verschobene spannung
+U_o = np.empty(len(U))
+U_u = np.empty(len(U))
+for i in range(len(U)):
+    U_o[i] = U[i] + 0.01 * U[i] + 0.005 * 10
+    U_u[i] = U[i] - 0.01 * U[i] - 0.005 * 10
+
+mw_U_o, std_U_o = mw_std_best(index, U_o)
+mw_U_u, std_U_u = mw_std_best(index, U_u)
+R_u, dR_stat_u, b_R_u, eb_R_u, chiq_R_u, cov = prak.lineare_regression_xy(mw_I, mw_U_u, std_I, std_U_u)
+R_o, dR_stat_o, b_R_o, eb_R_o, chiq_R_o, cov = prak.lineare_regression_xy(mw_I, mw_U_o, std_I, std_U_o)
+h = np.array([-0.09, 0])
+z = R_u * x + b_R_u
+d = R_o * x + b_R_o
+fig3, ax1 = plt.subplots()
+plt.font = {'family' : 'monospace',
+        'weight' : 'bold',
+        'size'   : 21}
+ax1.set_xlabel("Strom [A]", **plt.font)
+ax1.set_ylabel("Spannung [V]", **plt.font)
+ax1.set_title("Verschiebemethode", **plt.font)
+plt.figtext(0.5,0.57,
+            '\n $a_+$= ('+str(np.round(R_o,3))+' +/- '+str(np.round(dR_stat_o,3))+') Ohm\n'
+            +' $b_+$= ('+str(np.round(b_R_o,3))+' +/- '+str(np.round(eb_R_o,3))+') V\n'
+            +'$\chi _+^2 / ndof$= ' + str(np.round(chiq_R_o/(mw_I.size-2), 3))
+            +'\n $a_-$= ('+str(np.round(R_u,3))+' +/- '+str(np.round(dR_stat_u,3))+') Ohm\n'
+            +' $b_-$= ('+str(np.round(b_R_u,3))+' +/- '+str(np.round(eb_R_u,3))+') V\n'
+            +'$\chi _-^2 / ndof$= ' + str(np.round(chiq_R_u/(mw_I.size-2), 3)), **plt.font)
+plt.plot(h, z, color='r')
+plt.plot(h, d, color='r')
+plt.errorbar(mw_I, mw_U_u, xerr=std_I, yerr=std_U_u, fmt='.', color='b')
+plt.errorbar(mw_I, mw_U_o, xerr=std_I, yerr=std_U_o, fmt='.', color='b')
+fig3.show()
+
 
 print("Widerstand: ", np.sqrt(R**2))
 print("Statistischer Fehler: ", dR_stat)
