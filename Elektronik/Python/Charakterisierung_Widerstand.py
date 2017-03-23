@@ -83,7 +83,7 @@ ax1.set_title("Strom gegen Spannung", **plt.font)
 plt.figtext(0.5,0.7,
             '\n a= ('+str(np.round(R,3))+' +/- '+str(np.round(dR_stat,3))+') Ohm\n'
             +' b= ('+str(np.round(b_R,3))+' +/- '+str(np.round(eb_R,3))+') V\n'
-            +'$\chi ^2 / ndof$= ' + str(chiq_R/(mw_I.size-2)), **plt.font)
+            +'$\chi ^2 / ndof$= ' + str(np.round(chiq_R/(mw_I.size-2), 3)), **plt.font)
 plt.plot(x, y, color='r')
 plt.errorbar(mw_I, mw_U, xerr=std_I, yerr=std_U, fmt='.', color='b')
 fig1.show()
