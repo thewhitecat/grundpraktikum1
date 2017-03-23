@@ -12,6 +12,22 @@
 
 \begin{document}
 
+\setlength{\parindent}{0pt} 
+\begin{center}
+{\LARGE Versuchsprotokoll}\\
+\begin{large}
+zum Grundpraktikum Physik Teil I\\[0.4cm]
+an der RWTH Aachen\\
+I. Physikalisches Institut B\\[4.5cm]
+\Large\textbf{\textsl{Elektronik}}\\[4cm]
+\normalsize\textit{vorgelegt\\von}\\[0.4cm]
+\large{Moritz Berger\\Tim Herbermann\\Gerald Kolter\\Sebastian Siebert}\\[1cm]
+\large \textit{Gruppe B07} \\ [3cm]
+\large \textbf{Wintersemester 2016/2017}
+\end{large}
+\end{center}
+\newpage
+
 \tableofcontents
 \newpage
 
@@ -631,8 +647,14 @@ A_{n+1} = A_n \cdot e^{-\delta \cdot (t_{n+1} - t_n)} \quad \rightarrow \quad \d
 So erhält man aus jeder Messung eine mittlere Dämpfungskonstante. Diese kann man noch über die 5 Messungen mitteln, die wir je Widerstand durchführten. Der statistische Fehler auf $\delta$ ergibt sich aus der linearen Regression, der systematische Fehler ist Null.\\
 
 Zweites Verfahren:\\
-Man erhält die Dämpfungskonstante $\delta$ und deren Fehler $\sigma_\delta$ aus der Anpassung einer Einhüllenden an die Messung der Kondensatorspannung $U_C(t)$. So ergibt sich der statistische Fehler ebenfalls aus der Anpassung und den systematischen Fehler erhält man durch die Verschiebemethode.  Die Ergebnisse finden sich in Tabelle \ref{tab:delta}.
-
+Man erhält die Dämpfungskonstante $\delta$ und deren Fehler $\sigma_\delta$ aus der Anpassung einer Einhüllenden an die Messung der Kondensatorspannung $U_C(t)$. Dafür werden die Amplituden der Peaks logarithmiert und gegen die Zeit aufgetragen. Dann erält man $-\delta$ als Steigung der Geraden. Dies wird beispielhaft in Abbildung \ref{pic:delta_fit} gezeigt. So ergibt sich der statistische Fehler ebenfalls aus der Anpassung und den systematischen Fehler erhält man durch die Verschiebemethode.  Die Ergebnisse finden sich in Tabelle \ref{tab:delta}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.48\linewidth]{Bilder/28,5Ohm_lin_fit}
+	\includegraphics[width=0.48\linewidth]{Bilder/28,5Ohm_exp_fit}
+	\caption{Fit für $R_{gesteckt}$=28.5$\Omega$ \qquad Links: linearer Fit an die logarithmierten Spannungsamplituden. \qquad Rechts: Spannungsverlauf mit sich ergebenden Einhüllenden.}
+	\label{pic:delta_fit}
+\end{figure}
 \begin{table}
 	\centering
 	\begin{tabular}{|c|c|c|c|}
