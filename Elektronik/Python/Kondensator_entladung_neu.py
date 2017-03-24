@@ -40,12 +40,17 @@ def pictures(t,I=None,U=None,lnI=None,lnU=None,dlnI=None,dlnU=None):
         plt.xlabel("Zeit[s]")
         plt.ylabel("Strom[ln(A)]")
         plt.title("log Strom")
+        plt.axvline(x=0.0015,color='g')
+        plt.axvline(x=0.0001,color='g')
     if lnU!=None:
         plt.subplots()
         plt.plot(t,lnU)
         plt.xlabel("Zeit[s]")
         plt.ylabel("Strom[ln(V)]")
         plt.title("log Spannung")
+        
+        plt.axvline(x=0.0015,color='g')
+        plt.axvline(x=0.0001,color='g')
     if dlnI!=None:
         a,ea,b,eb,chiq,x,y,dy = linreg(t,lnI,dlnI)
         plt.subplots()
@@ -111,7 +116,9 @@ def alles():
         t = array[:,1]
     
         I = -array[:,2]-0.0004#offset
-        dI = 0.00045
+        U0 = array[500:,2]
+        mU0,dU0 = np.mean(U0),np.std(U0,ddof=1)
+        dI = dU0
         I = np.absolute(I)
         logI = log(I)
         dlogI = dI/I
@@ -120,6 +127,7 @@ def alles():
         dU = 0.047
         U0 = array[500:,3]
         mU0,dU0 = np.mean(U0),np.std(U0,ddof=1)
+        dU = dU0
         Udiff = np.absolute(U)
         logU = log(Udiff)
         dlogU = dU/U
@@ -140,36 +148,21 @@ def alles():
         Ia.append(a)
         Iastd.append(ea)
         
-        if i==1:
+        if i==4:
             pictures(t,lnI=logI,lnU=logU,dlnI=dlogI,dlnU=dlogU)
     
-    mittelTU,stdTU = p.gewichtetes_mittel(UTs,np.array(UTstat))
-    mittelTI,stdTI = p.gewichtetes_mittel(ITs,np.array(ITstat))
-    CU = mittelTU/R
-    CUerr = np.sqrt((stdTU/R)**2+(mittelTU*dR/R**2)**2)
-    CUsys = (mittelTU*dRsys/R**2)
-    CI = mittelTI/R
-    CIerr = np.sqrt((stdTI/R)**2+(mittelTI*dR/R**2)**2)
-    CIsys = (mittelTU*dRsys/R**2)
-    print CU, CUerr,CUsys
-    print CI, CIerr,CIsys
-   # mittelUa = np.mean(Ua)
-  #  mittelUastd = np.mean(Uastd)
-  #  mittelIa = np.mean(Ia)
-  #  mittelIastd = np.mean(Iastd)
-  #  mittelUa = np.mean(Ua)
-   # mittelUastd = np.mean(Uastd)
-  #  mittelIa = np.mean(Ia)
-  #  mittelIastd = np.mean(Iastd)
-  #  mittelchiU = np.mean(Uchiqs)
-  #  mittelchiI = np.mean(Ichiqs)
-   # print mittelUa, mittelUastd,mittelchiU
-   # print mittelIa, mittelIastd,mittelchiI
-    Ts = merge(UTs,ITs)
-    Tstat = merge(UTstat,ITstat)
-    Tstat = np.array(Tstat)
-    Tmu,Terr = p.gewichtetes_mittel(Ts,Tstat)
-    C = Tmu/R
-    Cerr = np.sqrt((Terr/R)**2+(Tmu*dR/R**2)**2)
-    return CU,CUerr,CI,CIerr
+    #mittelTU,stdTU = p.gewichtetes_mittel(UTs,np.array(UTstat))
+    #mittelTI,stdTI = p.gewichtetes_mittel(ITs,np.array(ITstat))
+    mittelUa,stdUa = np.mean(Ua),np.std(Ua,ddof=1)/(len(Ua)-2)
+    mittelIa,stdIa = np.mean(Ia),np.std(Ia,ddof=1)/(len(Ia)-2)
+#    print mittelUa,stdUa
+#    print mittelIa,stdIa
+    TU = -1/mittelUa
+    TI = -1/mittelIa
+    TUstd = stdUa/mittelUa**2
+    TIstd = stdIa/mittelIa**2
+#    print TU,TUstd
+#    print TI,TIstd
+    
+    return TU,TUstd,TI,TIstd
 alles()

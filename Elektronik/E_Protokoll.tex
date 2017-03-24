@@ -166,7 +166,7 @@ I(t) = -I_0 \cdot e^{-\dfrac{t}{R\cdot C}}
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.75\linewidth]{Bilder/Kondensator_Aufbau}
-\caption[Aufbau Kondensator]{Aufbau Kondensator}
+\caption[Aufbau Kondensator]{Schaltskizze zur Bestimmung der Kapazität eines Kondensators}
 \label{fig:Kond_Aufbau}
 \end{center}
 \end{figure}
@@ -177,9 +177,9 @@ I(t) = -I_0 \cdot e^{-\dfrac{t}{R\cdot C}}
 \hline 
 Bauteil & Angegebener Wert & Bestimmter Wert \\ 
 \hline 
-Widerstand & 100 & $98.74\pm 0.06\pm2.2$ \\ 
+Widerstand[$\Omega$] & 100 & $98.74\pm 0.06\pm2.2$ \\ 
 \hline 
-Kondensator & 4.7 & zu bestimmen \\ 
+Kondensator[$\mu F$] & 4.7 & zu bestimmen \\ 
 \hline 
 \end{tabular} 
 \end{center}
@@ -195,19 +195,24 @@ Gleichzeitig wird auch Strom und Spannung mit einem Oszilloskop gemessen. Dafür
 Um den Aufladevorgang zu messen, wird die Spannungsquelle beim Start einer Messung aktiviert.
 Beim Entladevorgang bleibt die Spannungsquelle eingeschaltet. Der Messvorgang wird über einen Trigger gestartet, der den Spannungsabfall registriert.
 \subsubsection{Messung mit dem Oszilloskop}
-Messeinstellungen:
-\begin{tabular}{c c c}
+\begin{tabular}{|c|c|c|}
+\hline
 Messeinstellungen: & Zeitauflösung: $500\mu s$  & Spannungsauflösung: $0.2V$ \\ 
+\hline
 \end{tabular} 
 \\
 \\
 Die Achsenauflösungen sollten so gewählt werden, dass man die Werte möglichst gut ablesen kann.
 Der Trigger sollte an der Spannungskurve anliegen.
 \subsubsection{Messung mit CASSY}
-\begin{tabular}{c c c c}
+\begin{tabular}{|c|c|c|c|}
+\hline
 Messparameter & Messintervall: $10\mu s$  & Anzahl Messwerte: 1000 & automatische Aufnahme \\ 
-Messbereiche & Strom: 0.3A & Spannung: 3V \\
-Trigger: 2V & angelegte Spannung: 2.1V\\
+\hline
+Messbereiche & Strom: 0.3A & Spannung: 3V & \\
+\hline
+Trigger: 2V & angelegte Spannung: 2.1V & &\\
+\hline
 \end{tabular} 
 \paragraph{Aufladung}
 Die Spannungsquelle sollte so eingestellt sein, dass sie sich bei Versuchstart automatisch aktiviert. Durch die zeitgleiche Aktivierung der Quelle und dem Start der Messreihe kann es geschehen, dass die ersten paar Messwerte verfälscht werden.
@@ -230,9 +235,9 @@ Entladung & -16mV & $0.34ms$ & -1.18V & $0.98ms$ & -0.08V \\
 \end{tabular} 
 \end{center}
 \label{tab:Kond_Osz}
-\caption{Messdaten mit Oszilloskop}
+\caption{Ergebnisse der aufgenommenen Daten mit dem Oszilloskop}
 \end{table}
-Die gemessenen Werte sind in Tab\ref{tab:Kond_Osz} aufgeführt. Die Kapazität wird folgendermaßen bestimmt:
+Die gemessenen Werte sind in Tabelle \ref{tab:Kond_Osz} aufgeführt. Die Kapazität wird folgendermaßen bestimmt:
 \begin{equation}
 \dfrac{U1}{U2} = e^{-\dfrac{t1-t2}{R\cdot C}}
 \end{equation}
@@ -256,7 +261,7 @@ Es ergeben sich schließlich folgende Werte
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline 
- & Gemessener Wert \\ 
+ & Gemessener Wert[$\mu F$] \\ 
 \hline 
 Aufladung & $4.69\pm 0.05\pm 0.08$ \\ 
 \hline 
@@ -271,13 +276,14 @@ Die Fehler wurden dabei folgendermaßen bestimmt:
 \sigma_{Cstat} = \sqrt{2\cdot\left(\dfrac{\sigma_t}{R\cdot ln(\dfrac{U1}{U2})}\right)^{2}+\left(\dfrac{-\sigma_U\cdot(t1-t2)}{R\cdot U1\cdot ln(\dfrac{U1}{U2})^{2}}\right)^{2}+\left(\dfrac{\sigma_U\cdot(t1-t2)}{R\cdot U2\cdot ln(\dfrac{U1}{U2})^{2}}\right)^{2}}
 \end{equation}
 \begin{equation}
-\sigma_{Csys} = \dfrac{(t2-t1)\cdot \sigma_R}{R^{2}\cdot ln(\dfrac{U1}{U2})}
+\sigma_{Csys} = \dfrac{(t2-t1)\cdot \sigma_R}{R^{2}\cdot ln(\dfrac{U1}{U2})}\medskip
 \end{equation}
+wobei $\sigma_{R} = \sqrt{\sigma_{Rsys}^2+\sigma_{Rstat}^2}$
 
 \subsection{Auswertung CASSY}
 Über das CASSY wurden bei Auf- und Entladung jeweils 5 Datensätze aufgenommen.
 \subsubsection{Rohdaten}
-Die Rohdaten Folgen einem logarithmischem Verlauf. Es ist also sinnvoll, diese zu logarithmieren. Dabei wird die \textbf{Spannung beim Aufladen} mit
+Die Rohdaten folgen einem logarithmischem Verlauf. Es ist also sinnvoll, diese zu logarithmieren. Dabei wird die \textbf{Spannung beim Aufladen} mit
 \begin{equation}
 U_{log} = log(U_0-U)
 \end{equation}
@@ -295,7 +301,7 @@ Es wurde immer der Betrag der Messwerte genommen. Deswegen ist der Strom beim En
 \begin{center}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_U}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_logU}
-\caption[Rohdaten logarith. A]{Rohdaten Spannung beim Aufladen}
+\caption[Rohdaten logarith. A]{Rohdaten(rechts: lineare Achsen, links:logarithmische Spannungsachse)der Spannung bei der Aufladung. Das Messintervall für die lineare Regression ist angedeutet.}
 \label{fig:RohU}
 \end{center}
 \end{figure}
@@ -304,7 +310,7 @@ Es wurde immer der Betrag der Messwerte genommen. Deswegen ist der Strom beim En
 \begin{center}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_I}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_logI}
-\caption[Rohdaten logarith. A]{Rohdaten Strom beim Aufladen}
+\caption[Rohdaten logarith. A]{Rohdaten(rechts: lineare Achsen, links:logarithmische Spannungsachse)der Spannung bei der Entladung. Das Messintervall für die lineare Regression ist angedeutet.}
 \label{fig:RohU}
 \end{center}
 \end{figure}
@@ -313,7 +319,7 @@ Es wurde immer der Betrag der Messwerte genommen. Deswegen ist der Strom beim En
 \begin{center}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_U}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_logU}
-\caption[Rohdaten logarith. A]{Rohdaten Spannung beim Entladen}
+\caption[Rohdaten logarith. A]{Rohdaten(rechts: lineare Achsen, links:logarithmische Stromachse)des Stromes bei der Entladung. Das Messintervall für die lineare Regression ist angedeutet.}
 \label{fig:RohU}
 \end{center}
 \end{figure}
@@ -326,7 +332,7 @@ Es wurde immer der Betrag der Messwerte genommen. Deswegen ist der Strom beim En
 \label{fig:RohU}
 \end{center}
 \end{figure}
-\subsubsection{lineare Regressionen}
+\subsubsection{Lineare Regressionen}
 
 \begin{figure}
 \begin{center}
@@ -334,7 +340,7 @@ Es wurde immer der Betrag der Messwerte genommen. Deswegen ist der Strom beim En
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_linU}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_resI}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_auf_resU}
-\caption[Rohdaten logarith. A]{Lineare Regressionen bei der Aufladung(links: Strom, rechts: Spannung}
+\caption[Rohdaten logarith. A]{Lineare Regressionen und Residuen bei der Aufladung(links: Strom, rechts: Spannung)}
 \label{fig:linAuf}
 \end{center}
 \end{figure}
@@ -345,13 +351,12 @@ Es wurde immer der Betrag der Messwerte genommen. Deswegen ist der Strom beim En
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_linU}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_resI}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_ent_resU}
-\caption[Rohdaten logarith. A]{Lineare Regressionen bei der Entladung(links: Strom, rechts: Spannung)}
+\caption[Rohdaten logarith. A]{Lineare Regressionen und Residuen bei der Entladung(links: Strom, rechts: Spannung)}
 \label{fig:linEnt}
 \end{center}
 \end{figure}
 
-Zur Bestimmung der Kapazität wird nun für jeden Datensatz eine lineare Regression an den logarithmisirten Daten durchgeführt. Da die Daten aber zum messende hin von der logarithmischen Darstellung abweichen, wurde nur das Zeitivervall von 0.1ms bis 1.5ms für die Auswertung genommen.\\
-In Tab.\ref{tab:kond_linreg} sind dabei jeweils die Mittelwerte der fünf Datensätze für die Auswertung am Strom und an der Spannung aufgelistet.\\
+Zur Bestimmung der Kapazität wird nun für jeden Datensatz eine lineare Regression an den logarithmisirten Daten durchgeführt. Da die Daten aber zum Messende hin von der logarithmischen Darstellung abweichen, wurde nur das Zeitivervall von 0.1ms bis 1.5ms für die Auswertung genommen.\\
 Als Einzelfehler für die lineare Regression wurde der durch Fehlerfortpflanzung errechnete Fehler auf den logarithmisirten Daten verwendet:
 \begin{equation}
 \sigma_{log(U)} = \dfrac{\sigma_U}{U}
@@ -359,65 +364,126 @@ Als Einzelfehler für die lineare Regression wurde der durch Fehlerfortpflanzung
 \begin{equation}
 \sigma_{log(I)} = \dfrac{\sigma_I}{I}
 \end{equation}
-Wobei $\sigma_U$ und $\sigma_I$ den Rauschmessungsfehlern aus dem vorherigen Versuch entsprechen.\\
-Anmerkung: Da die Rauschmessung mit dem kapputen CASSY durchgeführt wurde, sind die Fehler vermutlich viel zu groß. Dies resultiert in zu kleinen $\chi ^{2}/f$.
+Wobei $\sigma_U$ und $\sigma_I$ aus einer Rauschmessung am Messende der jeweiligen Daten stammen.\\
+\\
+Die Ergebnisse sind in Tabelle \ref{tab:kond_linreg1} und \ref{tab:kond_linreg2} aufgelistet.
+
 
 \begin{table}
+\begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
- & Steigung & Fehler Steigung & $\chi ^{2}/f$ \\ 
+Messung & Steigung & Fehler & $\chi ^{2}/f$ \\ 
 \hline 
-Aufladung U & -2049 & 6 & 0.04 \\ 
+Spannung 1 & -2053.73 & 0.33 & 1.46 \\ 
 \hline 
-Aufladung I  & -2051 & 14 & 0.03 \\ 
+Spannung 2 & -2053.57 & 0.34 & 1.46 \\ 
 \hline 
-Entladung U & -2009 & 20 & 0.03 \\ 
+Spannung 3 & -2053.44 & 0.30 & 2.77 \\ 
 \hline 
-Entladung I  & -2028 & 20 & 0.12 \\ 
+Spannung 4 & -2053.58 & 0.31 & 1.44 \\ 
+\hline 
+Spannung 5 & -2053.51 & 0.31 & 2.42 \\ 
+\hline 
+\hline
+Strom 1 & -2041.19 & 1.47 & 2.62 \\ 
+\hline 
+Strom 2 & -2046.79 & 1.55 & 2.53 \\ 
+\hline 
+Strom 3 & -2042.31 & 1.61 & 2.02 \\ 
+\hline 
+Strom 4 & -2078.83 & 1.61 & 2.92 \\ 
+\hline 
+Strom 5 & -2043.77 & 1.50 & 2.78 \\ 
 \hline 
 \end{tabular} 
-\caption{Mittelergebnisse für die Linearen Regressionen}
-\label{tab:kond_linreg} 
+\end{center}
+\label{tab:kond_linreg1} 
+\caption{Ergebnisse der Linearen Regressionen bei der \textbf{Aufladung}}
 \end{table}
 
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Messung & Steigung & Fehler & $\chi ^{2}/f$ \\ 
+\hline 
+Spannung 1 & -2040.19 & 0.40 & 2.18 \\ 
+\hline 
+Spannung 2 & -2054.99 & 0.42 & 1.53 \\ 
+\hline 
+Spannung 3 & -2024.97 & 0.44 & 3.13 \\ 
+\hline 
+Spannung 4 & -1996.27 & 0.49 & 2.25 \\ 
+\hline 
+Spannung 5 & -1927.20 & 0.44 & 274.25 \\ 
+\hline 
+\hline
+Strom 1 & -2028.48 & 4.24 & 1.20 \\ 
+\hline 
+Strom 2 & -2012.19 & 4.03 & 0.90 \\ 
+\hline 
+Strom 3 & -1994.52 & 4.06 & 3.40 \\ 
+\hline 
+Strom 4 & -1978.45 & 4.06 & 2.49 \\ 
+\hline 
+Strom 5 & -2126.20 & 4.19 & 6.08 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\label{tab:kond_linreg2} 
+\caption{Ergebnisse der Linearen Regressionen bei der \textbf{Entladung}}
+\end{table}
+\newpage
 \subsubsection{gemessene Daten}
-Über die bei der linearen Regression ermittelte Steigung kann man nun durch $\tau = -1/a$ die Zeitkonstante $\tau$ ausrechnen und daraus schließlich mit $C=\dfrac{\tau}{R}$ die Kapazität.
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+ & Steigung & Zeitkonstante[$ \mu F\Omega$] \\ 
+\hline 
+Aufladung U & $-2053.56\pm 0.04$ & $486.95\pm 0.03$ \\ 
+\hline 
+Aufladung I  & $-2050.58\pm 5.31$ & $487.66\pm 12.63$\\ 
+\hline 
+Entladung U & $-2008.72\pm 16.83$ & $497.83\pm 41.71$ \\ 
+\hline 
+Entladung I  & $-2027.97\pm 19.34$ & $493.10\pm 47.03$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\caption{arithmetische Mittelung der Ergebnisse für Auf- und Entladung}
+\label{tab:kond_linreg} 
+\end{table}
+Die Ergebnisse der Linearen Regressionen für sowohl Strom als auch Spannung arithmetisch gemittelt. Der Fehler ist der dadurch entstehende Fehler auf den Mittelwert.
+Aus diesen vier Steigungen wird außerdem durch $\tau = -1/a$ die Zeitkonstante $\tau$ bestimmt. Die Resultate sind in Tabelle \ref{tab:kond_linreg} aufgeführt.\\
 Der Fehler auf $\tau$ ergibt sich dabei folgendermaßen:
 \begin{equation}
 \sigma_{\tau}=\dfrac{\sigma_{a}}{a^{2}}
+\end{equation}\\
+Um nun die Kapazität zu bestimmen, werden die Zeitkonstanten noch einmal arithmetisch gemittelt. Damit erhält man:
+\begin{equation}
+\tau = (491.2\pm 52.8) \mu F\Omega
 \end{equation}
+Daraus wird schließlich durch $C=\dfrac{\tau}{R}$ die Kapazität bestimmt:
+\begin{equation}
+C = (4.975\pm 0.054\pm0.123)\mu F
+\end{equation}
+
 Der statistische Fehler auf C ergibt sich durch
 \begin{equation}
 \sigma_C = \sqrt{(\dfrac{\sigma_{\tau}}{R})^{2}+(\dfrac{\tau \cdot \sigma_{R}}{R^{2}})^{2}}
 \end{equation}
 Der systematische Fehler auf C wird aus dem systematischen des Widerstandes fortgepflanzt.
+\newpage
+\subsubsection{Fazit}
 \begin{table}[H]
-\begin{tabular}{|c|c|c|}
-\hline 
- & Zeitkonstante[$ \mu F\Omega$] & Kapazität[$ \mu F$] \\ 
-\hline 
-Spannung Aufladung & $0.4880\pm0.0006$ & $4.941\pm0.007\pm0.123$ \\ 
-\hline 
-Strom Aufladung & $0.4877\pm0.0015$ & $4.938\pm0.015\pm0.123$ \\ 
-\hline 
-Spannung Entladung & $0.4977\pm0.0022$ & $5.027\pm0.023\pm0.123$ \\ 
-\hline 
-Strom Entladung & $0.4924\pm0.0022$ & $4.974\pm0.023\pm0.123$ \\ 
-\hline 
-\end{tabular}
-\caption{Ergebnisse für Kapazität und die Zeitkonstante}
-\end{table}
-
-Um einen endgültigen Endwert zu bestimmen, werden nun alle Ergebnisse für die Kapazität mit ihrem statistischen Fehler gewichtet gemittelt. Damit erhält man folgendes Endergebnis:
-\begin{equation}
-C_{ges} = (4.951\pm 0.006\pm0.123)\mu F
-\end{equation}
-
+\begin{center}
 \begin{tabular}{|c|c|}
 \hline 
 Herstellerangaben & $(4.7\pm0.235)\mu F$\\ 
 \hline 
-CASSY & $(4.951\pm 0.006\pm0.123)\mu F$\\
+CASSY & $(4.975\pm 0.054\pm0.123)\mu F$\\
 \hline 
 Oszilloskop(Aufladung) & $(4.69\pm 0.05\pm 0.08)\mu F$ \\ 
 \hline 
@@ -426,10 +492,11 @@ Oszilloskop(Entladung) & $(4.88\pm 0.02\pm 0.05)\mu F$ \\
 Brücke & $(4.88\pm0.01\pm0.01)\mu F$ \\ 
 \hline 
 \end{tabular} 
-
-\subsubsection{Fazit}
-Die meisten Messungen haben einen Wert ergeben, der größer als die Herstellerangabe. Auffallend ist der riesige Systematische Fehler auf die CASSY-Messung. Dieser macht die CASSY-Messung sehr ungenau und vermutlich wurde hier ein zu großer Wert gemessen.\\
-Alle vier Messergebnisse liegen im Bereich einer Standardabweichung um den Wert $4.9\mu F$. Dieser Wert liegt im Rahmen der vom Hersteller angegebenen Ungenauigkeit. Es ist also sinnvoll anzunehmen, dass der Kondensator eine Kapazität von $4.9\mu F$ hat.
+\end{center}
+\caption{Zusammenfassung aller Messresultate}
+\label{tab:kondzusammenfassung}
+\end{table}
+Wenn man die Ergebnisse aller Messmethoden, die in Tabelle \ref{tab:kondzusammenfassung} nochmals aufgelistet sind, arithmetisch mittelt, dann bekommt man einen Endwert für die Kapazität des Kondensators von $4.86\pm 0.06 \mu F$. Wir konnten also die Kapazität auf 1,2\% genau bestimmen. Der Endwert liegt außerdem im vom Hersteller angegebenen Toleranzbereich, man kann also abschließend sagen, dass die Bestimmung der Kapazität geglückt ist.
 \newpage
 
 \section{RLC-Schwingkreis}
@@ -897,7 +964,7 @@ Bei entgegengesetzter Anregung werden die Ströme subtrahiert. Damit ist die Fre
 \omega_- =\dfrac{\omega_0}{\sqrt{1-k}}
 \end{equation}
 \\
-Der Kopplungsfaktor k kann nun wie im vorherigen versuchsteil bestimmt werden durch
+Der Kopplungsfaktor k kann nun wie im vorherigen Versuchsteil bestimmt werden durch
 \begin{equation}
 k = \dfrac{f_-^2 - f_+^2}{f_-^2 + f_+^2}
 \label{eq:Kopplung2}
@@ -929,7 +996,7 @@ Es wurden die gleichen Messeinstellungen wie bei Teil 1 verwendet.
 \includegraphics[width=0.49\linewidth]{Bilder/Fund_Rohdaten1.PNG}
 \includegraphics[width=0.49\linewidth]{Bilder/Fund_Frequenz1.PNG}
 \end{center}
-\caption[Aufbau Schwebung]{Rohdaten und dazugehörige FFT der Fundamentalschwingung $\omega_+$, gemessen am 1.Schwingkreis}
+\caption[Aufbau Schwebung]{Rohdaten und dazugehörige FFT der Fundamentalschwingungen bei gleichsinniger Anregung, gemessen am 1.Schwingkreis}
 \label{fig:Fund_Roh1}
 \end{figure}
 
@@ -938,22 +1005,24 @@ Es wurden die gleichen Messeinstellungen wie bei Teil 1 verwendet.
 \includegraphics[width=0.49\linewidth]{Bilder/Fund_Rohdaten2.PNG}
 \includegraphics[width=0.49\linewidth]{Bilder/Fund_Frequenz2.PNG}
 \end{center}
-\caption[Aufbau Schwebung]{Rohdaten und dazugehörige FFT der Fundamentalschwingung $\omega_-$, gemessen am 1.Schwingkreis}
+\caption[Aufbau Schwebung]{Rohdaten und dazugehörige FFT der Fundamentalschwingungen bei gegensinniger Anregung, gemessen am 1.Schwingkreis}
 \label{fig:Fund_Roh2}
 \end{figure}
 
-Abb.\ref{fig:Fund_Roh1} zeigt einen ausgewählten Rohdatenplot und die dazugehörige FFT der niedrigeren Frequenz $\omega_+$. Abb.\ref{fig:Fund_Roh2} zeigt das Gleiche für $\omega_-$.\\
+Abb.\ref{fig:Fund_Roh1} zeigt einen ausgewählten Rohdatenplot und die dazugehörige FFT der niedrigeren Frequenz $f_+$. Abb.\ref{fig:Fund_Roh2} zeigt das Gleiche für $f_-$.\\
 Vorallem in Abb.\ref{fig:Fund_Roh2} kann man neben einem großen Peak noch einen kleineren Peak erkennen. Dies liegt daran, dass die Schwingkreise nicht völlig identisch waren, wodurch trotz allen Bemühungen eine Schwebung entstanden ist.
-Diese ist sogar in den Rohdaten erkennbar.\\
+Diese ist auch in den Rohdaten erkennbar.\\
 \\
 Eine lokale Peakschwerpunktsanalyse ergibt, dass
 \begin{equation}
-\omega_+ \approx 721Hz
+f_+ \approx (721\pm 1.8)Hz
 \end{equation}
 und
 \begin{equation}
-\omega_- \approx 812Hz
+f_- \approx (815.1\pm 1.8)Hz
 \end{equation}
+wobei immer nur der größere Peak analysiert wurde, da der durch die Kopplung hervorgerufene kleinere Peak zu schwer zu analysiren war und deswegen einen zu großen Fehler hatte.\\
+Der angegebene Fehler folgt aus der Auflösungsgenauigkeit der Fourier-Transformation.
 
 \subsubsection{Ergebnis und Fazit}
 Für beide Orientierungen wurden jeweils 3 Messungen aufgenommen und jeweils für die Spannung am 1. und 2.Kondensator ausgewertet. Die Ergebnisse sind in Tab.\ref{tab:Fund_Ergebnis} aufgelistet.
@@ -962,11 +1031,11 @@ Für beide Orientierungen wurden jeweils 3 Messungen aufgenommen und jeweils fü
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline 
- & $\omega_+[Hz]$ & $\omega_-[Hz]$ \\ 
+ & $f_+[Hz]$ & $f_-[Hz]$ \\ 
 \hline 
-Spannung 1 & $721.03\pm0.32$ & $812.00\pm0.17$ \\ 
+Spannung 1 & $721.03\pm1.83$ & $812.00\pm1.81$ \\ 
 \hline 
-Spannung 2 & $726.13\pm0.44$ & $815.61\pm1.97$ \\ 
+Spannung 2 & $726.13\pm1.85$ & $815.61\pm2.67$ \\ 
 \hline 
 \end{tabular} 
 \end{center}
@@ -974,12 +1043,11 @@ Spannung 2 & $726.13\pm0.44$ & $815.61\pm1.97$ \\
 \caption{Ergebnisse Fundamentalschwingungen}
 \end{table}
 
-Man erkennt schnell, dass die Schwinkreise nicht ganz identisch eingestellt waren. Dies ist nicht weiter verwunderlich, da schon in den anderen Versuchen für die beiden Kondensatoren unterschiedliche Werte ermittelt wurden.\\
+Die Fehler wurden durch quadratische Addition des Auflösungsfehlers mit dem Fehler auf den Mittelwert durch die Mehrfachmessung ermittelt. \\
 \\
-Die angegebenen Fehler sind die Fehler auf den Mittelwert durch die Mehrfachbestimmung.\\
-Anmerkung: Der Fehler auf $\omega_-$ bei Spannung 2 ist größer als die anderen, da hier eine Messreihe eine sehr starke Schwebung ergab und der Peak somit sehr schwer zu bestimmen war.\\
+Man erkennt schnell, dass die Schwingkreise nicht ganz identisch eingestellt waren. Dies ist nicht weiter verwunderlich, da schon in den anderen Versuchen für die beiden Kondensatoren unterschiedliche Werte ermittelt wurden.\\
 \\
-Mit \ref{eq:Kopplung2} kann man nun den Kopplungsgrad bestimmen:
+Mit Formel \ref{eq:Kopplung2} kann man nun den Kopplungsgrad bestimmen:
 
 \begin{table}[H]
 \begin{center}
@@ -987,9 +1055,9 @@ Mit \ref{eq:Kopplung2} kann man nun den Kopplungsgrad bestimmen:
 \hline 
  & Ergebnis\\ 
 \hline 
-Schwingkreis 1  & $0.1183\pm 0.0005$ \\ 
+Schwingkreis 1  & $0.118\pm 0.003$ \\ 
 \hline 
-Schwingkreis 2 & $0.1157\pm  0.0025$\\ 
+Schwingkreis 2 & $0.116\pm  0.004$\\ 
 \hline 
 aus Teil 1 & $0.1303\pm  0.0007$\\ 
 \hline 
@@ -1002,6 +1070,6 @@ aus Teil 1 & $0.1303\pm  0.0007$\\
 Der Fehler wurde genau so wie in Teil 1 mit Gl.\ref{eq:Kopplung_k} bestimmt.\\
 \\
 Man kann abschließend sagen, dass der Kopplungsgrad auch mit dieser Methode sehr gut bestimmt worden konnte. Der Kopplungsgrad unterscheidet sich trotz leicht unterschiedlicher Schwingkreise kaum.\\
-Das Ergebnis ist allerdings etwas abweichend von dem bei der Schwebung ermittelten, bei dem die Spulen ähnlich aufgebaut waren. Diese Abweichung kann aber dadurch erklärt werden, dass der Versuchsaufbau zwischen beiden Versuchen vollständig Umgebaut wurde. Ein Vergleich ist also nicht sehr aussagekräftig.
+Das Ergebnis ist allerdings etwas abweichend von dem bei der Schwebung ermittelten, bei dem die Spulen ähnlich aufgebaut waren. Diese Abweichung kann aber dadurch erklärt werden, dass der Versuchsaufbau zwischen beiden Versuchen vollständig umgebaut wurde. Ein Vergleich ist also nicht sehr aussagekräftig.
 
 \end{document}

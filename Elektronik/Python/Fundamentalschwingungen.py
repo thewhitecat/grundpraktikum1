@@ -17,6 +17,9 @@ def pictures(freq=None,amp=None,t=None,U1=None,U2=None):
         plt.ylabel("#")
         plt.xlabel("Frequenz[Hz]")
         plt.title("Freqenzspektrum")
+        line1 = plt.axvline(x=707.9,color='r',label='f+ = (707.9+/-1.8)Hz')
+        line2 = plt.axvline(x=815.1,color='g',label='f- = (815.1+/-1.8)Hz')
+        plt.legend(handles = [line1,line2],bbox_to_anchor=(0.45, 1))
     if t!=None and U1!=None:
         t,U1 = p.untermenge_daten(t,U1,0,0.08)
         plt.subplots()
@@ -41,9 +44,13 @@ data.append(p.lese_lab_datei('lab/Gleichsinnig_02.lab'))
 data.append(p.lese_lab_datei('lab/Gleichsinnig_03.lab'))
 
 peak_p1 = []#peak gleichsinnig
+peak_p1var = []#peak gleichsinnig
 peak_g1 = []#peak gegensinnig
+peak_g1var = []#peak gleichsinnig
 peak_p2 = []#peak gleichsinnig
+peak_p2var = []#peak gleichsinnig
 peak_g2 = []#peak gegensinnig
+peak_g2var = []#peak gleichsinnig
 for i in range(len(data)):
  #   i +=3
     dat = data[i]
@@ -52,38 +59,72 @@ for i in range(len(data)):
     U2 = dat[:,3]
     freq,amp = p.fourier_fft(t,U1)
     freq,amp = p.untermenge_daten(freq,amp,200,1000)
-    if i == 0:
-        pictures(freq,amp,t=t,U1=U1)
+    if i == 1:
+        pictures(freq,amp)
     if i < 3:
-        freq,amp = p.untermenge_daten(freq,amp,680,780)
-        sp = p.peakfinder_schwerpunkt(freq,amp)
-        sp2 = p.peak(freq,amp,680,780)
+        freq1,amp1 = p.untermenge_daten(freq,amp,680,780)
+        freq2,amp2 = p.untermenge_daten(freq,amp,780,850)
+        
+        sp = p.peakfinder_schwerpunkt(freq1,amp1)
+        sp2 = p.peak(freq1,amp1,680,780)
+        sp3 = freq[np.argmax(amp)]
+        sp3var = (freq[np.argmax(amp)+1]-freq[np.argmax(amp)-1])/(2*np.sqrt(12))
         peak_p1.append(sp2)
+        peak_p1var.append(sp3var)
+        #sp = p.peakfinder_schwerpunkt(freq2,amp2)
+        #if sp>=780 and sp<=820:
+        #    peak_g1.append(sp)
     if i >= 3:
-        freq,amp = p.untermenge_daten(freq,amp,780,850)
-        sp = p.peakfinder_schwerpunkt(freq,amp)
-        sp2 = p.peak(freq,amp,780,840)
+        freq1,amp1 = p.untermenge_daten(freq,amp,780,850)
+        freq2,amp2 = p.untermenge_daten(freq,amp,680,780)
+        sp = p.peakfinder_schwerpunkt(freq1,amp1)
+        sp2 = p.peak(freq1,amp1,780,850)
+        sp3 = freq1[np.argmax(amp1)]
+        sp3var = (freq[np.argmax(amp)+1]-freq[np.argmax(amp)-1])/(2*np.sqrt(12))
         peak_g1.append(sp2)
+        peak_g1var.append(sp3var)
+        #sp = p.peakfinder_schwerpunkt(freq2,amp2)
+        #if sp>=680 and sp<=780:
+       #    peak_p1.append(sp)
         
     freq,amp = p.fourier_fft(t,U2)
     freq,amp = p.untermenge_daten(freq,amp,200,1000)
     if i == 4:
-        pictures(freq,amp,t=t,U2=U2)
+        pictures(freq,amp)
+        test1, test2 = freq,amp
     if i < 3:
-        freq,amp = p.untermenge_daten(freq,amp,680,780)
-        sp = p.peakfinder_schwerpunkt(freq,amp)
-        sp2 = p.peak(freq,amp,680,780)
+        freq1,amp1 = p.untermenge_daten(freq,amp,680,780)
+        freq2,amp2 = p.untermenge_daten(freq,amp,780,850)
+        sp = p.peakfinder_schwerpunkt(freq1,amp1)
+        sp2 = p.peak(freq1,amp1,680,780)
+        sp3 = freq[np.argmax(amp)]
+        sp3var = (freq[np.argmax(amp)+1]-freq[np.argmax(amp)-1])/(2*np.sqrt(12))
         peak_p2.append(sp)
+        peak_p2var.append(sp3var)
+        #sp = p.peakfinder_schwerpunkt(freq2,amp2)
+        #if sp>=680 and sp<=780:
+        #    peak_g2.append(sp)
     if i >= 3:
-        freq,amp = p.untermenge_daten(freq,amp,780,850)
-        sp = p.peakfinder_schwerpunkt(freq,amp)
-        sp2 = p.peak(freq,amp,750,840)
+        freq1,amp1 = p.untermenge_daten(freq,amp,780,850)
+        freq2,amp2 = p.untermenge_daten(freq,amp,680,780)
+        sp = p.peakfinder_schwerpunkt(freq1,amp1)
+        sp2 = p.peak(freq1,amp1,780,850)
+        sp3 = freq[np.argmax(amp)]
+        sp3var = (freq[np.argmax(amp)+1]-freq[np.argmax(amp)-1])/(2*np.sqrt(12))
         peak_g2.append(sp)
+        peak_g2var.append(sp3var)
+        #sp = p.peakfinder_schwerpunkt(freq2,amp2)
+        #if sp>=680 and sp<=780:
+         #   peak_p2.append(sp)
 
 ppmu1,ppstd1=np.mean(peak_p1),np.std(peak_p1)/len(peak_p1)
 pgmu1,pgstd1=np.mean(peak_g1),np.std(peak_g1)/len(peak_g1)
 ppmu2,ppstd2=np.mean(peak_p2),np.std(peak_p2)/len(peak_p2)
 pgmu2,pgstd2=np.mean(peak_g2),np.std(peak_g2)/len(peak_g2)
+ppstd1 = np.sqrt(ppstd1**2+1.8**2)
+pgstd1 = np.sqrt(pgstd1**2+1.8**2)
+ppstd2 = np.sqrt(ppstd2**2+1.8**2)
+pgstd2 = np.sqrt(pgstd2**2+1.8**2)
 
 k1 = (pgmu1**2 - ppmu1**2)/(ppmu1**2 + pgmu1**2)
 zahl=(pgmu1**2 - ppmu1**2)
