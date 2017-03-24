@@ -510,12 +510,12 @@ Für den Fehler auf die Zeitbestimmung wurde der Cursor nach links und rechts be
 Es wurden drei Perioden erfasst. Damit ergibt sich mit $T=(t_2-t_1)/3$:
 
 \begin{equation}
-\Rightarrow \quad T=2.63ms \quad \quad \sigma_T=0.01ms
+\Rightarrow \quad T=2.63\, ms \quad \quad \sigma_T=0.01\, ms
 \end{equation}
 
 Und schlussendlich für die Kreisfrequenz:
 \begin{equation}
-\omega=\frac{2\pi}{T}=2389 1/s \quad \quad \sigma_{\omega}=\omega \frac{\sigma_T}{T}=21 1/s
+\omega=\frac{2\pi}{T}=2389 \, \text{Hz} \quad \quad \sigma_{\omega}=\omega \frac{\sigma_T}{T}=21 \, \text{Hz}
 \end{equation}
 
 Für die Bestimmung der Dämpfung wurden die Amplituden von vier aufeinanderfolgenden Minima abgelesen. Der Fehler ergibt sich wieder durch Bewegen des Cursors (vgl. Zeitmessung).\\
@@ -534,7 +534,7 @@ Eine Zusammenfassung von Amplituden und Werten für die Dämpfung findet sich in
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-n & $U_n[V]$ & $\delta_n[1/ms]$ & $\sigma_{\delta_n}[1/ms]$\\
+n & $U_n[V]$ & $\delta_n$[1/ms] & $\sigma_{\delta_n}$[1/ms]\\
 \hline
 1 & $-4.96 \pm 0.03$ & 0.28 & 0.01\\
 \hline
@@ -546,7 +546,7 @@ n & $U_n[V]$ & $\delta_n[1/ms]$ & $\sigma_{\delta_n}[1/ms]$\\
 \hline
 \end{tabular}
 \end{center}
-\caption{Dämpfungswerte bei der Auswertung mittels Oszilloskop}
+\caption{Dämpfungswerte bei der Auswertung mittels Oszilloskop bei $R_{gesteckt}=10 \Omega$.}
 \label{tab:DämpfungOszi}
 \end{table}
 
@@ -576,18 +576,21 @@ Der prinzipielle Verlauf ist bei fast allen Messungen weitesgehend identisch (ge
 In diesem Versuch stehen einem prinzipiell zwei Möglichkeiten zur Frequenzbestimmung zur Verfügung.
 Einmal durch Fouriertransformation des gemessenen Spannungssignals und anschließender Peakbestimmung, die zweite Möglichkeit durch Bestimmung der mittleren Periodendauer des Spannungssignals.\\
 
-Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend, da die Auflösung des Spektrums zu grob ist (siehe Abb.\ref{fig:Fourier19,6} für das zu Abb.\ref{fig:Spannung19,6} zugehörige Frequenzspektrum).\\
+
+Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend. Die Peaks im Frequenzspektrum wurden mit der Peak-Funktion der Praktikumsbibliothek bestimmt und finden sich in Tabelle \ref{tab:Frequenzen}. Der ausgewiesene Fehler ergibt sich durch die Mehrfachmessung für jede Widerstandseinstellung und ist der Fehler auf den Mittelwert.\\
+Nicht nur das die bestimmten Frequenzen mit zunehmenden Widerstand entgegen der Erwartung größer werden, auch sind alle Frequenzen größer als die der ungedämpften Schwingung und somit physikalisch nicht sinnvoll.
+Ursächlich dafür ist die Auflösung des Spektrums, welches mit etwa 50Hz viel zu grob ist um die hier auftretenden Frequenzen aufzulösen (siehe Abb.\ref{fig:Fourier19,6} für das zu Abb.\ref{fig:Spannung19,6} zugehörige Frequenzspektrum).\\
 
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.75]{Bilder/fft_19,6Ohm}
 \end{center}
-\caption{Frequenzspektrum von Messung 1 bei $R=19.6 \Omega$. Die Auflösung ist mit $\approx 50Hz$ viel zu grob.}
+\caption{Frequenzspektrum von Messung 1 bei $R=19.6 \Omega$. Die Auflösung ist mit $\approx 50$Hz viel zu grob.}
 \label{fig:Fourier19,6}
 \end{figure}
 
 Für die Bestimmung der Frequenz aus der mittleren Periodendauer sind bessere Ergebnisse erzielt worden.\\
-Dazu wurden im Spannungssignal Vorzeichenwechsel gesucht. Die Nullstelle ist dann der Mittelwert der Zeitpunkte eines solchen Vorzeichenwechsels, als Fehler auf die Nullstelle wurde eine Gleichverteilung zwischen den beiden Zeitpunkten angenommen. Es ergibt sich dann für Nullstellen $t_i$:
+Dazu wurden im Spannungssignal Vorzeichenwechsel gesucht. Der Nulldurchgänge ist dann der Mittelwert der Zeitpunkte eines solchen Vorzeichenwechsels, als Fehler auf die Nullstelle wurde eine Gleichverteilung zwischen den beiden Zeitpunkten angenommen. Es ergibt sich dann für Nullstellen $t_i$:
 
 \begin{equation}
 t_i=(t_++t_-)/2 \quad \quad \quad
@@ -609,23 +612,23 @@ f=\frac{1}{\overline{T}} \quad \quad \quad
 \sigma_f=\frac{\sigma_{\overline{T}}}{\overline{T}^2}
 \end{equation}
 
-Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen finden sich in Tabelle \ref{tab:Frequenzen}. Für größere Widerstände ist eine Frequenzbestimmung auf diese Weise nicht mehr gelungen.
+Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen finden sich in Tabelle \ref{tab:Frequenzen}. Für größere Widerstände ist eine Frequenzbestimmung auf diese Weise nicht mehr gelungen, da das Schwingverhalten im Spannungsverlauf nicht mehr ausgeprägt genug war.
 
 \begin{table}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-$R[\Omega]$ & $f[Hz]$ & $\sigma_f[Hz]$ \\
+$R$[$\Omega$] & $f_{Nulldurchg"ange}$[Hz] & $f_{Fourier}$[Hz] \\
 \hline
- 19.6 & 382.78 & 0.16\\
+ 19.6 & $382.78 \pm 0.16$ & $430.91 \pm 0.02$\\
 \hline
- 28.5 & 376.84 & 0.18\\
+ 28.5 & $376.84 \pm 0.18$ & $435.18 \pm 0.01$\\
 \hline
- 38.9 & 373.21 & 0.20\\
+ 38.9 & $373.21 \pm 0.20$ & $438.72 \pm 0.01$\\
 \hline
- 52.2 & 364.84 & 0.22\\
+ 52.2 & $364.84 \pm 0.22$ & $441.38 \pm 0.01$\\
 \hline
- 68.8 & 350.75 & 0.24\\
+ 68.8 & $350.75 \pm 0.24$ & $442.84 \pm 0.01$\\
 \hline
 \end{tabular}
 \end{center}
@@ -733,24 +736,19 @@ Sowohl für die Spule, als auch den Kondensator stimmen die von uns bestimmten W
 
 
 \subsubsection{Aperiodischer Grenzfall}
-Bei einer nominellen Einstellung von $R_{gesteckt}=0.150k\Omega$ am Potentiometer kam der zeitliche Verlauf des Spannungssignals dem aperiodischen Grenzfall am nächsten. Aus zeitlichen Gründen war es nicht möglich den Bereich mit einer feineren Einstellung abzutasten um sich dem Grenzfall noch besser zu nähern.\\
-Es wurde versucht zwei Einhüllende anzupassen, so dass der gemessene Verlauf möglichst innerhalb der Einhüllenden verbleibt. Die beste Einhüllung ergab sich für $R=185\Omega$ und $R=200\Omega$, wobei $L=35.8mH$ verwendet wurden. (vgl. Abb.\ref{fig:Aperiodisch} )
+Bei einer nominellen Einstellung von $R_{gesteckt}=0.150k\Omega$ am Potentiometer kam der zeitliche Verlauf des Spannungssignals dem aperiodischen Grenzfall am nächsten (vgl. Abbildung \ref{fig:Aperiodisch}. Aus zeitlichen Gründen war es nicht möglich den Bereich mit einer feineren Einstellung abzutasten um sich dem Grenzfall noch besser zu nähern.\\
+
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.4]{Bilder/Aperiodisch1}
-\includegraphics[scale=0.4]{Bilder/Aperiodisch2}
-\end{center}
-\caption{Zoom auf zwei Bereiche. Das gemessene Spannungssignal ist durchgezogen gezeichnet. Im zweiten Bild ist der einzige Bereich gezeigt indem das Einhüllen wenig gut gelingt.}
+\includegraphics[scale=0.7]{Bilder/Spannungsverlauf150Ohm}
 \label{fig:Aperiodisch}
+\caption{Bei einer nominellen Einstellung von 150 $\Omega$ am Potentiometer liegt die beste Annäherung an den aperiodischen Grenzfall vor. Bei genauer Betrachtung ist ein leichtes Überschwingen erkennbar.}
+\end{center}
 \end{figure}
 
-Als Widerstand des aperiodischen Grenzfalls wird der Mittelwert der beiden Einhüllungswiderstände verwendet, als Fehler wird ein Gleichverteilungsfehler zwischen den Widerständen angenommen. Damit erhält man:
-\begin{equation}
-R_{ap}=192.5\Omega \quad \quad \sigma_{R_{ap}}=4.3\Omega
-\end{equation}
 
-Den Wert den man erwarten würde ergibt sich aus der Kapazität und der Induktivität:
+Den Wert, den man hier erwarten würde ergibt sich aus der zuvor charakterisierten Kapazität und Induktivität:
 \begin{equation}
 R_{ap}=2\cdot \sqrt{\frac{L}{C}}=2\sqrt{\frac{35.8mH}{4.7\mu F}}=174.6\Omega
 \end{equation}
@@ -760,8 +758,6 @@ Und für den Fehler:
 \begin{equation}
 \sigma_{R_{ap}}=\sqrt{\frac{\sigma_L^2}{CL}+\frac{\sigma_C^2 L}{C^3}}=5.1 \Omega
 \end{equation}
-
-Die relativ große Abweichung von etwa 4.2 Standardabweichungen zum erwarten Wert ist wahrscheinlich darauf zurückzuführen, dass es sich bei dem Spannungsverlauf an dem die Anpassung von Einhüllenden vorgenommen wurde nur um die beste Approximation des aperiodischen Grenzfalls handelt. Bei besserer Abtastung und besserer Annäherung an den Grenzfall wäre dann zu erwarten, dass der dann bestimmte Widerstandswert näher an der Erwartung liegt.
 
 \subsection{Fazit}
 Durch die Bestimmung von Schwingungsfrequenzen und Dämpfung aus den aufgezeichneten Schwingungen konnten wir die Induktivität der Spule sowie die Kapazität des Kondensators mit einer Genauigkeit von etwa 6\% messen.\\
