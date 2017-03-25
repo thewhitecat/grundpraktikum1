@@ -33,10 +33,10 @@ print(peak1_1)
 print(peak2_1)
 
 #plotte Frequenzspektrum
-x = [peak1_1, peak1_1]
-y = [0,1600]
-a = [peak1_2, peak1_2]
-b = [0,1600]
+x = [peak2_1, peak2_1]
+y = [0,1000]
+a = [peak1_1, peak1_1]
+b = [0,1000]
 fig1, ax1 = plt.subplots()
 plt.font = {'family' : 'monospace',
         'weight' : 'bold',
@@ -45,11 +45,11 @@ ax1.set_xlabel("Frequenz [Hz]", **plt.font)
 ax1.set_ylabel("Spannung [V]", **plt.font)
 ax1.set_title("Frequenzspektrum der Spannung", **plt.font)
 plt.plot(f_2, U_2)
-#plt.plot(x, y)
-#plt.plot(a, b)
+plt.plot(x, y)
+plt.plot(a, b)
 plt.figtext(0.7,0.57,
-            '\n $f_+$= '+str(np.round(peak1_1,3))+' Hz\n'
-            +'$f_-$= ' + str(np.round(peak1_2, 3))+' Hz\n', **plt.font)
+            '\n $f_+$= '+str(np.round(peak2_1,3))+' Hz\n'
+            +'$f_-$= ' + str(np.round(peak1_1, 3))+' Hz\n', **plt.font)
 plt.xlim(500, 900)
 fig1.show()
 

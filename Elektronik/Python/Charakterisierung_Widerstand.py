@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 start_time=timeit.default_timer()
 
 #Lese Daten ein
-M_S_1 = prak.lese_lab_datei('lab/10Ohm_ges.lab')
+M_S_1 = prak.lese_lab_datei('lab/100Ohm_ges.lab')
 index = M_S_1[:, 0]
 U = M_S_1[:, 3]
 I = M_S_1[:, 2]
@@ -109,16 +109,16 @@ plt.errorbar(X, Y, yerr=Y_err, fmt='.', color='b')
 fig2.show()
 
 #plotte verschiebemethode für verschobene spannung
-U_o = np.empty(len(U))
-U_u = np.empty(len(U))
-for i in range(len(U)):
-    U_o[i] = U[i] + 0.01 * U[i] + 0.005 * 10
-    U_u[i] = U[i] - 0.01 * U[i] - 0.005 * 10
+I_o = np.empty(len(I))
+I_u = np.empty(len(I))
+for i in range(len(I)):
+    I_o[i] = I[i] + 0.02 * I[i] + 0.005 * 10
+    I_u[i] = I[i] - 0.02 * I[i] - 0.005 * 10
 
-mw_U_o, std_U_o = mw_std_best(index, U_o)
-mw_U_u, std_U_u = mw_std_best(index, U_u)
-R_u, dR_stat_u, b_R_u, eb_R_u, chiq_R_u, cov = prak.lineare_regression_xy(mw_I, mw_U_u, std_I, std_U_u)
-R_o, dR_stat_o, b_R_o, eb_R_o, chiq_R_o, cov = prak.lineare_regression_xy(mw_I, mw_U_o, std_I, std_U_o)
+mw_I_o, std_I_o = mw_std_best(index, I_o)
+mw_I_u, std_I_u = mw_std_best(index, I_u)
+R_u, dR_stat_u, b_R_u, eb_R_u, chiq_R_u, cov = prak.lineare_regression_xy(mw_I_u, mw_U, std_I_u, std_U)
+R_o, dR_stat_o, b_R_o, eb_R_o, chiq_R_o, cov = prak.lineare_regression_xy(mw_I_o, mw_U, std_I_o, std_U)
 h = np.array([-0.09, 0])
 z = R_u * x + b_R_u
 d = R_o * x + b_R_o
@@ -138,8 +138,8 @@ plt.figtext(0.5,0.57,
             +'$\chi _-^2 / ndof$= ' + str(np.round(chiq_R_u/(mw_I.size-2), 3)), **plt.font)
 plt.plot(h, z, color='r')
 plt.plot(h, d, color='r')
-plt.errorbar(mw_I, mw_U_u, xerr=std_I, yerr=std_U_u, fmt='.', color='b')
-plt.errorbar(mw_I, mw_U_o, xerr=std_I, yerr=std_U_o, fmt='.', color='b')
+plt.errorbar(mw_I_u, mw_U, xerr=std_I_u, yerr=std_U, fmt='.', color='b')
+plt.errorbar(mw_I_o, mw_U, xerr=std_I_o, yerr=std_U, fmt='.', color='b')
 fig3.show()
 
 

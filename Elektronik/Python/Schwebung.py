@@ -14,11 +14,11 @@ import matplotlib.pyplot as plt
 start_time=timeit.default_timer()
 
 data = []
-data.append(prak.lese_lab_datei('lab/Koppel_01.lab'))
-data.append(prak.lese_lab_datei('lab/Koppel_02.lab'))
-data.append(prak.lese_lab_datei('lab/Koppel_03.lab'))
-data.append(prak.lese_lab_datei('lab/Koppel_04.lab'))
-data.append(prak.lese_lab_datei('lab/Koppel_05.lab'))
+data.append(prak.lese_lab_datei('lab/Koppel_mitAbstand_1.lab'))
+data.append(prak.lese_lab_datei('lab/Koppel_mitAbstand_2.lab'))
+#data.append(prak.lese_lab_datei('lab/Koppel_03.lab'))
+#data.append(prak.lese_lab_datei('lab/Koppel_04.lab'))
+#data.append(prak.lese_lab_datei('lab/Koppel_05.lab'))
 
 f_1_1 = []
 f_1_2 = []
@@ -46,10 +46,10 @@ for i in range(len(data)):
     f_2_2.append(peak2_2)
 
 #mittelwert und Fehler auf Frequenzen
-mw_f_1 = np.mean(f_1_1)
-mw_f_2 = np.mean(f_1_2)
-std_f_1 = np.std(f_1_1)
-std_f_1 = np.std(f_1_2)
+mw_f_1 = 282.4#np.mean(f_1_1)
+mw_f_2 = 486.9#np.mean(f_2_1)
+std_f_1 = 0.4#np.std(f_1_1)
+std_f_2 = 0.4#np.std(f_2_1)
 
 #bestimme k und Fehler auf k
 k = (mw_f_2**2 - mw_f_1**2)/(mw_f_1**2 + mw_f_2**2)
