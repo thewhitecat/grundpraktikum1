@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{siunitx}
 \author{Tim}
 
 \begin{document}
@@ -19,7 +20,7 @@
 zum Grundpraktikum Physik Teil I\\[0.4cm]
 an der RWTH Aachen\\
 I. Physikalisches Institut B\\[4.5cm]
-\Large\textbf{\textsl{Elektronik}}\\[4cm]
+\Large\textbf{\textsl{Elektrizitätslehre}}\\[4cm]
 \normalsize\textit{vorgelegt\\von}\\[0.4cm]
 \large{Moritz Berger\\Tim Herbermann\\Gerald Kolter\\Sebastian Siebert}\\[1cm]
 \large \textit{Gruppe B07} \\ [3cm]
@@ -203,8 +204,8 @@ Herstellerangabe [$\Omega$] & Multimeter [$\Omega$] & Brücke [$\Omega$] & linea
 \hline 
 100 $\pm$ 5 & 99,4 $\pm$ 0,03 $\pm$ 1,30 & 99,4 $\pm$ 0,25 $\pm$ 0,10 & 98,74 $\pm$ 0,06 $\pm$ 2,20 \\ 
 \hline 
-\label{tab:Widerstand_Ergebnisse}
 \end{tabular}
+\label{tab:Widerstand_Ergebnisse}
 \end{center}
 
 Bis auf das Messergebnis der Brücke für den 100$\, \Omega$ Widerstand liegen alle Ergebnisse innerhalb einer Standardabweichung vom Nennwert des Herstellers entfernt; und dieses liegt auch nur etwa 1,7$\, \sigma$ entfernt. Insbesondere liegen alle Messwerte innerhalb der vom Hersteller angegebenen Toleranz von 5$\%$.
@@ -781,44 +782,139 @@ $R$[$\Omega$] & $f_{Nulldurchg"ange}$[Hz] & $f_{Fourier}$[Hz] \\
 
 
 \subsubsection{Bestimmung der Dämpfungskonstanten}
-Die Dämpfungskonstante $\delta$ kann auf zwei verschiedene Weisen bestimmt werden.\\
+Die Dämpfungskonstante $\delta$ kann auf zwei verschiedene Weisen bestimmt werden. Die Zwischenergebnisse sind in den Tabellen \ref{tab:delta_zwischenwerte_start} bis \ref{tab:delta_zwischenwerte_ende} aufgeführt.\\
 
-Erstes Verfahren:\\
+Erstes Verfahren ($\delta_1$):\\
 Da die Amplitude der Kondensatorspannung $U_C(t)$ mit der Zeit exponentiell abfällt, gilt für das Verhältnis der Amplituden $A_n$:
 \begin{equation}
 A_{n+1} = A_n \cdot e^{-\delta \cdot (t_{n+1} - t_n)} \quad \rightarrow \quad \delta_n = \frac{\ln ( A_n / A_{n+1})}{t_{n+1}-t_n}
 \end{equation}
 
-So erhält man aus jeder Messung eine mittlere Dämpfungskonstante. Diese kann man noch über die 5 Messungen mitteln, die wir je Widerstand durchführten. Der statistische Fehler auf $\delta$ ergibt sich aus der linearen Regression, der systematische Fehler ist Null.\\
+So erhält man aus jeder Messung eine mittlere Dämpfungskonstante. Diese kann man noch über die 5 Messungen mitteln, die wir je Widerstand durchführten.\\
 
-Zweites Verfahren:\\
-Man erhält die Dämpfungskonstante $\delta$ und deren Fehler $\sigma_\delta$ aus der Anpassung einer Einhüllenden an die Messung der Kondensatorspannung $U_C(t)$. Dafür werden die Amplituden der Peaks logarithmiert und gegen die Zeit aufgetragen. Dann erält man $-\delta$ als Steigung der Geraden. Dies wird beispielhaft in Abbildung \ref{pic:delta_fit} gezeigt. So ergibt sich der statistische Fehler ebenfalls aus der Anpassung und den systematischen Fehler erhält man durch die Verschiebemethode.  Die Ergebnisse finden sich in Tabelle \ref{tab:delta}.
+Zweites Verfahren ($\delta_2$):\\
+Man erhält die Dämpfungskonstante $\delta$ und deren Fehler $\sigma_\delta$ aus der Anpassung einer Einhüllenden an die Messung der Kondensatorspannung $U_C(t)$. Dafür werden die Amplituden der Peaks logarithmiert und gegen die Zeit aufgetragen. Dann erält man $-\delta$ als Steigung der Geraden. Dies wird beispielhaft in Abbildung \ref{pic:delta_fit} gezeigt. So ergibt sich der statistische Fehler ebenfalls aus der Anpassung und den systematischen Fehler erhält man durch die Verschiebemethode. \\
+
+Die Ergebnisse finden sich in Tabelle \ref{tab:delta}.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.48\linewidth]{Bilder/28,5Ohm_lin_fit}
 	\includegraphics[width=0.48\linewidth]{Bilder/28,5Ohm_exp_fit}
-	\caption{Fit für $R_{gesteckt}$=28.5$\Omega$ \qquad Links: linearer Fit an die logarithmierten Spannungsamplituden. \qquad Rechts: Spannungsverlauf mit sich ergebenden Einhüllenden.}
+	\caption{Fit für $R_{gesteckt}$=19.6\,$\Omega$ \qquad Links: linearer Fit an die logarithmierten Spannungsamplituden. \qquad Rechts: Spannungsverlauf mit sich ergebenden Einhüllenden.}
 	\label{pic:delta_fit}
 \end{figure}
+
+
 \begin{table}
 	\centering
-	\begin{tabular}{|c|c|c|c|}
+	\caption{Zwischenergebnisse zum \SI{19.6}{\ohm} Widerstand. Der Ausreißer $\delta_2$ in der fünften Messung wurde im folgenden nicht beachtet, da dies kein sinnvoller Wert ist (ca. 5.3 $\sigma$ vom Mittelwert der anderen Werten entfernt).}
+	\label{tab:delta_zwischenwerte_start}
+	\begin{tabular}{|c|c|c|}
 		\hline
-		\textbf{Widerstand [$\Omega$]} & \textbf{$\delta_1 \pm \sigma_{stat} [1/s]$} & \textbf{$\delta_2 \pm \sigma_{stat} \pm \sigma_{sys} [1/s]$} & \textbf{Mittelwert [1/s]} \\
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
 		\hline
-		19.6 & 370.3 $\pm$ 5.3 & 397.9 $\pm$ 0.1 $\pm$ 14.4 & 373.5 $\pm$ 5.0 \\
+		1 & 408.7 $\pm$ 14.1 & 409.7 $\pm$ 0.7 $\pm$ 16.6 \\
 		\hline
-		28.5 & 506.4 $\pm$ 9.9 & 526.4 $\pm$ 0.2 $\pm$ 23.9 & 509.3 $\pm$ 9.1 \\
+		2 & 411.0 $\pm$ 14.2 & 410.9 $\pm$ 0.7 $\pm$ 16.6 \\
 		\hline
-		38.9 & 694.8 $\pm$ 16.4 & 671.9 $\pm$ 0.4 $\pm$ 35.3 & 690.8 $\pm$ 14.9 \\
+		3 & 411.5 $\pm$ 14.2 & 411.3 $\pm$ 0.7 $\pm$ 16.7 \\
 		\hline
-		52.2 & 820.1 $\pm$ 26.4 & 820.2 $\pm$ 0.8 $\pm$ 51.5 & 820.2 $\pm$ 23.5 \\
+		4 & 412.1 $\pm$ 14.2 & 411.4 $\pm$ 0.7 $\pm$ 16.7 \\
 		\hline
-		68.6 & 1010.5 $\pm$ 25.9 & 1087.1 $\pm$ 0.7 $\pm$ 79.4 & 1017.9 $\pm$ 24.6 \\
+		5 & 407.6 $\pm$ 13.4 & 382.9 $\pm$ 0.5 $\pm$ 5.2 \\
 		\hline
 	\end{tabular}
-	\caption{Ergebnisse für die Dämpfungskonstanten nach gestecktem Widerstand}
-	\label{tab:delta}
+	
+	\caption{Zwischenergebnisse zum \SI{28.5}{\ohm} Widerstand.}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
+		\hline
+		1 & 532.6 $\pm$ 20.3 & 535.7 $\pm$ 1.2 $\pm$ 25.9 \\
+		\hline
+		2 & 533.5 $\pm$ 20.4 & 535.4 $\pm$ 1.2 $\pm$ 25.9 \\
+		\hline
+		3 & 532.4 $\pm$ 20.3 & 534.3 $\pm$ 1.2 $\pm$ 25.8 \\
+		\hline
+		4 & 531.6 $\pm$ 20.3 & 533.6 $\pm$ 1.2 $\pm$ 25.7 \\
+		\hline
+		5 & 531.3 $\pm$ 20.3 & 533.6 $\pm$ 1.2 $\pm$ 25.7 \\
+		\hline
+	\end{tabular}
+	
+	\caption{Zwischenergebnisse zum \SI{38.9}{\ohm} Widerstand.}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
+		\hline
+		1 & 668.2 $\pm$ 28.7 & 678.5 $\pm$ 2.1 $\pm$ 39.7 \\
+		\hline
+		2 & 675.0 $\pm$ 29.0 & 681.7 $\pm$ 2.1 $\pm$ 39.8 \\
+		\hline
+		3 & 674.2 $\pm$ 29.0 & 678.8 $\pm$ 2.1 $\pm$ 39.8 \\
+		\hline
+		4 & 673.0 $\pm$ 28.8 & 681.3 $\pm$ 2.1 $\pm$ 39.9 \\
+		\hline
+		5 & 678.8 $\pm$ 29.1 & 681.3 $\pm$ 2.1 $\pm$ 39.5 \\
+		\hline
+	\end{tabular}
+	
+	\caption{Zwischenergebnisse zum \SI{52.2}{\ohm} Widerstand.}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
+		\hline
+		1 & 868.7 $\pm$ 62.5 & 868.7 $\pm$ 4.8 $\pm$ 54.9 \\
+		\hline
+		2 & 865.2 $\pm$ 62.3 & 865.2 $\pm$ 4.8 $\pm$ 54.6 \\
+		\hline
+		3 & 861.7 $\pm$ 62.0 & 861.7 $\pm$ 4.8 $\pm$ 54.5 \\
+		\hline
+		4 & 864.1 $\pm$ 61.7 & 864.1 $\pm$ 4.7 $\pm$ 54.4 \\
+		\hline
+		5 & 871.5 $\pm$ 62.7 & 871.5 $\pm$ 4.8 $\pm$ 55.2 \\
+		\hline
+	\end{tabular}
+	
+	\caption{Zwischenergebnisse zum \SI{68.6}{\ohm} Widerstand.}
+	\label{tab:delta_zwischenwerte_ende}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
+		\hline
+		1 & 1079.2 $\pm$ 73.5 & 1079.2 $\pm$ 9.6 $\pm$ 107.9 \\
+		\hline
+		2 & 1077.7 $\pm$ 72.9 & 1077.7 $\pm$ 9.6 $\pm$ 107.8 \\
+		\hline
+		3 & 1083.4 $\pm$ 73.2 & 1083.4 $\pm$ 9.7 $\pm$ 109.2 \\
+		\hline
+		4 & 1087.7 $\pm$ 62.2 & 1097.4 $\pm$ 2.0 $\pm$ 14.2 \\
+		\hline
+		5 & 1080.7 $\pm$ 73.6 & 1080.7 $\pm$ 9.6 $\pm$ 108.1 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\begin{table}
+	\centering
+	\caption{Gewichtete Mittelwerte der Dämpfungskonstante nach gestecktem Widerstand.}
+		\label{tab:delta}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Widerstand [$\Omega$]} & \textbf{Mittelwert [1/s]} \\
+		\hline
+		19.6 & 410.82 $\pm$ 0.35 \\
+		\hline
+		28.5 & 534.49 $\pm$ 0.54 \\
+		\hline
+		38.9 & 680.31 $\pm$ 0.93 \\
+		\hline
+		52.2 & 866.2 $\pm$ 2.1 \\
+		\hline
+		68.6 & 1094.7 $\pm$ 1.8 \\
+		\hline
+	\end{tabular}
 \end{table}
 
 
@@ -827,7 +923,7 @@ Aus der Differentialgleichung des RLC-Schwingkreises folgt:
 \begin{equation}
 \delta = \frac{R_{gesamt}}{2L} \quad \rightarrow \quad R_{gesteckt} = 2 L \cdot \delta - (R_L + R_{Rest})
 \end{equation}
-Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskonstante $\delta$ auf, erhält man als Steigung der angepassten Geraden $m = 2L$ und als y-Achsenabschnitt $b = R_{Rest}$. Unsere Messungen ergaben L = (35.8$\pm$2.1)mH und $R_L + R_{Rest}$ = (7.4 $\pm$ 2.0)$\Omega$ (Abbildung \ref{pic:fit_L_RLC}).
+Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskonstante $\delta$ auf, erhält man als Steigung der angepassten Geraden $m = 2L$ und als y-Achsenabschnitt $b = R_{Rest}$. Unsere Messungen ergaben L = (35.81$\pm$0.03)\,mH und $R_L + R_{Rest}$ = (9.81 $\pm$ 0.4)\,$\Omega$ (Abbildung \ref{pic:fit_L_RLC}).
 
 \begin{table}[H]
 	\centering
@@ -835,7 +931,7 @@ Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskon
 		\hline
 		- & \textbf{Gemessen} & \textbf{Brücke} & \textbf{Herstellerangabe} \\
 		\hline
-		Induktivität [mH] & 35.8 $\pm$ 2.1 & $36.2 \pm 0.1$ & 36 \\
+		Induktivität [mH] & 35.81 $\pm$ 0.03 & $36.2 \pm 0.1$ & 36 \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -843,7 +939,7 @@ Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskon
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{Bilder/fit_L_RLC}
-	\caption{Gesteckter Widerstand gegen Dämpfungskonstante}
+	\caption{Gesteckter Widerstand gegen Dämpfungskonstante.}
 	\label{pic:fit_L_RLC}
 \end{figure}
 
@@ -851,9 +947,9 @@ Weiterhin kann man dann die Kapazität bestimmen, indem man das Quadrat der Krei
 \begin{equation}
 \omega^2 = \omega_0^2 -\delta^2 = \frac{1}{LC} - \delta^2
 \end{equation}
-Passt man eine Gerade mit Steigung -1 an diese Daten an, erhält man als y-Achsenabschnitt $y = \frac{1}{LC}$.
+Passt man eine Gerade mit Steigung -1 (also nur ein freier Parameter) an diese Daten an, erhält man als y-Achsenabschnitt $y = \frac{1}{LC}$.
 
-Für unsere Daten ergab dies C = (4.72$\pm$0.28)$\mu F$ (siehe Abbildung \ref{pic:fit_C_RLC}).
+Für unsere Daten ergab dies C = (4.69$\pm$0.02) \si{\micro\farad} (siehe Abbildung \ref{pic:fit_C_RLC}).
 
 Sowohl für die Spule, als auch den Kondensator stimmen die von uns bestimmten Werte, die Angaben des Hersteller und gegebenenfalls der an der Brücke gemessene Wert sehr gut überein.
 
@@ -864,7 +960,7 @@ Sowohl für die Spule, als auch den Kondensator stimmen die von uns bestimmten W
 		\hline
 		- & \textbf{Gemessen} & \textbf{Herstellerangabe} \\
 		\hline
-		Kapazität [$\mu F$] & 4.72 $\pm$ 0.28 & 4.7 \\
+		Kapazität [\si{\micro\farad}] & 4.69 $\pm$ 0.02 & 4.7 \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -878,14 +974,14 @@ Sowohl für die Spule, als auch den Kondensator stimmen die von uns bestimmten W
 
 
 \subsubsection{Aperiodischer Grenzfall}
-Bei einer nominellen Einstellung von $R_{gesteckt}=0.150k\Omega$ am Potentiometer kam der zeitliche Verlauf des Spannungssignals dem aperiodischen Grenzfall am nächsten (vgl. Abbildung \ref{fig:Aperiodisch}. Aus zeitlichen Gründen war es nicht möglich den Bereich mit einer feineren Einstellung abzutasten um sich dem Grenzfall noch besser zu nähern.\\
+Bei einer nominellen Einstellung von $R_{gesteckt}=150\,\Omega$ am Potentiometer kam der zeitliche Verlauf des Spannungssignals dem aperiodischen Grenzfall am nächsten (vgl. Abbildung \ref{fig:Aperiodisch}). Aus zeitlichen Gründen war es nicht möglich den Bereich mit einer feineren Einstellung abzutasten um sich dem Grenzfall noch besser zu nähern.\\
 
 
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.7]{Bilder/Spannungsverlauf150Ohm}
-\label{fig:Aperiodisch}
 \caption{Bei einer nominellen Einstellung von 150 $\Omega$ am Potentiometer liegt die beste Annäherung an den aperiodischen Grenzfall vor. Bei genauer Betrachtung ist ein leichtes Überschwingen erkennbar.}
+\label{fig:Aperiodisch}
 \end{center}
 \end{figure}
 
