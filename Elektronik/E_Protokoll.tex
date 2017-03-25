@@ -52,7 +52,7 @@ Abbildung \ref{fig:Widerstand_Aufbau} zeigt den Aufbau. Es wird ein Stromkreis a
 \begin{tabular}{|c|c|}
 
 \hline 
-Intervall & $10 \mu s$ \\ 
+Intervall & $10 \, \mu$s \\ 
 \hline 
 Anzahl Messwerte pro Messreihe & 4000 \\ 
 \hline 
@@ -65,35 +65,52 @@ Messbereich U & $|U| \leq 10A$ \\
 \end{center}
 \subsection{Auswertung}
 \subsubsection{Rauschmessungen}
-Die Mehrfachmessungen bei gleichem Aufbau können zusätzlich auch als Rauschmessung für die Spannung und den Strom verwendet werden. Dazu wird für jede eingestellte Spannung die Standardabweichung aus der Mehrfachmessung bestimmt. Die Standardabweichungen finden sich in folgender Tabelle: \\
+Die Mehrfachmessungen bei gleichem Aufbau können zusätzlich auch als Rauschmessung für die Spannung und den Strom verwendet werden. Dazu wird für jede eingestellte Spannung die Standardabweichung aus der Mehrfachmessung bestimmt. \\
+Abbildung \ref{fig:Rauschmessung_Spannung} zeigt die Rauschmessung für die Spannung bei einer eingestellten Spannung von ca. 2,1V am 100$\, \Omega$ Widerstand. Abbildung \ref{fig:Rauschmessung_Strom} zeigt die Rauschmessung für den Strom bei derselben Einstellung. \\
+
+\begin{figure}
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\includegraphics[scale=0.45]{Bilder/Rauschmessung_Spannung.png}
+\end{center}
+\caption[Rauschmessung Spannung]{Rauschmessung der Spannung bei 2,1V für 100 $\Omega$}
+\label{fig:Rauschmessung_Spannung}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.45]{Bilder/Rauschmessung_Strom.png}
+\end{center}
+\caption[Rauschmessung Strom]{Rauschmessung des Stroms bei 2,1V für 100 $\Omega$}
+\label{fig:Rauschmessung_Strom}
+\end{figure}
+
+Anhand der Rauschmessungen lässt sich gut erkennen, dass das erste verwendete CASSY keine sehr guten Messergebnisse geliefert hat \\
+Die Standardabweichungen finden sich in folgender Tabelle: \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
 \hline 
-Messung & Standardabweichung auf Strom [mA] & Standardabweichung auf Spannung [mV] \\ 
+Messung & Strom [A] & Spannung [V] & $\sigma_I$ [mA] & $\sigma_U$ [mV] \\ 
 \hline 
-1 & 0,08 & 2,3 \\ 
+1 & -0,00068 & 0,0203 & 0,08 & 2,3 \\ 
 \hline 
-2 & 0,08 & 2,5 \\ 
+2 & -0,04823 & 0,4956 & 0,08 & 2,5 \\ 
 \hline 
-3 & 0,10 & 2,4 \\ 
+3 & -0,10555 & 1,0652 & 0,10 & 2,4 \\ 
 \hline 
-4 & 0,09 & 2,8 \\ 
+4 & -0,08205 & 0,8287 & 0,09 & 2,8 \\ 
 \hline 
-5 & 0,11 & 2,7 \\ 
+5 & -0,11870 & 1,1938 & 0,11 & 2,7 \\ 
 \hline 
-6 & 0,08 & 2,5 \\ 
+6 & -0,03486 & 0,3609 & 0,08 & 2,5 \\ 
 \hline 
-7 & 0,07 & 2,3 \\ 
+7 & -0,00806 & 0,0951 & 0,07 & 2,3 \\ 
 \hline 
-8 & 0,10 & 2,3 \\ 
+8 & -0,10770 & 1,0849 & 0,10 & 2,3 \\ 
 \hline 
-9 & 0,09 & 2,7 \\ 
+9 & -0,07871 & 0,7981 & 0,09 & 2,7 \\ 
 \hline 
 \end{tabular}
 \end{center}
-In den nachfolgenden Versuchen wurde, um nur einen Wert für den Fehler auf Strom und Spannung zu haben und trotzdem alle Messungen zu berücksichtigen, der Mittelwert der Standardabweichungen aus den neun Messungen verwendet:
-\[\sigma_U = 2,48 mV \quad und \quad \sigma_I = 0,088 mA \]
-
 
 \subsubsection{Lineare Regression und Statistischer Fehler}
 Stellt man Gleichung \ref{eq:Ohm} um, erhält man folgenden Ausdruck:
@@ -102,14 +119,43 @@ U = R \cdot I
 \end{equation}
 Daran lässt sich direkt ersehen, dass sich bei Auftragung des Stroms auf die X-Achse und der Spannung auf die Y-Achse der Widerstand als Steigung der Geraden ergibt. Da auf den Achsen direkt die gemessenen Größen aufgetragen werden können, wird die lineare Regression direkt auf die Rohdaten angewandt. \\
 Aus den Messungen von Strom und Spannung für jede eingestellte Spannung kann jeweils Mittelwert und Standardabweichung bestimmt werden. Abbildung \ref{fig:Widerstand_lineare_Regression} zeigt die Rohdaten als blaue Punkte mit Fehlerbalken und das Ergebnis der lineare Regression als rote Gerade. Die negative Steigung der Geraden ist bedingt durch das negative Vorzeichen des Stroms und das liegt lediglich an der Polung des Messgerätes. Für den realen Wert des Widerstandes muss der Betrag der Steigung genommen werden; am Fehler ändert sich nichts. \\
+Die Ergebnisse der Fits für den $10 \, \Omega$ und den $100 \, \Omega$ Widerstand sind in folgender Tabelle aufgelistet: \\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Widerstand [$\Omega$] & Steigung [$\Omega$] & Y-Achsenabschnitt [V] & $\chi ^2$ pro Freiheitsgrad \\ 
+\hline 
+10 & -9,943 $\pm$ 0,009 & 0,015 $\pm$ 0,001 & 0,194 \\ 
+\hline 
+100 & -98,759 $\pm$ 0,065 & -0,026 $\pm$ 0,001 & 0,079 \\ 
+\hline 
+\end{tabular}
+\end{center}
+
 Die linearen Regressionen ergeben ein sehr kleines $\chi^2$ pro Freiheitsgrad (siehe beispielsweise Abbildung \ref{fig:Widerstand_lineare_Regression}). Dies bedeutet, dass die Fehler zu groß sind. Vermutlich liegt das an dem anfangs verwendeten CASSY. Dieses zeigte zum Teil extrem schwankende und dabei (für kurze Zeiten) physikalisch unsinnige Werte an. Das CASSY wurde nach der Charakterisierung des 100 $\Omega$ Widerstands ausgewechselt. Aus Zeitgründen konnten die mit dem ersten (scheinbar kaputten) CASSY durchgeführten Messungen nicht wiederholt werden. Da die falschen Werte immer nur für eine kurze Zeit angezeigt wurden, stimmt der Wert im Mittel über viele in der Zeit gleichverteilte Werte wieder (wie sich am Ergebnis auch zeigen wird), daher kann die Messung dennoch verwendet werden.
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.45]{Bilder/Widerstand_Fit.png}
 \end{center}
-\caption[Widerstand Lineare Regression]{Lineare Regression an Strom und Spannung}
+\begin{center}
+\includegraphics[scale=0.45]{Bilder/Charakterisierung_Widerstand100_Residuen.png}
+\end{center}
+\caption[Widerstand Lineare Regression]{Lineare Regression an Strom und Spannung für den 100$\, \Omega$ Widerstand}
 \label{fig:Widerstand_lineare_Regression}
 \end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.45]{Bilder/Widerstand_Fit_10.png}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.45]{Bilder/Charakterisierung_Widerstand10_Residuen.png}
+\end{center}
+\caption[Widerstand Lineare Regression]{Lineare Regression an Strom und Spannung für den 10$\, \Omega$ Widerstand}
+\label{fig:Widerstand_lineare_Regression}
+\end{figure}
+
 \subsubsection{Systematischer Fehler}
 Um den Einfluss der Systematik auf den Widerstand zu erhalten, wird die sogenannte Verschiebemethode angewandt. Dabei werden Strom und Spannung jeweils um den systematischen Fehler einmal nach oben und einmal nach unten verschoben und die lineare Regression erneut durchgeführt. Dabei werden die Spannung und der Strom jeweils um den vom Hersteller angegebenen systematischen Fehler verschoben:
 \begin{equation}
@@ -122,7 +168,33 @@ Der systematische Fehler auf den Widerstand berechnet sich dann zu:
 \begin{equation}
 \Delta R_{sys}^2 = \left(\dfrac{|R_{U,-}-R| + |R_{U,+}-R|}{2}\right)^2 + \left(\dfrac{|R_{I,-}-R| + |R_{I,+}-R|}{2}\right)^2
 \end{equation}
-Die Endergebnisse, die Messergebnisse von der Brücke und dem Multimeter sowie die Herstellerangaben für die Widerstände finden sich in folgender Tabelle:\\
+
+Die Ergebnisse der Verschiebemethode sind in folgender Tabelle aufgeführt: \\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Widerstand [$\Omega$] & $R_{U, -} \, [\Omega]$ & $R_{U, +} \, [\Omega]$ & $R_{I, -} \, [\Omega]$ & $R_{I, +} \, [\Omega]$ \\ 
+\hline 
+10 & 9,844 $\pm$ 0,009 & 10,042 $\pm$ 0,009 & 10,146 $\pm$ 0,009 & 9,478 $\pm$ 0,009 \\ 
+\hline 
+100 & 97,771 $\pm$ 0,064 & 99,746 $\pm$ 0,066 & 100,774 $\pm$ 0,066 & 96,822 $\pm$ 0,064 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.45]{Bilder/Verschiebemethode_Widerstand.png}
+\end{center}
+\caption[Widerstand Verschiebemethode]{Verschiebemethode zur Bestimmung des systematischen Fehlers auf R für den 100$\, \Omega$ Widerstand}
+\label{fig:Widerstand_Verschiebemethode}
+\end{figure}
+
+Abbildung \ref{fig:Widerstand_Verschiebemethode} zeigt beispielhaft für den 100$\, \Omega$ Widerstand das Ergebnis der Verschiebemethode. \\
+Die Endergebnisse, die Messergebnisse von der Brücke und dem Multimeter sowie die Herstellerangaben für die Widerstände finden sich in nachfolgender Tabelle. Die Fehler auf die Messungen mit der Brücke und dem Multimeter stammen dabei aus den Herstellerangaben und der Ablesegenauigkeit. Außerdem gibt der Hersteller auf den Widerstand eine Toleranz von 5$\%$ an. \\
+
+\begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline 
 Herstellerangabe [$\Omega$] & Multimeter [$\Omega$] & Brücke [$\Omega$] & lineare Regression [$\Omega$] \\ 
@@ -132,8 +204,11 @@ Herstellerangabe [$\Omega$] & Multimeter [$\Omega$] & Brücke [$\Omega$] & linea
 100 $\pm$ 5 & 99,4 $\pm$ 0,03 $\pm$ 1,30 & 99,4 $\pm$ 0,25 $\pm$ 0,10 & 98,74 $\pm$ 0,06 $\pm$ 2,20 \\ 
 \hline 
 \label{tab:Widerstand_Ergebnisse}
-\end{tabular} \\
-Es lässt sich gut erkennen, dass die Messwerte aller Messmethoden sehr nah an der Herstellerangabe liegen. Insbesondere liegen alle Messwerte innerhalb der vom Hersteller angegebenen Toleranz.
+\end{tabular}
+\end{center}
+
+Bis auf das Messergebnis der Brücke für den 100$\, \Omega$ Widerstand liegen alle Ergebnisse innerhalb einer Standardabweichung vom Nennwert des Herstellers entfernt; und dieses liegt auch nur etwa 1,7$\, \sigma$ entfernt. Insbesondere liegen alle Messwerte innerhalb der vom Hersteller angegebenen Toleranz von 5$\%$.
+
 \newpage
 \section{Kondensator}
 \subsection{Versuchsbeschreibung}
