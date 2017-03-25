@@ -619,7 +619,7 @@ Der Schwingkreis wird gemäß dem Schaltplan (Abb. \ref{fig:RLCSchaltung}) aufge
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
-Messparameter &  $10 \mu s$ Messintervall;  2000 Messwerte \\
+Messparameter &  10 $\mu s$ Messintervall;  2000 Messwerte \\
 \hline
 Einstellungen & Messbereich U: -10V bis 10V\\
 \hline
@@ -720,14 +720,14 @@ Einmal durch Fouriertransformation des gemessenen Spannungssignals und anschlie�
 
 
 Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend. Die Peaks im Frequenzspektrum wurden mit der Peak-Funktion der Praktikumsbibliothek bestimmt und finden sich in Tabelle \ref{tab:Frequenzen}. Der ausgewiesene Fehler ergibt sich durch die Mehrfachmessung für jede Widerstandseinstellung und ist der Fehler auf den Mittelwert.\\
-Nicht nur das die bestimmten Frequenzen mit zunehmenden Widerstand entgegen der Erwartung größer werden, auch sind alle Frequenzen größer als die der ungedämpften Schwingung und somit physikalisch nicht sinnvoll.
+Nicht nur das die bestimmten Frequenzen mit zunehmenden Widerstand entgegen der Erwartung größer werden, auch sind alle Frequenzen größer als die der ungedämpften Schwingung (etwa 380Hz für $\omega_0$ mit den Herstellerangaben) und somit physikalisch nicht sinnvoll.
 Ursächlich dafür ist die Auflösung des Spektrums, welches mit etwa 50Hz viel zu grob ist um die hier auftretenden Frequenzen aufzulösen (siehe Abb.\ref{fig:Fourier19,6} für das zu Abb.\ref{fig:Spannung19,6} zugehörige Frequenzspektrum).\\
 
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.75]{Bilder/fft_19,6Ohm}
 \end{center}
-\caption{Frequenzspektrum von Messung 1 bei $R=19.6 \Omega$. Die Auflösung ist mit $\approx 50$Hz viel zu grob.}
+\caption{Frequenzspektrum f"ur Messung 1 von 5 bei $R=19.6 \Omega$. Die Auflösung ist mit $\approx 50$Hz viel zu grob.}
 \label{fig:Fourier19,6}
 \end{figure}
 
@@ -746,7 +746,7 @@ T_i=2\cdot (t_{i+1}-t_i) \quad \quad
 \sigma_{T_i}=2\cdot \sqrt{\sigma_{t_{i+1}}^2+\sigma_{t_i}^2}
 \end{equation}
 
-Mittels Mittelwert und Fehler auf diesen ergibt sich für jede der fünf Messungen pro eingestelltem Widerstand eine mittlere Periodendauer mit Fehler. Mittels einem gewichteten Mittelwert werden diese zu einem Endergebnis für jede Widerstandseinstellung zusammengefasst.\\
+Mittels Mittelwert und Fehler auf diesen ergibt sich für jede der fünf Messungen pro eingestelltem Widerstand eine mittlere Periodendauer mit Fehler. Durch den gewichteten Mittelwert werden diese zu einem Endergebnis für jede Widerstandseinstellung zusammengefasst.\\
 Für die Frequenz folgt dann:
 
 \begin{equation}
@@ -754,7 +754,7 @@ f=\frac{1}{\overline{T}} \quad \quad \quad
 \sigma_f=\frac{\sigma_{\overline{T}}}{\overline{T}^2}
 \end{equation}
 
-Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen finden sich in Tabelle \ref{tab:Frequenzen}. Für größere Widerstände ist eine Frequenzbestimmung auf diese Weise nicht mehr gelungen, da das Schwingverhalten im Spannungsverlauf nicht mehr ausgeprägt genug war.
+Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen findet sich ebenfalls in Tabelle \ref{tab:Frequenzen}. Für größere Widerstände ist eine Frequenzbestimmung auf diese Weise nicht mehr gelungen, da das Schwingverhalten im Spannungsverlauf nicht mehr ausgeprägt genug war.
 
 \begin{table}
 \begin{center}
@@ -901,11 +901,13 @@ Und für den Fehler:
 \sigma_{R_{ap}}=\sqrt{\frac{\sigma_L^2}{CL}+\frac{\sigma_C^2 L}{C^3}}=5.1 \Omega
 \end{equation}
 
+
+
 \subsection{Fazit}
 Durch die Bestimmung von Schwingungsfrequenzen und Dämpfung aus den aufgezeichneten Schwingungen konnten wir die Induktivität der Spule sowie die Kapazität des Kondensators mit einer Genauigkeit von etwa 6\% messen.\\
 Der Restwiderstand der Schaltung konnte hingegen nur auf 27\% genau bestimmt werden.\\
 Herstellerangaben und von uns bestimmte Werte weichen dabei in der Regel um weniger als eine Standardabweichung voneinander ab.\\
-Lediglich die Aufzeichnung und Bestimmung des aperiodischen Grenzfalls ist nicht vollständig gelungen. Der bestimmte Wert weicht um mehrere Standardabweichungen von der theoretischen Vorhersage ab. Ursächlich dafür ist wahrscheinlich, dass eine exakte Aufzeichnung des Grenzfalls nicht gelungen ist und mit der besten vorhandenen Approximation gearbeitet werden musste.
+Lediglich die Aufzeichnung und Bestimmung des aperiodischen Grenzfalls ist nicht vollständig gelungen. Ursächlich dafür ist wahrscheinlich, dass eine exakte Aufzeichnung des Grenzfalls aus Zeitgründen nicht gelungen ist und mit der besten vorhandenen Approximation gearbeitet werden musste.
 
 
 \newpage
