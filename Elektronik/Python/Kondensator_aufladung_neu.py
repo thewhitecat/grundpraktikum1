@@ -147,7 +147,7 @@ for i in range(len(data)):
     ITstat.append(ea/(a**2))
     Ia.append(a)
     Iastd.append(ea)
-    if i==10:
+    if i==0:
         pictures(t,lnI=logI,lnU=logU,dlnI=dlogI,dlnU=dlogU)
 
 TUE,TUEerr,TIE,TIEerr = k.alles()

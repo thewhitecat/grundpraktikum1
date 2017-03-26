@@ -148,7 +148,7 @@ def alles():
         Ia.append(a)
         Iastd.append(ea)
         
-        if i==4:
+        if i==10:
             pictures(t,lnI=logI,lnU=logU,dlnI=dlogI,dlnU=dlogU)
     
     #mittelTU,stdTU = p.gewichtetes_mittel(UTs,np.array(UTstat))
