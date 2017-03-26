@@ -721,7 +721,7 @@ Einmal durch Fouriertransformation des gemessenen Spannungssignals und anschlie�
 
 
 Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend. Die Peaks im Frequenzspektrum wurden mit der Peak-Funktion der Praktikumsbibliothek bestimmt.\\
-Nicht nur das die bestimmten Frequenzen teilweise mit zunehmenden Widerstand entgegen der Erwartung größer werden, auch sind alle Frequenzen größer als die der ungedämpften Schwingung (etwa 380Hz für $f_0$ mit den Herstellerangaben) und somit physikalisch nicht sinnvoll.\\
+Nicht nur das die bestimmten Frequenzen teilweise mit zunehmenden Widerstand entgegen der Erwartung größer werden, auch sind alle Frequenzen größer als die der ungedämpften Schwingung (etwa 380Hz für $f_0$ mit den Herstellerangaben) und somit physikalisch nicht sinnvoll. Diese Ergebnisse werden deswegen im weiteren Verlauf der Auswertung nicht verwendet\\
 Dennoch werden die Ergebnisse der Vollständigkeit halber aufgeführt (Tabellen \ref{tab:Ohm} und 
 \ref{tab:Frequenzen}. Der ausgewiesene Fehler ergibt sich durch die Mehrfachmessung für jede Widerstandseinstellung und ist der Fehler auf den Mittelwert.)\\
 Ursächlich dafür ist die Auflösung des Spektrums, welches mit etwa 50Hz viel zu grob ist um die hier auftretenden Frequenzen aufzulösen (siehe Abb.\ref{fig:Fourier19,6} für das zu Abb.\ref{fig:Spannung19,6} zugehörige Frequenzspektrum).\\
@@ -749,7 +749,7 @@ T_i=2\cdot (t_{i+1}-t_i) \quad \quad
 \sigma_{T_i}=2\cdot \sqrt{\sigma_{t_{i+1}}^2+\sigma_{t_i}^2}
 \end{equation}
 
-Die sich so ergebenden Fehler auf die Periodendauern sind so gering, dass die einzelnen Werte in jeder Messung nicht mit einem gewichteten Mittelwert zusammengefasst werden können. Deswegen wird dieser kleine Fehler verworfen und die einzelnen Periodendauern für jede Teilmessung gemittelt. Als Fehler auf diesen wird der sich aus der Stichprobe ergebende Mittelwertfehler der Stichprobe verwendet.\\
+Die sich so ergebenden Fehler auf die Periodendauern sind so klein, dass die Dauern selber mehrere Standardabweichungen voneinander abweichen und die einzelnen Werte in jeder Messung nicht mit einem gewichteten Mittelwert zusammengefasst werden können. Deswegen wird dieser kleine Fehler verworfen und für die einzelnen Periodendauern der Teilmessungen der Mittelwert gebildet. Als Fehler auf diesen wird der sich aus der Stichprobe ergebende Fehler auf den Mittelwert verwendet.\\
 
 Für die Frequenzen folgt dann:
 
@@ -1069,9 +1069,9 @@ Und für den Fehler:
 
 
 \subsection{Fazit}
-Durch die Bestimmung von Schwingungsfrequenzen und Dämpfung aus den aufgezeichneten Schwingungen konnten wir die Induktivität der Spule sowie die Kapazität des Kondensators mit einer Genauigkeit von etwa 6\% messen.\\
-Der Restwiderstand der Schaltung konnte hingegen nur auf 27\% genau bestimmt werden.\\
-Herstellerangaben und von uns bestimmte Werte weichen dabei in der Regel um weniger als eine Standardabweichung voneinander ab.\\
+Durch die Bestimmung von Schwingungsfrequenzen und Dämpfung aus den aufgezeichneten Schwingungen konnten wir die Induktivität der Spule auf etwa eine Promille und die Kapazität des Kondensators auf etwa vier Promille genau bestimmen.\\
+Der Restwiderstand der Schaltung konnte hingegen nur mit 4\% Genauigkeit bestimmt werden.\\
+Die von uns bestimmten Werte liegen im vom Hersteller angegeben Toleranzbereich.
 Lediglich die Aufzeichnung und Bestimmung des aperiodischen Grenzfalls ist nicht vollständig gelungen. Ursächlich dafür ist wahrscheinlich, dass eine exakte Aufzeichnung des Grenzfalls aus Zeitgründen nicht gelungen ist und mit der besten vorhandenen Approximation gearbeitet werden musste.
 
 
