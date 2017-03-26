@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{siunitx}
 \author{Tim}
 
 \begin{document}
@@ -19,7 +20,7 @@
 zum Grundpraktikum Physik Teil I\\[0.4cm]
 an der RWTH Aachen\\
 I. Physikalisches Institut B\\[4.5cm]
-\Large\textbf{\textsl{Elektronik}}\\[4cm]
+\Large\textbf{\textsl{Elektrizitätslehre}}\\[4cm]
 \normalsize\textit{vorgelegt\\von}\\[0.4cm]
 \large{Moritz Berger\\Tim Herbermann\\Gerald Kolter\\Sebastian Siebert}\\[1cm]
 \large \textit{Gruppe B07} \\ [3cm]
@@ -203,8 +204,8 @@ Herstellerangabe [$\Omega$] & Multimeter [$\Omega$] & Brücke [$\Omega$] & linea
 \hline 
 100 $\pm$ 5 & 99,4 $\pm$ 0,03 $\pm$ 1,30 & 99,4 $\pm$ 0,25 $\pm$ 0,10 & 98,74 $\pm$ 0,06 $\pm$ 2,20 \\ 
 \hline 
-\label{tab:Widerstand_Ergebnisse}
 \end{tabular}
+\label{tab:Widerstand_Ergebnisse}
 \end{center}
 
 Bis auf das Messergebnis der Brücke für den 100$\, \Omega$ Widerstand liegen alle Ergebnisse innerhalb einer Standardabweichung vom Nennwert des Herstellers entfernt; und dieses liegt auch nur etwa 1,7$\, \sigma$ entfernt. Insbesondere liegen alle Messwerte innerhalb der vom Hersteller angegebenen Toleranz von 5$\%$.
@@ -572,8 +573,8 @@ Brücke & $(4.88\pm0.01\pm0.01)\mu F$ \\
 \label{tab:kondzusammenfassung}
 \end{table}
 Wenn man die Ergebnisse aller Messmethoden, die in Tabelle \ref{tab:kondzusammenfassung} nochmals aufgelistet sind, arithmetisch mittelt, dann bekommt man einen Endwert für die Kapazität des Kondensators von $4.86\pm 0.06 \mu F$. Wir konnten also die Kapazität auf 1,2\% genau bestimmen. Der Endwert liegt außerdem im vom Hersteller angegebenen Toleranzbereich, man kann also abschließend sagen, dass die Bestimmung der Kapazität geglückt ist.
-\newpage
 
+\newpage
 \section{RLC-Schwingkreis}
 \subsection{Versuchsbeschreibung}
 
@@ -719,8 +720,9 @@ In diesem Versuch stehen einem prinzipiell zwei Möglichkeiten zur Frequenzbesti
 Einmal durch Fouriertransformation des gemessenen Spannungssignals und anschließender Peakbestimmung, die zweite Möglichkeit durch Bestimmung der mittleren Periodendauer des Spannungssignals.\\
 
 
-Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend. Die Peaks im Frequenzspektrum wurden mit der Peak-Funktion der Praktikumsbibliothek bestimmt und finden sich in Tabelle \ref{tab:Frequenzen}. Der ausgewiesene Fehler ergibt sich durch die Mehrfachmessung für jede Widerstandseinstellung und ist der Fehler auf den Mittelwert.\\
-Nicht nur das die bestimmten Frequenzen mit zunehmenden Widerstand entgegen der Erwartung größer werden, auch sind alle Frequenzen größer als die der ungedämpften Schwingung (etwa 380Hz für $\omega_0$ mit den Herstellerangaben) und somit physikalisch nicht sinnvoll.
+Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend. Die Peaks im Frequenzspektrum wurden mit der Peak-Funktion der Praktikumsbibliothek bestimmt.\\
+Nicht nur das die bestimmten Frequenzen teilweise mit zunehmenden Widerstand entgegen der Erwartung größer werden, auch sind alle Frequenzen größer als die der ungedämpften Schwingung (etwa 380Hz für $f_0$ mit den Herstellerangaben) und somit physikalisch nicht sinnvoll.\\
+Dennoch werden die Ergebnisse der Vollständigkeit halber aufgeführt (Tabellen \ref{tab:Ohm} und\ref{tab:Frequenzen}.Der ausgewiesene Fehler ergibt sich durch die Mehrfachmessung für jede Widerstandseinstellung und ist der Fehler auf den Mittelwert.)\\
 Ursächlich dafür ist die Auflösung des Spektrums, welches mit etwa 50Hz viel zu grob ist um die hier auftretenden Frequenzen aufzulösen (siehe Abb.\ref{fig:Fourier19,6} für das zu Abb.\ref{fig:Spannung19,6} zugehörige Frequenzspektrum).\\
 
 \begin{figure}
@@ -746,79 +748,239 @@ T_i=2\cdot (t_{i+1}-t_i) \quad \quad
 \sigma_{T_i}=2\cdot \sqrt{\sigma_{t_{i+1}}^2+\sigma_{t_i}^2}
 \end{equation}
 
-Mittels Mittelwert und Fehler auf diesen ergibt sich für jede der fünf Messungen pro eingestelltem Widerstand eine mittlere Periodendauer mit Fehler. Mittels einem gewichteten Mittelwert werden diese zu einem Endergebnis für jede Widerstandseinstellung zusammengefasst.\\
-Für die Frequenz folgt dann:
+Die sich so ergebenden Fehler auf die Periodendauern ist so gering, dass die einzelnen Werte in jeder Messung nicht mit einem gewichteten Mittelwert zusammengefasst werden können. Deswegen wird dieser kleine Fehler verworfen und die einzelnen Periodendauern für jede Teilessung gemittelt. Als Fehler auf diesen wird der sich aus der Stichprobe ergebende Mittelwertfehler der Stichprobe verwendet.\\
+
+Für die Frequenzen folgt dann:
 
 \begin{equation}
 f=\frac{1}{\overline{T}} \quad \quad \quad
 \sigma_f=\frac{\sigma_{\overline{T}}}{\overline{T}^2}
 \end{equation}
 
-Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen finden sich in Tabelle \ref{tab:Frequenzen}. Für größere Widerstände ist eine Frequenzbestimmung auf diese Weise nicht mehr gelungen, da das Schwingverhalten im Spannungsverlauf nicht mehr ausgeprägt genug war.
 
 \begin{table}
+\caption{Zusammenstellung der bestimmten Frequenzen aller durchgeführten Teilmessungen. Für die Frequenzen aus dem Frequenzspektrum ist kein Fehler angegeben, da diese mittels der Peak-Funktion bestimmt wurden und die Einzelergebnisse später durch den Mittelwert zusammengefasst werden.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+R[$\Omega$] & $f$[Hz] & $\sigma_{f}$[Hz] & $f_{Fourier}$[Hz]\\
+\hline
+19.6 & 383.54 & 7.59 & 414.96\\
+\hline
+19.6 & 384.62 & 8.56 & 414.93\\
+\hline
+19.6 & 382.17 & 6.92 & 414.99\\
+\hline
+19.6 & 382.74 & 3.77 & 414.99\\
+\hline
+19.6 & 380.39 & 3.27 & 414.99\\
+\hline
+28.5 & 374.53 & 11.62 & 417.53\\
+\hline
+28.5 & 375.59 & 11.92 & 417.52\\
+\hline
+28.5 & 379.43 & 7.99 & 417.50\\
+\hline
+28.5 & 377.20 & 11.48 & 417.52\\
+\hline
+28.5 & 377.20 & 15.72 & 417.49\\
+\hline
+38.9 & 373.13 & 6.10 & 417.75\\
+\hline
+38.9 & 372.74 & 10.07 & 417.80\\
+\hline
+38.9 & 374.06 & 5.21 & 417.85\\
+\hline
+38.9 & 371.55 & 23.2 & 417.80\\
+\hline
+38.9 & 374.73 & 9.43 & 417.76\\
+\hline
+52.2 & 364.96 & 12.35 & 419.02\\
+\hline
+52.2 & 367.65 & 13.78 & 419.03\\
+\hline
+52.2 & 364.43 & 6.61 & 419.05\\
+\hline
+52.2 & 364.43 & 6.34 & 418.97\\
+\hline
+52.2 & 362.84 & 3.43 & 419.00\\
+\hline
+68.8 & 348.84 & 7.44 & 417.94\\
+\hline
+68.8 & 348.03 & 7.79 & 417.77\\
+\hline
+68.8 & 351.49 & 9.33 & 417.84\\
+\hline
+68.8 & 357.78 & 23.59 & 417.83\\
+\hline
+68.8 & 347.22 & 9.84 & 417.86\\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:Ohm}
+\end{table}
+
+Für jede Widerstandseinstellung können diese Frequenzen mit einem gewichteten Mittelwert für diejenigen aus den Nulldurchgängen oder mit dem Stichprobenmittelwert für die Ergebnisse der Fouriertransformation zu einem Endergebnis zusammengefasst werden.\\
+Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen findet sich ebenfalls in Tabelle \ref{tab:Frequenzen}. Für größere Widerstände ist eine Frequenzbestimmung auf diese Weise nicht mehr gelungen, da das Schwingverhalten im Spannungsverlauf nicht mehr ausgeprägt genug war.
+
+\begin{table}
+\caption{Ergebnisse der Frequenzbestimmung. Die ausgewiesenen Fehler ergeben sich durch Mehrfachmessung für jede Widerstandseinstellung und sind der Fehler auf den Mittelwert.}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
 $R$[$\Omega$] & $f_{Nulldurchg"ange}$[Hz] & $f_{Fourier}$[Hz] \\
 \hline
- 19.6 & $382.78 \pm 0.16$ & $430.91 \pm 0.02$\\
+ 19.6 & $381.85 \pm 2.15$ & $430.91 \pm 0.02$\\
 \hline
- 28.5 & $376.84 \pm 0.18$ & $435.18 \pm 0.01$\\
+ 28.5 & $377.29 \pm 4.90$ & $435.18 \pm 0.01$\\
 \hline
- 38.9 & $373.21 \pm 0.20$ & $438.72 \pm 0.01$\\
+ 38.9 & $373.66 \pm 3.40$ & $438.72 \pm 0.01$\\
 \hline
- 52.2 & $364.84 \pm 0.22$ & $441.38 \pm 0.01$\\
+ 52.2 & $363.64 \pm 2.63$ & $441.38 \pm 0.01$\\
 \hline
- 68.8 & $350.75 \pm 0.24$ & $442.84 \pm 0.01$\\
+ 68.8 & $349.12 \pm 4.15$ & $442.84 \pm 0.01$\\
 \hline
 \end{tabular}
 \end{center}
-\caption{Ergebnisse der Frequenzbestimmung durch Nullstellen}
 \label{tab:Frequenzen}
 \end{table}
 
 
 
 \subsubsection{Bestimmung der Dämpfungskonstanten}
-Die Dämpfungskonstante $\delta$ kann auf zwei verschiedene Weisen bestimmt werden.\\
+Die Dämpfungskonstante $\delta$ kann auf zwei verschiedene Weisen bestimmt werden. Die Zwischenergebnisse sind in den Tabellen \ref{tab:delta_zwischenwerte_start} bis \ref{tab:delta_zwischenwerte_ende} aufgeführt.\\
 
-Erstes Verfahren:\\
+Erstes Verfahren ($\delta_1$):\\
 Da die Amplitude der Kondensatorspannung $U_C(t)$ mit der Zeit exponentiell abfällt, gilt für das Verhältnis der Amplituden $A_n$:
 \begin{equation}
 A_{n+1} = A_n \cdot e^{-\delta \cdot (t_{n+1} - t_n)} \quad \rightarrow \quad \delta_n = \frac{\ln ( A_n / A_{n+1})}{t_{n+1}-t_n}
 \end{equation}
 
-So erhält man aus jeder Messung eine mittlere Dämpfungskonstante. Diese kann man noch über die 5 Messungen mitteln, die wir je Widerstand durchführten. Der statistische Fehler auf $\delta$ ergibt sich aus der linearen Regression, der systematische Fehler ist Null.\\
+So erhält man aus jeder Messung eine mittlere Dämpfungskonstante. Diese kann man noch über die 5 Messungen mitteln, die wir je Widerstand durchführten.\\
 
-Zweites Verfahren:\\
-Man erhält die Dämpfungskonstante $\delta$ und deren Fehler $\sigma_\delta$ aus der Anpassung einer Einhüllenden an die Messung der Kondensatorspannung $U_C(t)$. Dafür werden die Amplituden der Peaks logarithmiert und gegen die Zeit aufgetragen. Dann erält man $-\delta$ als Steigung der Geraden. Dies wird beispielhaft in Abbildung \ref{pic:delta_fit} gezeigt. So ergibt sich der statistische Fehler ebenfalls aus der Anpassung und den systematischen Fehler erhält man durch die Verschiebemethode.  Die Ergebnisse finden sich in Tabelle \ref{tab:delta}.
+Zweites Verfahren ($\delta_2$):\\
+Man erhält die Dämpfungskonstante $\delta$ und deren Fehler $\sigma_\delta$ aus der Anpassung einer Einhüllenden an die Messung der Kondensatorspannung $U_C(t)$. Dafür werden die Amplituden der Peaks logarithmiert und gegen die Zeit aufgetragen. Dann erält man $-\delta$ als Steigung der Geraden. Dies wird beispielhaft in Abbildung \ref{pic:delta_fit} gezeigt. So ergibt sich der statistische Fehler ebenfalls aus der Anpassung und den systematischen Fehler erhält man durch die Verschiebemethode. \\
+
+Die Ergebnisse finden sich in Tabelle \ref{tab:delta}.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.48\linewidth]{Bilder/28,5Ohm_lin_fit}
 	\includegraphics[width=0.48\linewidth]{Bilder/28,5Ohm_exp_fit}
-	\caption{Fit für $R_{gesteckt}$=28.5$\Omega$ \qquad Links: linearer Fit an die logarithmierten Spannungsamplituden. \qquad Rechts: Spannungsverlauf mit sich ergebenden Einhüllenden.}
+	\caption{Fit für $R_{gesteckt}$=19.6\,$\Omega$ \qquad Links: linearer Fit an die logarithmierten Spannungsamplituden. \qquad Rechts: Spannungsverlauf mit sich ergebenden Einhüllenden.}
 	\label{pic:delta_fit}
 \end{figure}
+
+
 \begin{table}
 	\centering
-	\begin{tabular}{|c|c|c|c|}
+	\caption{Zwischenergebnisse zum \SI{19.6}{\ohm} Widerstand. Der Ausreißer $\delta_2$ in der fünften Messung wurde im folgenden nicht beachtet, da dies kein sinnvoller Wert ist (ca. 5.3 $\sigma$ vom Mittelwert der anderen Werten entfernt).}
+	\label{tab:delta_zwischenwerte_start}
+	\begin{tabular}{|c|c|c|}
 		\hline
-		\textbf{Widerstand [$\Omega$]} & \textbf{$\delta_1 \pm \sigma_{stat} [1/s]$} & \textbf{$\delta_2 \pm \sigma_{stat} \pm \sigma_{sys} [1/s]$} & \textbf{Mittelwert [1/s]} \\
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
 		\hline
-		19.6 & 370.3 $\pm$ 5.3 & 397.9 $\pm$ 0.1 $\pm$ 14.4 & 373.5 $\pm$ 5.0 \\
+		1 & 408.7 $\pm$ 14.1 & 409.7 $\pm$ 0.7 $\pm$ 16.6 \\
 		\hline
-		28.5 & 506.4 $\pm$ 9.9 & 526.4 $\pm$ 0.2 $\pm$ 23.9 & 509.3 $\pm$ 9.1 \\
+		2 & 411.0 $\pm$ 14.2 & 410.9 $\pm$ 0.7 $\pm$ 16.6 \\
 		\hline
-		38.9 & 694.8 $\pm$ 16.4 & 671.9 $\pm$ 0.4 $\pm$ 35.3 & 690.8 $\pm$ 14.9 \\
+		3 & 411.5 $\pm$ 14.2 & 411.3 $\pm$ 0.7 $\pm$ 16.7 \\
 		\hline
-		52.2 & 820.1 $\pm$ 26.4 & 820.2 $\pm$ 0.8 $\pm$ 51.5 & 820.2 $\pm$ 23.5 \\
+		4 & 412.1 $\pm$ 14.2 & 411.4 $\pm$ 0.7 $\pm$ 16.7 \\
 		\hline
-		68.6 & 1010.5 $\pm$ 25.9 & 1087.1 $\pm$ 0.7 $\pm$ 79.4 & 1017.9 $\pm$ 24.6 \\
+		5 & 407.6 $\pm$ 13.4 & 382.9 $\pm$ 0.5 $\pm$ 5.2 \\
 		\hline
 	\end{tabular}
-	\caption{Ergebnisse für die Dämpfungskonstanten nach gestecktem Widerstand}
-	\label{tab:delta}
+	
+	\caption{Zwischenergebnisse zum \SI{28.5}{\ohm} Widerstand.}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
+		\hline
+		1 & 532.6 $\pm$ 20.3 & 535.7 $\pm$ 1.2 $\pm$ 25.9 \\
+		\hline
+		2 & 533.5 $\pm$ 20.4 & 535.4 $\pm$ 1.2 $\pm$ 25.9 \\
+		\hline
+		3 & 532.4 $\pm$ 20.3 & 534.3 $\pm$ 1.2 $\pm$ 25.8 \\
+		\hline
+		4 & 531.6 $\pm$ 20.3 & 533.6 $\pm$ 1.2 $\pm$ 25.7 \\
+		\hline
+		5 & 531.3 $\pm$ 20.3 & 533.6 $\pm$ 1.2 $\pm$ 25.7 \\
+		\hline
+	\end{tabular}
+	
+	\caption{Zwischenergebnisse zum \SI{38.9}{\ohm} Widerstand.}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
+		\hline
+		1 & 668.2 $\pm$ 28.7 & 678.5 $\pm$ 2.1 $\pm$ 39.7 \\
+		\hline
+		2 & 675.0 $\pm$ 29.0 & 681.7 $\pm$ 2.1 $\pm$ 39.8 \\
+		\hline
+		3 & 674.2 $\pm$ 29.0 & 678.8 $\pm$ 2.1 $\pm$ 39.8 \\
+		\hline
+		4 & 673.0 $\pm$ 28.8 & 681.3 $\pm$ 2.1 $\pm$ 39.9 \\
+		\hline
+		5 & 678.8 $\pm$ 29.1 & 681.3 $\pm$ 2.1 $\pm$ 39.5 \\
+		\hline
+	\end{tabular}
+	
+	\caption{Zwischenergebnisse zum \SI{52.2}{\ohm} Widerstand.}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
+		\hline
+		1 & 868.7 $\pm$ 62.5 & 868.7 $\pm$ 4.8 $\pm$ 54.9 \\
+		\hline
+		2 & 865.2 $\pm$ 62.3 & 865.2 $\pm$ 4.8 $\pm$ 54.6 \\
+		\hline
+		3 & 861.7 $\pm$ 62.0 & 861.7 $\pm$ 4.8 $\pm$ 54.5 \\
+		\hline
+		4 & 864.1 $\pm$ 61.7 & 864.1 $\pm$ 4.7 $\pm$ 54.4 \\
+		\hline
+		5 & 871.5 $\pm$ 62.7 & 871.5 $\pm$ 4.8 $\pm$ 55.2 \\
+		\hline
+	\end{tabular}
+	
+	\caption{Zwischenergebnisse zum \SI{68.6}{\ohm} Widerstand.}
+	\label{tab:delta_zwischenwerte_ende}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Messung & $\delta_1 \pm \sigma_{stat}$ [1/s] & $\delta_2 \pm \sigma{stat} \pm \sigma_{sys}$ [1/s] \\
+		\hline
+		1 & 1079.2 $\pm$ 73.5 & 1079.2 $\pm$ 9.6 $\pm$ 107.9 \\
+		\hline
+		2 & 1077.7 $\pm$ 72.9 & 1077.7 $\pm$ 9.6 $\pm$ 107.8 \\
+		\hline
+		3 & 1083.4 $\pm$ 73.2 & 1083.4 $\pm$ 9.7 $\pm$ 109.2 \\
+		\hline
+		4 & 1087.7 $\pm$ 62.2 & 1097.4 $\pm$ 2.0 $\pm$ 14.2 \\
+		\hline
+		5 & 1080.7 $\pm$ 73.6 & 1080.7 $\pm$ 9.6 $\pm$ 108.1 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\begin{table}
+	\centering
+	\caption{Gewichtete Mittelwerte der Dämpfungskonstante nach gestecktem Widerstand.}
+		\label{tab:delta}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Widerstand [$\Omega$]} & \textbf{Mittelwert [1/s]} \\
+		\hline
+		19.6 & 410.82 $\pm$ 0.35 \\
+		\hline
+		28.5 & 534.49 $\pm$ 0.54 \\
+		\hline
+		38.9 & 680.31 $\pm$ 0.93 \\
+		\hline
+		52.2 & 866.2 $\pm$ 2.1 \\
+		\hline
+		68.6 & 1094.7 $\pm$ 1.8 \\
+		\hline
+	\end{tabular}
 \end{table}
 
 
@@ -827,7 +989,7 @@ Aus der Differentialgleichung des RLC-Schwingkreises folgt:
 \begin{equation}
 \delta = \frac{R_{gesamt}}{2L} \quad \rightarrow \quad R_{gesteckt} = 2 L \cdot \delta - (R_L + R_{Rest})
 \end{equation}
-Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskonstante $\delta$ auf, erhält man als Steigung der angepassten Geraden $m = 2L$ und als y-Achsenabschnitt $b = R_{Rest}$. Unsere Messungen ergaben L = (35.8$\pm$2.1)mH und $R_L + R_{Rest}$ = (7.4 $\pm$ 2.0)$\Omega$ (Abbildung \ref{pic:fit_L_RLC}).
+Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskonstante $\delta$ auf, erhält man als Steigung der angepassten Geraden $m = 2L$ und als y-Achsenabschnitt $b = R_{Rest}$. Unsere Messungen ergaben L = (35.81$\pm$0.03)\,mH und $R_L + R_{Rest}$ = (9.81 $\pm$ 0.4)\,$\Omega$ (Abbildung \ref{pic:fit_L_RLC}).
 
 \begin{table}[H]
 	\centering
@@ -835,7 +997,7 @@ Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskon
 		\hline
 		- & \textbf{Gemessen} & \textbf{Brücke} & \textbf{Herstellerangabe} \\
 		\hline
-		Induktivität [mH] & 35.8 $\pm$ 2.1 & $36.2 \pm 0.1$ & 36 \\
+		Induktivität [mH] & 35.81 $\pm$ 0.03 & $36.2 \pm 0.1$ & 36 \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -843,7 +1005,7 @@ Trägt man also den gesteckten Widerstand $R_{gesteckt}$ gegen die Dämpfungskon
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{Bilder/fit_L_RLC}
-	\caption{Gesteckter Widerstand gegen Dämpfungskonstante}
+	\caption{Gesteckter Widerstand gegen Dämpfungskonstante.}
 	\label{pic:fit_L_RLC}
 \end{figure}
 
@@ -851,9 +1013,9 @@ Weiterhin kann man dann die Kapazität bestimmen, indem man das Quadrat der Krei
 \begin{equation}
 \omega^2 = \omega_0^2 -\delta^2 = \frac{1}{LC} - \delta^2
 \end{equation}
-Passt man eine Gerade mit Steigung -1 an diese Daten an, erhält man als y-Achsenabschnitt $y = \frac{1}{LC}$.
+Passt man eine Gerade mit Steigung -1 (also nur ein freier Parameter) an diese Daten an, erhält man als y-Achsenabschnitt $y = \frac{1}{LC}$.
 
-Für unsere Daten ergab dies C = (4.72$\pm$0.28)$\mu F$ (siehe Abbildung \ref{pic:fit_C_RLC}).
+Für unsere Daten ergab dies C = (4.69$\pm$0.02) \si{\micro\farad} (siehe Abbildung \ref{pic:fit_C_RLC}).
 
 Sowohl für die Spule, als auch den Kondensator stimmen die von uns bestimmten Werte, die Angaben des Hersteller und gegebenenfalls der an der Brücke gemessene Wert sehr gut überein.
 
@@ -864,7 +1026,7 @@ Sowohl für die Spule, als auch den Kondensator stimmen die von uns bestimmten W
 		\hline
 		- & \textbf{Gemessen} & \textbf{Herstellerangabe} \\
 		\hline
-		Kapazität [$\mu F$] & 4.72 $\pm$ 0.28 & 4.7 \\
+		Kapazität [\si{\micro\farad}] & 4.69 $\pm$ 0.02 & 4.7 \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -878,34 +1040,36 @@ Sowohl für die Spule, als auch den Kondensator stimmen die von uns bestimmten W
 
 
 \subsubsection{Aperiodischer Grenzfall}
-Bei einer nominellen Einstellung von $R_{gesteckt}=0.150k\Omega$ am Potentiometer kam der zeitliche Verlauf des Spannungssignals dem aperiodischen Grenzfall am nächsten (vgl. Abbildung \ref{fig:Aperiodisch}. Aus zeitlichen Gründen war es nicht möglich den Bereich mit einer feineren Einstellung abzutasten um sich dem Grenzfall noch besser zu nähern.\\
+Bei einer nominellen Einstellung von $R_{gesteckt}=150\,\Omega$ am Potentiometer kam der zeitliche Verlauf des Spannungssignals dem aperiodischen Grenzfall am nächsten (vgl. Abbildung \ref{fig:Aperiodisch}). Aus zeitlichen Gründen war es nicht möglich den Bereich mit einer feineren Einstellung abzutasten um sich dem Grenzfall noch besser zu nähern.\\
 
 
 \begin{figure}
 \begin{center}
 \includegraphics[scale=0.7]{Bilder/Spannungsverlauf150Ohm}
-\label{fig:Aperiodisch}
 \caption{Bei einer nominellen Einstellung von 150 $\Omega$ am Potentiometer liegt die beste Annäherung an den aperiodischen Grenzfall vor. Bei genauer Betrachtung ist ein leichtes Überschwingen erkennbar.}
+\label{fig:Aperiodisch}
 \end{center}
 \end{figure}
 
 
 Den Wert, den man hier erwarten würde ergibt sich aus der zuvor charakterisierten Kapazität und Induktivität:
 \begin{equation}
-R_{ap}=2\cdot \sqrt{\frac{L}{C}}=2\sqrt{\frac{35.8mH}{4.7\mu F}}=174.6\Omega
+R_{ap}=2\cdot \sqrt{\frac{L}{C}}=2\sqrt{\frac{35.81mH}{4.69\mu F}}=174.76\Omega
 \end{equation}
 
 Und für den Fehler:
 
 \begin{equation}
-\sigma_{R_{ap}}=\sqrt{\frac{\sigma_L^2}{CL}+\frac{\sigma_C^2 L}{C^3}}=5.1 \Omega
+\sigma_{R_{ap}}=\sqrt{\frac{\sigma_L^2}{CL}+\frac{\sigma_C^2 L}{C^3}}=0.38 \Omega
 \end{equation}
+
+
 
 \subsection{Fazit}
 Durch die Bestimmung von Schwingungsfrequenzen und Dämpfung aus den aufgezeichneten Schwingungen konnten wir die Induktivität der Spule sowie die Kapazität des Kondensators mit einer Genauigkeit von etwa 6\% messen.\\
 Der Restwiderstand der Schaltung konnte hingegen nur auf 27\% genau bestimmt werden.\\
 Herstellerangaben und von uns bestimmte Werte weichen dabei in der Regel um weniger als eine Standardabweichung voneinander ab.\\
-Lediglich die Aufzeichnung und Bestimmung des aperiodischen Grenzfalls ist nicht vollständig gelungen. Der bestimmte Wert weicht um mehrere Standardabweichungen von der theoretischen Vorhersage ab. Ursächlich dafür ist wahrscheinlich, dass eine exakte Aufzeichnung des Grenzfalls nicht gelungen ist und mit der besten vorhandenen Approximation gearbeitet werden musste.
+Lediglich die Aufzeichnung und Bestimmung des aperiodischen Grenzfalls ist nicht vollständig gelungen. Ursächlich dafür ist wahrscheinlich, dass eine exakte Aufzeichnung des Grenzfalls aus Zeitgründen nicht gelungen ist und mit der besten vorhandenen Approximation gearbeitet werden musste.
 
 
 \newpage
@@ -982,12 +1146,19 @@ Abbildung \ref{fig:Schwebung_Roh} zeigt die Rohdaten der Messung in Form von dem
 \subsubsection{Fouriertransformation}
 \begin{figure}
 \begin{center}
+\includegraphics[scale=0.4]{Bilder/Schwebung_Frequenzspektrum_Abstand.png}
+\end{center}
+\begin{center}
 \includegraphics[scale=0.4]{Bilder/Schwebung_Frequenzspektrum.png}
 \end{center}
-\caption[Frequenzspektrum Schwebung]{Frequenzspektrum der Schwingung zweier gekoppelter Schwingkreise}
+\begin{center}
+\includegraphics[scale=0.4]{Bilder/Schwebung_Frequenzspektrum_Eisenkern.png}
+\end{center}
+\caption[Frequenzspektrum Schwebung]{Frequenzspektren der Schwingungen zweier gekoppelter Schwingkreise; von oben nach unten: Spulen mit Abstand (ca.15cm), Spulen direkt nebeneinander, Spulen mit gemeinsamen Eisenkern}
 \label{fig:Schwebung_Frequenzspektrum}
 \end{figure}
-Um die Frequenzen der Schwingung zu erhalten, wird auf die Rohdaten eine Fouriertransformation angewandt. Hier wurde die Fast-Fourier-Transformation (kurz: FFT) verwendet. Diese ist deutlich schneller als die eigentliche Fouriertransformation und liefert in diesem Fall auch dieselben Ergebnisse (das wurde stichprobenartig überprüft). Abbildung \ref{fig:Schwebung_Frequenzspektrum} zeigt das Frequenzspektrum der Schwingung. Die beiden Peaks sind zwar gut zu sehen, allerdings auch nicht sehr gut voneinander getrennt bzw. die Amplitude sinkt zwischen den beiden Peaks nur wenig ab.
+
+Um die Frequenzen der Schwingung zu erhalten, wird auf die Rohdaten eine Fouriertransformation angewandt. Hier wurde die Fast-Fourier-Transformation (kurz: FFT) verwendet. Diese ist deutlich schneller als die eigentliche Fouriertransformation und liefert in diesem Fall auch dieselben Ergebnisse (das wurde stichprobenartig überprüft). Abbildung \ref{fig:Schwebung_Frequenzspektrum} zeigt die Frequenzspektren der Schwingungen für die verschiedenen Kopplungen.
 
 \subsubsection{Ergebnis und Fazit}
 Der beschriebene Versuch wurde mit 3 verschiedenen Kopplungen durchgeführt: Einmal wurden die Spulen direkt nebeneinander gestellt (1), einmal mit etwa einer handbreit Abstand (2) und einmal direkt nebeneinander mit einem gemeinsamen Eisenkern(3). \\
@@ -1006,6 +1177,22 @@ mit
 \[\dfrac{d(\Delta t)}{dC} = \dfrac{1}{4 \cdot \pi \cdot f_s} \cdot \dfrac{k}{R} \cdot \sqrt{\dfrac{L}{C^3}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
 \[\dfrac{d(\Delta t)}{dL} = \dfrac{-1}{4 \cdot \pi \cdot f_s} \cdot \dfrac{k}{R} \cdot \sqrt{\dfrac{1}{L \cdot C}} \cdot \dfrac{1}{1 + \left( \dfrac{k}{R} \right)^2 \cdot \dfrac{L}{C}} \]
 
+Die gemessenen Werte für $f_+$ und $f_-$ sowie deren Fehler aus der Mehrfachmessung finden sich in folgender Tabelle: \\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Messung & $f_+$ [Hz] & $f_-$ [Hz] & $\sigma _{f_+}$ [Hz] & $\sigma _{f_-}$ [Hz] \\ 
+\hline 
+(1) & 710,9 & 810,4 & 0,4 & 0,4 \\ 
+\hline 
+(2) & 756,2 & 762,2 & 0,5 & 0,4 \\ 
+\hline 
+(3) & 282,4 & 486,9 & 0,4 & 0,4 \\ 
+\hline 
+\end{tabular} 
+\end{center} 
+
 Die Ergebnisse für k und $\Delta t$ sowie der errechnete Erwartungswert für $\Delta t$ finden sich in nachfolgender Tabelle: \\
 
 \begin{center}
@@ -1015,15 +1202,17 @@ Messung & $k_{gemessen}$ & $\Delta t_{berechnet}$ [ms] & $\Delta t_{gemessen}$ [
 \hline 
 (1) & 0,13029 $\pm$ 0,00069 & 1,49 $\pm$ 0,35 & 0,33 $\pm$ 0,44 & 2,6 $\sigma$ \\ 
 \hline 
-(2) & 0,08780 $\pm$ 0,00081 & 3,06 $\pm$ 0,63 & 0,31 $\pm$ 0,32 & 8,6 $\sigma$ \\ 
+(2) & 0,00790 $\pm$ 0,00075 & 3,06 $\pm$ 0,63 & 0,31 $\pm$ 0,32 & 8,6 $\sigma$ \\ 
 \hline 
-(3) & 0,20731 $\pm$ 0,00003 & 0,62 $\pm$ 0,16 & 0,76 $\pm$ 1,62 & 0,1 $\sigma$ \\ 
+(3) & 0,49763 $\pm$ 0,00123 & 0,62 $\pm$ 0,16 & 0,76 $\pm$ 1,62 & 0,1 $\sigma$ \\ 
 \hline 
 \end{tabular} 
 \end{center}
 
-Die Kopplung der beiden Schwingkreise konnte durch die Bestimmung der beiden Frequenzen aus dem Frequenzspektrum der Schwingung der Spannung sehr gut bestimmt werden (insbesondere mit kleinem Fehler). Einen Vergleichswert anzugeben gestaltet sich an dieser Stelle als recht schwierig, da dafür viele Faktoren eine Rolle spielen. \\
+Die Kopplung der beiden Schwingkreise konnte durch die Bestimmung der beiden Frequenzen aus dem Frequenzspektrum der Schwingung der Spannung sehr gut bestimmt werden (insbesondere mit kleinem Fehler). Einen Vergleichswert anzugeben gestaltet sich an dieser Stelle als recht schwierig, da dafür viele Faktoren eine Rolle spielen.  \\
+In den Frequenzspektren (Abbildung \ref{fig:Schwebung_Frequenzspektrum}) ist sehr deutlich zu sehen, dass mit steigender Kopplung die beiden peaks sich voneinander entfernen. Auch ist die Kopplung der Schwingkreise kleiner, wenn die Spulen einen Abstand haben, und größer, wenn die Spulen einen gemeinsamen Eisenkern haben. Beides entspricht der Erwartung. \\
 Die Bestimmung der Zeitverschiebung zwischen den beiden Schwingungen durch Bestimmung der zeitlichen Differenz zwischen einem Extremum in der einen und einer Nullstelle in der anderen Spannung hat nicht so gut funktioniert. Liegen die Werte zum Teil zwar nur wenige Standardabweichungen von den errechneten Werten entfernt, so liegt dies doch daran, dass die Fehler recht groß sind.
+
 \newpage
 \section{Gekoppelte Schwingkreise Teil 2 - Fundamentalschwingungen}
 \subsection{Versuchsbeschreibung}

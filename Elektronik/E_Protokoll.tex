@@ -720,8 +720,10 @@ In diesem Versuch stehen einem prinzipiell zwei Möglichkeiten zur Frequenzbesti
 Einmal durch Fouriertransformation des gemessenen Spannungssignals und anschließender Peakbestimmung, die zweite Möglichkeit durch Bestimmung der mittleren Periodendauer des Spannungssignals.\\
 
 
-Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend. Die Peaks im Frequenzspektrum wurden mit der Peak-Funktion der Praktikumsbibliothek bestimmt und finden sich in Tabelle \ref{tab:Frequenzen}. Der ausgewiesene Fehler ergibt sich durch die Mehrfachmessung für jede Widerstandseinstellung und ist der Fehler auf den Mittelwert.\\
-Nicht nur das die bestimmten Frequenzen mit zunehmenden Widerstand entgegen der Erwartung größer werden, auch sind alle Frequenzen größer als die der ungedämpften Schwingung (etwa 380Hz für $\omega_0$ mit den Herstellerangaben) und somit physikalisch nicht sinnvoll.
+Die Bestimmung mittels Fouriertransformation ist in diesem Fall nicht zufriedenstellend. Die Peaks im Frequenzspektrum wurden mit der Peak-Funktion der Praktikumsbibliothek bestimmt.\\
+Nicht nur das die bestimmten Frequenzen teilweise mit zunehmenden Widerstand entgegen der Erwartung größer werden, auch sind alle Frequenzen größer als die der ungedämpften Schwingung (etwa 380Hz für $f_0$ mit den Herstellerangaben) und somit physikalisch nicht sinnvoll.\\
+Dennoch werden die Ergebnisse der Vollständigkeit halber aufgeführt (Tabellen \ref{tab:Ohm} und 
+\ref{tab:Frequenzen}. Der ausgewiesene Fehler ergibt sich durch die Mehrfachmessung für jede Widerstandseinstellung und ist der Fehler auf den Mittelwert.)\\
 Ursächlich dafür ist die Auflösung des Spektrums, welches mit etwa 50Hz viel zu grob ist um die hier auftretenden Frequenzen aufzulösen (siehe Abb.\ref{fig:Fourier19,6} für das zu Abb.\ref{fig:Spannung19,6} zugehörige Frequenzspektrum).\\
 
 \begin{figure}
@@ -747,35 +749,102 @@ T_i=2\cdot (t_{i+1}-t_i) \quad \quad
 \sigma_{T_i}=2\cdot \sqrt{\sigma_{t_{i+1}}^2+\sigma_{t_i}^2}
 \end{equation}
 
-Mittels Mittelwert und Fehler auf diesen ergibt sich für jede der fünf Messungen pro eingestelltem Widerstand eine mittlere Periodendauer mit Fehler. Durch den gewichteten Mittelwert werden diese zu einem Endergebnis für jede Widerstandseinstellung zusammengefasst.\\
-Für die Frequenz folgt dann:
+Die sich so ergebenden Fehler auf die Periodendauern sind so gering, dass die einzelnen Werte in jeder Messung nicht mit einem gewichteten Mittelwert zusammengefasst werden können. Deswegen wird dieser kleine Fehler verworfen und die einzelnen Periodendauern für jede Teilmessung gemittelt. Als Fehler auf diesen wird der sich aus der Stichprobe ergebende Mittelwertfehler der Stichprobe verwendet.\\
+
+Für die Frequenzen folgt dann:
 
 \begin{equation}
 f=\frac{1}{\overline{T}} \quad \quad \quad
 \sigma_f=\frac{\sigma_{\overline{T}}}{\overline{T}^2}
 \end{equation}
 
-Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen bei diversen Widerstandseinstellungen findet sich ebenfalls in Tabelle \ref{tab:Frequenzen}. Für größere Widerstände ist eine Frequenzbestimmung auf diese Weise nicht mehr gelungen, da das Schwingverhalten im Spannungsverlauf nicht mehr ausgeprägt genug war.
 
 \begin{table}
+\caption{Zusammenstellung der bestimmten Frequenzen aller durchgeführten Teilmessungen. Für die Frequenzen aus dem Frequenzspektrum ist kein Fehler angegeben, da diese mittels der Peak-Funktion bestimmt wurden und die Einzelergebnisse später durch den Mittelwert zusammengefasst werden.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+R[$\Omega$] & $f$[Hz] & $\sigma_{f}$[Hz] & $f_{Fourier}$[Hz]\\
+\hline
+19.6 & 383.54 & 7.59 & 414.96\\
+\hline
+19.6 & 384.62 & 8.56 & 414.93\\
+\hline
+19.6 & 382.17 & 6.92 & 414.99\\
+\hline
+19.6 & 382.74 & 3.77 & 414.99\\
+\hline
+19.6 & 380.39 & 3.27 & 414.99\\
+\hline
+28.5 & 374.53 & 11.62 & 417.53\\
+\hline
+28.5 & 375.59 & 11.92 & 417.52\\
+\hline
+28.5 & 379.43 & 7.99 & 417.50\\
+\hline
+28.5 & 377.20 & 11.48 & 417.52\\
+\hline
+28.5 & 377.20 & 15.72 & 417.49\\
+\hline
+38.9 & 373.13 & 6.10 & 417.75\\
+\hline
+38.9 & 372.74 & 10.07 & 417.80\\
+\hline
+38.9 & 374.06 & 5.21 & 417.85\\
+\hline
+38.9 & 371.55 & 23.2 & 417.80\\
+\hline
+38.9 & 374.73 & 9.43 & 417.76\\
+\hline
+52.2 & 364.96 & 12.35 & 419.02\\
+\hline
+52.2 & 367.65 & 13.78 & 419.03\\
+\hline
+52.2 & 364.43 & 6.61 & 419.05\\
+\hline
+52.2 & 364.43 & 6.34 & 418.97\\
+\hline
+52.2 & 362.84 & 3.43 & 419.00\\
+\hline
+68.8 & 348.84 & 7.44 & 417.94\\
+\hline
+68.8 & 348.03 & 7.79 & 417.77\\
+\hline
+68.8 & 351.49 & 9.33 & 417.84\\
+\hline
+68.8 & 357.78 & 23.59 & 417.83\\
+\hline
+68.8 & 347.22 & 9.84 & 417.86\\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:Ohm}
+\end{table}
+
+Die so bestimmten Frequenzen für alle Teilmessungen finden sich auch in Tabelle \ref{tab:Ohm}.
+Für jede Widerstandseinstellung können diese Frequenzen mit einem gewichteten Mittelwert für diejenigen aus den Nulldurchgängen oder mit dem Stichprobenmittelwert für die Ergebnisse der Fouriertransformation zu einem Endergebnis zusammengefasst werden.\\
+Eine Zusammenstellung der auf diese Weise gewonnen Frequenzen für die Widerstandseinstellungen findet sich ebenfalls in Tabelle \ref{tab:Frequenzen}.\\
+Für größere Widerstände ist eine Frequenzbestimmung auf diese Weise nicht mehr gelungen, da das Schwingverhalten im Spannungsverlauf nicht mehr ausgeprägt genug war.
+
+\begin{table}
+\caption{Ergebnisse der Frequenzbestimmung. Die ausgewiesenen Fehler ergeben sich durch Mehrfachmessung für jede Widerstandseinstellung und sind der Fehler auf den Mittelwert.}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
 $R$[$\Omega$] & $f_{Nulldurchg"ange}$[Hz] & $f_{Fourier}$[Hz] \\
 \hline
- 19.6 & $382.78 \pm 0.16$ & $430.91 \pm 0.02$\\
+ 19.6 & $381.85 \pm 2.15$ & $430.91 \pm 0.02$\\
 \hline
- 28.5 & $376.84 \pm 0.18$ & $435.18 \pm 0.01$\\
+ 28.5 & $377.29 \pm 4.90$ & $435.18 \pm 0.01$\\
 \hline
- 38.9 & $373.21 \pm 0.20$ & $438.72 \pm 0.01$\\
+ 38.9 & $373.66 \pm 3.40$ & $438.72 \pm 0.01$\\
 \hline
- 52.2 & $364.84 \pm 0.22$ & $441.38 \pm 0.01$\\
+ 52.2 & $363.64 \pm 2.63$ & $441.38 \pm 0.01$\\
 \hline
- 68.8 & $350.75 \pm 0.24$ & $442.84 \pm 0.01$\\
+ 68.8 & $349.12 \pm 4.15$ & $442.84 \pm 0.01$\\
 \hline
 \end{tabular}
 \end{center}
-\caption{Ergebnisse der Frequenzbestimmung durch Nullstellen}
 \label{tab:Frequenzen}
 \end{table}
 
@@ -988,13 +1057,13 @@ Bei einer nominellen Einstellung von $R_{gesteckt}=150\,\Omega$ am Potentiometer
 
 Den Wert, den man hier erwarten würde ergibt sich aus der zuvor charakterisierten Kapazität und Induktivität:
 \begin{equation}
-R_{ap}=2\cdot \sqrt{\frac{L}{C}}=2\sqrt{\frac{35.8mH}{4.7\mu F}}=174.6\Omega
+R_{ap}=2\cdot \sqrt{\frac{L}{C}}=2\sqrt{\frac{35.81mH}{4.69\mu F}}=174.76\Omega
 \end{equation}
 
 Und für den Fehler:
 
 \begin{equation}
-\sigma_{R_{ap}}=\sqrt{\frac{\sigma_L^2}{CL}+\frac{\sigma_C^2 L}{C^3}}=5.1 \Omega
+\sigma_{R_{ap}}=\sqrt{\frac{\sigma_L^2}{CL}+\frac{\sigma_C^2 L}{C^3}}=0.38 \Omega
 \end{equation}
 
 
