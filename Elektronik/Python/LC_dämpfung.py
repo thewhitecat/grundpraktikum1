@@ -265,8 +265,8 @@ sig_R_rest = eb
 
 
 # Kondensator berechnen
-omega = np.array([382.78, 376.84, 373.21, 364.84, 350.75])*2*np.pi
-sig_omega = np.array([0.16, 0.18, 0.20, 0.22, 0.24])*2*np.pi
+omega = np.array([381.85, 377.29, 373.66, 363.64, 349.12])*2*np.pi
+sig_omega = np.array([2.15, 4.90, 3.4, 2.63, 4.15])*2*np.pi
 
 sq_omega = omega**2
 sig_sq_omega = 2*omega*sig_omega
@@ -292,4 +292,4 @@ plt.errorbar(sq_delta, sq_omega+sq_delta-b, yerr= np.sqrt(sig_sq_delta**2 + sig_
 plt.axhline(linestyle="dashed")
 plt.ylabel("Residuen [$1/s^2$]")
 plt.xlabel("$\delta ^2 [1/s^2]$")
-plt.figtext(0.55, 0.75, "y = ({:7.0f}$\pm${:5.0f}) $1/s^2$\n $\chi ^2$/ndof = {:1.1f}".format(b, eb, chi2/4))
+plt.figtext(0.55, 0.75, "y = ({:7.0f}$\pm${:5.0f}) $1/s^2$\n $\chi ^2$/ndof = {:1.2f}".format(b, eb, chi2/4))
