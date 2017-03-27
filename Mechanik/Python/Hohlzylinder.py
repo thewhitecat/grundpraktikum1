@@ -27,7 +27,7 @@ hohl.append(p.lese_lab_datei('lab/Feder3/Hohlzylinder/hohl5.lab'))
 hohl.append(p.lese_lab_datei('lab/Feder3/Hohlzylinder/hohl6.lab'))
 hohl.append(p.lese_lab_datei('lab/Feder3/Hohlzylinder/hohl7.lab'))
 D = 0.02
-dJ = 0.0002
+dD = 0.0002
 T1 = []
 T2=[]
 for i in range(len(hohl)):
@@ -52,4 +52,7 @@ Tmean = np.mean(T1)
 Tstd = np.std(T1,ddof=1)/len(T1)
 TTmean,TTstd = z.alles()
 J = (1./(4*np.pi**2))*D*(Tmean**2-TTmean**2)
-dJ = np.sqrt()
+fehler1 = 1./(4*np.pi**2)*(Tmean**2-TTmean**2)*dD
+fehler2 = 2./(4*np.pi**2)*D*Tmean*Tstd
+fehler3 = 2./(4*np.pi**2)*D*TTmean*TTstd
+dJ = np.sqrt(fehler1**2+fehler2**2+fehler3**2)
