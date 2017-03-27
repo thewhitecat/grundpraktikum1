@@ -359,20 +359,22 @@ wobei $\sigma_{R} = \sqrt{\sigma_{Rsys}^2+\sigma_{Rstat}^2}$
 \subsection{Auswertung CASSY}
 Über das CASSY wurden bei Auf- und Entladung jeweils 5 Datensätze aufgenommen.
 \subsubsection{Rohdaten}
-Die Rohdaten folgen einem logarithmischem Verlauf. Es ist also sinnvoll, diese zu logarithmieren. Dabei wird die \textbf{Spannung beim Aufladen} mit
+Die Rohdaten folgen einem logarithmischem Verlauf. Es ist also sinnvoll, diese zu logarithmieren. Dabei wird die Spannung beim Aufladen mit
 \begin{equation}
 U_{log} = log(U_0-U)
 \end{equation}
-geändert. Alle anderen Werte wurden mit
+geändert, wobei $U_0$ eine Korrektur des Offsets darstellt, damit die Daten gegen null und nicht gegen die eingestellte Spannung laufen.\\
+Die Spannung beim Entladen wurde folgendermaßen logarithmisiert:
 \begin{equation}
 U_{log} = log(U)
 \end{equation}
+Genau so wurde mit dem Strom bei Auf- und Entladung vorgegangen:
 \begin{equation}
 I_{log} = log(I)
 \end{equation}
-logarithmiert.\\
 In den folgenden Beispielplots erkennt man, dass diese logarithmische Darstellung nur am Anfang des Messbereiches sinnvoll ist, da im späteren die Schwankung zu stark wird und der Verlauf nicht mehr logarithmisch ist.\\
-Es wurde immer der Betrag der Messwerte genommen. Deswegen ist der Strom beim Entladen positiv.
+Es wurde immer der Betrag der Messwerte genommen. Deswegen ist der Strom beim Entladen positiv.\\
+Das von den senkrechten Balken eingeschlossene Intervall wurde später für die lineare Regression benutzt.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=0.49\linewidth]{Bilder/Kondensator_U}
@@ -548,7 +550,7 @@ C = (4.975\pm 0.054\pm0.123)\mu F
 
 Der statistische Fehler auf C ergibt sich durch
 \begin{equation}
-\sigma_C = \sqrt{(\dfrac{\sigma_{\tau}}{R})^{2}+(\dfrac{\tau \cdot \sigma_{R}}{R^{2}})^{2}}
+\sigma_C = \sqrt{\left(\dfrac{\sigma_{\tau}}{R}\right)^{2}+\left(\dfrac{\tau \cdot \sigma_{R}}{R^{2}}\right)^{2}}
 \end{equation}
 Der systematische Fehler auf C wird aus dem systematischen des Widerstandes fortgepflanzt.
 \newpage
@@ -572,7 +574,7 @@ Brücke & $(4.88\pm0.01\pm0.01)\mu F$ \\
 \caption{Zusammenfassung aller Messresultate}
 \label{tab:kondzusammenfassung}
 \end{table}
-Wenn man die Ergebnisse aller Messmethoden, die in Tabelle \ref{tab:kondzusammenfassung} nochmals aufgelistet sind, arithmetisch mittelt, dann bekommt man einen Endwert für die Kapazität des Kondensators von $4.86\pm 0.06 \mu F$. Wir konnten also die Kapazität auf 1,2\% genau bestimmen. Der Endwert liegt außerdem im vom Hersteller angegebenen Toleranzbereich, man kann also abschließend sagen, dass die Bestimmung der Kapazität geglückt ist.
+Wenn man die Ergebnisse aller Messmethoden, die in Tabelle \ref{tab:kondzusammenfassung} nochmals aufgelistet sind, arithmetisch mittelt, dann bekommt man einen Endwert für die Kapazität des Kondensators von $(4.86\pm 0.06) \mu F$. Wir konnten also die Kapazität auf 1,2\% genau bestimmen. Der Endwert liegt außerdem im vom Hersteller angegebenen Toleranzbereich, man kann also abschließend sagen, dass die Bestimmung der Kapazität geglückt ist.
 
 \newpage
 \section{RLC-Schwingkreis}
@@ -1069,9 +1071,9 @@ Und für den Fehler:
 
 
 \subsection{Fazit}
-Durch die Bestimmung von Schwingungsfrequenzen und Dämpfung aus den aufgezeichneten Schwingungen konnten wir die Induktivität der Spule sowie die Kapazität des Kondensators mit einer Genauigkeit von etwa 6\% messen.\\
-Der Restwiderstand der Schaltung konnte hingegen nur auf 27\% genau bestimmt werden.\\
-Herstellerangaben und von uns bestimmte Werte weichen dabei in der Regel um weniger als eine Standardabweichung voneinander ab.\\
+Durch die Bestimmung von Schwingungsfrequenzen und Dämpfung aus den aufgezeichneten Schwingungen konnten wir die Induktivität der Spule auf etwa eine Promille und die Kapazität des Kondensators auf etwa vier Promille genau bestimmen.\\
+Der Restwiderstand der Schaltung konnte hingegen nur mit 4\% Genauigkeit bestimmt werden.\\
+Die von uns bestimmten Werte liegen im vom Hersteller angegeben Toleranzbereich.
 Lediglich die Aufzeichnung und Bestimmung des aperiodischen Grenzfalls ist nicht vollständig gelungen. Ursächlich dafür ist wahrscheinlich, dass eine exakte Aufzeichnung des Grenzfalls aus Zeitgründen nicht gelungen ist und mit der besten vorhandenen Approximation gearbeitet werden musste.
 
 
@@ -1149,15 +1151,15 @@ Abbildung \ref{fig:Schwebung_Roh} zeigt die Rohdaten der Messung in Form von dem
 \subsubsection{Fouriertransformation}
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.4]{Bilder/Schwebung_Frequenzspektrum_Abstand.png}
+\includegraphics[scale=0.36]{Bilder/Schwebung_Frequenzspektrum_Abstand.png}
 \end{center}
 \begin{center}
-\includegraphics[scale=0.4]{Bilder/Schwebung_Frequenzspektrum.png}
+\includegraphics[scale=0.36]{Bilder/Schwebung_Frequenzspektrum.png}
 \end{center}
 \begin{center}
-\includegraphics[scale=0.4]{Bilder/Schwebung_Frequenzspektrum_Eisenkern.png}
+\includegraphics[scale=0.36]{Bilder/Schwebung_Frequenzspektrum_Eisenkern.png}
 \end{center}
-\caption[Frequenzspektrum Schwebung]{Frequenzspektren der Schwingungen zweier gekoppelter Schwingkreise; von oben nach unten: Spulen mit Abstand (ca.15cm), Spulen direkt nebeneinander, Spulen mit gemeinsamen Eisenkern}
+\caption[Frequenzspektrum Schwebung]{Frequenzspektren der Schwingungen zweier gekoppelter Schwingkreise; von oben nach unten: Spulen mit Abstand (ca.15cm), Spulen direkt nebeneinander, Spulen mit gemeinsamen Eisenkern. \\ Anmerkung: Für die Schwingkreise mit einem kleinen Abstand zwischen den Spulen (oben) ist im Frequenzspektrum nur ein Peak zu sehen. Hier wurde der zweite Peak aus dem Frequenzspektrum der Schwingung der Spannung über dem zweiten Kondensator verwendet.}
 \label{fig:Schwebung_Frequenzspektrum}
 \end{figure}
 

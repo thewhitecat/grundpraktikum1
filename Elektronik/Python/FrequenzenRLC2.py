@@ -163,12 +163,16 @@ for x in data:
         print '\hline'
         print 'x & {} & {} & {}\\\\'.format(np.round(f_count(x[i][:,1],x[i][:,3])[0],2),np.round(f_count(x[i][:,1],x[i][:,3])[1],2),np.round(get_freq(x[i]),2))
 '''
+'''
 for x in data:
     print f_fourier(x)
-
-
-
-
+'''
+for x in data:
+    liste=[]
+    for i in range(5):
+        liste.append(get_freq(x[i]))
+    print '{}+-{}'.format(np.round(np.mean(liste),2),np.round(np.std(liste,ddof=1),2))
+    
 
 
 
