@@ -113,8 +113,8 @@ def verschiebemethode_nur_y(x,y,xerr,yerr,systx,a,b):
 
 
 
-
-nurstab,errornurstab,error=get_period(stab,bedingung=True)
+#hier habe ich error eine position vorgezogen
+nurstab,error,placeholder=get_period(stab,bedingung=True)
 results=get_period(kerben)    
 
 #hier lin reg für D
@@ -122,8 +122,8 @@ results=get_period(kerben)
 #kerbenerror=0.1/sqrt(12)
 
 kerben=[(n+1)*4.99*10**(-2) for n in range(6)]
-#kerben_error=[np.sqrt(n+1)*0.1/np.sqrt(12)*10**(-2) for n in range(6)]
-kerben_error=np.full(6,0.1/np.sqrt(12)*10**(-2))
+kerben_error=[np.sqrt(n+1)*0.1/np.sqrt(12)*10**(-2) for n in range(6)]
+#kerben_error=np.full(6,0.1/np.sqrt(12)*10**(-2))
 kerben,kerben_error=np.array(kerben),np.array(kerben_error)
 error=np.full(6,error)
 results=np.array(results)
