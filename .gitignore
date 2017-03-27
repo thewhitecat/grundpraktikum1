@@ -9,7 +9,7 @@
 *.gz
 *.toc
 #Cassy
-*.lab
+#*.lab
 
 
 
