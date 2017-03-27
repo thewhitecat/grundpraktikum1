@@ -9,7 +9,7 @@ import Praktikum as p
 import numpy as np
 from pylab import *
 import matplotlib.pyplot as plt
-import auswertung_01 as a
+import auswertung_nur_Methoden as a
 
 def plots(t=None,U=None):
     if t!=None and U!=None:
