@@ -77,8 +77,8 @@ def Scheibe(feder=2):
     return T, sig_T
 
 #setze Parameter
-D = 0.03
-sig_D = D/100
+D = 0.02971
+sig_D = 6.8e-5
 m_scheibe = 0.3352
 sig_m_scheibe = 0.0001/np.sqrt(12)
 d_scheibe = np.mean([0.224, 0.2249, 0.2235])
