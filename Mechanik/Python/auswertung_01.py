@@ -7,7 +7,7 @@ Created on Mon Mar 27 14:00:06 2017
 
 import Praktikum as p
 import numpy as np
-import matplotlib.pyplot
+import matplotlib.pyplot as plt
 
 
 def find_nearest(array,value):
@@ -45,7 +45,7 @@ def get_peaks(x, y):
         peaks.append(p.peak(x, y, zeros[n][0], zeros[n+1][0]))
     for peak in peaks:
         indx = find_nearest(x, peak)
-        if (np.abs(y[indx]) > 0.05*np.mean(y[0:5])):
+        if (np.abs(y[indx]) > 0.05*np.mean(np.abs(y[0])) and x[indx] > 0.1):
             index.append(indx)
     index = np.array(index)
     
@@ -55,10 +55,37 @@ def get_peaks(x, y):
 
 
 def stab_mitte(feder=2):
+    t0 = []
+    t1 = []
     for i in range(5):
-        data = p.lese_lab_datei("lab/Feder {:1d}/Stab_mitte/messung{:1d}.lab".format(feder, i+1))
+        data = p.lese_lab_datei("lab/Feder{:1d}/Stab_mitte/messung{:1d}.lab".format(feder, i+1))
         t = data[:,1]
         U = data[:,2]
+        
+        indizes = get_peaks(t[:t.size*3/4], U[:U.size*3/4])
+        print indizes.size
+        plt.figure(1)
+        plt.errorbar(t[indizes], U[indizes], fmt=".")
+        
+        t0.append(t[indizes[0]])
+        t1.append(t[indizes[-1]])
+        
+    t0 = np.array(t0)
+    t1 = np.array(t1)
+    
+    sig_t0 = np.std(t0, ddof=1)/np.sqrt(t0.size) 
+    sig_t1 = np.std(t1, ddof=1)/np.sqrt(t1.size)
+    
+    t0 = np.mean(t0)
+    t1 = np.mean(t1)
+    
+    T = 2*(t1-t0)/(indizes.size-1)
+    sig_T = 2*(sig_t0+sig_t1)/(indizes.size-1)
+    
+    return T, sig_T
+    
+print stab_mitte()
+        
 
 
 
