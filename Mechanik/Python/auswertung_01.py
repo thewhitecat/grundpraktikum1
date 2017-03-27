@@ -45,7 +45,7 @@ def get_peaks(x, y):
         peaks.append(p.peak(x, y, zeros[n][0], zeros[n+1][0]))
     for peak in peaks:
         indx = find_nearest(x, peak)
-        if (np.abs(y[indx]) > 0.05*np.mean(y[0:5])):
+        if (np.abs(y[indx]) > 0.05*np.mean(np.absolute(y[0:5]))):
             index.append(indx)
     index = np.array(index)
     
