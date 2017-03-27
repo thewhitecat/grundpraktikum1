@@ -84,7 +84,7 @@ def stab_mitte(feder=2):
     
     return T, sig_T
     
-print stab_mitte()
+#print stab_mitte()
         
 
 
