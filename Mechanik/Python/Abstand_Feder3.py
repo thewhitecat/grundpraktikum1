@@ -61,7 +61,28 @@ for i in range(5):
 kerben=[]
 for i in range(6):    
     kerben.append(p.lese_lab_datei('lab/Feder3/Quadrat/stab'+str(i+1)+'_1.lab'))
-    
+
+
+
+plt.figure(2)
+plt.plot(kerben[0][:,1],kerben[0][:,2])
+plt.xlabel('t[s]')
+plt.ylabel('[U[V]]')
+plt.title('Spannungsverlauf erste Kerbe')
+plt.show()
+
+plt.figure(3)
+plt.plot(kerben[2][:,1],kerben[2][:,2])
+plt.xlabel('t[s]')
+plt.ylabel('U[V]')
+plt.title('Spannungsverlauf dritte Kerbe')
+plt.show()
+
+
+
+
+
+
 #get periods, muss optimiert werden :
 def get_period(messung,bedingung=False):
     if bedingung==True:
@@ -79,6 +100,12 @@ def get_period(messung,bedingung=False):
             period=2.0*((ts[peakss[-1]]-ts[peakss[0]]))/(len(peakss)-1)
             outi.append(period)
         return outi
+
+
+def get_period_alt(messung):
+    pass
+
+
 
 
 def verschiebemethode(x,y,xerr,yerr,systx,systy,a,b):
@@ -141,13 +168,24 @@ d=3
 
 #hier plot
 x=np.arange(0,0.11,0.005)
-plt.figure(1)
+
+plt.figure(0)
 plt.errorbar(kerben2,results2,yerr=error2,xerr=kerben_error2,linestyle='None')
 plt.plot(x,a*x+b)
 plt.figtext(0.15,0.7,'a= '+str(np.round(a,d))+'+-'+str(np.round(ea,d))+'\n'+'b= '+str(np.round(b,d))+'+-'+str(np.round(eb,d))+'\n $\chi^2$='+str(np.round((chiq/(len(kerben)-2)),2)))
 plt.ylabel('$T^2$[$s^2$]')
 plt.xlabel('$r^2$[$m^2$]')
 plt.show()
+
+plt.figure(1)
+plt.xlabel('t[s]')
+plt.ylabel('Residuen')
+plt.errorbar(kerben2,results2-(a*kerben2+b),yerr=np.sqrt(error**2+(a*kerben_error2)**2),linestyle='None')
+plt.axhline(0,linestyle='dashed')
+plt.show()
+
+
+
 
 #heir systematische fehler
 T2_syst=np.full(len(kerben2),0)
@@ -159,6 +197,5 @@ syst_a,syst_b=verschiebemethode(kerben2,results2,kerben_error2,error2,r2_syst,T2
 
 
 print('a= {}+-{}+-{}    b= {}+-{}+-{}').format(np.round(a,d),np.round(ea,d),np.round(syst_a,d),np.round(b,d),np.round(eb,d),np.round(syst_b,d))
-
 
 
