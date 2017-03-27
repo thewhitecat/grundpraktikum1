@@ -11,10 +11,24 @@ from pylab import *
 import matplotlib.pyplot as plt
 import auswertung_nur_Methoden as a
 
-def plots(t=None,U=None):
+def plots(t=None,U=None,fft=0):
     if t!=None and U!=None:
         plt.subplots()
         plt.plot(t,U)
+        plt.ylabel("Spannung[V]")
+        plt.xlabel("Zeit[s]")
+        plt.title("Rohdaten Teller")
+    if fft==1:
+        freq,amp=p.fourier_fft(t,U)
+        freq,amp=p.untermenge_daten(freq,amp,0,3)
+        plt.subplots()
+        plt.plot(freq,amp)
+        peak = p.peakfinder_schwerpunkt(freq,amp)
+        x=plt.axvline(peak,color='r',label="{}Hz".format(np.round(peak,3)))
+        plt.legend(handles=[x],bbox_to_anchor=(1, 1))
+        plt.ylabel("#")
+        plt.xlabel("Frequenz[Hz]")
+        plt.title("FFT der Rohdaten vom Teller")
         
 def alles():
     teller = []
@@ -25,7 +39,6 @@ def alles():
     teller.append(p.lese_lab_datei('lab/Feder3/teller/teller5.lab'))
     teller.append(p.lese_lab_datei('lab/Feder3/teller/teller6.lab'))
     teller.append(p.lese_lab_datei('lab/Feder3/teller/teller7.lab'))
-    D = 0.02
     T1 = []
     T2=[]
     for i in range(len(teller)):
@@ -34,8 +47,8 @@ def alles():
         Offset = np.mean(U)
         U=U-Offset
         peaks = a.get_peaks(t,U)
-        #if i == 1:
-        #    plots(t,U)
+        if i == 1:
+            plots(t,U,fft=1)
         T1.append((t[peaks[len(peaks)-1]]-t[peaks[3]])/(len(peaks)-4)*2)
         Tmax = []
         Tmin = []
@@ -48,5 +61,5 @@ def alles():
         T2.append(np.mean(Tmin))
     Tmean = np.mean(T2)
     Tstd = np.std(T2,ddof=1)/len(T2)
-    return Tmean,Tstd
-    
+    return Tmean,Tstd,T2
+alles()
