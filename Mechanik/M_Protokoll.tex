@@ -527,7 +527,7 @@ An den transformierten Daten wurde für beide Federn eine lineare Regression dur
 \includegraphics[scale=0.3]{Bilder/Steiner_Feder2_linReg}
 \includegraphics[scale=0.3]{Bilder/Steiner_Feder2_Residuen}
 \end{center}
-\caption{Regressionsergebnisse für Feder 2}
+\caption{Regressionsergebnisse für Feder 2. Die Residuen zeigen wie erwartet die Zunahme des Fehlers für größere Abstände, da auch der Fehler auf das Abstandsquadrat mit zunehmendem Abstand ebenfalls zunimmt.}
 \label{fig:SteinerReg2}
 \end{figure}
 
@@ -535,7 +535,7 @@ An den transformierten Daten wurde für beide Federn eine lineare Regression dur
 \begin{center}
 \includegraphics[scale=0.8]{Bilder/SteinerFeder3Komplett}
 \end{center}
-\caption{Regressionsergebnisse für Feder 3}
+\caption{Regressionsergebnisse für Feder 3. Die Residuen zeigen wie erwartet die Zunahme des Fehlers für größere Abstände, da auch der Fehler auf das Abstandsquadrat mit zunehmendem Abstand ebenfalls zunimmt.}
 \label{fig:SteinerReg3}
 \end{figure}
 
@@ -559,6 +559,14 @@ Feder & D[mNm] & $m_{Steigung}$[g] & $m_{gewogen}$[g] \\
 \label{tab:MassenReg}
 \end{table}
 
+
+
+
+
+\subsection{Fazit}
+Es fällt direkt auf das die Massen, welche aus der Steigung bestimmt wurden stark (mehrere Standardabweichungen) von den gewogenen Massen abweichen.\\
+Allerdings ist diese Tatsache wenig überraschend. Durch die Verschiebung des Stabes befindet sich dieser nicht mehr vollständig in der Ebene senkrecht zur Drehachse, wodurch die aufgezeichneten Werte leicht verfälscht wurden.\\
+Trotzdem kann das Ergebnis als eine Bestätigung des Satzes von Steiner gesehen werden, da insbesondere die linearen Regressionen der Periodendauerquadrate gegen die Abstandsquadrate eindrucksvoll den erwarteten linearen Zusammenhang zeigen.
 
 
 
