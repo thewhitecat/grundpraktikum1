@@ -42,9 +42,6 @@ def get_peaks(x, y):
     index = []
     
     for n in range(len(zeros)-1):
-        #temp1, temp2 = peak_fehler(x, y, zeros[2], zeros[n+1][2])
-        #peaks.append(temp1)
-        #peaks.append(temp2)
         peaks.append(p.peak(x, y, zeros[n][0], zeros[n+1][0]))
     for peak in peaks:
         indx = find_nearest(x, peak)
@@ -52,39 +49,8 @@ def get_peaks(x, y):
             index.append(indx)
     index = np.array(index)
     
-    return index#, sigma
-    
-def get_peaks_fehler(x, y):
-    zeros = get_zeros(x, y, index_output=False)
-    peaks = []
-    sigma = []
-    index = []
-    
-    for n in range(len(zeros)-1):
-        temp1, temp2 = peak_fehler(x, y, zeros[2], zeros[n+1][2])
-        peaks.append(temp1)
-        sigma.append(temp2)
-    for peak in peaks:
-        indx = find_nearest(x, peak)
-        if (np.abs(y[indx]) > 0.02*np.mean(np.abs(y[0])) and x[indx] > 0.1):
-            index.append(indx)
-    index = np.array(index)
-    
-    return index, sigma
+    return index
 
-def peak_fehler(x, y, i0, i1):
-    peaks = []
-    abweichungen = (i1-i0)/20
-    peaks.append( p.peak(x, y, x[i0], x[i1]) )
-    for i in range(1, 10):
-        peaks.append( p.peak(x, y, x[i0+i*abweichungen], x[i1]) )
-        peaks.append( p.peak(x, y, x[i0], x[i1+i*abweichungen]) )
-        peaks.append( p.peak(x, y, x[i0+i*abweichungen], x[i1+i*abweichungen]) )
-    peaks = np.array(peaks)
-    peak = np.mean(peaks)
-    sig_peak = np.std(peaks, ddof =1)
-    
-    return peak, sig_peak
 
 def daempfung(t, U, index, i):
     absU = np.abs(U)
@@ -131,44 +97,59 @@ def daempfung(t, U, index, i):
     return (delta, sig_delta_stat, sig_delta_sys)
 
 
-def periodendauer_mitte(feder=2, ordner="Stab_mitte"):
+def periodendauer_mitte(feder=3, ordner="Quadrat"):
     t0 = []
     t1 = []
+    T = []
     index_lenght=15
-    for i in range(5):
-        data = p.lese_lab_datei("lab/Feder{:1d}/{:s}/messung{:1d}.lab".format(feder, ordner, i+1))
+    for i in range(0,5):
+        data = p.lese_lab_datei("lab/Feder{:1d}/{:s}/stab{:1d}.lab".format(feder, ordner, i+1))
         t = data[:,1]
         U = data[:,2]
         
-        U, t = p.untermenge_daten(U, t, -1, 1)
+        U, t = p.untermenge_daten(U, t, -2, 2)
         
         U = U - np.mean(U[-U.size/5:])
         
         indizes = get_peaks(t, U)
-        
+        print indizes[0:2], U[indizes[0:2]]
+        if U[indizes[0]] < 0:
+            indizes = indizes[1:-1]
+        else:
+            indizes = indizes[:-2]
+        print indizes[0:2], U[indizes[0:2]]
+        t, U = p.untermenge_daten(t, U, t[indizes[0]], t[-1])
+        t = t - t[0]
         if indizes.size > index_lenght:
             indizes = indizes[:index_lenght]
         print indizes.size
         
-        #daempfung(t, U, indizes, i)
+        T.append(2*(t[indizes[-1]]-t[indizes[0]])/(indizes.size-1))
         
         plt.figure(1)
-        plt.errorbar(t[indizes], U[indizes], fmt=".")
+        plt.errorbar(t[indizes], U[indizes], fmt="k.")
         
         t0.append(t[indizes[0]])
         t1.append(t[indizes[-1]])
         
-    t0 = np.array(t0)
-    t1 = np.array(t1)
+    #t0 = np.array(t0)
+    #t1 = np.array(t1)
     
-    sig_t0 = np.std(t0, ddof=1)/np.sqrt(t0.size) 
-    sig_t1 = np.std(t1, ddof=1)/np.sqrt(t1.size)
+    #sig_t0 = np.std(t0, ddof=1)/np.sqrt(t0.size) 
+    #sig_t1 = np.std(t1, ddof=1)/np.sqrt(t1.size)
     
-    t0 = np.mean(t0)
-    t1 = np.mean(t1)
+    #t0 = np.mean(t0)
+    #t1 = np.mean(t1)
     
-    T = 2*(t1-t0)/(indizes.size-1)
-    sig_T = 2*(sig_t0+sig_t1)/(indizes.size-1)
+    #T = 2*(t1-t0)/(indizes.size-1)
+    #sig_T = 2*(sig_t0+sig_t1)/(indizes.size-1)
+    
+    T = np.array(T)
+    
+    sig_T = np.std(T, ddof=1)#/np.sqrt(T.size)
+    T = np.mean(T)
+    
+    print(T, sig_T)
     
     return T, sig_T
 
@@ -209,7 +190,7 @@ def periodendauer(datei):
 
 def periodendauer_linreg (datei):
     
-    sig_t = 0.011/np.sqrt(2)
+    sig_t = 0.004
     
     data = p.lese_lab_datei(datei)
     
@@ -235,17 +216,15 @@ def periodendauer_linreg (datei):
 def auswertung_D (feder=2):
     T = []
         
-    temp1, temp2 = periodendauer_mitte(2, "Stab_mitte")
+    temp1, temp2 = periodendauer_mitte(3, "Quadrat")
     T.append(temp1)
     sig_T = temp2
     print sig_T
     
-    temp1 = periodendauer("lab/Feder2/Stab_Massen/Aussen_01.lab")
-    T.append(temp1)
     
-    for i in range(1,6):
+    for i in range(1,7):
         
-        datei = "lab/Feder2/Stab_Massen/Aussen-{:1d}.lab".format(i)
+        datei = "lab/Feder3/Quadrat/stab{:1d}_1.lab".format(i)
         temp1 = periodendauer(datei)
         print temp1
         T.append(temp1)
@@ -255,15 +234,16 @@ def auswertung_D (feder=2):
     T_sq = T**2
     sig_T_sq = 2*T*sig_T
     
-    R = np.concatenate((np.array([0.0]),0.05*np.array([6, 5, 4, 3, 2, 1])))
+    R = np.concatenate((np.array([0.0]),0.05*np.array([1, 2, 3, 4, 5, 6])))
     sig_R = 0.001/np.sqrt(12)
     sig_R_sys = 0.0007
     
     R_sq = R**2
     sig_R_sq = 2*R*sig_R
+    sig_R_sq = sig_R_sq*np.sqrt(np.arange(7))
     sig_R_sq_sys = sig_R_sys * 2 * np.sqrt(np.arange(7)) * R
     sig_R_sq[0] = 1e-6
-    m_Massen = 0.476
+    m_Massen = 0.477
     sig_m_stat = 0.0001/np.sqrt(12)
     sig_m_sys = 0.0002
     
@@ -275,13 +255,14 @@ def auswertung_D (feder=2):
     plt.plot(R_sq, a*R_sq+b)
     plt.ylabel("$T^2 [s^2]$")
     ndof = R_sq.size-2
-    plt.figtext(0.2, 0.7, "m = {:3.2f} $\pm$ {:3.2f} $s^2/m^2$\n b = {:2.3f} $\pm$ {:2.3f} $s^2$ \n $\chi^2$/ndof = {:3.3f}".format(a, ea, b, eb, chi2/ndof))
+    plt.figtext(0.2, 0.7, "a = {:3.2f} $\pm$ {:3.2f} $s^2/m^2$\n b = {:2.3f} $\pm$ {:2.3f} $s^2$ \n $\chi^2$/ndof = {:3.3f}".format(a, ea, b, eb, chi2/ndof))
     # Residuen
     plt.subplot2grid((6,1),(-2,0), rowspan=2)
     plt.errorbar(R_sq, T_sq-a*R_sq-b, yerr=np.sqrt(sig_T_sq**2+a**2*sig_R_sq**2), fmt = ".")
     plt.axhline(linestyle="dashed")
     plt.ylabel("Residuen [$s^2$]")
     plt.xlabel("$r^2$ [$m^2$]")
+    
     
     # Verschiebemethode, wegen sys Fehler auf R
     a1, ea1, b1, eb1, chi21, cov1 = p.lineare_regression_xy(R_sq-sig_R_sq_sys, T_sq, sig_R_sq, sig_T_sq)
