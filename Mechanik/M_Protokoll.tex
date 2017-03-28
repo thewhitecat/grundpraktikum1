@@ -50,6 +50,7 @@ Die Lösung dieser Differentialgleichung ist eine harmonische Schwingung mit der
 oder, falls man das Trägheitsmoment angeben möchte:
 \begin{equation}
 J = \dfrac{D}{4\cdot \pi^2}\cdot T^2
+\label{eq:Trägheitsmoment}
 \end{equation}\\
 \\
 Der Versuch wird in drei Teile aufgeteilt.\\
@@ -343,17 +344,25 @@ Hohlzylinder &  $0.6760 \pm 0.0016\pm 0.0119$ & $0.6759\pm 0.0001\pm 0.0031$ & 0
 \label{tab:Zylinder_Mittel}
 \end{table}
 
-\subsection{Auswertung Kugel}
-Der Aufbau mit dem die Kugel vermessen wurde, enthielt die Feder Nummer 2. \\
+\subsection{Auswertung Kugel und Scheibe}
+Der Aufbau mit dem die Kugel und die Scheibe vermessen wurden, enthielt die Feder Nummer 2. \\
 Für die Messung des Trägheitsmomentes der Kugel, wird die Kugel direkt auf die Drillachse gesteckt. Der Teller wird hierbei also nicht benötigt. Das Trägheitsmoment der Drillachse liegt in der Größenordnung $10^{-5} \dfrac{kg}{m \cdot s^2}$ und wird daher ebenfalls vernachlässigt. Ob dies eine sinnvolle Näherung ist, muss im Anschluss anhand des Ergebnisses überprüft werden. \\
 Der Literaturwert berechnet sich zu:
 \begin{equation}
 J_K^{theo} = \dfrac{2}{5} \cdot m_K \cdot R_K^2
 \label{eq:JKtheo}
 \end{equation}
+\begin{equation}
+J_S^{theo} = \dfrac{1}{2} \cdot m_S \cdot R_S^2
+\label{eq:JStheo}
+\end{equation}
 Dazu müssen die Kugel gewogen und der Durchmesser der Kugel gemessen werden. Die Fehler auf diese Messungen pflanzen sich folgendermaßen fort:
 \begin{equation}
 \sigma_{J_K^{theo}} = \dfrac{2}{5} \cdot \sqrt{\left( \sigma_{m_K} \cdot R_K^2 \right)^2 + \left( \sigma_{R_K} \cdot 2 \cdot m_K \cdot R_K \right)^2}
+\label{eq:sigJKtheo}
+\end{equation}
+\begin{equation}
+\sigma_{J_S^{theo}} = \dfrac{1}{2} \cdot \sqrt{\left( \sigma_{m_S} \cdot R_S^2 \right)^2 + \left( \sigma_{R_S} \cdot 2 \cdot m_S \cdot R_S \right)^2}
 \label{eq:sigJKtheo}
 \end{equation}
 Das Trägheitsmoment wird über die Schwingung des Körpers auf einer Spiralfeder bestimmt. Misst man die Periodendauer für eine Spiralfeder mit bekanntem Direktionsmoment, kann man das Trägheitsmoment mit Gleichung \ref{eq:Trägheitsmoment} berechnen. Der Fehler auf das Trägheitsmoment ergibt sich dann nach gauß'scher Fehlerfortpflanzung zu:
@@ -369,7 +378,13 @@ Das Trägheitsmoment wird über die Schwingung des Körpers auf einer Spiralfede
 \caption{Rohdaten der Kugelmessung mit FFT zur Veranschaulichung.}
 \label{fig:Kugel_Rohdaten}
 \end{figure}
-Abbildung \ref{fig:Kugel_Rohdaten} zeigt die Rohdaten der Messung des Trägheitmomentes der Kugel sowie eine FFT der Daten zur Veranschaulichung. Die FFT wurde in der Auswertung nicht verwendet, da die Auflösung zu gering ist und deswegen einen zu großen Fehler auf die Messung der Periodendauer liefert.
+\begin{figure}
+\includegraphics[width=0.49\linewidth]{Bilder/Scheibe_Rohdaten.PNG}
+\includegraphics[width=0.49\linewidth]{Bilder/Scheibe_FFT.PNG}
+\caption{Rohdaten der Scheibenmessung mit FFT zur Veranschaulichung.}
+\label{fig:Scheibe_Rohdaten}
+\end{figure}
+Abbildung \ref{fig:Kugel_Rohdaten} zeigt die Rohdaten der Messung des Trägheitmomentes der Kugel sowie eine FFT der Daten zur Veranschaulichung. Abbildung \ref{fig:Scheibe_Rohdaten} zeigt das Analogon dazu für die Messung der Scheibe. Die FFT wurde in der Auswertung nicht verwendet, da die Auflösung zu gering ist und deswegen einen zu großen Fehler auf die Messung der Periodendauer liefert.
 
 \subsubsection{Auswertung}
 Wegen der nicht hinreichend genauen FFT wurde die Periodendauer durch Abzählen der Extrema bestimmt. Dabei werden die Extrema abgezählt und anschließend die doppelte Zeitdifferenz zwischen dem ersten und letzten Extremum durch die Zahl der Extrema geteilt. Tabelle \ref{tab:Kugel_Periodendauern} zeigt die Ergebnisse der Mehrfachmessungen.
@@ -406,18 +421,55 @@ Messung & Anzahl Extrema & Zeitdifferenz [s] & Errechnete Periodendauer [s] \\
 \end{center}
 \end{table}
 
+\begin{table}
+\caption{Mehrfachmessung der Periodendauer für Scheibe}
+\label{tab:Scheibe_Periodendauern}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Messung & Anzahl Extrema & Zeitdifferenz [s] & Errechnete Periodendauer [s] \\ 
+\hline 
+1 & 14 & 10,99 & 1,6908 \\ 
+\hline 
+2 & 14 & 10,945 & 1,6838 \\ 
+\hline 
+3 & 14 & 10,98 & 1,6892 \\ 
+\hline 
+4 & 14 & 10,985 & 1,6900 \\ 
+\hline 
+5 & 14 & 10,99 & 1,6908 \\ 
+\hline 
+6 & 14 & 10,985 & 1,6900 \\ 
+\hline 
+7 & 14 & 10,98 & 1,6892 \\ 
+\hline 
+8 & 14 & 10,98 & 1,6892 \\ 
+\hline 
+9 & 14 & 10,975 & 1,6885 \\ 
+\hline 
+10 & 14 & 10,98 & 1,6892 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\end{table}
+
 Aus der Mehrfachmessung lässt sich nun ein empirischer Mittelwert und eine empirische Standardabweichung bestimmen:
-\[\overline{T} = 1,6143 \,s \quad \sigma_T = 0,0020 \, s \]
+\[\overline{T_K} = 1,6143 \,s \quad \sigma_{T_K} = 0,0020 \, s \]
+\[\overline{T_S} = 1,6891 \, s \quad \sigma_{T_S} = 0,0043 \, s \]
 Damit lässt nun das Endergebnis für das Trägheitsmoment und dessen Fehler berechnen:
 \[J_K^{exp} = (1,9612 \pm 0,0049 \pm 0,0045) \, \si{g.m ^2} \]
+\[J_S^{exp} = (2,1473 \pm 0,0109 \pm 0,0154) \, \si{g.m ^2} \]
 Hieran lässt sich nun gut ersehen, dass die Vernachlässigung des Trägheitsmomentes der Drillachse (Größenordnung $0,01\si{g.m ^2}$) gerechtfertigt war, da das Trägheitmoment der Kugel zwei Größenordnungen größer ist und das Trägheitsmoment der Drillachse damit keinen relevanten Beitrag liefert.
 
 \subsubsection{Fazit}
 Das theoretische Trägheitsmoment der Kugel und dessen Fehler errechnet sich mit Gleichungen \ref{eq:JKtheo} und \ref{eq:sigJKtheo} zu:
 \[J_K^{theo} = (1,8859 \pm 0,0289 \pm 0,0038) \, \si{g.m ^2} \]
-Die Abweichung des experimentellen Wertes vom theoretischen Wert beträgt damit 
+\[J_S^{theo} = (2,1049 \pm 0,0054 \pm 0,0043) \, \si{g.m ^2} \]
+Die Abweichung $\Delta$ des experimentellen Wertes vom theoretischen Wert beträgt damit 
 \[\dfrac{\Delta}{\sigma _K^{exp}} = \dfrac{J_K^{exp} - J_K^{theo} - \sqrt{\left( \sigma _K^{sys,theo}\right) ^2 + \left( \sigma _K^{stat,theo}\right) ^2}}{\sigma _K^{exp}} = 3,3 \]
-Damit liegt der gemessene Wert so gerade noch in einem akzeptablen Rahmen.
+\[\dfrac{\Delta}{\sigma _S^{exp}} = \dfrac{J_S^{exp} - J_S^{theo} - \sqrt{\left( \sigma _S^{sys,theo}\right) ^2 + \left( \sigma _S^{stat,theo}\right) ^2}}{\sigma _S^{exp}} = 2,3 \]
+Damit liegt der gemessene Wert so gerade noch in einem akzeptablen Rahmen. \\
+Außerdem liegen die Trägheitsmomente mit nur etwa 8,7\% Abweichung wie erwartet sehr nah beieinander.
 
 \section{Bestätigung des Steinerschen Satzes}
 
