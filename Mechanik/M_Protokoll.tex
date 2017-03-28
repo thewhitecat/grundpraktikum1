@@ -126,10 +126,12 @@ Analog gilt für den Vollzylinder:
 J_{VZ} = J_{gemessen}-J_T
 \end{equation}
 \subsubsection{Rohdaten}
+In Abbildung \ref{fig:Teller_Rohdaten} und \ref{fig:Zylinder_Rohdaten} sind zum einen die Rohdaten der Schwingungsmessungen gepltottet. Zum anderen wurde jeweils eine FFT-Transformation zur Veranschaulichung und für eine erste Analyse durchgeführt. Da diese aber zu ungenau ist, wurde mit den FFT-Ergebnissen nicht weitergerechnet.
 \begin{figure}
 \includegraphics[width=0.49\linewidth]{Bilder/Teller_Rohdaten.PNG}
 \includegraphics[width=0.49\linewidth]{Bilder/Teller_FFT.PNG}
 \caption{Rohdaten der Tellermessung mit FFT zur Veranschaulichung.}
+\label{fig:Teller_Rohdaten}
 \end{figure}
 \begin{figure}
 \includegraphics[width=0.49\linewidth]{Bilder/Voll_Rohdaten.PNG}
@@ -139,6 +141,120 @@ J_{VZ} = J_{gemessen}-J_T
 \caption{Rohdaten der Zylinder(oben: Vollzylinder, unten: Hohlzylinder) jeweils mit einer FFT zur Veranschaulichung.}
 \label{fig:Zylinder_Rohdaten}
 \end{figure}
+
+\subsubsection{Messergebnisse}
+Um die Periodendauer zu bestimmen, wurden jeweils die Maxima und Minima über eine Periode analysiert. Es wurde also immer die Zeitdifferenz zwischen jedem zweiten Peak bestimmt und anschließend der Mittelwert ausgerechnet. Der Fehler dieser Werte ergibt sich aus dem Fehler auf den Mittelwert.
+\begin{table}
+\caption{Zwischenergebnisse der Tellermessung.}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Messung &  Maxima[s] &  Minima[S]  \\
+\hline
+0  & $ 0.5857 \pm  0.0005 $ & $ 0.5859 \pm  0.0005 $ \\
+\hline
+1  & $ 0.5858 \pm  0.0003 $ & $ 0.5858 \pm  0.0004 $ \\
+\hline
+2  & $ 0.5859 \pm  0.0004 $ & $ 0.5861 \pm  0.0003 $ \\
+\hline
+3  & $ 0.5862 \pm  0.0003 $ & $ 0.5863 \pm  0.0003 $ \\
+\hline
+4  & $ 0.5863 \pm  0.0003 $ & $ 0.5865 \pm  0.0004 $ \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:Teller_Ergebnisse}
+\end{table}
+
+\begin{table}
+\caption{Zwischenergebnisse der Vollzylindermessung.}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Messung &  Maxima[s] &  Minima[]  \\
+\hline
+0  & $ 0.9640 \pm  0.0010 $ & $ 0.9637 \pm  0.0010 $ \\
+\hline
+1  & $ 0.9650 \pm  0.0009 $ & $ 0.9646 \pm  0.0013 $ \\
+\hline
+2  & $ 0.9641 \pm  0.0009 $ & $ 0.9643 \pm  0.0010 $ \\
+\hline
+3  & $ 0.9651 \pm  0.0007 $ & $ 0.9650 \pm  0.0007 $ \\
+\hline
+4  & $ 0.9641 \pm  0.0009 $ & $ 0.9639 \pm  0.0011 $ \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:Voll_Ergebnisse}
+\end{table}
+
+\begin{table}
+\caption{Zwischenergebnisse der Hohlzylindermessung.}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Messung &  Maxima[s] &  Minima[s]  \\
+\hline
+1 &  $1.252 \pm 0.001$  &  $1.251 \pm  0.001$ \\
+\hline
+2 &  $1.252 \pm 0.001$  &  $1.252 \pm  0.001$ \\
+\hline
+3 &  $1.252 \pm  0.001$  &  $1.252 \pm  0.001$ \\
+\hline
+3 &  $1.253 \pm  0.001$  &  $1.253 \pm  0.001$ \\
+\hline
+3 &  $1.253 \pm  0.001$  &  $1.253 \pm  0.001$ \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:Hohl_Ergebnisse}
+\end{table}
+
+Die Ergebnisse der fünf Messungen werden nun nochmal durch den Mittelwert zusammengefasst.
+
+\begin{table}
+\caption{Endergebnisse der Periodendauer}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Messung &  Ergebnis[s]  \\
+\hline
+Teller &  $0.5861 \pm 0.0001$ \\
+\hline
+Vollzylinder &  $0.9638 \pm 0.0004$ \\
+\hline
+Hohlzylinder &  $1.253 \pm  0.001$ \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:Zylinder_Mittel}
+\end{table}
+Mit
+\begin{equation}
+J = \dfrac{D}{4\cdot \pi^{2}}\cdot (T_{VZ/Hz}^{2}-T_T^2)
+\end{equation}
+kann man nun Das Trägheitsmoment ausrechnen. Die Fehler berechnen sich aus der Gausschen Fehlerfortpflanzung:
+\begin{equation}
+\sigma_J = \sqrt{(\dfrac{1}{4\cdot \pi^{2}}\cdot (T_{VZ/Hz}^{2}-T_T^2)\cdot \sigma_D )^2+ (\dfrac{2}{4\cdot \pi^{2}}\cdot T_{VZ/Hz}\cdot \sigma_{T(VZ/Hz)})^2+ (\dfrac{2}{4\cdot \pi^{2}}\cdot T_{T}\cdot \sigma_{TT} )^2}
+\end{equation}
+
+\begin{table}
+\caption{Bestimmte Trägheitsmomente}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Messung &  Ergebnis[gm^2] & Theorie & Standardabweichungen \\
+\hline
+Teller &  $0.1741 \pm 0.0001$ & &\\
+\hline
+Vollzylinder &  $0.3226 \pm 0.0004\pm 0.0057$ & $0.3226\pm 0.0001\pm 0.0007$ & 0.007\\
+\hline
+Hohlzylinder &  $0.6760 \pm 0.0016\pm 0.0119$ & $0.6759\pm 0.0001\pm 0.0031$ & 0.006\\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:Zylinder_Mittel}
+\end{table}
 
 \subsection{Auswertung Kugel}
 Der Aufbau mit dem die Kugel vermessen wurde, enthielt die Feder Nummer 2. \\

@@ -58,7 +58,7 @@ hohl.append(p.lese_lab_datei('lab/Feder3/Hohlzylinder/hohl6.lab'))
 hohl.append(p.lese_lab_datei('lab/Feder3/Hohlzylinder/hohl7.lab'))
 D = 0.02176
 dD = 0.00025
-dDsys = np.sqrt(0.00029**2+dD**2)
+dDsys = np.sqrt(0.0002940**2+0.0002514**2)
 T1 = []
 T2=[]
 T2std=[]
@@ -104,3 +104,4 @@ msys = 0.0001
 JTheo = m*(rinnenm**2+raussenm**2)/2
 Jstat = np.sqrt(((rinnenm**2+raussenm**2)/2 * mstat)**2+(2*m*rinnenm*rstat)**2+(2*m*raussenm*rstat)**2)
 Jsys = np.sqrt(((rinnenm**2+raussenm**2)/2 * msys)**2+(2*m*rinnenm*rsys+2*m*raussenm*rsys)**2)
+sigmas = (JTheo-J)/np.sqrt(Jsys**2+Jstat**2+fehler1**2)
