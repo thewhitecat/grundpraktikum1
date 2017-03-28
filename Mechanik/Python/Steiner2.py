@@ -103,7 +103,7 @@ def verschiebemethode(x,y,xerr,yerr,systx,systy,a,b):
 
 
 ################################
-
+data=get_data()
 
 #print Steiner(data)
 #regressionen etc
@@ -130,11 +130,16 @@ digits=5
 x=np.linspace(0,0.1,400)
 plt.figure(1)
 plt.subplot2grid((6,1),(0,0),rowspan=4)
-plt.errorbar(a2,T,xerr=ea2stat,yerr=eT2stat,linestyle='None')
+plt.errorbar(a2,T2,xerr=ea2stat,yerr=eT2stat,linestyle='None',fmt='.')
+plt.xlabel('$a^2$[$s^2$]')
+plt.ylabel('$T^2$[$s^2$]')
 plt.plot(x,m*x+b)
-plt.figtext(0.2,0.75,'a={}+-{} \n b={}+-{} \n $\chi^2/ndof$={}'.format(np.round(m,digits),np.round(em,digits),np.round(b,digits),np.round(eb,digits),np.round(chiq/(len(T2)-2),digits)))
+plt.figtext(0.2,0.75,'a={}+-{}+-{} \n b={}+-{}+-{} \n $\chi^2/ndof$={}'.format(np.round(m,digits),np.round(em,digits),7.06964,np.round(b,digits),np.round(eb,digits),0.00006,np.round(chiq/(len(T2)-2),digits)))
 plt.subplot2grid((6,1),(-2,0),rowspan=2)
-plt.errorbar(a2,T2-m*a2-b,yerr=np.sqrt(eT2stat**2+m**2*ea2stat**2),linestyle='None')
+plt.axhline(0,linestyle='dashed')
+plt.ylabel('Residuen')
+plt.xlabel('$a^2$[$m^2$]')
+plt.errorbar(a2,T2-m*a2-b,yerr=np.sqrt(eT2stat**2+m**2*ea2stat**2),linestyle='None',fmt='.')
 plt.show()
 
 #systematische fehler krallen...
