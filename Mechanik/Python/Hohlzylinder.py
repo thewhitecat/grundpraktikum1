@@ -40,7 +40,7 @@ def tabelle(T,Tstd):
     print "Messung & ","Maxima & ","Minima ","\\"
     print "\hline"
     for i in range(5):
-        print i," & $",np.round(T[2*i],3),"\pm ",np.round(Tstd[2*i],3),"$ & $",np.round(T[2*i+1],3),"\pm ",np.round(Tstd[2*i+1],3),"$ \\"
+        print i," & $",np.round(T[2*i],4),"\pm ",np.round(Tstd[2*i],4),"$ & $",np.round(T[2*i+1],4),"\pm ",np.round(Tstd[2*i+1],4),"$ \\"
         print "\hline"
     print "\hline"
     print "\end{tabular}"
@@ -96,12 +96,14 @@ raussen = np.array([9.01,9.02,9.014,9.012,9.022,9.014,9.018,9.012])/100
 rinnen = np.array([8.6,8.6,8.585,8.575,8.58,8.59,8.6,8.59])/100
 raussenm = np.mean(raussen)/2
 rinnenm = np.mean(rinnen)/2
+raussenstat = np.std(raussen,ddof=1)/len(raussen)
+rinnenstat = np.std(rinnen,ddof=1)/len(rinnen)
 rstat = 0.001/(100*np.sqrt(12))
-rsys = 0.05/1000
+rsys = 0.05/1000/np.sqrt(3)
 m = 0.3487
 mstat = 0.0001/np.sqrt(12)
-msys = 0.0001
+msys = 0.0001/np.sqrt(3)
 JTheo = m*(rinnenm**2+raussenm**2)/2
-Jstat = np.sqrt(((rinnenm**2+raussenm**2)/2 * mstat)**2+(2*m*rinnenm*rstat)**2+(2*m*raussenm*rstat)**2)
-Jsys = np.sqrt(((rinnenm**2+raussenm**2)/2 * msys)**2+(2*m*rinnenm*rsys+2*m*raussenm*rsys)**2)
+Jstat = np.sqrt(((rinnenm**2+raussenm**2)/2 * mstat)**2+(m*rinnenm*rinnenstat)**2+(m*raussenm*raussenstat)**2)
+Jsys = np.sqrt(((rinnenm**2+raussenm**2)/2 * msys)**2+(m*rinnenm*rsys+m*raussenm*rsys)**2)
 sigmas = (JTheo-J)/np.sqrt(Jsys**2+Jstat**2+fehler1**2)

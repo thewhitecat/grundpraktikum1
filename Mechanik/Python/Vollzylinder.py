@@ -67,8 +67,8 @@ for i in range(len(voll)):
     Offset = np.mean(U)
     U=U-Offset
     peaks = a.get_peaks(t,U)
-    if i == 1:
-        plots(t,U,fft=1)
+#    if i == 1:
+#        plots(t,U,fft=1)
     T1.append((t[peaks[len(peaks)-1]]-t[peaks[3]])/(len(peaks)-4)*2)
     Tmax = []
     Tmin = []
@@ -94,12 +94,14 @@ raussen = np.array([8.81,8.82,8.818,8.89,8.85,8.80,8.87,8.875])/100
 rinnen = np.array([8.6,8.6,8.585,8.575,8.58,8.59,8.6,8.59])/100
 raussenm = np.mean(raussen)/2
 rinnenm = np.mean(rinnen)/2
+raussenstat = np.std(raussen,ddof=1)/len(raussen)
+rinnenstat = np.std(raussen,ddof=1)/len(raussen)
 rstat = 0.001/(100*np.sqrt(12))
-rsys = 0.05/1000
+rsys = 0.05/1000/np.sqrt(3)
 m = 0.3301
 mstat = 0.0001/np.sqrt(12)
-msys = 0.0001
+msys = 0.0001/np.sqrt(3)
 JTheo = 1./2*m*(raussenm**2)
-Jstat = np.sqrt((1./2*(raussenm**2) * mstat)**2+(m*raussenm*rstat)**2)
+Jstat = np.sqrt((1./2*(raussenm**2) * mstat)**2+(m*raussenm*raussenstat)**2)
 Jsys = np.sqrt((1./2*(raussenm**2) * msys)**2+(m*raussenm*rsys)**2)
 sigmas = (JTheo-J)/np.sqrt(Jsys**2+Jstat**2+fehler1**2)
