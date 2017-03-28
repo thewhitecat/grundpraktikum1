@@ -29,7 +29,24 @@ def plots(t=None,U=None,fft=0):
         plt.ylabel("#")
         plt.xlabel("Frequenz[Hz]")
         plt.title("FFT der Rohdaten vom Teller")
-        
+
+def tabelle(T,Tstd):
+    print "\begin{table}"
+    print "\caption{Zwischenergebnisse der Hohlzylindermessung.}"
+    print "\begin{center}"
+    print "\begin{tabular}{|c|c|c|}"
+    print "\hline"
+    print "Messung & ","Maxima[s] & ","Minima[] ","\\"
+    print "\hline"
+    for i in range(5):
+        print i," & $",np.round(T[2*i],4),"\pm ",np.round(Tstd[2*i],4),"$ & $",np.round(T[2*i+1],4),"\pm ",np.round(Tstd[2*i+1],4),"$ \\"
+        print "\hline"
+    print "\hline"
+    print "\end{tabular}"
+    print "\end{center}"
+    print "\label{tab:Teller_Ergebnisse}"
+    print "\end{table}"
+
 def alles():
     teller = []
     teller.append(p.lese_lab_datei('lab/Feder3/teller/teller1.lab'))
@@ -39,16 +56,20 @@ def alles():
     teller.append(p.lese_lab_datei('lab/Feder3/teller/teller5.lab'))
     teller.append(p.lese_lab_datei('lab/Feder3/teller/teller6.lab'))
     teller.append(p.lese_lab_datei('lab/Feder3/teller/teller7.lab'))
+    D = 0.02176
+    dD = 0.00025
+    dDsys = np.sqrt(0.00029**2+dD**2)
     T1 = []
     T2=[]
+    T2std=[]
     for i in range(len(teller)):
         t = teller[i][:,1]
         U = teller[i][:,2]
         Offset = np.mean(U)
         U=U-Offset
         peaks = a.get_peaks(t,U)
-        if i == 1:
-            plots(t,U,fft=1)
+        #if i == 1:
+        #    plots(t,U,fft=1)
         T1.append((t[peaks[len(peaks)-1]]-t[peaks[3]])/(len(peaks)-4)*2)
         Tmax = []
         Tmin = []
@@ -58,8 +79,14 @@ def alles():
             if i%2 == 0:
                 Tmin.append(t[peaks[i+4]]-t[peaks[i+2]])
         T2.append(np.mean(Tmax))
+        T2std.append(np.std(Tmax,ddof=1)/np.sqrt(len(Tmax)-2))
         T2.append(np.mean(Tmin))
+        T2std.append(np.std(Tmin,ddof=1)/np.sqrt(len(Tmin)-2))
+#    tabelle(T2,T2std)
     Tmean = np.mean(T2)
-    Tstd = np.std(T2,ddof=1)/len(T2)
+    Tstd = np.std(T2,ddof=1)/np.sqrt(len(T2)-2)
+    J = (1./(4*np.pi**2))*D*(Tmean**2)
+    dJ = 2./(4*np.pi**2)*D*Tmean*Tstd
+    print J, dJ
     return Tmean,Tstd,T2
-alles()
+#alles()
