@@ -73,41 +73,128 @@ Alle Experimente wurden mit zwei Aufbauten durchgeführt. Dabei hatte ein Aufbau
 
 \section{Bestimmung des Direktionsmomentes}
 
-
-
 \begin{figure}
-	\begin{center}
-		\includegraphics[scale=0.5]{Bilder/Feder3Kerbe1}
-		\includegraphics[scale=0.5]{Bilder/Feder3Kerbe1}
-	\end{center}
-	\caption{Exemplarische Schwingungsverläufe für Massenpunkte auf der ersten und dritten Kerbe für Feder 3.}
-	\label{fig:RohdatenFeder3}
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/Feder2Kerbe1}
+\includegraphics[scale=0.5]{Bilder/Feder2Kerbe3}
+\end{center}
+\caption{Exemplarische Schwingungsverläufe für Gewichte auf der ersten und dritten Kerbe für Feder 2.}
+\label{fig:RohdatenFeder2}
 \end{figure}
 
-Einige exemplarische Schwingungsverläufe finden sich in Abbildung [hier Rohdaten Feder 1] und \ref{fig:RohdatenFeder3}.\\
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/Feder3Kerbe1}
+\includegraphics[scale=0.5]{Bilder/Feder3Kerbe3}
+\end{center}
+\caption{Exemplarische Schwingungsverläufe für Massenpunkte auf der ersten und dritten Kerbe für Feder 3.}
+\label{fig:RohdatenFeder3}
+\end{figure}
 
-Vor Aufzeichnung der Schwingungsvorgänge wurden die beiden Kugeln gewogen sowie der Kerbenabstand bestimmt. Die ausgewiesenen statistischen Fehler ergeben sich aus der Ablesegenauigkeit, der systematische Fehler der Waage wurde auf \SI{0.1}{g} abgeschätzt. Der systematische Fehler des Maßbands ist durch die Güteklasse II gegeben. Die Ergebnisse beider Federn finden sich in Tabelle \ref{tab:Vormessungen3}.
+
+Einige exemplarische Schwingungsverläufe finden sich in Abbildung [hier Rohdaten Feder 2] für Feder 2 und in Abbildung \ref{fig:RohdatenFeder3} für Feder 3.\\
+
+Vor Aufzeichnung der Schwingungsvorgänge wurden die beiden Kugeln gewogen sowie der Kerbenabstand bestimmt. Die ausgewiesenen statistischen Fehler ergeben sich aus der Ablesegenauigkeit, der systematische Fehler der Waage wurde auf \SI{0.1}{g} abgeschätzt. Der systematische Fehler des Maßbands ist durch die Güteklasse II gegeben. Die Ergebnisse beider Federn finden sich in Tabelle \ref{tab:Vormessungen}.\\
+
 
 \begin{table}
-	\caption{Vormessungen zur Bestimmung des Direktionsmoments der Federn.}
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			Feder & $m_1$[g] & $m_2$[g] & Kerbenabstand $d$[cm]\\
-			\hline
-			1 & - & - & - \\
-			\hline
-			3 & 238.50 $\pm$ 0.03 $\pm$ 0.1 & 238.40 $\pm$ 0.03 $\pm$ 0.1 & 4.99 $\pm$ 0.03 $\pm$ 0.07\\ 
-			\hline
-		\end{tabular}
-	\end{center}
-	\label{tab:Vormessungen3}
+\caption{Vormessungen zur Bestimmung des Direktionsmoments der Federn.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Feder & $m_1$[g] & $m_2$[g] & Kerbenabstand $d$[cm]\\
+\hline
+2 & 237.8 $\pm$ 0.03 $\pm$ 0.1 & 238.2 $\pm$ 0.03 $\pm$ 0.1 & 5.00 $\pm$ 0.03 $\pm$ 0.07 \\
+\hline
+3 & 238.50 $\pm$ 0.03 $\pm$ 0.1 & 238.40 $\pm$ 0.03 $\pm$ 0.1 & 4.99 $\pm$ 0.03 $\pm$ 0.07\\ 
+\hline
+\end{tabular}
+\end{center}
+\label{tab:Vormessungen}
 \end{table}
 
+-------------------
+hier blabla über die pestimmung de rperiode\\
+------------------------------------------
 
-Die Periodendauer wurde für jede Einzelmessung durch Zählen von Maxima bzw. Minima bestimmt.
+Trägt man nun das Quadrat der Periodendauer gegen das Quadrat des Abstands der Massen zur Drehachse kann aus der sich ergebenden Steigung das Direktionsmoment D berechnet werden (vgl. Grundlagen).\\
+Bei entsprechender Quadrierung der Messwerte ergibt sich mittels Fehlerfortpflanzung für die Periodendauer und den Abstand der n-ten Kerbe:
+
+\begin{equation}
+\sigma_{T^2}=2\cdot T \sigma_T \quad \quad \quad \sigma_{r_n^2}=2\cdot r_n \sigma_{r_n}
+\end{equation}
+
+Der lineare Zusammenhang ist dabei schon gut zu erkennen. Die Ergebnisse der linearen Regressionen finden sich in Abbildung \ref{fig:RegressionenD}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/Feder2RegD}
+\includegraphics[scale=0.5]{Bilder/Feder3RegD}
+\end{center}
+\caption{Ergebnisse der Anpassung für Feder 2 (links) und Feder 3 (rechts)}
+\label{fig:RegressionenD}
+\end{figure}
 
 
+
+
+
+Mit der Steigung a folgt für das Direktionsmoment
+\begin{equation}
+D = 4 \pi^2 \frac{m_w}{a} \quad \quad \quad
+\sigma_D= D \sqrt{(\frac{\sigma_{m_2}}{m_w})^2+(\frac{\sigma_a}{a})^2}
+\end{equation}
+
+wobei $m_w=m_1+m_2$ ist. Die systematischen Fehler der beiden Einzelmassen sind dabei nicht unabhängig und werden linear addiert.\\
+Die Ergebnisse der Direktionsmomente finden sich in Tabelle \ref{tab:Direktionsmomente}.
+
+\begin{table}
+\caption{Ergebnisse der Direktionsmomentbestimmung}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Feder & $m_w$[g] & a[$\frac{s^2}{m^2}$] & D[mNm]\\
+\hline
+2 & 476.00 $\pm$ 0.04 $\pm$ 0.2 & $632.43 \pm 1.46$ & $29.71 \pm 0.07 \pm 0.01$ \\
+\hline
+3 & 476.90 $\pm$ 0.04 $\pm$ 0.2 & - &  - \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:Direktionsmomente}
+\end{table}
+
+Aus dem soeben bestimmten Direktionsmoment und dem y-Achsenabschnitt der Anpassung kann auch das Trägheitsmoment des Stabs ohne angebrachte Massen bestimmt werden und mit dem theoretisch erwarteten Wert verglichen werden.\\
+
+\begin{equation}
+J_{Stab}^{exp}=\frac{bD}{4\pi^2} \quad \quad \quad
+\sigma_{J_{Stab}^{exp}}=J_{Stab}^{exp} \sqrt{(\frac{\sigma_b}{b})^2+(\frac{\sigma_D}{D})^2}
+\end{equation}
+
+Für den Wert aus der Theorie erwartet man
+
+\begin{equation}
+J_{Stab}^{theo}=\frac{1}{12} m L^2 \quad \quad \quad
+\sigma_{J_{Stab}^{theo}}=\sqrt{(\frac{L^2 \sigma_m}{12})^2+(\frac{2Lm\sigma_L}{12})^2}
+\end{equation}
+
+wobei m und L Masse bzw. Länge des Stabs sind.\\
+Eine Zusammenstellung der sich so ergebenden Trägheitsmomente findet sich in Tabelle
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Feder & $m_{Stab}$[g] & $L$[cm] & $J_{Stab}^{theo}$[$g m^2$] & $J_{Stab}^{exp}$[$g m^2$]\\
+\hline
+2 & 131.6 $\pm$ 0.03 $\pm$ 0.1 & 60.9 $\pm$ 0.03 $\pm$ 0.07 & $4.067 \pm 0.004 \pm 0.01 $ & $ 4.165 \pm 0.026 \pm 0.001 $ \\
+\hline
+3 & 130.5 $\pm$ 0.03 $\pm$ 0.1 & 61.0 $\pm$ 0.03 $\pm$ 0.07 & $4.046 \pm 0.004 \pm  0.01 $ & - \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 
 
@@ -243,7 +330,7 @@ kann man nun Das Trägheitsmoment ausrechnen. Die Fehler berechnen sich aus der 
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-Messung &  Ergebnis[gm^2] & Theorie & Standardabweichungen \\
+Messung &  Ergebnis[$gm^2$] & Theorie & Standardabweichungen \\
 \hline
 Teller &  $0.1741 \pm 0.0001$ & &\\
 \hline
