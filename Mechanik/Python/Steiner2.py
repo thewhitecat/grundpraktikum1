@@ -13,14 +13,15 @@ import auswertung_nur_Methoden as aus
 
 d=4.99*10**(-2)
 edstat=0.1/np.sqrt(12)*10**(-2)
-edsyst=0.7*10**(-2)
-m=0.1305
-emstat=0.1/np.sqrt(12)
+edsyst=0.07*10**(-2)
+masse=0.1305
+emassestat=0.1/np.sqrt(12)*10**(-3)
+emassesyst=0.1*10**(-3)
 exsyst=0.1
 Direk=0.0218067
 eDirekstat=2.514*10**(-4)
 eDireksyst=2.940*10**(-4)
-eDirektotal=np.sqrt(eDirekstat**2+eDireksyst**2)
+eDirektotal=np.sqrt(eDirekstat**2+eDireksyst**2)/10
 
 
 def get_data():
@@ -36,16 +37,6 @@ def get_data():
 #data[kerbe-1][messung-1]
 
 def Steiner(data):
-    d=4.99*10**(-2)
-    edstat=0.1/np.sqrt(12)*10**(-2)
-    edsyst=0.7*10**(-2)
-    m=0.1305
-    emstat=0.1/np.sqrt(12)
-    exsyst=0.1
-    Direk=0.0218067
-    eDirekstat=2.514*10**(-4)
-    eDireksyst=2.940*10**(-4)
-    eDirek=np.sqrt(eDirekstat**2+eDireksyst**2)
     
     kerben_zeiten,kerben_spannungen=[],[]
     for x in data:
@@ -140,9 +131,10 @@ plt.show()
 
 systm,systb=verschiebemethode(a2,np.array(J),ea2stat,np.array(eJstat),ea2syst,np.array(eJsyst),m,b)
 
-print 'a={}+-{}+-{}'.format(m,em,systm)
-print 'b={}+-{}+-{}'.format(b,eb,systb)
-
-
+print 'a={}+-{}+-{}'.format(np.round(m,digits),np.round(em,digits),np.round(systm,digits))
+print 'b={}+-{}+-{}'.format(np.round(b,digits),np.round(eb,digits),np.round(systb,digits))
+print '----------------'
+print 'm_gewogen= {}+-{}+-{}'.format(masse,emassestat,emassesyst)
+print '{} sigmavereint von regression'.format((m-masse)/np.sqrt(em**2+systm**2))
 
 
