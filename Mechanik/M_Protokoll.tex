@@ -240,11 +240,12 @@ Feder & $m_{Stab}$[g] & $L$[cm] & $J_{Stab}^{theo}$[$g m^2$] & $J_{Stab}^{exp}$[
 
 
 
+\newpage
 
 \section{Vergleich von Trägheitsmomenten}
 
 \subsection{Auswertung Zylinder}
-Dieser Teil wurde mit \textbf{Feder 3} durchgeführt.
+Dieser Abschnitt wurde mit \textbf{Feder 3} durchgeführt.\\
 Bei der Messung der Trägheitsmomente von Hohl- und Vollzylinder wird ein Aufnahmeteller auf die Drillachse gesteckt. Da dieser Teller ein eigenes Trägheitsmoment $J_T$ hat, muss dieses zusätzlich noch bestimmt werden. Dies geschieht über die Aufnahme von Schwingungs-Messungen mit nur dem Teller. Danach werden nacheinander entweder der Voll- oder Hohlzylinder auf den Teller gesteckt und ebenfalls in Schwingung versetzt. Das Trägheitsmoment des Hohlzylinders wird dann folgendermaßen bestimmt:
 \begin{equation}
 J_{HZ} = J_{gemessen}-J_T
@@ -254,7 +255,7 @@ Analog gilt für den Vollzylinder:
 J_{VZ} = J_{gemessen}-J_T
 \end{equation}
 \subsubsection{Rohdaten}
-In Abbildung \ref{fig:Teller_Rohdaten} und \ref{fig:Zylinder_Rohdaten} sind zum einen die Rohdaten der Schwingungsmessungen gepltottet. Zum anderen wurde jeweils eine FFT-Transformation zur Veranschaulichung und für eine erste Analyse durchgeführt. Da diese aber zu ungenau ist, wurde mit den FFT-Ergebnissen nicht weitergerechnet.
+In Abbildung \ref{fig:Teller_Rohdaten} und \ref{fig:Zylinder_Rohdaten} sind zum einen die Rohdaten der Schwingungsmessungen gepltottet. Zum anderen wurde jeweils eine FFT-Transformation zur Veranschaulichung und für eine erste Analyse durchgeführt. Da diese aber zu ungenau ist, wurde damit nicht weitergerechnet.
 \begin{figure}
 \includegraphics[width=0.49\linewidth]{Bilder/Teller_Rohdaten.PNG}
 \includegraphics[width=0.49\linewidth]{Bilder/Teller_FFT.PNG}
@@ -272,7 +273,7 @@ In Abbildung \ref{fig:Teller_Rohdaten} und \ref{fig:Zylinder_Rohdaten} sind zum 
 
 \newpage
 \subsubsection{Messergebnisse}
-Um die Periodendauer zu bestimmen, wurden jeweils die Maxima und Minima über eine ganze Periode analysiert. Es wurde also immer die Zeitdifferenz zwischen einem und dem übernächsten Peak bestimmt und anschließend der Mittelwert ausgerechnet. Der Fehler dieser Werte ergibt sich aus dem Fehler auf den Mittelwert.\\
+Um die Periodendauer zu bestimmen, wurden jeweils die Maxima und Minima über eine ganze Periode analysiert. Es wurde also immer die Zeitdifferenz zwischen einem und dem übernächsten Peak bestimmt und anschließend der empirische Mittelwert ausgerechnet. Der Fehler dieser Werte ergibt sich aus dem Fehler auf den Mittelwert.\\
 Die Resultate sind in den Tabellen \ref{tab:Teller_Ergebnisse}, \ref{tab:Voll_Ergebnisse} und \ref{tab:Hohl_Ergebnisse} aufgelistet.
 \begin{table}[H]
 \caption{Zwischenergebnisse für die Periodendauer bei der Tellermessung.}
@@ -340,8 +341,8 @@ Messung & T der Maxima[s] & T der Minima[s]  \\
 \label{tab:Hohl_Ergebnisse}
 \end{table}
 
-Die Ergebnisse der fünf Messungen werden nun nochmal durch den Mittelwert zusammengefasst.
-Damit bekommt man finale Ergebnisse für die Periodendauern, die in Tabelle\ref{tab:Zylinder_Mittel} angegeben sind
+Die Ergebnisse der fünf Messungen werden nun nochmal empirisch gemittelt.
+Damit bekommt man finale Ergebnisse für die Periodendauern, die in Tabelle\ref{tab:Zylinder_Mittel} angegeben sind.
 
 \begin{table}[H]
 \caption{Endergebnisse der Periodendauer}
@@ -368,7 +369,7 @@ kann man nun das Trägheitsmoment ausrechnen. Die Fehler berechnen sich aus der 
 \begin{equation}
 \sigma_{J_{VZ/HZ}} = \sqrt{(\dfrac{2}{4\cdot \pi^{2}}\cdot T_{VZ/HZ}\cdot \sigma_{T(VZ/HZ)})^2+ (\dfrac{2}{4\cdot \pi^{2}}\cdot T_{T}\cdot \sigma_{TT} )^2}
 \end{equation}
-Bei dem Systematischem Fehler fließt nur der Fehler auf das Direktionsmoment ein:
+Bei dem systematischem Fehler fließt nur der Fehler auf das Direktionsmoment ein:
 \begin{equation}
 \sigma_J = \sqrt{(\dfrac{1}{4\cdot \pi^{2}}\cdot (T_{VZ/Hz}^{2}-T_T^2)\cdot \sigma_D )^2}
 \end{equation}\\
@@ -380,27 +381,7 @@ J_{voll} = \dfrac{1}{2}\cdot m\cdot r^2
 \begin{equation}
 J_{hohl} =m\cdot \dfrac{r_{innen}^2+r_{aussen}^2}{2}
 \end{equation}
-Dabei wurde für den Hohlzylinder der Außen- und der Innenradius gemessen, um das Trägheitsmoment über die exakte Formel für den Hohlzylinder mit Randbreite, die oben angegeben ist, zu berechnen.
-Dabei gilt für die Masse des Vollzylinders:
-\begin{equation}
-m_{voll} = (330.1\pm 0.03\pm 0.1) \si{g}
-\end{equation}
-und für die des Hohlzylinders:
-\begin{equation}
-m_{Hohl} = (348.7\pm 0.03\pm 0.1) \si{g}
-\end{equation}
-Die Radien wurden aus dem Durchmesser durch Mehrfachmessung mit dem Messchieber bestimmt. Durch Mittelung erhielten wir für den Vollzylinder:
-\begin{equation}
-d_{voll} = (8.84162\pm 0.00029\pm 0.00289) \si{cm}
-\end{equation}
-und für Außen- und Innendurchmesser des Hohlzylinders:
-\begin{equation}
-d_{hohl}^{innen} = (8.59000\pm 0.00120\pm 0.00289) \si{cm}
-\end{equation}
-\begin{equation}
-d_{hohl}^{aussen} = (9.01525\pm 0.00053\pm 0.00289) \si{cm}
-\end{equation}
-Die Fehler auf den Theoriewerten werden folgendermaßen bestimmt:
+Die Fehler auf diesen Werten werden folgendermaßen bestimmt:
 \begin{equation}
 \sigma_{Jvoll}^{stat} = \sqrt{(\dfrac{1}{2}\cdot r^2\cdot \sigma_{mstat})^2+(m\cdot r\cdot \sigma_{rstat})^2}
 \end{equation}
@@ -413,6 +394,31 @@ Die Fehler auf den Theoriewerten werden folgendermaßen bestimmt:
 \begin{equation}
 \sigma_{Jhohl}^{sys} = \sqrt{(\dfrac{1}{2}\cdot(r_{innen}^2+r_{außen}^2)\cdot \sigma_{msys})^2+(m\cdot r_{innen}\cdot \sigma_{rinnen}^{sys})^2+(m\cdot r_{aussen}\cdot \sigma_{raussen}^{sys})^2}
 \end{equation}
+
+Es wurde für den Hohlzylinder der Außen- und der Innenradius gemessen, um das Trägheitsmoment über die exakte Formel für den Hohlzylinder mit Randbreite, die hier angegeben ist, zu berechnen.
+Für die Masse des Vollzylinders gilt:
+\begin{equation}
+m_{voll} = (330.1\pm 0.03\pm 0.1) \si{g}
+\end{equation}
+und für die des Hohlzylinders:
+\begin{equation}
+m_{hohl} = (348.7\pm 0.03\pm 0.1) \si{g}
+\end{equation}
+Die Fehler kommen aus dem Ablesefehler und dem systematischem Fehler der Waage.\\
+Die Radien wurden aus dem Durchmesser durch Mehrfachmessung mit dem Messchieber bestimmt. Durch Mittelung erhielten wir für den Vollzylinder:
+\begin{equation}
+d_{voll} = (8.84162\pm 0.00029\pm 0.00289) \si{cm}
+\end{equation}
+und für Außen- und Innendurchmesser des Hohlzylinders:
+\begin{equation}
+d_{hohl}^{innen} = (8.59000\pm 0.00120\pm 0.00289) \si{cm}
+\end{equation}
+\begin{equation}
+d_{hohl}^{aussen} = (9.01525\pm 0.00053\pm 0.00289) \si{cm}
+\end{equation}
+Die Fehler stammen diesmal aus der Mehrfachmessung (Fehler auf den Mittelwert) und aus dem Ungenauigkeit des Messschiebers.\\
+Die Messergebnisse und die Theoriewerte sind zum Vergleich in Tabelle \ref{tab:Zylinder_Vergleich} aufgelistet.
+
 
 \begin{table}
 \caption{Trägheitsmomente und Theoriewerte}
@@ -429,11 +435,11 @@ Hohlzylinder &  $0.67596 \pm 0.00155\pm 0.01201$ & $0.67588\pm 0.00013\pm 0.0008
 \hline
 \end{tabular}
 \end{center}
-\label{tab:Zylinder_Mittel}
+\label{tab:Zylinder_Vergleich}
 \end{table}
 \subsubsection{Fazit}
 Das Trägheitsmoment der Drillachse konnte auf 0.05\% bestimmt werden, das des Vollzylinders auf 1.7\% und das des Hohlzylinders auf 1.8\%. Die Theoriewerte konnten auf 0.2\% und 0.1\% genau bestimmt werden. Dabei liegen die gemessenen Werte sehr nah an den Theoriewerten. Der Unterschied beträgt weniger als 0.01 Standardabweichung.\\
-Die Bestimmung der Trägheitsmomente war also sehr genau, wobei die Fehler dieser Bestimmung für die Genauigkeit zu groß sind. Da dies hauptsächlich durch die systematischen Fehler auf die Messergebnisse zustande kommt, welche hauptsächlich durch den Fehler auf das Direktionsmoment zustande kommen, kann es  sein, dass das Direktionsmoment wesentlich genauer bestimmt wurde, als die Ergebnisse von Teil 1 andeuten
+Die Bestimmung der Trägheitsmomente war also sehr genau, wobei die Fehler dieser Bestimmung für diese Abweichung zu groß sind. Da dies hauptsächlich durch die systematischen Fehler auf die Messergebnisse zustande kommt, welche hauptsächlich durch den Fehler auf das Direktionsmoment zustande kommen, kann es  sein, dass das Direktionsmoment in Teil 1 wesentlich genauer bestimmt wurde, als man von den Ergebnissen erwarten würde.
 
 \subsection{Auswertung Kugel und Scheibe}
 Der Aufbau mit dem die Kugel und die Scheibe vermessen wurden, enthielt die Feder Nummer 2. \\
