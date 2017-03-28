@@ -61,7 +61,10 @@ def Steiner(data):
             
         perioden.append(np.mean(vor_perioden))
         perioden_error.append(np.std(vor_perioden,ddof=1)/np.mean(vor_perioden))
-        
+
+    return perioden,perioden_error,np.full(len(perioden),0)
+    
+'''        
     #habe jetzt perioden und error auf diese
     #jetzt kommz trägheit bestimmen
     J=[]
@@ -76,6 +79,7 @@ def Steiner(data):
         eJsyst.append(out3)
         
     return J,eJ,eJsyst
+'''
 #rückgabe von J und stat error
 
 def verschiebemethode(x,y,xerr,yerr,systx,systy,a,b):
@@ -103,7 +107,8 @@ def verschiebemethode(x,y,xerr,yerr,systx,systy,a,b):
 
 #print Steiner(data)
 #regressionen etc
-J,eJstat,eJsyst=Steiner(data)
+#J,eJstat,eJsyst=Steiner(data)
+T,eTstat,eTsyst=Steiner(data)
 a,eastat,easyst=[],[],[]
 for i in range(6):
     a.append((i+1)*d)
@@ -114,27 +119,31 @@ a2=np.array(a)**2
 ea2stat=2*np.array(a)*np.array(eastat)
 ea2syst=2*np.array(a)*np.array(easyst)
 
-m,em,b,eb,chiq,cov=p.lineare_regression_xy(a2,np.array(J),ea2stat,np.array(eJstat))    
+T2=np.array(T)**2
+eT2stat=2*np.array(T)*np.array(eTstat)
+
+m,em,b,eb,chiq,cov=p.lineare_regression_xy(a2,np.array(T2),ea2stat,np.array(eT2stat))    
 
 
 #mal plotten
 digits=5
 x=np.linspace(0,0.1,400)
 plt.figure(1)
-plt.errorbar(a2,J,xerr=ea2stat,yerr=eJstat,linestyle='None')
+plt.subplot2grid((6,1),(0,0),rowspan=4)
+plt.errorbar(a2,T,xerr=ea2stat,yerr=eT2stat,linestyle='None')
 plt.plot(x,m*x+b)
-plt.figtext(0.2,0.75,'a={}+-{} \n b={}+-{} \n $\chi^2/ndof$={}'.format(np.round(m,digits),np.round(em,digits),np.round(b,digits),np.round(eb,digits),np.round(chiq/(len(J)-2),digits)))
+plt.figtext(0.2,0.75,'a={}+-{} \n b={}+-{} \n $\chi^2/ndof$={}'.format(np.round(m,digits),np.round(em,digits),np.round(b,digits),np.round(eb,digits),np.round(chiq/(len(T2)-2),digits)))
+plt.subplot2grid((6,1),(-2,0),rowspan=2)
+plt.errorbar(a2,T2-m*a2-b,yerr=np.sqrt(eT2stat**2+m**2*ea2stat**2),linestyle='None')
 plt.show()
 
 #systematische fehler krallen...
 #
 
-systm,systb=verschiebemethode(a2,np.array(J),ea2stat,np.array(eJstat),ea2syst,np.array(eJsyst),m,b)
+systm,systb=verschiebemethode(a2,np.array(T2),ea2stat,np.array(eT2stat),ea2syst,np.array(eTsyst),m,b)
 
 print 'a={}+-{}+-{}'.format(np.round(m,digits),np.round(em,digits),np.round(systm,digits))
 print 'b={}+-{}+-{}'.format(np.round(b,digits),np.round(eb,digits),np.round(systb,digits))
 print '----------------'
-print 'm_gewogen= {}+-{}+-{}'.format(masse,emassestat,emassesyst)
-print '{} sigmavereint von regression'.format((m-masse)/np.sqrt(em**2+systm**2))
 
 
