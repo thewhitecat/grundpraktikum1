@@ -11,6 +11,7 @@ import timeit
 from pylab import *
 import matplotlib.pyplot as plt
 import auswertung_01 as aus
+import auswertung_nur_Methoden as ausM
 
 start_time=timeit.default_timer()
 
@@ -68,6 +69,16 @@ sig_a2 = 2 * a * sig_a
 #lin reg
 m, em, b, eb, chiq, cov = p.lineare_regression_xy(a2, T2, sig_a2, sig_T2)
 
+#systematische Fehler auf m und b durch verschiebemethode
+sys_a = []
+for i in range(5):
+    sys_a.append((i+1) * 0.0007)
+sys_a = np.array(sys_a)
+sys_T = 0
+systx = 2 * a * sys_a
+systy = 2 * T * sys_T
+sys_err_m, sys_err_b = ausM.verschiebemethode(a2, T2, sig_a2, sig_T2, systx, systy, m, b)
+
 #berechne J0 und masse des Stabes aus lin reg
 D = 0.02971
 sig_D = 6.8e-5
@@ -90,9 +101,9 @@ plt.font = {'family' : 'monospace',
 ax1.set_xlabel("Abstandsquadrat [m^2]", **plt.font)
 ax1.set_ylabel("Periodendauerquadrat [s^2]", **plt.font)
 ax1.set_title("Abstandsquadrat gegen Periodendauerquadrat", **plt.font)
-plt.figtext(0.5,0.7,
-            '\n a= ('+str(np.round(m,3))+' +/- '+str(np.round(em,3))+') s^2/m^2 \n'
-            +' b= ('+str(np.round(b,3))+' +/- '+str(np.round(eb,3))+') s^2 \n'
+plt.figtext(0.2,0.7,
+            '\n a= ('+str(np.round(m,3))+' +/- '+str(np.round(em,3))+' +/- '+str(np.round(sys_err_m,3))+') s^2/m^2 \n'
+            +' b= ('+str(np.round(b,3))+' +/- '+str(np.round(eb,3))+' +/- '+str(np.round(sys_err_b,3))+') s^2 \n'
             +'$\chi ^2 / ndof$= ' + str(np.round(chiq/3, 3)), **plt.font)
 plt.plot(x, y, color='r')
 plt.errorbar(a2, T2, xerr=sig_a2, yerr=sig_T2, fmt='.', color='b')
