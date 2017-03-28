@@ -172,3 +172,27 @@ def periodendauer(datei):
     T = 2*(t1-t0)/(indizes.size-1)
     
     return T
+
+
+
+
+
+
+def verschiebemethode(x,y,xerr,yerr,systx,systy,a,b):
+    #verschiebemethide, ruckgabe von syst err a und syst err b
+    xp,yp=x+systx,y+systy
+    xm,ym=x-systx,y-systy
+    apx,eapx,bpx,ebpx,chiqpx,covpx=p.lineare_regression_xy(xp,y,xerr,yerr)
+    amx,eamx,bmx,ebmx,chiqmx,covmx=p.lineare_regression_xy(xm,y,xerr,yerr)
+    apy,eapy,bpy,ebpy,chiqpy,covpy=p.lineare_regression_xy(x,yp,xerr,yerr)
+    amy,eamy,bmy,ebmy,chiqmy,covmy=p.lineare_regression_xy(x,ym,xerr,yerr)
+    
+    err_ax=np.abs(apx-a)/2+np.abs(amx-a)/2
+    err_ay=np.abs(apy-a)/2+np.abs(amy-a)/2
+    err_bx=np.abs(bpx-b)/2+np.abs(bmx-b)/2
+    err_by=np.abs(bpy-b)/2+np.abs(bmy-b)/2
+
+    err_a=np.sqrt(err_ax**2+err_ay**2)
+    err_b=np.sqrt(err_bx**2+err_by**2)
+    
+    return err_a,err_b
