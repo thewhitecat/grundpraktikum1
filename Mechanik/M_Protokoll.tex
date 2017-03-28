@@ -475,29 +475,36 @@ Außerdem liegen die Trägheitsmomente mit nur etwa 8,7\% Abweichung wie erwarte
 
 
 \section{Bestätigung des Steinerschen Satzes}
-
+\subsection{Beschreibung}
 Zur Bestätigung des Steinerschen Satzes werden die Quadrate der Periodendauern gegen die Quadrate der Verschiebung des Schwerpunktes zur 
 Drehachse aufgetragen.\\
 Dabei gilt:
 
 \begin{equation}
 \sigma_{T^2}=2 T \sigma_T \quad \quad \quad
-\sigma_{a^2}=2a \sigma_a
+\sigma_{r^2}=2r \sigma_r
 \end{equation}
 
 Die Periodendauer T ist dabei der Mittelwert von Mehrfachmessungen für jede Einstellungen, der Fehler ist der Fehler auf den Mittelwert der sich aus dieser Stichprobe ergibt.\\
-Da der Kerbenabstand d bekannt ist erhält man für a:
-
+Da der Kerbenabstand d bekannt ist erhält man für den Abstand der Dreh- zur Schwerpunktsachse r mit $r = n \cdot d$:
 \begin{equation}
-\sigma_{a,stat.}=\sqrt{n} \sigma_{d,stat.} \quad \text{n ist dabei die Position der Kerbe von der Mitte aus gezählt.}
+\sigma_{r,stat.}=\sqrt{n} \sigma_{d,stat.} \quad \text{n ist dabei die Position der Kerbe von der Mitte aus gezählt}
 \end{equation}
 
 Der systematische Fehler der Längenmessung ist bei Addition der Kerbenabstände nicht unabhängig und wird deswegen linear und nicht quadratisch addiert. Es folgt:
 
 \begin{equation}
-\sigma_{a,syst.}=n \sigma_{d,syst.}
+\sigma_{r,syst.}=n \sigma_{d,syst.}
 \end{equation}
 
+Für die Steigungen a gilt hier der Zusammenhang:
+\begin{equation}
+a=\frac{4\pi^2 m}{D}
+\end{equation}
+
+Damit kann aus der Steigung mithilfe des zuvor bestimmten Direktionsmoments die Masse des Stabs abgeschätzt und mit dem experimentell ermittelten Wert verglichen werden.\\
+
+\subsection{Rohdaten}
 An den so transformierten Daten wurde für beide Federn eine lineare Regression durchgeführt. Die Ergebnisse befinden sich in Abbildung \ref{fig:SteinerReg2} bzw. Abbildung \ref{fig:SteinerReg3}.
 
 \begin{figure}
@@ -517,16 +524,10 @@ An den so transformierten Daten wurde für beide Federn eine lineare Regression 
 \label{fig:SteinerReg3}
 \end{figure}
 
-Für die Steigungen a gilt hier der Zusammenhang:
-\begin{equation}
-a=\frac{4\pi^2 m}{D}
-\end{equation}
+\subsection{Auswertung}
 
-Damit kann aus der Steigung mithilfe des zuvor bestimmten Direktionsmoments die Masse des Stabs abgeschätzt und mit dem experimentell ermittelten Wert verglichen werden.\\
 
 hier dann blabla, umrechnen, vergleichen und fehler erklären mit das das nicht perfekt gelagert war blabla
-
-blabla
 
 
 
