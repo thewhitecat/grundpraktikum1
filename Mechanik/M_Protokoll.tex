@@ -114,12 +114,51 @@ Feder & $m_1$[g] & $m_2$[g] & Kerbenabstand $d$[cm]\\
 \label{tab:Vormessungen}
 \end{table}
 
--------------------
-hier blabla über die pestimmung de rperiode\\
-------------------------------------------
+
+
+Die Periodendauer T der Schwingung wurde bestimmt, indem die Zeit $t_0$ eines der ersten Peaks und die Zeit $t_1$ eines mindestens 7 Perioden später liegenden Peaks bestimmt wurden. Daraus ergibt sich:
+
+\begin{equation}
+T = \frac{t_1 -t_0}{\text{\#Perioden}}
+\end{equation}
+\begin{equation}
+\sigma_T = \frac{\sqrt{\sigma_{t1}^2 + \sigma_{t2}^2}}{\text{\#Perioden}}
+\end{equation}
+
+Um die Fehler auf die Peakbestimmung abzuschätzen, wurden für den Stab ohne Gewichte fünf Messungen durchgeführt. Dann wurden die Peaks der einzelnen Messungen mittels arithmetischem Mittelwert und Standardabweichung zu einer gemittelten Periodendauer zusammengefasst. Die so bestimmten Fehler auf die Peakbestimmung wurde auch für die Schwinungen mit Massen angenommen, da hierfür keine Mehrfachmessungen durchgeführt wurden. Es ergab sich für Feder 2 $\sigma_{t_n} = \SI{0.01}{s}$ und für Feder 3 $\sigma_{t_n} = \SI{0.02}{s}$.
+Die Ergebnisse für die Schwingungsdauern sind in Tabelle \ref{tab:D_T} aufgeführt.
+
+
+\begin{table}
+	\centering
+	\caption{Schwingungsdauern in Sekunden nach aktueller Kerbe, an der sich die Massen am Stab befinden.}
+	\label{tab:D_T}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Kerbe & T\textsubscript{Feder 2} [s] & T\textsubscript{Feder 3} [s] \\
+		\hline
+		0 & 2.362 $\pm$ 0.007 & 2.723 $\pm$ 0.004 \\
+		\hline
+		1 & 2.575 $\pm$ 0.007 & 3.049 $\pm$ 0.004 \\
+		\hline
+		2 & 3.337 $\pm$ 0.007 & 3.948 $\pm$ 0.004 \\
+		\hline
+		3 & 4.312 $\pm$ 0.007 & 5.143 $\pm$ 0.004 \\
+		\hline
+		4 & 5.401 $\pm$ 0.007 & 6.476 $\pm$ 0.004 \\
+		\hline
+		5 & 6.535 $\pm$ 0.007 & 7.880 $\pm$ 0.004 \\
+		\hline
+		6 & 7.678 $\pm$ 0.007 & 9.271 $\pm$ 0.004 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
 
 Trägt man nun das Quadrat der Periodendauer gegen das Quadrat des Abstands der Massen zur Drehachse kann aus der sich ergebenden Steigung das Direktionsmoment D berechnet werden (vgl. Grundlagen).\\
-Bei entsprechender Quadrierung der Messwerte ergibt sich mittels Fehlerfortpflanzung für die Periodendauer und den Abstand der n-ten Kerbe:
+
+Bei Quadrierung der Messwerte ergibt sich mittels Fehlerfortpflanzung für die Periodendauer und den Abstand der n-ten Kerbe:
 
 \begin{equation}
 \sigma_{T^2}=2\cdot T \sigma_T \quad \quad \quad \sigma_{r_n^2}=2\cdot r_n \sigma_{r_n}

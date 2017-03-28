@@ -61,7 +61,7 @@ def get_peaks_fehler(x, y):
     index = []
     
     for n in range(len(zeros)-1):
-        temp1, temp2 = peak_fehler(x, y, zeros[2], zeros[n+1][2])
+        temp1, temp2 = peak_fehler(x, y, zeros[n][2], zeros[n+1][2])
         peaks.append(temp1)
         sigma.append(temp2)
     for peak in peaks:
@@ -74,19 +74,21 @@ def get_peaks_fehler(x, y):
 
 def peak_fehler(x, y, i0, i1):
     peaks = []
+    #i0 = np.array(i0)
+    #i1 = np.array(i1)
     abweichungen = (i1-i0)/20
-    peaks.append( p.peak(x, y, x[i0], x[i1]) )
+    peaks.append( p.peakfinder_schwerpunkt(x[i0:i1], y[i0:i1]) )
     for i in range(1, 10):
-        peaks.append( p.peak(x, y, x[i0+i*abweichungen], x[i1]) )
-        peaks.append( p.peak(x, y, x[i0], x[i1+i*abweichungen]) )
-        peaks.append( p.peak(x, y, x[i0+i*abweichungen], x[i1+i*abweichungen]) )
+        peaks.append( p.peakfinder_schwerpunkt(x[i0+i*abweichungen:i1], y[i0+i*abweichungen:i1]) )
+        peaks.append( p.peakfinder_schwerpunkt(x[i0:i1-i*abweichungen], y[i0:i1-i*abweichungen]) )
+        peaks.append( p.peakfinder_schwerpunkt(x[i0+i*abweichungen:i1-i*abweichungen], y[i0+i*abweichungen:i1-i*abweichungen]) )
     peaks = np.array(peaks)
     peak = np.mean(peaks)
-    sig_peak = np.std(peaks, ddof =1)
+    sig_peak = np.std(peaks, ddof =1)/peaks.size
     
     return peak, sig_peak
 
-def daempfung(t, U, index, i):
+def daempfung(t, U, index, i=20):
     absU = np.abs(U)
     sig_U_stat = np.std(U[-3*U.size/4:], ddof=1)
     a, ea, b, eb, chi2, cov = p.lineare_regression(t[index], np.log(absU[index]), sig_U_stat/U[index])
@@ -94,15 +96,15 @@ def daempfung(t, U, index, i):
     sig_delta_stat = ea
     
     sig_U_sys = 0.01*U + 0.005*1
-    if i == 0:    
+    if i == i:    
         # Lin Reg
-        plt.figure(20)
+        plt.figure(2*i)
         plt.subplot2grid((7,1),(0,0), rowspan=4)
         plt.errorbar(t[index], np.log(absU[index]), sig_U_stat/U[index], fmt = ".")
         plt.plot(t[index], a*t[index]+b)
         plt.ylabel("ln ($U / U_0$) ")
         ndof = index.size-2
-        plt.figtext(0.6, 0.7, "m = {:3.2f} $\pm$ {:3.2f} 1/s\n b = {:2.3f} $\pm$ {:2.3f} \n $\chi^2$/ndof = {:3.1f}".format(a, ea, b, eb, chi2/ndof))
+        plt.figtext(0.2, 0.2, "m = {:3.2f} $\pm$ {:3.2f} 1/s\n b = {:2.3f} $\pm$ {:2.3f} \n $\chi^2$/ndof = {:3.4f}".format(a, ea, b, eb, chi2/ndof))
         # Residuen
         plt.subplot2grid((7,1),(-2,0), rowspan=2)
         plt.errorbar(t[index], np.log(absU[index])-a*t[index]-b, yerr=sig_U_stat/U[index], fmt = ".")
@@ -112,7 +114,7 @@ def daempfung(t, U, index, i):
         
         
         # Plot Ergebnis
-        plt.figure(21)
+        plt.figure(2*i+1)
         plt.plot(t, U)
         plt.xlabel("t (s)")
         plt.ylabel("U (V)")
@@ -168,8 +170,9 @@ def periodendauer_mitte(feder=2, ordner="Stab_mitte"):
     t1 = np.mean(t1)
     
     T = 2*(t1-t0)/(indizes.size-1)
-    sig_T = 2*(sig_t0+sig_t1)/(indizes.size-1)
-    
+    sig_T = 2*np.sqrt(sig_t0**2+sig_t1**2)/(indizes.size-1)
+    print sig_T
+    print sig_t0, sig_t1
     return T, sig_T
 
 def periodendauer(datei):
@@ -181,14 +184,15 @@ def periodendauer(datei):
     t = data[:,1]
     U = data[:,2]
     
-    U, t = p.untermenge_daten(U, t, -1, 1)
+    U, t = p.untermenge_daten(U, t, -2, 2)
     
     U = U - np.mean(U[-U.size/6:])
     
-    indizes = get_peaks(t, U)
+    indizes, sigma = get_peaks_fehler(t, U)
     
     if indizes.size > index_lenght:
         indizes = indizes[:index_lenght]
+        sigma = sigma[:index_lenght]
     print indizes.size
     
     #daempfung(t, U, indizes, i)
@@ -204,8 +208,8 @@ def periodendauer(datei):
     t1 = np.mean(t1)
     
     T = 2*(t1-t0)/(indizes.size-1)
-    
-    return T
+    sig_T = 2*np.sqrt(sigma[0]**2 + sigma[-1]**2)/(indizes.size-1)
+    return T, sig_T
 
 def periodendauer_linreg (datei):
     
@@ -234,22 +238,25 @@ def periodendauer_linreg (datei):
     
 def auswertung_D (feder=2):
     T = []
-        
+    sig_T = []
     temp1, temp2 = periodendauer_mitte(2, "Stab_mitte")
     T.append(temp1)
-    sig_T = temp2
+    sig_T.append(temp2)
     print sig_T
     
-    temp1 = periodendauer("lab/Feder2/Stab_Massen/Aussen_01.lab")
+    temp1, temp2 = periodendauer("lab/Feder2/Stab_Massen/Aussen_01.lab")
     T.append(temp1)
+    sig_T.append(temp2)
     
     for i in range(1,6):
         
         datei = "lab/Feder2/Stab_Massen/Aussen-{:1d}.lab".format(i)
-        temp1 = periodendauer(datei)
-        print temp1
+        temp1, temp2 = periodendauer(datei)
         T.append(temp1)
-    
+        sig_T.append(temp2)
+        
+    print sig_T
+    print T
     T=np.array(T)
     
     T_sq = T**2
@@ -260,8 +267,8 @@ def auswertung_D (feder=2):
     sig_R_sys = 0.0007
     
     R_sq = R**2
-    sig_R_sq = 2*R*sig_R
-    sig_R_sq_sys = sig_R_sys * 2 * np.sqrt(np.arange(7)) * R
+    sig_R_sq = 2*R*sig_R*np.sqrt(np.array([0,6,5,4,3,2,1]))
+    sig_R_sq_sys = sig_R_sys * 2 * np.sqrt(np.sqrt([0,6,5,4,3,2,1])) * R
     sig_R_sq[0] = 1e-6
     m_Massen = 0.476
     sig_m_stat = 0.0001/np.sqrt(12)
@@ -282,6 +289,7 @@ def auswertung_D (feder=2):
     plt.axhline(linestyle="dashed")
     plt.ylabel("Residuen [$s^2$]")
     plt.xlabel("$r^2$ [$m^2$]")
+    
     
     # Verschiebemethode, wegen sys Fehler auf R
     a1, ea1, b1, eb1, chi21, cov1 = p.lineare_regression_xy(R_sq-sig_R_sq_sys, T_sq, sig_R_sq, sig_T_sq)

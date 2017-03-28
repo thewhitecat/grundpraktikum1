@@ -9,33 +9,51 @@ import Praktikum as p
 import numpy as np
 import matplotlib.pyplot as plt
 
-"""
-# "Kerbe 1"
-data = p.lese_lab_datei("lab/Feder2/Stab_Massen/Aussen-5.lab")
-t = data[:,1]
-U = data[:,2]
-plt.figure(1)
-t, U = p.untermenge_daten(t, U, 0, 40)
-plt.plot(t, U)
-plt.xlabel("t [s]")
-plt.ylabel("U [V]")
-
-# "Kerbe 3"
-data = p.lese_lab_datei("lab/Feder2/Stab_Massen/Aussen-3.lab")
-t = data[:,1]
-U = data[:,2]
-plt.figure(2)
-t, U, = p.untermenge_daten(t, U, 0, 40)
-plt.plot(t, U)
-plt.xlabel("t [s]")
-plt.ylabel("U [V]")
-"""
+import auswertung_02 as a
 
 
-# Feder 3
-for i in range(1,6):
-    data = p.lese_lab_datei("lab/Feder3/Quadrat/stab{:1d}.lab".format(i))
+
+delta = np.empty(7)
+sigma_stat = np.empty(7)
+sigma_sys = np.empty(7)
+
+T = np.empty(7)
+sigma_T = np.empty(7)
+
+index_lenght = 40
+for i in range(1,8):
+    datei = "lab/Feder3/Hohlzylinder/hohl{:1d}.lab".format(i)
+    data = p.lese_lab_datei(datei)
     t = data[:,1]
     U = data[:,2]
-    plt.figure(i)
-    plt.plot(t, U)
+    
+    U, t = p.untermenge_daten(U, t, -2, 2)
+    
+    U = U - np.mean(U[-U.size/5:])
+    
+    indizes = a.get_peaks(t, U)
+    
+    if indizes.size > index_lenght:
+        indizes = indizes[:index_lenght]
+    print indizes.size
+    
+    delta[i-1], sigma_stat[i-1], sigma_sys[i-1] = a.daempfung(t, U, indizes, i)
+    
+    T[i-1], sigma_T[i-1] = a.periodendauer(datei)
+    
+    
+print delta, sigma_stat, sigma_sys
+print T, sigma_T
+
+
+omega0 = 2*np.pi/T
+sigma_omega0 = 2*np.pi*sigma_T/T**2
+
+print np.sqrt(omega0**2 - delta**2)
+
+omega = np.sqrt(omega0**2 - delta**2)
+sig_temp = np.sqrt( (2*omega0*sigma_omega0)**2 + (2*np.sqrt(sigma_stat**2 + sigma_sys**2)*delta)**2 )
+sigma_omega = sig_temp/(2 * omega)
+
+T_neu = 2*np.pi/omega
+sigma_T_neu = 2*np.pi*sigma_omega/omega**2

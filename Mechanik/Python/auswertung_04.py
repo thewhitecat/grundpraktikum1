@@ -97,13 +97,13 @@ def daempfung(t, U, index, i):
     return (delta, sig_delta_stat, sig_delta_sys)
 
 
-def periodendauer_mitte(feder=3, ordner="Quadrat"):
+def periodendauer_mitte(feder=2, ordner="Stab_mitte"):
     t0 = []
     t1 = []
     T = []
     index_lenght=15
     for i in range(0,5):
-        data = p.lese_lab_datei("lab/Feder{:1d}/{:s}/stab{:1d}.lab".format(feder, ordner, i+1))
+        data = p.lese_lab_datei("lab/Feder{:1d}/{:s}/messung{:1d}.lab".format(feder, ordner, i+1))
         t = data[:,1]
         U = data[:,2]
         
@@ -216,15 +216,17 @@ def periodendauer_linreg (datei):
 def auswertung_D (feder=2):
     T = []
         
-    temp1, temp2 = periodendauer_mitte(3, "Quadrat")
+    temp1, temp2 = periodendauer_mitte(2, "Stab_mitte")
     T.append(temp1)
     sig_T = temp2
     print sig_T
     
     
-    for i in range(1,7):
-        
-        datei = "lab/Feder3/Quadrat/stab{:1d}_1.lab".format(i)
+    for i in [6,5,4,3,2,1]:
+        if i == 6:
+            datei = "lab/Feder2/Stab_Massen/aussen_01.lab"
+        else:
+            datei = "lab/Feder2/Stab_Massen/aussen-{:1d}.lab".format(i)
         temp1 = periodendauer(datei)
         #print temp1
         T.append(temp1)
