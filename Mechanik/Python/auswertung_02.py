@@ -173,58 +173,91 @@ def periodendauer(datei):
     
     return T
 
-
-T = []
+def periodendauer_linreg (datei):
     
-temp1, temp2 = periodendauer_mitte(2, "Stab_mitte")
-T.append(temp1)
-sig_T = temp2
-
-
-temp1 = periodendauer("lab/Feder2/Stab_Massen/Aussen_01.lab")
-T.append(temp1)
-
-for i in range(1,6):
+    sig_t = 0.01/np.sqrt(2)
     
-    datei = "lab/Feder2/Stab_Massen/Aussen-{:1d}.lab".format(i)
-    temp1 = periodendauer(datei)
+    data = p.lese_lab_datei(datei)
+    
+    t = data[:,1]
+    U = data[:,2]
+    
+    U, t = p.untermenge_daten(U, t, -2, 2)
+    
+    index = get_peaks(t, U)
+    
+    anzahl = index.size/2
+    if anzahl*2 < index.size:
+        anzahl = anzahl + 0.5
+    n = np.arange(0, anzahl, 0.5)
+    print n
+    a, ea, b, eb, chi2, cov = p.lineare_regression(n, t[index], np.full(index.size,sig_t))
+    
+    return (a, ea)
+    
+    
+    
+    
+    
+def auswertung_D (feder=2):
+    T = []
+        
+    temp1, temp2 = periodendauer_mitte(2, "Stab_mitte")
     T.append(temp1)
+    sig_T = temp2
+    print sig_T
+    
+    temp1 = periodendauer("lab/Feder2/Stab_Massen/Aussen_01.lab")
+    T.append(temp1)
+    
+    for i in range(1,6):
+        
+        datei = "lab/Feder2/Stab_Massen/Aussen-{:1d}.lab".format(i)
+        temp1 = periodendauer(datei)
+        T.append(temp1)
+    
+    T=np.array(T)
+    
+    T_sq = T**2
+    sig_T_sq = 2*T*sig_T
+    
+    R = np.concatenate((np.array([0.0]),0.05*np.array([6, 5, 4, 3, 2, 1])))
+    sig_R = 0.001/np.sqrt(12)
+    print R
+    R = np.array(R)
+    
+    R_sq = R**2
+    sig_R_sq = 2*R*sig_R
+    sig_R_sq[0] = 1e-6
+    m_Massen = 0.476
+    sig_m_stat = 0.0001/np.sqrt(12)
+    sig_m_sys = 0.0001
+    
+    a, ea, b, eb, chi2, cov = p.lineare_regression_xy(R_sq, T_sq, sig_R_sq, sig_T_sq)
+    # Lin Reg
+    plt.figure(3, [8,8])
+    plt.subplot2grid((6,1),(0,0), rowspan=4)
+    plt.errorbar(R_sq, T_sq, xerr=sig_R_sq, yerr=sig_T_sq, fmt = ".")
+    plt.plot(R_sq, a*R_sq+b)
+    plt.ylabel("$T^2 [s^2]$")
+    ndof = R_sq.size-2
+    plt.figtext(0.2, 0.7, "m = {:3.2f} $\pm$ {:3.2f} $s^2/m^2$\n b = {:2.3f} $\pm$ {:2.3f} $s^2$ \n $\chi^2$/ndof = {:3.3f}".format(a, ea, b, eb, chi2/ndof))
+    # Residuen
+    plt.subplot2grid((6,1),(-2,0), rowspan=2)
+    plt.errorbar(R_sq, T_sq-a*R_sq-b, yerr=np.sqrt(sig_T_sq**2+a**2*sig_R_sq**2), fmt = ".")
+    plt.axhline(linestyle="dashed")
+    plt.ylabel("Residuen [$s^2$]")
+    plt.xlabel("$r^2$ [$m^2$]")
+    
+    D = 4*np.pi**2*m_Massen/a
+    sig_D = D* np.sqrt((sig_m_stat/m_Massen)**2 + (ea/a)**2)
+    
+    J_stab = b*D/(4*np.pi**2)
+    sig_J_stab = J_stab*np.sqrt( (sig_D/D)**2 + (sig_m_stat/m_Massen)**2 )
+    
+    return D, sig_D, J_stab, sig_J_stab
 
-T=np.array(T)
 
-T_sq = T**2
-sig_T_sq = 2*T*sig_T
+#T, sig_T = periodendauer_linreg("lab/Feder2/Stab_Massen/Aussen-1.lab")
 
-R = np.concatenate((np.array([0.0]),0.05*np.array([6, 5, 4, 3, 2, 1])))
-sig_R = 0.001/np.sqrt(12)
-print R
-R = np.array(R)
-
-R_sq = R**2
-sig_R_sq = 2*R*sig_R
-sig_R_sq[0] = 1e-6
-m_Massen = 0.476
-sig_m_stat = 0.0001/np.sqrt(12)
-sig_m_sys = 0.0001
-
-a, ea, b, eb, chi2, cov = p.lineare_regression_xy(R_sq, T_sq, sig_R_sq, sig_T_sq)
-# Lin Reg
-plt.figure(3, [8,8])
-plt.subplot2grid((6,1),(0,0), rowspan=4)
-plt.errorbar(R_sq, T_sq, xerr=sig_R_sq, yerr=sig_T_sq, fmt = ".")
-plt.plot(R_sq, a*R_sq+b)
-plt.ylabel("$T^2 [s^2]$")
-ndof = R_sq.size-2
-plt.figtext(0.2, 0.7, "m = {:3.2f} $\pm$ {:3.2f} $s^2/m^2$\n b = {:2.3f} $\pm$ {:2.3f} $s^2$ \n $\chi^2$/ndof = {:3.3f}".format(a, ea, b, eb, chi2/ndof))
-# Residuen
-plt.subplot2grid((6,1),(-2,0), rowspan=2)
-plt.errorbar(R_sq, T_sq-a*R_sq-b, yerr=np.sqrt(sig_T_sq**2+a**2*sig_R_sq**2), fmt = ".")
-plt.axhline(linestyle="dashed")
-plt.ylabel("Residuen [$s^2$]")
-plt.xlabel("$r^2$ [$m^2$]")
-
-D = 4*np.pi**2*m_Massen/a
-sig_D = D* np.sqrt((sig_m_stat/m_Massen)**2 + (ea/a)**2)
-
-J_stab = b*D/(4*np.pi**2)
-sig_J_stab = J_stab*np.sqrt( (sig_D/D)**2 + (sig_m_stat/m_Massen)**2 )
+D, sig_D, J_stab, sig_J_stab = auswertung_D()
