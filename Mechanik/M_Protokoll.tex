@@ -233,7 +233,7 @@ Feder & $m_{Stab}$[g] & $L$[cm] & $J_{Stab}^{theo}$[$g m^2$] & $J_{Stab}^{exp}$[
 \hline
 2 & 131.6 $\pm$ 0.03 $\pm$ 0.1 & 60.9 $\pm$ 0.03 $\pm$ 0.07 & $4.067 \pm 0.004 \pm 0.01 $ & $ 4.151 \pm 0.077 \pm 0.042 $ \\
 \hline
-3 & 130.5 $\pm$ 0.03 $\pm$ 0.1 & 61.0 $\pm$ 0.03 $\pm$ 0.07 & $4.046 \pm 0.004 \pm  0.01 $ & 4.041907 $\pm$ 0.063 $\pm$ 0.055 \\
+3 & 130.5 $\pm$ 0.03 $\pm$ 0.1 & 61.0 $\pm$ 0.03 $\pm$ 0.07 & $4.046 \pm 0.004 \pm  0.01 $ & 4.042 $\pm$ 0.063 $\pm$ 0.055 \\
 \hline
 \end{tabular}
 \end{center}
@@ -383,6 +383,7 @@ J_{voll} = \dfrac{1}{2}\cdot m\cdot r^2
 \end{equation}
 \begin{equation}
 J_{hohl} =m\cdot \dfrac{r_{innen}^2+r_{aussen}^2}{2}
+\label{eq:J_hohl}
 \end{equation}
 Die Fehler auf diesen Werten werden folgendermaßen bestimmt:
 \begin{equation}
@@ -398,7 +399,7 @@ Die Fehler auf diesen Werten werden folgendermaßen bestimmt:
 \sigma_{Jhohl}^{sys} = \sqrt{(\dfrac{1}{2}\cdot(r_{innen}^2+r_{außen}^2)\cdot \sigma_{msys})^2+(m\cdot r_{innen}\cdot \sigma_{rinnen}^{sys})^2+(m\cdot r_{aussen}\cdot \sigma_{raussen}^{sys})^2}
 \end{equation}
 
-Es wurde für den Hohlzylinder der Außen- und der Innenradius gemessen, um das Trägheitsmoment über die exakte Formel für den Hohlzylinder mit Randbreite, die hier angegeben ist, zu berechnen.
+Es wurde für den Hohlzylinder der Außen- und der Innenradius gemessen, um das Trägheitsmoment über die exakte Formel für den Hohlzylinder mit endlicher Wandbreite (Gleichung \ref{eq:J_hohl}) zu berechnen.
 Für die Masse des Vollzylinders gilt:
 \begin{equation}
 m_{voll} = (330.1\pm 0.03\pm 0.1) \si{g}
@@ -712,7 +713,7 @@ Feder & D[mNm] & $m_{Steigung}$[g] & $m_{gewogen}$[g] \\
 
 
 \subsection{Fazit}
-Es fällt direkt auf das die Massen, welche aus der Steigung bestimmt wurden stark (mehrere Standardabweichungen) von den gewogenen Massen abweichen.\\
+Es fällt direkt auf, dass die Massen, welche aus der Steigung bestimmt wurden stark (mehrere Standardabweichungen) von den gewogenen Massen abweichen.\\
 Allerdings ist diese Tatsache wenig überraschend. Durch die Verschiebung des Stabes befindet sich dieser nicht mehr vollständig in der Ebene senkrecht zur Drehachse, wodurch die aufgezeichneten Werte leicht verfälscht wurden. Dies wird vorallem für Feder 2 gewesen sein, da das große $\chi^2$ andeutet, dass aufgrund der Verfälschung kein wirklicher linearer Zusammenhang mehr gegeben war.\\
 Trotzdem kann das Ergebnis als eine Bestätigung des Satzes von Steiner gesehen werden, da insbesondere die linearen Regressionen der Periodendauerquadrate gegen die Abstandsquadrate eindrucksvoll den erwarteten linearen Zusammenhang zeigen.
 
