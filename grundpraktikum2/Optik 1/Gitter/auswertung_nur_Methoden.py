@@ -214,3 +214,12 @@ def mintodeg(deg):
         grad = deg[i][0] + deg[i][1]/60
         data += [grad]
     return data
+
+def minausarray(array):
+    min = array[0]
+    j = 0
+    for i in range(len(array)):
+        if array[i] < min:
+            j = i
+            min = array[i]
+    return min, j
