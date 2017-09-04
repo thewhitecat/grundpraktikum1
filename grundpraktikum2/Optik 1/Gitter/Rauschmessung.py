@@ -9,27 +9,20 @@ import Praktikum as p
 import numpy as np
 import matplotlib.pyplot as plt
 import timeit
+import auswertung_nur_Methoden as AM
 
 start_time=timeit.default_timer()
 
 data_raw = np.genfromtxt('Rauschen_Nullte_Ordnung.txt', delimiter = ',', skip_header = 2);
-                    
-def degtorad(deg):
-    data = []
-    for i in range(len(deg)):
-        rad = (deg[i][0] + deg[i][1]/60) * 2 * np.pi / 360 
-        data += [rad]
-    return data
+                
+data = AM.degtorad(data_raw)
+data_grad = AM.mintodeg(data_raw)
 
-def mintodeg(deg):
-    data = []
-    for i in range(len(deg)):
-        grad = deg[i][0] + deg[i][1]/60
-        data += [grad]
-    return data
+Fehler_Winkel = np.std(data)
+Winkel_Nullte_Ordnung = np.mean(data)
 
-data = degtorad(data_raw)
-data_grad = mintodeg(data_raw)
+print("Winkel der Nullten Ordnung: ", Winkel_Nullte_Ordnung)
+print("Fehler: ", Fehler_Winkel)
 
 bins_grad = np.arange(84.0,85.0, 1./60)
 #plt.figure(2)
