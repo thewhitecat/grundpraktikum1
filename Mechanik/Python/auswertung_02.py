@@ -298,6 +298,8 @@ def auswertung_D (feder=2):
     sig_a_sys = (np.abs(a1-a) + np.abs(a2-a))/2
     sig_b_sys = (np.abs(b1-b) + np.abs(b2-b))/2
     
+    print a, ea, sig_a_sys            
+                
     D = 4*np.pi**2*m_Massen/a
     sig_D = D* np.sqrt((sig_m_stat/m_Massen)**2 + (ea/a)**2)
     sig_D_sys = D*np.sqrt((sig_m_sys/m_Massen)**2 + (sig_a_sys/a)**2)
