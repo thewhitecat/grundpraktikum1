@@ -1,0 +1,5 @@
+# Daten Gitterkonstante Linie 1
+# Ordnung, Grad 1, Minute 1, Grad 2, Minute 2
+0.0, 84, 35, 84, 53
+1.0, 70, 29, 70, 29
+-1.0, 98, 51, 98, 41

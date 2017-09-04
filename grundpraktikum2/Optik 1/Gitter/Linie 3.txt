@@ -1,0 +1,7 @@
+# Daten Gitterkonstante Linie 3
+# Ordnung, Grad 1, Minute 1, Grad 2, Minute 2
+0.0, 84, 35, 84, 53
+1.0, 65, 22, 65, 22
+2.0, 43, 41, 43, 36
+-1.0, 103, 55, 103, 51
+-2.0, 126, 10, 126, 10

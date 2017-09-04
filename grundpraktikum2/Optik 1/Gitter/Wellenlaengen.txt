@@ -1,0 +1,2 @@
+# Daten Gitterkonstante
+# Ordnung,	Wellenlänge /nm,	Grad 1,	Minuten 1, Grad 2, Minuten 2
