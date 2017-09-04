@@ -228,7 +228,45 @@ Durch Auftragen des Brechungsindex gegen die Wellenlänge erhält man die Disper
 \section{Gitterspektrometer}
 
 \subsection{Grundlagen}
-Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungsmuster ist ähnlich dem der Beugung an einem Doppelspalt. Allerdings hat das Gitter gegenüber dem Doppelspalt einige Vorteile: Durch die hohe Anzahl der Spalte ist die durchgelassene Intensität deutlich höher als bei einem Doppelspalt. Zudem ermöglicht dies schmalere Spalte, welches eine besser Auflösung ermöglicht.
+\subsubsection{Beugung am Gitter}
+Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungsmuster ist ähnlich dem der Beugung an einem Doppelspalt. Allerdings hat das Gitter gegenüber dem Doppelspalt einige Vorteile: Durch die hohe Anzahl der Spalte ist die durchgelassene Intensität deutlich höher als bei einem Doppelspalt. Zudem ermöglicht dies schmalere Spalte, welches eine besser Auflösung ermöglicht.\\
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1.2]{Bilder/Gitterbeugung_Schema.PNG}
+\end{center}
+\caption[Gitterbeugung Schema]{Schematische Darstellung der Beugung an einem Gitter}
+\label{fig:Gitterbeugung_Schema}
+\end{figure}
+Abbildung \ref{fig:Gitterbeugung_Schema} zeigt schematisch die Entstehung des Beugungsbildes durch den Gangunterschied zwischen zwei benachbarten Strahlen am Gitter. Wenn dieser Gangunterschied ein ganzzahliges Vielfaches der Wellenlänge ist, liegt konstruktive Interferenz vor und es ist ein Maximum zu sehen. Dies führt auf die wichtige Bedingung
+\begin{equation}
+d \sin (\theta) = n \lambda.
+\label{eq:Maximumsbedingung}
+\end{equation}
+Dabei bezeichnet $n$ die Ordnung des Maximums. An dieser Beziehung lassen sich einige wichtige Bedingungen ablesen. Damit beobachtbare Beugung auftritt, muss $\lambda < d$ gelten. Die maximal beobachtbare Ordnung ist $n_{max} = \dfrac{d}{\lambda}$. \\
+Wenn die Gitterebene nicht exakt senkrecht zum einfallenden Strahl steht, muss ein Gangunterschied zwischen den Strahlen vor dem Gitter berücksichtigt werden. Wenn $\varphi$ der Winkel zwischen der Senkrechten zum Lichtstrahl und der Gitterebene und $\theta$ der Beobachtungswinkel ist, kann Gl. \ref{eq:Maximumsbedingung} verallgemeinert werden zu:
+\begin{equation}
+d(\sin(\varphi) + \sin(\theta - \varphi)) = n \lambda
+\label{eq:VerallgemeinerteMaximumsbedingung}
+\end{equation}
+
+\subsubsection{Auflösungsvermögen eines Gitters}
+Für die Trennung zweier nah beieinander liegender Spektrallinien $\lambda$ und $\lambda + \Delta \lambda$ müssen nach dem Rayleigh-Kriterium das erste Beugungsmaximum der ersten Linie mit dem ersten Beugungsminimum der zweiten Linie zusammenfallen. Aus dieser Bedingung lässt sich für das Auflösungsvermögen eines Gitters die Beziehung
+\begin{equation}
+A \equiv \dfrac{\lambda}{\Delta \lambda} = n \cdot N
+\label{eq:AuflösungsvermögenGitterspektrometer}
+\end{equation}
+herleiten. Dabei ist $n$ die Ordnung des betrachteten Maximums und $N$ die Zahl der beleuchteten Spalte des Gitters.
+
+\subsection{Aufbau und Durchführung}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/Schematischer_Aufbau_Gitterspektrometer.PNG}
+\end{center}
+\caption[Gitterspektrometer Aufbau Schema]{Schematische Darstellung des Versuchaufbaus der Beugung an einem Gitter}
+\label{fig:Versuchsaufbau_Gitterbeugung_Schema}
+\end{figure}
+Abbildung \ref{fig:Versuchsaufbau_Gitterbeugung_Schema} zeigt schematisch den Aufbau eines Gitterspektrometers.\\
+Eine Spektrallampe wird vor ein Kollimatorrohr gestellt. Dieses dient dazu, den Strahlengang möglichst parallel auf das Gitter zu schicken. An dem der Lampe zugewandten Ende des Kollimatorrohres ist ein in der Breite einstellbarer Spalt, der als zu beobachtender "Gegenstand" dient. 
 
 \subsection{Aufbau und Durchführung}
 
