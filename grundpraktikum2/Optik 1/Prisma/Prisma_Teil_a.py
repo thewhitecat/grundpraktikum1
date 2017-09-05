@@ -26,6 +26,17 @@ data_rauschen=np.array(data_rauschen)
 mean_rauschen=np.mean(data_rauschen)
 std_rauschen=np.std(data_rauschen,ddof=1)
 
+bins=[]
+for i in range(22):
+    bins.append(25.0/180.0*np.pi+i*0.00029)
+plt.figure(3)
+plt.hist(data_rauschen,bins=bins,normed=True)
+plt.title('Histogramm Rauschmessung')
+plt.xlabel('Position in rad')
+plt.figtext(0.7,0.7,'$\mu={} rad$ \n $\sigma={} rad$'.format(round(mean_rauschen,5),round(std_rauschen,5)))
+plt.show()
+#0.00029
+
 #werte in rad
 
 #print mean_rauschen
@@ -49,7 +60,7 @@ def auswertung(raw_data1,raw_data2):
     psi_err_2=std_rauschen/np.sqrt(len(data2))
     
     delta=(psi_2-psi_1)/2
-    delta_err=np.sqrt(psi_err_1**2+psi_err_2**2)/2
+    delta_err=np.sqrt(psi_err_1**2+psi_err_2**2)/np.sqrt(2)
     
     return delta,delta_err
     
@@ -92,24 +103,24 @@ d_476,ed_476=auswertung(data_476_1,data_476_2)
 data_435_1=[(22,43),(22,45),(22,42)]
 data_435_2=[(149,34),(149,33),(149,33)]
 d_435,ed_435=auswertung(data_435_1,data_435_2)
-
+'''
 #404,66nm
 data_404_1=[(21,2),(21,0),(20,56)]
 data_404_2=[(151,15),(151,14),(151,18)]
 d_404,ed_404=auswertung(data_404_1,data_404_2)
-
+'''
 
 '''
 delta werte, aufsteigend von kleinem lambda zu großem lambda
 '''
 
-delta=np.array([d_404,d_435,d_476,d_479,d_508,d_564,d_579,d_643])
-error_delta=np.array([ed_404,ed_435,ed_476,ed_479,ed_508,ed_564,ed_579,ed_643])
+delta=np.array([d_435,d_476,d_479,d_508,d_564,d_579,d_643])
+error_delta=np.array([ed_435,ed_476,ed_479,ed_508,ed_564,ed_579,ed_643])
 
 n=np.sin(delta/2.0+30.0/180.0*np.pi)/np.sin(30.0/180.0*np.pi)
-en=abs(np.cos(delta/2.0+30.0/180.0*np.pi)/np.sin(30.0/180.0*np.pi)*delta/2.0)*error_delta
+en=abs(np.cos(delta/2.0+30.0/180.0*np.pi)/np.sin(30.0/180.0*np.pi))*0.5*error_delta
 
-l=np.array([404.66,435.83,467.81,479.99,508.58,546.07,579.07,643.85])
+l=np.array([435.83,467.81,479.99,508.58,546.07,579.07,643.85])
 
 
 '''
@@ -143,7 +154,7 @@ chiq_ndof=chiq/(len(n)-2)
 print 'chiq/ndof ='+str(round(chiq_ndof,4))
 
 
-plt.figtext(0.2,0.7,'a={}$\pm${} \n b={}$\pm${} \n $\chi^2$/ndof={}'.format(round(a,3),round(ea,3),round(b,4),round(eb,4),round(chiq_ndof,3)))
+plt.figtext(0.2,0.7,'(a={}$\pm${}) $nm^2$ \n b={}$\pm${} \n $\chi^2$/ndof={}'.format(round(a,3),round(ea,3),round(b,4),round(eb,4),round(chiq_ndof,3)))
 
 
 
@@ -158,11 +169,11 @@ plt.show()
 
 '''
 def f(par,x):
-    return par[0]*(1+par[1]*x)
+    return par[0]+par[1]*x+par[2]*x**2
 
 function = odr.Model(f)
 mydata = odr.RealData(x,n,sy=en)
-myodr = odr.ODR(mydata,function,beta0=[2,7000])
+myodr = odr.ODR(mydata,function,beta0=[2,7000,1,1])
 myoutput = myodr.run()
 myoutput.pprint()
 
@@ -175,6 +186,7 @@ epar=myoutput.sd_beta
 
 test=np.linspace(0.0000020,0.0000063)
 plt.plot(test,f(par,test))
+plt.scatter(x,n,marker='o')
 plt.show()
 '''
 
