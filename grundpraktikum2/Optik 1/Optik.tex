@@ -57,9 +57,10 @@
 	
 	An einem Prisma ergibt sich für das Auflösungsvermögen der Zusammenhang
 	
-	\begin{equation}
-	A = \frac{dn}{d\lambda} 2a \frac{sin(\frac{\epsilon}{2})}{cos(\frac{\delta_{min}+\epsilon}{2})}
-	\end{equation}
+\begin{equation}
+A = \dfrac{dn}{d\lambda}\cdot 2\cdot a\cdot\dfrac{sin\left(\dfrac{\epsilon}{2}\right)}{cos\left(\dfrac{\delta_{min}+\epsilon}{2}\right)}
+\label{eq:Auflosung}
+\end{equation}
 	
 	wobei $\frac{dn}{d\lambda}$ die Dispersion des Prismas und a die Breite der beleuchteten Fläche auf dem Prisma ist.
 
@@ -113,7 +114,7 @@
 	\sigma_n = \frac{cos(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})} \frac{\sigma_{\delta_{min}}}{2}
 	\end{equation}
 
-Nachdem man die Dispersionskurve ermittelt hat, wird die Spektrallampe ausgetauscht. 
+Nachdem man die Dispersionskurve ermittelt hat, wird die Spektrallampe ausgetauscht und das SPektrum der neuen Lampe bestimmt. 
 Dabei ermittelt man zuerst mit dem gleichen Verfahren die Brechungsindizes der Spektrallinien und ordnet diesen dann über die Dispersionskurve eine Wellenlänge zu.
 	
 Zur Abschätzung des Auflösungsvermögens wird eine Schlitzblende auf das Kollimatorrohr gesteckt. Mit dem Fernrohr wird die gelbe Doppellinie des Quecksilberspektrums anvisiert.  Anschließend wird die beleuchtete Fläche des Prismas durch Vorschalten immer kleinerer Blenden soweit verkleinert, dass die Doppellinie gerade noch getrennt werden kann. Daraus wird eine Abschätzung des Auflösungsvermögens bestimmt (vgl. Grundlagen). 
@@ -390,10 +391,7 @@ Die ermittelten Wellenlängen der Spektrallinien haben eine Ungenauigkeit von c.
 \end{figure}
 \subsubsection{Auflösungsvermögen}
 \paragraph{Auswertung}
-Das Auflösungsvermögen wird mithilfe folgender Formel bestimmt:
-\begin{equation}
-A = \dfrac{dn}{d\lambda}\cdot 2\cdot a\cdot\dfrac{sin\left(\dfrac{\epsilon}{2}\right)}{cos\left(\dfrac{\delta_{min}+\epsilon}{2}\right)}
-\end{equation}
+Das Auflösungsvermögen wird mithilfe von Formel \ref{eq:Auflosung} bestimmt.
 Die Steigung ergibt sich dabei durch Ableiten der Dispersionskurve an der Stelle $\lambda = 579.07 nm$. Das zu dieser Wellenlänge gehörige $\delta_{min}$ wurde ebenfalls bereits in 1.Teilversuch bestimmt und kann in Tabelle \ref{tab:AuswertungDispersion} abgelesen werden. \\
 Der Faktor a beschreibt die Breite des Spaltes. Diese wurde im Versuch von 6 mm an immer um 0.5 mm verkleinert, bis die Aufspaltung der Linien nicht mehr sichtbar war. Die Ergebnisse sind in Tabelle \ref{tab:Auflosung_Prisma} angegeben.
 \begin{table}
@@ -404,9 +402,10 @@ a[mm] & 6 & 5.5 & ... & 1.5 & 1 & 0.5\\
 Trennbar? & ja & ja & ja & ja & gerade so & nein\\
 \hline
 \end{tabular}
-\caption{Überprüfung der Auflösbarkeit der beiden gelben Spektrallinien ($\lambda = 579.07nm und \lambda = 576.96nm$). Ab einer Spaltbreite von 0.5 mm konnte man die Linien nicht mehr unterscheiden.}
+\caption{Überprüfung der Auflösbarkeit der beiden gelben Spektrallinien ($\lambda = 579.07nm$ und $\lambda = 576.96nm$). Ab einer Spaltbreite von 0.5 mm konnte man die Linien nicht mehr unterscheiden.}
 \label{tab:Auflosung_Prisma}
 \end{table}
+
 	Wegen der sehr großen Abständen zwischen den Spaltbreiten macht eine Fehlerbetrachtung keinen Sinn.\\
 	Für die experimentell bestimmte Auflösung folgt:
 	\begin{equation}
@@ -417,24 +416,6 @@ Trennbar? & ja & ja & ja & ja & gerade so & nein\\
 	A = \dfrac{\lambda}{\Delta \lambda} = \dfrac{579.1 nm}{2.1 nm} = 276
 	\end{equation}
 	Wegen der hohen Ungenauigkeit kann man annehmen, dass der ermittelte Wert mit der theoretischen Erwartung übereinstimmt.
-	\paragraph{Auswertung}
-	Das Auflösungsvermögen wird mithilfe folgender Formel bestimmt:
-	\begin{equation}
-	A = \dfrac{dn}{d\lambda}\cdot 2\cdot a\cdot\dfrac{sin\left(\dfrac{\epsilon}{2}\right)}{cos\left(\dfrac{\delta_{min}+\epsilon}{2}\right)}
-	\end{equation}
-	Die Steigung ergibt sich dabei durch Ableiten aus der bestimmten Dispersionskurve an der Stelle $\lambda = 579.07 nm$. $\delta_{min}$ wird bei der selben Wellenlänge bestimmt.\\
-	Der Faktor a beschreibt die Breite des Spaltes.
-	Wegen der sehr großen Abständen zwischen den Spaltbreiten macht eine Fehlerbetrachtung keinen Sinn.\\
-	Für die experimentell bestimmte Auflösung folgt:
-	\begin{equation}
-	A \approx 286
-	\end{equation}
-	Der theoretisch erwartete Wert beträgt:
-	\begin{equation}
-	A = \dfrac{\lambda}{\Delta \lambda} = \dfrac{579.1 nm}{2.1 nm} = 276
-	\end{equation}
-	Wegen der hohen Ungenauigkeit kann man annehmen, dass der ermittelte Wert mit der theoretischen Erwartung übereinstimmt.
-	
 	
 	
 \subsection{Fazit}
