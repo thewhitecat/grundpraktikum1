@@ -6,10 +6,26 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{siunitx}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \author{Tim}
 
 \begin{document}
+	\setlength{\parindent}{0pt} 
+	\begin{center}
+		{\LARGE Versuchsprotokoll}\\
+		\begin{large}
+			zum Grundpraktikum Physik Teil II\\[0.4cm]
+			an der RWTH Aachen\\
+			I. Physikalisches Institut B\\[4.5cm]
+			\Large\textbf{\textsl{Optik I}}\\[4cm]
+			\normalsize\textit{vorgelegt\\von}\\[0.4cm]
+			\large{Moritz Berger\\Tim Herbermann\\Gerald Kolter\\Sebastian Siebert}\\[1cm]
+			\large \textit{Gruppe A07} \\ [3cm]
+			\large \textbf{Sommersemester 2017}
+		\end{large}
+	\end{center}
+	\newpage
 
 \tableofcontents
 \newpage
@@ -302,6 +318,98 @@ Die rote Doppellinie wird in erster Ordnung angefahren und in dem Okular so gele
 \subsection{Bestimmung der Gitterkonstanten}
 
 \subsection{Bestimmung der Wellenlänge}
+
+Die gemessenen Winkel der Spektrallinien sind in Tabelle \ref{tab:rohdaten_wellenlängen} dargestellt. Als statistischer Fehler auf die Einzelmessung wird weiterhin $\sigma_{einzel} = \SI{0.000295}{rad}$ angenommen (siehe Bestimmung Gitterkonstante). Da alle Winkel doppelt gemessen wurden ergibt sich für die Winkel relativ zur Nullten Ordnung
+\begin{equation}
+\theta_{gesucht} = \theta_{Nullte\;Ordnung} - \theta_{Andere\;Ordnung}
+\end{equation}
+und damit
+\begin{equation}
+\sigma_{stat} = \frac{\sqrt{2}}{\sqrt{2}} \sigma_{einzel} = \sigma_{einzel}.
+\end{equation}
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Ordnung & Winkel Messung 1 & Winkel Messung 2 \\
+		\hline
+		\hline
+		0 & \SI{84}{\degree} \SI{35}{\arcminute} &  \SI{84}{\degree} \SI{53}{\arcminute} \\
+		\hline
+		&&\\
+		Linie 1&& \\
+		\hline
+		1 & \SI{70}{\degree} \SI{29}{\arcminute} & \SI{70}{\degree} \SI{29}{\arcminute} \\
+		\hline
+		-1 & \SI{98}{\degree} \SI{51}{\arcminute} & \SI{98}{\degree} \SI{41}{\arcminute} \\
+		\hline
+		
+		&&\\
+		Linie 2&& \\
+		\hline
+		1 & \SI{69}{\degree} \SI{20}{\arcminute} & \SI{69}{\degree} \SI{21}{\arcminute} \\
+		\hline
+		2 & \SI{53}{\degree} \SI{00}{\arcminute} & \SI{53}{\degree} \SI{00}{\arcminute} \\
+		\hline
+		-1 & \SI{99}{\degree} \SI{52}{\arcminute} & \SI{99}{\degree} \SI{51}{\arcminute} \\
+		\hline
+		-2 & \SI{116}{\degree} \SI{35}{\arcminute} & \SI{116}{\degree} \SI{31}{\arcminute} \\
+		\hline
+		
+		&&\\
+		Linie 3&&\\
+		\hline
+		1 & \SI{65}{\degree} \SI{22}{\arcminute} & \SI{65}{\degree} \SI{22}{\arcminute} \\
+		\hline
+		2 & \SI{43}{\degree} \SI{41}{\arcminute} & \SI{43}{\degree} \SI{36}{\arcminute} \\
+		\hline
+		-1 & \SI{103}{\degree} \SI{55}{\arcminute} & \SI{103}{\degree} \SI{51}{\arcminute} \\
+		\hline
+		-2 & \SI{126}{\degree} \SI{10}{\arcminute} & \SI{126}{\degree} \SI{10}{\arcminute} \\
+		\hline
+		
+		&&\\
+		Linie 4&&\\
+		\hline
+		1 & \SI{64}{\degree} \SI{14}{\arcminute} & \SI{64}{\degree} \SI{15}{\arcminute} \\
+		\hline
+		2 & \SI{40}{\degree} \SI{47}{\arcminute} & \SI{40}{\degree} \SI{46}{\arcminute} \\
+		\hline
+		-1 & \SI{105}{\degree} \SI{03}{\arcminute} & \SI{105}{\degree} \SI{00}{\arcminute} \\
+		\hline
+		-2 & \SI{129}{\degree} \SI{07}{\arcminute} & \SI{129}{\degree} \SI{08}{\arcminute} \\
+		\hline
+		
+		&&\\
+		Linie 5&&\\
+		\hline
+		1 & \SI{64}{\degree} \SI{10}{\arcminute} & \SI{64}{\degree} \SI{09}{\arcminute} \\
+		\hline
+		2 & \SI{40}{\degree} \SI{37}{\arcminute} & \SI{40}{\degree} \SI{35}{\arcminute} \\
+		\hline
+		-1 & \SI{105}{\degree} \SI{10}{\arcminute} & \SI{105}{\degree} \SI{05}{\arcminute} \\
+		\hline
+		-2 & \SI{129}{\degree} \SI{21}{\arcminute} & \SI{129}{\degree} \SI{23}{\arcminute} \\
+		\hline
+		
+		
+	\end{tabular}
+	\caption{Gemessene Winkel der fünf zu bestimmenden Spektrallinien.}
+	\label{tab:rohdaten_wellenlängen}
+\end{table}
+Es gilt:
+\begin{equation}
+d \sin \theta = n \lambda.
+\end{equation}
+
+Damit erhält man die Wellenlänge $\lambda$ als Steigung einer angepassten Geraden an die Messwerte mit $n$ auf der x- und $d \sin \theta$ auf der y-Achse. Diese
+
+Da Linie 1 nur in erster Ordnung vermessbar war, wurde für die beiden gemessenen Winkel direkt
+\begin{equation}
+\lambda = \frac{d \sin \theta}{n}
+\end{equation}
+verwendet und die beiden erhaltenen Werte zu einem gewichteten Mittelwert zusammengefasst.
+
 
 \subsection{Bestimmung der Auflösung}
 
