@@ -92,7 +92,7 @@
 	Es ergeben sich damit die Minimalablenkungen und der Fehler auf selbige für jede vermessene Spektrallinie.
 	
 	\begin{equation}
-	\sigma_{\delta} = \frac{\sqrt{\sigma_{\psi_1}^2+\sigma_{\psi_2}^2}}{\sqrt{2}}
+	\sigma_{\delta} = \frac{\sqrt{\sigma_{\psi_1}^2+\sigma_{\psi_2}^2}}{2}
 	\end{equation}
 	
 	Damit folgt für die Brechungsindizes bei den entsprechenden Wellenlängen der Zusammenhang (vgl. Grundlagen):
@@ -106,9 +106,11 @@
 	\begin{equation}
 	\sigma_n = \frac{cos(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})} \frac{\sigma_{\delta_{min}}}{2}
 	\end{equation}
+
+Nachdem man die Dispersionskurve ermittelt hat, wird die Spektrallampe ausgetauscht. 
+Dabei ermittelt man zuerst mit dem gleichen Verfahren die Brechungsindizes der Spektrallinien und ordnet diesen dann über die Dispersionskurve eine Wellenlänge zu.
 	
-	
-	Zur Abschätzung des Auflösungsvermögens wird eine Schlitzblende auf das Kollimatorrohr gesteckt. Mit dem Fernrohr wird die gelbe Doppellinie des Quecksilberspektrums anvisiert.  Anschließend wird die beleuchtete Fläche des Prismas durch Vorschalten immer kleinerer Blenden soweit verkleinert, dass die Doppellinie gerade noch getrennt werden kann. Daraus wird eine Abschätzung des Auflösungsvermögens bestimmt (vgl. Grundlagen). 
+Zur Abschätzung des Auflösungsvermögens wird eine Schlitzblende auf das Kollimatorrohr gesteckt. Mit dem Fernrohr wird die gelbe Doppellinie des Quecksilberspektrums anvisiert.  Anschließend wird die beleuchtete Fläche des Prismas durch Vorschalten immer kleinerer Blenden soweit verkleinert, dass die Doppellinie gerade noch getrennt werden kann. Daraus wird eine Abschätzung des Auflösungsvermögens bestimmt (vgl. Grundlagen). 
 	
 	
 	\subsection{Auswertung}
@@ -291,8 +293,12 @@
 	
 	Durch Auftragen des Brechungsindex gegen die Wellenlänge erhält man die Dispersionskurve (Abb. \ref{fig:Dispersionskurve}).
 	
-	Die Anpassung der vereinfachten Sellmeier-Formel an die Daten ist in Abbildung \ref{fig:RegressionDispersion} dargestellt. Die Vernachlässigung der violetten Linie bei etwa 404nm wird damit begründet, dass diese Linie schwer zu vermessen war und stark vom näherungsweise linearen Zusammenhang der anderen Datenpunkte abweicht.
-	Das vergleichsweise kleine $\chi^2 / ndof$ legt einen zu großen Fehler auf die Winkelmessung nahe. Dies war allerdings auch zu erwarten, da die Rauschmessung (vgl. Abb. \ref{fig:HistRauschen}) sehr stark und unregelmäßig streut.
+An dieser Kurve wird nun eine Lineare Regression der Form
+\begin{equation}
+n(\lambda) = \dfrac{a}{\lambda^2} + b
+\label{eq:linreg_Prisma}
+\end{equation} durchgeführt. Diese ist in Abblidung
+\ref{fig:RegressionDispersion} dargestellt. Die Vernachlässigung der violetten Linie bei etwa 404nm wird damit begründet, dass diese Linie schwer zu vermessen war und stark vom näherungsweise linearen Zusammenhang der anderen Datenpunkte abweicht.
 \subsubsection{Spektrallinien}
 Im folgenden Versuchsteil soll mithilfe der nun bestimmten Dispersionskurve das Spektrum einer unbekannten Spektrallampe ermittelt werden.
 \begin{table}
@@ -341,7 +347,7 @@ $n$ & $1.72211\pm 0.0006$ & $1.74619\pm 0.0006$ & $1.74952\pm 0.0006$ & $1.75086
 \label{tab:Spekrallinien_Brechungsndex}
 \end{table}
 \paragraph{Ermittlung der Wellenlängen}
-Mithilfe der vorher bestimmten Dispersionskurve wird nun jeder Brechzahl die dazugehörige Wellenlänge zugeordnet. Dabei wird die Gleichung TBD folgendermaßen umgestellt:
+Mithilfe der vorher bestimmten Dispersionskurve wird nun jeder Brechzahl die dazugehörige Wellenlänge zugeordnet. Dabei wird die Gleichung \ref{eq:linreg_Prisma} folgendermaßen umgestellt:
 \begin{equation}
 \lambda = \sqrt{\dfrac{a}{n-b}}
 \end{equation}
@@ -349,7 +355,7 @@ Die Fehlerfortpflanzung auf dieser Formel sieht folgendermaßen aus:
 \begin{equation}
 \sigma_{\lambda} = \sqrt{\left(\dfrac{\sqrt{\dfrac{a}{n-b}}}{2\cdot a}\cdot \sigma_{a}\right)^2 + \left(\dfrac{a}{2\cdot (n-b)^2\cdot \sqrt{\dfrac{a}{n-b}}}\right)^2\cdot (\sigma_n^2 + \sigma_b^2)}
 \end{equation}
-Die sich daraus ergebenen Entwerte sind in Tabelle \ref{tab:Spektrallinien_Endergebnis} aufgelistet.
+Die sich daraus ergebenen Entwerte sind in Tabelle \ref{tab:Spektrallinien_Endergebnis} aufgelistet und wurden in Abbildung \ref{fig:Spektrum_Zink} nochmal visualisiert.
 \begin{table}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
@@ -369,7 +375,7 @@ Standardabw.& 0.43 & 1.63 & 0.49 & 0.21\\
 Die ermittelten Wellenlängen der Spektrallinien haben eine Ungenauigkeit von c.a 1\% und liegen zum größten Teil innerhalb einer Standardabweichung vom Literaturwert entfernt. Es handelt sich also bei der Lampe tatsächlich um eine Zink-Lampe. Die Bestimmung ist also geglückt.
 \begin{figure}
 \includegraphics[scale=0.85]{Bilder/Spektrum_Zink.png}
-\caption{Visualisierung der Messergebnisse und des erwarteten Spektrums mit den Wellenlängen $\lambda = 468nm, 472nm, 481nm, 636nm$}
+\caption{Visualisierung der Messergebnisse und des erwarteten Spektrums mit den Wellenlängen $\lambda = 468nm, 472nm, 481nm, 636nm$. Die senkrechten Linien entsprechen den Literaturwerten und die Punkte mitsamt ihren Ungenauigkeiten den Messergebnissen.}
 \label{fig:Spektrum_Zink}
 \end{figure}
 \subsubsection{Auflösungsvermögen}
