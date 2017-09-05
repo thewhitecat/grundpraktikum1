@@ -99,9 +99,17 @@ n = \frac{sin(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})}
 
 \subsection{Auswertung}
 
-\subsubsection{Dispersionskurve}
-In diesem Teilversuch wurde die Dispersionskurve des verwendeten Prismas mithilfe einer Quecksilber-Cadmium-Lampe vermessen.
-\paragraph{Rohdaten}
+\subsubsection{Rauschmessung}
+
+Das Ergebnis der Rauschmessung zur Bestimmung des statistischen Fehlers für die Winkelmessung findet sich in Tabelle \ref{tab:RauschenPrisma}.
+
+\begin{figure}
+\includegraphics[scale=1.0]{Bilder/HistRauschen.png}
+\caption{Grafische Darstellung der Rauschmessung mit empirischem Mittelwert und empirischer Standardabweichung. Die Bin-Breite entspricht der Ablesegenauigkeit von einer Bogenminute. Die Messung wurde 15 mal durchgeführt.}
+\label{fig:HistRauschen}
+\end{figure}
+
+Die Rauschmessung ergibt eine statistische Unsicherheit auf die $\psi_i$ von $\sigma_{\psi_i} = 0.0017 rad$ bzw. $\sigma_{\psi_i} = 5.8'$ (vgl. Abb \ref{fig:HistRauschen}.)
 
 \begin{table}
 \begin{center}
@@ -147,6 +155,12 @@ $\psi_1$ & $\psi_2$ \\
 \end{center}
 \end{table}
 
+
+\subsubsection{Dispersionskurve}
+In diesem Teilversuch wurde die Dispersionskurve des verwendeten Prismas mithilfe einer Quecksilber-Cadmium-Lampe vermessen.
+
+
+\paragraph{Rohdaten}
 
 \begin{table}
 \begin{center}
@@ -216,8 +230,8 @@ $\lambda =$643.85nm & \\
 \end{center}
 \end{table}
 
-Das Ergebnis der Rauschmessung zur Bestimmung des statistischen Fehlers für die Winkelmessung findet sich in Tabelle \ref{tab:RauschenPrisma}.
-Die Rohdaten der restlichen Spektrallinien, welche Vermessen wurden sind in Tabelle \ref{tab:RohdatenDispersion} dargestellt.
+
+Die Rohdaten der restlichen Spektrallinien, welche Vermessen wurden sind nach Wellenlänge sortiert in Tabelle \ref{tab:RohdatenDispersion} dargestellt.
 
 
 \paragraph{Auswertung}
@@ -262,13 +276,7 @@ $\lambda /nm$ & $\delta_{min} / rad$ & n \\
 \end{figure}
 
 
-\begin{figure}
-\includegraphics[scale=1.0]{Bilder/HistRauschen.png}
-\caption{Grafische Darstellung der Rauschmessung mit empirischem Mittelwert und empirischer Standardabweichung. Die Bin-Breite entspricht der Ablesegenauigkeit von einer Bogenminute. Die Messung wurde 20 mal durchgeführt.}
-\label{fig:HistRauschen}
-\end{figure}
-
-Die Rauschmessung ergibt eine statistische Unsicherheit auf die $\psi_i$ von $\sigma_{\psi_i} = 0.0017 rad$ bzw. $\sigma_{\psi_i} = 5.8'$ (vgl. Abb \ref{fig:HistRauschen}. Wie in der Durchführung beschrieben kann nun aus den Daten die Minimalablenkung $\delta_{min}$ und der entsprechende Fehler, sowie aus diesen der Brechungsindex und seine Unsicherheit für die jeweiligen Wellenlängen berechnet werden.
+Wie in der Durchführung beschrieben kann nun aus den Daten die Minimalablenkung $\delta_{min}$ und der entsprechende Fehler, sowie aus diesen der Brechungsindex und seine Unsicherheit für die jeweiligen Wellenlängen berechnet werden.
 Die Werte sind in Tabelle \ref{tab:AuswertungDispersion} dargestellt.
 
 Durch Auftragen des Brechungsindex gegen die Wellenlänge erhält man die Dispersionskurve (Abb. \ref{fig:Dispersionskurve}).
