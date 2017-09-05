@@ -137,8 +137,9 @@ $\psi_1$ & $\psi_2$ \\
 \hline 
 
 \end{tabular} 
-\label{tab:RauschenPrisma}
+
 \caption{Rohdaten der grün-blauen Cadmiumlinie. Die Messwerte auf $\psi_1$ dienen als Rauschmessung für die statistische Unsicherheit .}
+\label{tab:RauschenPrisma}
 \end{center}
 \end{table}
 
@@ -206,8 +207,8 @@ $\lambda =$643.85nm & \\
 27$^{\circ}$24' &144$^{\circ}$59' \\
 \hline
 \end{tabular}
-\label{tab:RohdatenDispersion}
 \caption{Rohdaten für die Position der beiden Umkehrpunke für die vermessenen Spektrallinien der HgCa-Lampe. Die Wellenlängen sind dem Praktikumsskript (S.19) entnommen worden.}
+\label{tab:RohdatenDispersion}
 \end{center}
 \end{table}
 
@@ -240,28 +241,36 @@ $\lambda /nm$ & $\delta_{min} / rad$ & n \\
 643.85 & 1.0262$\pm$ 0.0007 & 1.7215$\pm$ 0.0004\\
 \hline
 \end{tabular}
-\label{tab:AuswertungDispersion}
 \caption{Ergebnisse der Auswertung. Dargestellt ist der bestimmte minimale Ablenkungswinkel mit Unsicherheit für jede vermessene Linie sowie die sich daraus ergebenden Brechungsindizes.}
+\label{tab:AuswertungDispersion}
 \end{center}
 \end{table}
 
 \begin{figure}
 \includegraphics[scale=1.0]{Bilder/Dispersionskurve.png}
-\label{fig:Dispersionskurve}
-\caption{Die Dispersionskurve des verwendeten Prismas. Die Fehlerbalken auf die n-Werte sind relativ klein und somit nicht erkennbar. Die einzelnen Messpunkte wurden zur Veranschaulichung verbunden.}
+\caption{Die Dispersionskurve des verwendeten Prismas. Die Fehlerbalken auf die n-Werte sind relativ klein und somit nicht erkennbar. Die einzelnen Messpunkte wurden zur Veranschaulichung verbunden.}\label{fig:Dispersionskurve}
 \end{figure}
 
 \begin{figure}
 \includegraphics[scale=1.0]{Bilder/Regression.png}
+\caption{Auftragung von n gegen $1/\lambda^2$. Das beste Anpassung ergab sich für eine Anpassungsgerade der Form $n(\lambda) = \frac{a}{\lambda^2} + b $} und unter Vernachlässigung der violetten Linie bei ca 404nm. Auch hier sind die Fehlerbalken aufgrund der geringen Größe kaum erkennbar.
 \label{fig:RegressionDispersion}
-\caption{Auftragung von n gegen $1/\lambda^2$. Das beste Anpassung ergab sich für eine Anpassungsgerade der Form $n(\lambda) = \frac{a}{\lambda^2} + b $}. Auch hier sind die Fehlerbalken aufgrund der geringen Größe kaum erkennbar.
 \end{figure}
 
 
-Die Rauschmessung ergibt eine statistische Unsicherheit auf die $\psi_i$ von $\sigma_{\psi_i} = 0.0017 rad$ bzw. $\sigma_{\psi_i} = 5.8'$. Wie in der Durchführung beschrieben kann nun aus den Daten die Minimalablenkung $\delta_{min}$ und der entsprechende Fehler, sowie aus diesen der Brechungsindex und seine Unsicherheit für die entsprechenden Wellenlängen berechnet werden.
+\begin{figure}
+\includegraphics[scale=1.0]{Bilder/HistRauschen.png}
+\caption{Grafische Darstellung der Rauschmessung mit empirischem Mittelwert und empirischer Standardabweichung. Die Bin-Breite entspricht der Ablesegenauigkeit von einer Bogenminute. Die Messung wurde 20 mal durchgeführt.}
+\label{fig:HistRauschen}
+\end{figure}
+
+Die Rauschmessung ergibt eine statistische Unsicherheit auf die $\psi_i$ von $\sigma_{\psi_i} = 0.0017 rad$ bzw. $\sigma_{\psi_i} = 5.8'$ (vgl. Abb \ref{fig:HistRauschen}. Wie in der Durchführung beschrieben kann nun aus den Daten die Minimalablenkung $\delta_{min}$ und der entsprechende Fehler, sowie aus diesen der Brechungsindex und seine Unsicherheit für die jeweiligen Wellenlängen berechnet werden.
 Die Werte sind in Tabelle \ref{tab:AuswertungDispersion} dargestellt.
 
 Durch Auftragen des Brechungsindex gegen die Wellenlänge erhält man die Dispersionskurve (Abb. \ref{fig:Dispersionskurve}).
+
+Die Anpassung der vereinfachten Sellmeier-Formel an die Daten ist in Abbildung \ref{fig:RegressionDispersion} dargestellt. Die Vernachlässigung der violetten Linie bei etwa 404nm wird damit begründet, dass diese Linie schwer zu vermessen war und stark vom näherungsweise linearen Zusammenhang der anderen Datenpunkte abweicht.
+Das vergleichsweise kleine $\chi^2 / ndof$ legt einen zu großen Fehler auf die Winkelmessung nahe. Dies war allerdings auch zu erwarten, da die Rauschmessung (vgl. Abb. \ref{fig:HistRauschen}) sehr stark und unregelmäßig streut.
 
 
 
