@@ -294,6 +294,7 @@
 	Die Anpassung der vereinfachten Sellmeier-Formel an die Daten ist in Abbildung \ref{fig:RegressionDispersion} dargestellt. Die Vernachlässigung der violetten Linie bei etwa 404nm wird damit begründet, dass diese Linie schwer zu vermessen war und stark vom näherungsweise linearen Zusammenhang der anderen Datenpunkte abweicht.
 	Das vergleichsweise kleine $\chi^2 / ndof$ legt einen zu großen Fehler auf die Winkelmessung nahe. Dies war allerdings auch zu erwarten, da die Rauschmessung (vgl. Abb. \ref{fig:HistRauschen}) sehr stark und unregelmäßig streut.
 \subsubsection{Spektrallinien}
+Im folgenden sollte mithilfe der bestimmten Dispersionskurve das Spektrum einer unbekannten Spektrallampe ermittelt werden.
 \begin{table}
 \begin{tabular}{|c|c|c||c|c|c|}
 \hline 
@@ -315,14 +316,14 @@ Linie 2(blau) & $24^\circ 22'$ & $147^\circ 53'$ & Linie 4(blau) & $23^\circ 59'
 \end{table}
 
 \paragraph{Bestimmung des Brechungsindex}
-Die Bestimmung des Brechungsindexes verläuft analog zum vorherigen Teilversuch. Die ermittelten Winkel sind in Tabelle \ref{tab:Spektrallinien_rohdaten} aufgelistet.
+Die Bestimmung der Brechungsindizes verläuft analog zum vorherigen Teilversuch. Die ermittelten Winkel sind in Tabelle \ref{tab:Spektrallinien_rohdaten} aufgelistet.
 Der Fehler auf diesen Werten folgt weiterhin aus der Rauschmessung und beträgt
 \begin{equation}
-\sigma_{\psi} = TBD
+\sigma_{\psi} = 0.0017 rad
 \end{equation}\\
 und der Fehler auf $\delta_{min}$
 \begin{equation}
-\sigma_{\delta} = TBD
+\sigma_{\delta} = 0.0008 rad
 \end{equation}\\
 Die errechneten Ergebnisse für $\delta_{min}$ und den Brechungsindex n sind in Tabelle \ref{tab:Spekrallinien_Brechungsndex} aufgelistet.
 
@@ -354,7 +355,7 @@ Die sich daraus ergebenen Entwerte sind in Tabelle \ref{tab:Spektrallinien_Ender
 \hline
  & Linie 1 & Linie 2 & Linie 3 & Linie 4\\
 \hline
-$\lambda [nm]TBD$ & $634.08\pm 7.13 $ & $487.17\pm 5.02$ & $473.96\pm 4.74$ & $468.94\pm 4.46$\\
+$\lambda [nm]$ & $634.08\pm 5.02 $ & $487.17\pm 3.74$ & $473.96\pm 3.53$ & $468.94\pm 4.45$\\
 \hline
 Literaturwerte[nm] & 636.23 & 481.05 & 472.22 & 468.01\\
 \hline
@@ -365,6 +366,7 @@ Standardabw.& 0.30 & 1.22 & 0.37 & 0.21\\
 \label{tab:Spektrallinien_Endergebnis}
 \end{table}
 \paragraph{Fazit}
+Die ermittelten Wellenlängen der Spektrallinien haben eine Ungenauigkeit von c.a 1\% und liegen zum größten Teil innerhalb einer Standardabweichung vom Literaturwert entfernt. Es handelt sich also bei der Lampe tatsächlich um eine Zink-Lampe. Die Bestimmung ist also geglückt.
 \begin{figure}
 \includegraphics[scale=0.85]{Bilder/Spektrum_Zink.png}
 \caption{Visualisierung der Messergebnisse und des erwarteten Spektrums mit den Wellenlängen $\lambda = 468nm, 472nm, 481nm, 636nm$}
@@ -372,6 +374,34 @@ Standardabw.& 0.30 & 1.22 & 0.37 & 0.21\\
 \end{figure}
 
 \subsubsection{Auflösungsvermögen}
+\paragraph{Auswertung}
+Das Auflösungsvermögen wird mithilfe folgender Formel bestimmt:
+\begin{equation}
+A = \dfrac{dn}{d\lambda}\cdot 2\cdot a\cdot\dfrac{sin\left(\dfrac{\epsilon}{2}\right)}{cos\left(\dfrac{\delta_{min}+\epsilon}{2}\right)}
+\end{equation}
+Die Steigung ergibt sich dabei durch Ableiten der Dispersionskurve an der Stelle $\lambda = 579.07 nm$. Das zu dieser Wellenlänge gehörige $\delta_{min}$ wurde ebenfalls bereits in 1.Teilversuch bestimmt und kann in Tabelle \ref{tab:AuswertungDispersion} abgelesen werden. \\
+Der Faktor a beschreibt die Breite des Spaltes. Diese wurde im Versuch von 6 mm an immer um 0.5 mm verkleinert, bis die Aufspaltung der Linien nicht mehr sichtbar war. Die Ergebnisse sind in Tabelle \ref{tab:Auflosung_Prisma} angegeben.
+\begin{table}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+a[mm] & 6 & 5.5 & ... & 1.5 & 1 & 0.5\\
+\hline
+Trennbar? & ja & ja & ja & ja & gerade so & nein\\
+\hline
+\end{tabular}
+\caption{Überprüfung der Auflösbarkeit der beiden gelben Spektrallinien ($\lambda = 579.07nm und \lambda = 576.96nm$). Ab einer Spaltbreite von 0.5 mm konnte man die Linien nicht mehr unterscheiden.}
+\label{tab:Auflosung_Prisma}
+\end{table}
+	Wegen der sehr großen Abständen zwischen den Spaltbreiten macht eine Fehlerbetrachtung keinen Sinn.\\
+	Für die experimentell bestimmte Auflösung folgt:
+	\begin{equation}
+	A \approx 286
+	\end{equation}
+	Der theoretisch erwartete Wert beträgt:
+	\begin{equation}
+	A = \dfrac{\lambda}{\Delta \lambda} = \dfrac{579.1 nm}{2.1 nm} = 276
+	\end{equation}
+	Wegen der hohen Ungenauigkeit kann man annehmen, dass der ermittelte Wert mit der theoretischen Erwartung übereinstimmt.
 	\paragraph{Auswertung}
 	Das Auflösungsvermögen wird mithilfe folgender Formel bestimmt:
 	\begin{equation}
