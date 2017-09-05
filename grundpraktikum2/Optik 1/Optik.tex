@@ -65,7 +65,8 @@ A = \dfrac{dn}{d\lambda}\cdot 2\cdot a\cdot\dfrac{sin\left(\dfrac{\epsilon}{2}\r
 	wobei $\frac{dn}{d\lambda}$ die Dispersion des Prismas und a die Breite der beleuchteten Fläche auf dem Prisma ist.
 
 \begin{figure}
-\includegraphics[scale=1.0]{Bilder/prisma}
+\centering
+\includegraphics[scale=1.1]{Bilder/prisma}
 \caption{Strahlengang im Prisma}
 \label{fig:Prisma}
 \end{figure}
@@ -294,13 +295,15 @@ Die Rauschmessung ergibt eine statistische Unsicherheit auf die $\psi_i$ von
 	\end{table}
 	
 	\begin{figure}
-		\includegraphics[scale=1.0]{Bilder/Dispersionskurve.png}
+		\centering
+		\includegraphics[scale=0.88]{Bilder/Dispersionskurve.png}
 		\caption{Die Dispersionskurve des verwendeten Prismas. Die Fehlerbalken auf die n-Werte sind relativ klein und somit nicht erkennbar. Die einzelnen Messpunkte wurden zur Veranschaulichung verbunden.}\label{fig:Dispersionskurve}
 	\end{figure}
 	
 	\begin{figure}
-		\includegraphics[scale=1.0]{Bilder/Regression.png}
-		\caption{Auftragung von n gegen $1/\lambda^2$. Das beste Anpassung ergab sich für eine Anpassungsgerade der Form $n(\lambda) = \frac{a}{\lambda^2} + b $} und unter Vernachlässigung der violetten Linie bei ca 404nm. Auch hier sind die Fehlerbalken aufgrund der geringen Größe kaum erkennbar.
+		\centering
+		\includegraphics[scale=0.88]{Bilder/Regression.png}
+		\caption{Auftragung von n gegen $1/\lambda^2$. Das beste Anpassung ergab sich für eine Anpassungsgerade der Form $n(\lambda) = \frac{a}{\lambda^2} + b $ und unter Vernachlässigung der violetten Linie bei ca 404nm. Auch hier sind die Fehlerbalken aufgrund der geringen Größe kaum erkennbar.}
 		\label{fig:RegressionDispersion}
 	\end{figure}
 	
@@ -323,6 +326,7 @@ Die Bestimmung der Brechungsindizes ist mit einer relativen Unsicherheit im Subp
 \subsubsection{Spektrallinien}
 Im folgenden Versuchsteil soll mithilfe der nun bestimmten Dispersionskurve das Spektrum einer Spektrallampe untersucht werden werden. In unserem Fall war dies eine Zink-Lampe.
 \begin{table}
+\centering
 \begin{tabular}{|c|c|c||c|c|c|}
 \hline 
  & $\psi_1$ & $\psi_2$ & & $\psi_1$ & $\psi_2$ \\ 
@@ -352,6 +356,7 @@ und der Fehler auf $\delta_{min}$ durch Gleichung \ref{eq:Fehler_delta}
 Die errechneten Ergebnisse für $\delta_{min}$ und den Brechungsindex n sind in Tabelle \ref{tab:Spekrallinien_Brechungsndex} aufgelistet.
 
 \begin{table}
+\centering
 \begin{tabular}{|c|c|c|c|c|}
 \hline
  & Linie 1 & Linie 2 & Linie 3 & Linie 4\\
@@ -375,6 +380,7 @@ Die Fehlerfortpflanzung auf dieser Formel sieht folgendermaßen aus:
 \end{equation}
 Die sich daraus ergebenen Endwerte sind in Tabelle \ref{tab:Spektrallinien_Endergebnis} aufgelistet und wurden in Abbildung \ref{fig:Spektrum_Zink} nochmal visualisiert.
 \begin{table}
+\centering
 \begin{tabular}{|c|c|c|c|c|}
 \hline
  & Linie 1 & Linie 2 & Linie 3 & Linie 4\\
@@ -402,6 +408,7 @@ Das Auflösungsvermögen wird mithilfe von Formel \ref{eq:Auflosung} bestimmt.
 Die Steigung ergibt sich dabei durch Ableiten der Dispersionskurve an der Stelle $\lambda = 579.07 nm$. Das zu dieser Wellenlänge gehörige $\delta_{min}$ wurde ebenfalls bereits in 1.Teilversuch bestimmt und kann in Tabelle \ref{tab:AuswertungDispersion} abgelesen werden. \\
 Der Faktor a beschreibt die Breite des Spaltes. Diese wurde im Versuch von 6 mm an immer um 0.5 mm verkleinert, bis die Aufspaltung der Linien nicht mehr sichtbar war. Die Ergebnisse sind in Tabelle \ref{tab:Auflosung_Prisma} angegeben.
 \begin{table}
+\centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
 a[mm] & 6 & 5.5 & ... & 1.5 & 1 & 0.5\\
@@ -427,14 +434,14 @@ Wegen der hohen Ungenauigkeit kann man annehmen, dass der ermittelte Wert mit de
 	
 \subsection{Fazit}
 Der prinzipielle Verlauf der Dispersionskurve entspricht der Erwartung im sichtbaren Bereich. Auch die lineare Anpassung an die Sellmeier-Formel ist mit einem $\chi^2/ndof$ von 0,86 gut gelungen.\\
-Die Bestimmung des Spektrums der Zinklampe ergab die Wellenlängen $634nm, 487nm, 473 nm, 469nm $. Diese wurden bis auf 1\% genau bestimmt. Drei der vier Ergebnisse liegen weniger als eine Standardabweichung von den Literaturwerten von Zink entfernt. Sie stimmen also mit den erwarteten Werten überein.\\
+Die Bestimmung des Spektrums der Zinklampe ergab die Wellenlängen 634\,nm, 487\,nm, 473\,nm, 469\,nm . Diese wurden bis auf 1\% genau bestimmt. Drei der vier Ergebnisse liegen weniger als eine Standardabweichung von den Literaturwerten von Zink entfernt. Sie stimmen also mit den erwarteten Werten überein.\\
 Das Auflösungsvermögen des Prismas ist ungefähr 286. Auch dies entspricht der Erwartung.
 	
 \newpage
 \section{Gitterspektrometer}
 
 \subsection{Grundlagen}
-\subsubsection{Beugung am Gitter}
+\paragraph{Beugung am Gitter}
 Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungsmuster ist ähnlich dem der Beugung an einem Doppelspalt. Allerdings hat das Gitter gegenüber dem Doppelspalt einige Vorteile: Durch die hohe Anzahl der Spalte ist die durchgelassene Intensität deutlich höher als bei einem Doppelspalt. Zudem ermöglicht dies schmalere Spalte, welches eine besser Auflösung ermöglicht.\\
 	\begin{figure}
 		\begin{center}
@@ -455,7 +462,7 @@ Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungs
 	\label{eq:VerallgemeinerteMaximumsbedingung}
 	\end{equation}
 	
-	\subsubsection{Auflösungsvermögen eines Gitters}
+	\paragraph{Auflösungsvermögen eines Gitters}
 	Für die Trennung zweier nah beieinander liegender Spektrallinien $\lambda$ und $\lambda + \Delta \lambda$ müssen nach dem Rayleigh-Kriterium das erste Beugungsmaximum der ersten Linie mit dem ersten Beugungsminimum der zweiten Linie zusammenfallen. Aus dieser Bedingung lässt sich für das Auflösungsvermögen eines Gitters die Beziehung
 	\begin{equation}
 	A \equiv \dfrac{\lambda}{\Delta \lambda} = n \cdot N
@@ -466,7 +473,7 @@ Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungs
 	\subsection{Aufbau und Durchführung}
 	\begin{figure}
 		\begin{center}
-			\includegraphics[scale=0.5]{Bilder/Schematischer_Aufbau_Gitterspektrometer.PNG}
+			\includegraphics[scale=0.6]{Bilder/Schematischer_Aufbau_Gitterspektrometer.PNG}
 		\end{center}
 		\caption[Gitterspektrometer Aufbau Schema]{Schematische Darstellung des Versuchaufbaus der Beugung an einem Gitter}
 		\label{fig:Versuchsaufbau_Gitterbeugung_Schema}
@@ -478,8 +485,8 @@ Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungs
 	Zur Bestimmung der Wellenlänge der Spektrallinien einer anderen Lampe wird muss die Lampe ausgewechselt werden. Da hier eine Quecksilber-Cadmium Lampe verwendet wurde, muss darauf geachtet werden, dass nur die Quecksilber-Linien sinnvoll vermessen werden können. Die Durchführung ist identisch zu der Durchführung der Messung der Gitterkonstanten.\\
 	Zur Bestimmung des Auflösungsvermögens wird die Lampe durch eine andere ausgetauscht, die zwei nah beieinander liegende Spektrallinien hat. Hier wurden die beiden roten Linien der Natrium-Lampe verwendet. Es wird eine Leiste mit unterschiedlichen Blenden auf das Kollimatorrohr angebracht. Die Blenden haben Breiten in 0,5mm Schritten startend bei 0,5mm.\\
 	Die rote Doppellinie wird in erster Ordnung angefahren und in dem Okular so gelegt, dass sie gut sichtbar nicht zu weit am Rand liegt. Es ist darauf zu achten, dass das Fadenkreuz am Okular nicht die beiden Linien trennt. Anschließend wird in der Leiste der Blenden nach und nach eine kleinere Blende eingestellt und immer wieder überprüft, ob die beiden Linien noch getrennt werden können oder nicht.
-	
-	\subsection{Bestimmung der Gitterkonstanten}
+	\subsection{Auswertung}
+	\subsubsection{Gitterkonstante}
 	
 	\begin{table}
 		\begin{center}
@@ -581,9 +588,9 @@ Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungs
 		\label{fig:Fit_Gitterkonstante}
 	\end{figure}
 	
-	Die gemessenen Winkel der nullten Ordnung sind in Tabelle \ref{tab:RohdatenRauschmessungGitter} aufgeführt. Aus den Winkel lassen sich Mittelwert und Fehler bestimmen zu:
+	Die gemessenen Winkel der nullten Ordnung sind in Tabelle \ref{tab:RohdatenRauschmessungGitter} aufgeführt. Aus den Winkeln lassen sich Mittelwert und Fehler bestimmen zu:
 	\begin{equation*}
-	\bar{\alpha} = 84^{\circ} \quad 32,5' \qquad und \qquad \sigma_{\alpha} = 1,02'
+	\bar{\alpha} = 84^{\circ} \; 32,5' \qquad und \qquad \sigma_{\alpha} = 1,02'
 	\end{equation*}
 	Das Histogramm in Abbildung \ref{fig:Rauschmessung_Winkel_Gitter} zeigt, dass die gemessenen Winkel der nullten Ordnung einer Gaußverteilung folgen.
 	
@@ -627,13 +634,13 @@ d_{Hersteller} = \dfrac{1}{600} \dfrac{mm}{Strich} = 1666,\bar{6} nm
 \end{equation*}
 Das Messergebnis liegt damit knapp 23$\sigma$ neben der Herstellerangabe. Diese Abweichung ist nicht verwunderlich, da der relative Fehler auf die gemessene Gitterkonstante mit ca. 0,205 \textperthousand $\;$ sehr klein ist.
 	
-	\subsection{Bestimmung der Wellenlänge}
+	\subsubsection{Bestimmung von Spektrallinien}
 	
 	Die gemessenen Winkel der Spektrallinien sind in Tabelle \ref{tab:rohdaten_wellenlängen} dargestellt. Als statistischer Fehler auf die Einzelmessung wird weiterhin $\sigma_{einzel} = \SI{0.000295}{rad}$ angenommen (siehe Bestimmung Gitterkonstante). Da alle Winkel doppelt gemessen wurden ergibt sich für die Winkel relativ zur Nullten Ordnung
 	\begin{equation}
 	\theta_{gesucht} = \theta_{Nullte\;Ordnung} - \theta_{Andere\;Ordnung}
 	\end{equation}
-	und damit
+	und damit für die Mittelwerte aus den je zwei Messungen
 	\begin{equation}
 	\sigma_{stat} = \frac{\sqrt{2}}{\sqrt{2}} \sigma_{einzel} = \sigma_{einzel}.
 	\end{equation}
@@ -739,12 +746,12 @@ Das Messergebnis liegt damit knapp 23$\sigma$ neben der Herstellerangabe. Diese 
 	
 	\begin{figure}
 		\centering
-		\includegraphics[scale=1.0]{Bilder/Gitter_Regression_Wellenlaengen_Linie_4.png}
+		\includegraphics[scale=0.9]{Bilder/Gitter_Regression_Wellenlaengen_Linie_4.png}
 		\caption{Dargestellt sind die gemessenen Winkel einer Spektrallinie gegen die Ordnung mit linearem Fit. Daraus ergibt sich die Wellenlänge der Linie mit statistischem Fehler.}
 		\label{fig:fit_wellenlaengen}
 	\end{figure}
 	
-	Die Ergebnisse mit statistischem sowie systematischen Fehler sind in Tabelle \ref{tab:ergebnisse_wellenlängen} zusammengefasst.
+	Die Ergebnisse mit statistischem sowie systematischen Fehler sind in Tabelle \ref{tab:ergebnisse_wellenlängen} mit Literaturwerten von entsprechenden Quecksilberlinien zusammengefasst.
 	
 	\begin{table}
 		\centering
@@ -768,9 +775,9 @@ Das Messergebnis liegt damit knapp 23$\sigma$ neben der Herstellerangabe. Diese 
 		\label{tab:ergebnisse_wellenlängen}
 	\end{table}
 	
-	Unsere Messwerte stimmen im Rahmen ihrer Fehler mit den Literaturwerten überein.
+	Unsere Messwerte stimmen im Rahmen ihrer Fehler mit den Literaturwerten überein. Daher kann bestätigt werden, dass es sich bei der Lampe um eine Quecksilberlampe handelt.
 	
-	\subsection{Bestimmung der Auflösung}
+	\subsubsection{Auflösungsvermögen}
 	
 	Die verwendete Natrium D Doppellinie mit einem Abstand von \SI{0.59}{nm} erfordert ein Auflösungsvermögen von A = $\frac{\lambda}{\Delta\lambda} \approx 1000 $, um beide Linien voneinander trennen zu können.
 	
@@ -797,10 +804,12 @@ Das Messergebnis liegt damit knapp 23$\sigma$ neben der Herstellerangabe. Diese 
 		\label{tab:gitter_auflösung}
 	\end{table}
 	
-\subsection{Zusammenfassung}
+\subsection{Fazit}
 Die Rauschmessung für die Winkelbestimmung ergab einen Fehler in der erwarteten Größenordnung einer Bogenminute.\\
 Das Gitter wurde beim Versuchsaufbau offenbar nicht senkrecht zum einfallenden Strahl gestellt. Hier gab es eine Abweichung von 6$^{\circ}$. Dieser Fehler kann allerdings rausgerechnet werden, daher hat dies keinen Einfluss auf das Endergebnis.\\
-Die Gitterkonstante konnte mit einem relativen Fehler von gerade einmal 0,205 \textperthousand $\;$ bestimmt werden, obwohl das $\chi ^2$ pro Freiheitsgrad mit ca. 6 nicht so schlecht ist. Die Abweichung von der Herstellerangabe liegt bei ca. 4,654 \textperthousand $\;$. Dies entspricht ca. 23 Standardabweichungen. Die Gitterkonstante konnte also mit geringer relativer Abweichung von der Herstellerangabe und sehr sehr kleinem Fehler bestimmt werden.
+Die Gitterkonstante konnte mit einem relativen Fehler von gerade einmal 0,205 \textperthousand $\;$ bestimmt werden, obwohl das $\chi ^2$ pro Freiheitsgrad mit ca. 6 nicht so schlecht ist. Die Abweichung von der Herstellerangabe liegt bei ca. 4,654 \textperthousand $\;$. Dies entspricht ca. 23 Standardabweichungen. Die Gitterkonstante konnte also mit geringer relativer Abweichung von der Herstellerangabe und sehr sehr kleinem Fehler bestimmt werden. Daher ist es wahrscheinlich, dass das Gitter tatsächlich eine Abweichung von den angegebenen 600 Linien pro Millimeter hatte.\\
+Auch die Bestimmung der Wellenlängen von Spektrallinien ist gut gelungen und alle Linien konnten im Rahmen der Unsicherheiten mit Quecksilberlinien identifiziert werden.\\
+Die Natriumdoppellinie konnte je nach Blende aufgelöst werden. Damit entsprach das Auflösungsvermögen des Gitters ebenfalls den Erwartungen.
 	
 	
 \end{document}
