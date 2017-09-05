@@ -61,21 +61,30 @@ An einem Prisma ergibt sich für das Auflösungsvermögen der Zusammenhang
 A = \frac{dn}{d\lambda} 2a \frac{sin(\frac{\epsilon}{2})}{cos(\frac{\delta_{min}+\epsilon}{2})}
 \end{equation}
 
-
+wobei $\frac{dn}{d\lambda}$ die Dispersion des Prismas und a die Breite der beleuchteten Fläche auf dem Prisma ist.
 
 
 
 \subsection{Aufbau und Durchführung}
-Durch eine Kollimatorlinse werden ebene Wellenfronten erzeugt. Diese werden mit dem einem Drehteller befindlichen Prisma gebrochen. Das gebrochene Spaltbild wird mit einem schwenkbaren Fernrohr beobachtet. Die relative Position des Fernrohrs kann dabei auf 1' genau abgelesen werden.
+Durch eine Kollimatorlinse werden aus dem Licht der Spektrallampe ebene Wellenfronten erzeugt. Diese werden mit dem einem Drehteller befindlichen Prisma gebrochen. Das gebrochene Spaltbild wird mit einem schwenkbaren Fernrohr beobachtet. Die relative Position des Fernrohrs kann dabei auf 1' genau abgelesen werden.
+Der Aufbau ist in Abbildung gezeigt.
 
-In diesem Versuch werden zunächst die Minimalablenkungen des Prismas für mehrere Spektrallinien bestimmt.
-Durch gleichsinniges Drehen von Prismenteller und Fernrohr wandern auch die Spektrallinien, zunächst in die eine und dann in die andere Richtung. Der Umkehrpunkt entspricht dabei der Minimalablenkung. Man wiederholt die Messung, diesmal trifft das Licht allerdings auf der anderen Prismenseite auf. Dann gilt für die Minimalablenkung
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1.0]{Bilder/AufbauPrisma}
+\caption{Aufbau des Versuches. Auf dem Kollimatorrohr befindet sich eine Schlitzblende, welche nur im Versuch zum Auflösungsvermögen verwendet wurde. Das Bild wurde dem Praktikumsskript entnommen (S.21)}
+\label{fig:AufbauPrisma}
+\end{center}
+\end{figure}
+
+In den ersten beiden Teilversuchen werden zunächst die Minimalablenkungen des Prismas für bestimmte Spektrallinien bestimmt.
+Durch gleichsinniges Drehen von Prismenteller und Fernrohr wandern auch die Spektrallinien, zunächst in die eine und dann in die andere Richtung. Der Umkehrpunkt entspricht dabei der Minimalablenkung. Die entsprechende Spektrallinie wird mit dem Fernrohr anvisiert und die relative Position notiert. Man wiederholt die Messung, diesmal trifft das Licht allerdings auf der anderen Prismenseite auf. Dann gilt für die Minimalablenkung
 
 \begin{equation}
 2 \delta_{min} = \psi_2-\psi_1
 \end{equation}
 
-wobei $\psi_i$ die Umkehrpunkte sind.
+wobei $\psi_i$ die relativen Positionen der Umkehrpunkte sind.
 Zur Bestimmung der statistischen Unsicherheit auf die $\psi_i$ wurde eine Rauschmessung an der $\psi_1$-Position der blau-grünen Cadmiumlinie ($\lambda=508,58nm$) durchgeführt.
 
 Für die übrigen Positionen der Spektrallinien wurde die Messung drei (bzw. fünf) mal wiederholt. Der Fehler auf die sich so ergebenden Mittelwert ist dann $\sigma_{\psi}=\frac{\sigma_{psi}}{\sqrt{N}}$.
@@ -83,18 +92,23 @@ Für die übrigen Positionen der Spektrallinien wurde die Messung drei (bzw. fü
 Es ergeben sich damit die Minimalablenkungen und der Fehler auf selbige für jede vermessene Spektrallinie.
 
 \begin{equation}
-\sigma_{\delta} = \sqrt{\sigma_{\psi_1}^2+\sigma_{psi_2}^2}
+\sigma_{\delta} = \frac{\sqrt{\sigma_{\psi_1}^2+\sigma_{\psi_2}^2}}{\sqrt{2}}
 \end{equation}
 
-Damit folgt für die Brechungsindizes bei den entsprechenden Wellenlängen::
+Damit folgt für die Brechungsindizes bei den entsprechenden Wellenlängen der Zusammenhang (vgl. Grundlagen):
 
 \begin{equation}
 n = \frac{sin(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})}
 \end{equation}
 
+Die Unsicherheit ergibt sich mittels Gaußscher Fehlerfortpflanzung:
+
 \begin{equation}
-\sigma_n = \frac{cos(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})} \frac{\delta_{min}}{2}
+\sigma_n = \frac{cos(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})} \frac{\sigma_{\delta_{min}}}{2}
 \end{equation}
+
+
+Zur Abschätzung des Auflösungsvermögens wird eine Schlitzblende auf das Kollimatorrohr gesteckt. Mit dem Fernrohr wird die gelbe Doppellinie des Quecksilberspektrums anvisiert.  Anschließend wird die beleuchtete Fläche des Prismas durch Vorschalten immer kleinerer Blenden soweit verkleinert, dass die Doppellinie gerade noch getrennt werden kann. Daraus wird eine Abschätzung des Auflösungsvermögens bestimmt (vgl. Grundlagen). 
 
 
 \subsection{Auswertung}
