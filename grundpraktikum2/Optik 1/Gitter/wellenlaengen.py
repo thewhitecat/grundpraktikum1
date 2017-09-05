@@ -12,7 +12,7 @@ for i in range(5):
     
 
 # Nummer der bearbeiteten Linie
-nummer = 1
+nummer = 4
 
 
 n = nummer -1
@@ -48,5 +48,31 @@ plt.ylabel("Residuen [$nm$]")
 plt.xlabel("n")
 
 
+# Verschiebemethode, wegen sys Fehler auf d
+sys = np.sin(winkel)*1e9*std_d
+a2, ea2, b2, eb2, chi22 = p.lineare_regression_festes_b(ordnung, d*np.sin(winkel)*1e9 + sys, np.full(len(ordnung),0.0), yerr*1e9)
+a1, ea1, b1, eb1, chi21 = p.lineare_regression_festes_b(ordnung, d*np.sin(winkel)*1e9 - sys, np.full(len(ordnung),0.0), yerr*1e9)
+
+sig_sys = (np.abs(a1-a) + np.abs(a2-a))/2
+
+
+
+"""
 # direkt ausrechnen und mitteln
-wellenlaenge = d*np.sin(winkel)/ordnung
+# Nullte Ordnung
+theta_0 = bogenmass(84,(35+53)/2)
+
+grad = np.array([ linien[n][1:,1], linien[n][1:,3] ])
+minuten = np.array([ linien[n][1:,2], linien[n][1:,4] ])
+ordnung = np.array([ linien[n][1:,0] , linien[n][1:,0] ])
+
+winkel = theta_0 - bogenmass(grad, minuten)
+std_stat = 0.000298
+
+wellenlaenge = d * np.sin(winkel) / ordnung
+sig_stat = d * np.cos(winkel)/np.abs(ordnung) * std_stat
+sig_sys = np.sin(winkel)/ordnung * std_d
+mittelwert = np.mean(wellenlaenge.flatten()) * 1e9
+std = np.std(wellenlaenge.flatten()) * 1e9
+std_sys = np.mean(sig_sys.flatten()) * 1e9
+"""

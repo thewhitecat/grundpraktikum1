@@ -61,21 +61,30 @@ An einem Prisma ergibt sich für das Auflösungsvermögen der Zusammenhang
 A = \frac{dn}{d\lambda} 2a \frac{sin(\frac{\epsilon}{2})}{cos(\frac{\delta_{min}+\epsilon}{2})}
 \end{equation}
 
-
+wobei $\frac{dn}{d\lambda}$ die Dispersion des Prismas und a die Breite der beleuchteten Fläche auf dem Prisma ist.
 
 
 
 \subsection{Aufbau und Durchführung}
-Durch eine Kollimatorlinse werden ebene Wellenfronten erzeugt. Diese werden mit dem einem Drehteller befindlichen Prisma gebrochen. Das gebrochene Spaltbild wird mit einem schwenkbaren Fernrohr beobachtet. Die relative Position des Fernrohrs kann dabei auf 1' genau abgelesen werden.
+Durch eine Kollimatorlinse werden aus dem Licht der Spektrallampe ebene Wellenfronten erzeugt. Diese werden mit dem einem Drehteller befindlichen Prisma gebrochen. Das gebrochene Spaltbild wird mit einem schwenkbaren Fernrohr beobachtet. Die relative Position des Fernrohrs kann dabei auf 1' genau abgelesen werden.
+Der Aufbau ist in Abbildung \ref{fig:AufbauPrisma} gezeigt.
 
-In diesem Versuch werden zunächst die Minimalablenkungen des Prismas für mehrere Spektrallinien bestimmt.
-Durch gleichsinniges Drehen von Prismenteller und Fernrohr wandern auch die Spektrallinien, zunächst in die eine und dann in die andere Richtung. Der Umkehrpunkt entspricht dabei der Minimalablenkung. Man wiederholt die Messung, diesmal trifft das Licht allerdings auf der anderen Prismenseite auf. Dann gilt für die Minimalablenkung
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1.0]{Bilder/AufbauPrisma}
+\caption{Aufbau des Versuches. Auf dem Kollimatorrohr befindet sich eine Schlitzblende, welche nur im Versuch zum Auflösungsvermögen verwendet wurde. Das Bild wurde dem Praktikumsskript entnommen (S.21)}
+\label{fig:AufbauPrisma}
+\end{center}
+\end{figure}
+
+In den ersten beiden Teilversuchen werden zunächst die Minimalablenkungen des Prismas für bestimmte Spektrallinien bestimmt.
+Durch gleichsinniges Drehen von Prismenteller und Fernrohr wandern auch die Spektrallinien, zunächst in die eine und dann in die andere Richtung. Der Umkehrpunkt entspricht dabei der Minimalablenkung. Die entsprechende Spektrallinie wird mit dem Fernrohr anvisiert und die relative Position notiert. Man wiederholt die Messung, diesmal trifft das Licht allerdings auf der anderen Prismenseite auf. Dann gilt für die Minimalablenkung
 
 \begin{equation}
 2 \delta_{min} = \psi_2-\psi_1
 \end{equation}
 
-wobei $\psi_i$ die Umkehrpunkte sind.
+wobei $\psi_i$ die relativen Positionen der Umkehrpunkte sind.
 Zur Bestimmung der statistischen Unsicherheit auf die $\psi_i$ wurde eine Rauschmessung an der $\psi_1$-Position der blau-grünen Cadmiumlinie ($\lambda=508,58nm$) durchgeführt.
 
 Für die übrigen Positionen der Spektrallinien wurde die Messung drei (bzw. fünf) mal wiederholt. Der Fehler auf die sich so ergebenden Mittelwert ist dann $\sigma_{\psi}=\frac{\sigma_{psi}}{\sqrt{N}}$.
@@ -83,18 +92,23 @@ Für die übrigen Positionen der Spektrallinien wurde die Messung drei (bzw. fü
 Es ergeben sich damit die Minimalablenkungen und der Fehler auf selbige für jede vermessene Spektrallinie.
 
 \begin{equation}
-\sigma_{\delta} = \sqrt{\sigma_{\psi_1}^2+\sigma_{psi_2}^2}
+\sigma_{\delta} = \frac{\sqrt{\sigma_{\psi_1}^2+\sigma_{\psi_2}^2}}{\sqrt{2}}
 \end{equation}
 
-Damit folgt für die Brechungsindizes bei den entsprechenden Wellenlängen::
+Damit folgt für die Brechungsindizes bei den entsprechenden Wellenlängen der Zusammenhang (vgl. Grundlagen):
 
 \begin{equation}
 n = \frac{sin(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})}
 \end{equation}
 
+Die Unsicherheit ergibt sich mittels Gaußscher Fehlerfortpflanzung:
+
 \begin{equation}
-\sigma_n = \frac{cos(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})} \frac{\delta_{min}}{2}
+\sigma_n = \frac{cos(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})} \frac{\sigma_{\delta_{min}}}{2}
 \end{equation}
+
+
+Zur Abschätzung des Auflösungsvermögens wird eine Schlitzblende auf das Kollimatorrohr gesteckt. Mit dem Fernrohr wird die gelbe Doppellinie des Quecksilberspektrums anvisiert.  Anschließend wird die beleuchtete Fläche des Prismas durch Vorschalten immer kleinerer Blenden soweit verkleinert, dass die Doppellinie gerade noch getrennt werden kann. Daraus wird eine Abschätzung des Auflösungsvermögens bestimmt (vgl. Grundlagen). 
 
 
 \subsection{Auswertung}
@@ -392,11 +406,9 @@ Wegen der hohen Ungenauigkeit kann man annehmen, dass der ermittelte Wert mit de
 
 
 \subsection{Fazit}
-to be continued
-
-
-
-
+Der prinzipielle Verlauf der Dispersionskurve entspricht der Erwartung im sichtbaren Bereich.
+Die bestimmten Unsicherheiten auf die Brechungsindizes sind vermutlich zu groß. Unterstützt wird diese Vermutung durch das kleine $\chi^2/ndof$ in der Anpassung der Sellmeier-Formel.
+Die sehr stark und unregelmäßig streuende Rauschmessung ist dabei ursächlich für die zu großen Fehler.
 
 
 \newpage
@@ -443,12 +455,153 @@ herleiten. Dabei ist $n$ die Ordnung des betrachteten Maximums und $N$ die Zahl 
 Abbildung \ref{fig:Versuchsaufbau_Gitterbeugung_Schema} zeigt schematisch den Aufbau eines Gitterspektrometers.\\
 Eine Spektrallampe wird vor ein Kollimatorrohr gestellt. Dieses dient dazu, den Strahlengang möglichst parallel auf das Gitter zu schicken. An dem der Lampe zugewandten Ende des Kollimatorrohres ist ein in der Breite einstellbarer Spalt, der als zu beobachtender "Gegenstand" dient. Das Gitter steht auf einem Teller und wird dort (so gut wie möglich) senkrecht zum Kollimatorrohr aufgestellt. Sowohl das Gitter als auch das Kollimatorrohr werden einmal eingestellt und sollten danach nicht mehr bewegt werden. Bewegt wird nur das Fernrohr, mit dem die Beobachtung stattfindet. Dieses ist dazu auf einem drehbaren Arm angebracht, der mit einem Nonius verbunden ist, sodass ein Winkel abgelesen werden kann, mit dem dann die Beugung gemessen wird.\\
 Zunächst muss ein Fehler auf die Winkelmessung bestimmt werden. Dazu wird die nullte Ordnung zehnmal gemessen. Um wirklich zehn einzelne, voneinander unabhängige Messungen zu erhalten, wird das Maximum jedes Mal komplett neu angefahren. Bei den nachfolgenden Messungen wird angenommen, dass der Fehler auf die Winkelmessung immer gleich ist und der Fehler aus der Rauschmessung übernommen. Da hierfür die Nullte Ordnung verwendet wird, kann der Mittelwert der Rauschmessung als Nullniveau verwendet werden. Die gemessenen Winkel müssen also immer als Abweichung von diesem Nullniveau betrachtet werden.\\
-Für die Bestimmung der Gitterkonstanten eines (laut Herstellerangabe) sehr feinen Gitters muss eine Lampe mit vielen Spektrallinien im sichtbaren Bereich verwendet werden, da nach Gl. \ref{eq:Maximumsbedingung} nur wenige Ordnung beobachtbar sind. In diesem Fall wurde hierfür die Cadmium-Lampe verwendet. Es werden ausgewählte Spektrallinien in den beobachtbaren Ordnung angefahren und die Winkel gemessen. Wichtig ist, dass die Linien in Ordnung auf beiden Seiten der nullten Ordnung vermessen werden, um in der Anpassung berücksichtigen zu können, dass die Gitterebene nicht perfekt senkrecht zum einfallenden Strahl stand. Dabei werden die Ordnungen auf den beiden Seiten durch ein Vorzeichen unterschieden: Positives Vorzeichen bedeutet Drehung des Fernrohrs gegen den Uhrzeigersinn, negatives Vorzeichen Drehung im Uhrzeigersinn.\\
+Für die Bestimmung der Gitterkonstanten eines (laut Herstellerangabe) sehr feinen Gitters muss eine Lampe mit vielen Spektrallinien im sichtbaren Bereich verwendet werden, da nach Gl. \ref{eq:Maximumsbedingung} nur wenige Ordnung beobachtbar sind. In diesem Fall wurde hierfür die Cadmium-Lampe verwendet. Es werden ausgewählte Spektrallinien in den beobachtbaren Ordnung angefahren und die Winkel gemessen. Wichtig ist, dass die Linien in Ordnung auf beiden Seiten der nullten Ordnung vermessen werden, um in der Anpassung berücksichtigen zu können, dass die Gitterebene nicht perfekt senkrecht zum einfallenden Strahl stand.\\
 Zur Bestimmung der Wellenlänge der Spektrallinien einer anderen Lampe wird muss die Lampe ausgewechselt werden. Da hier eine Quecksilber-Cadmium Lampe verwendet wurde, muss darauf geachtet werden, dass nur die Quecksilber-Linien sinnvoll vermessen werden können. Die Durchführung ist identisch zu der Durchführung der Messung der Gitterkonstanten.\\
 Zur Bestimmung des Auflösungsvermögens wird die Lampe durch eine andere ausgetauscht, die zwei nah beieinander liegende Spektrallinien hat. Hier wurden die beiden roten Linien der Natrium-Lampe verwendet. Es wird eine Leiste mit unterschiedlichen Blenden auf das Kollimatorrohr angebracht. Die Blenden haben Breiten in 0,5mm Schritten startend bei 0,5mm.\\
 Die rote Doppellinie wird in erster Ordnung angefahren und in dem Okular so gelegt, dass sie gut sichtbar nicht zu weit am Rand liegt. Es ist darauf zu achten, dass das Fadenkreuz am Okular nicht die beiden Linien trennt. Anschließend wird in der Leiste der Blenden nach und nach eine kleinere Blende eingestellt und immer wieder überprüft, ob die beiden Linien noch getrennt werden können oder nicht.
 
 \subsection{Bestimmung der Gitterkonstanten}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+Winkel \\
+\hline
+84$^{\circ}$ 35'\\
+\hline
+84$^{\circ}$ 32'\\
+\hline
+84$^{\circ}$ 32'\\
+\hline
+84$^{\circ}$ 31'\\
+\hline
+84$^{\circ}$ 32'\\
+\hline
+84$^{\circ}$ 32'\\
+\hline
+84$^{\circ}$ 33'\\
+\hline
+84$^{\circ}$ 33'\\
+\hline
+84$^{\circ}$ 33'\\
+\hline
+84$^{\circ}$ 32'\\
+\hline
+\end{tabular}
+\caption{Ergebnisse der Winkelmessung der nullten Ordnung.}
+\label{tab:RohdatenRauschmessungGitter}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Ordnung & Wellenlänge [nm] & Messung 1 & Messung 2\\
+\hline
+2 & 643,85 & - & -\\
+\hline
+2 & 508,58 & 48$^{\circ}$ 21' & 47$^{\circ}$ 51'\\
+\hline
+2 & 479,99 & 50$^{\circ}$ 08' & 50$^{\circ}$ 09'\\
+\hline
+2 & 467,81 & 51$^{\circ}$ 06' & 51$^{\circ}$ 01'\\
+\hline
+1 & 643,85 & 62$^{\circ}$ 02' & 62$^{\circ}$ 04'\\
+\hline
+1 & 508,58 & 66$^{\circ}$ 51' & 66$^{\circ}$ 52'\\
+\hline
+1 & 479,99 & 67$^{\circ}$ 50' & 67$^{\circ}$ 53'\\
+\hline
+1 & 467,81 & 68$^{\circ}$ 20' & 68$^{\circ}$ 20'\\
+\hline
+-1 & 643,85 & 108$^{\circ}$ 05' & 101$^{\circ}$ 04'\\
+\hline
+-1 & 508,58 & 102$^{\circ}$ 51' & 102$^{\circ}$ 45'\\
+\hline
+-1 & 479,99 & 101$^{\circ}$ 41' & 101$^{\circ}$ 40'\\
+\hline
+-1 & 467,81 & 101$^{\circ}$ 15' & 101$^{\circ}$ 14'\\
+\hline
+-2 & 643,85 & - & -\\
+\hline
+-2 & 508,58 & 124$^{\circ}$ 24' & 124$^{\circ}$ 31'\\
+\hline
+-2 & 479,99 & 121$^{\circ}$ 39' & 121$^{\circ}$ 35'\\
+\hline
+-2 & 467,81 & 120$^{\circ}$ 30' & 120$^{\circ}$ 30'\\
+\hline
+\end{tabular}
+\caption{Ergebnisse der Winkelmessung der nullten Ordnung.}
+\label{tab:RohdatenBestimmungGitterkonstante}
+\end{center}
+\end{table}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/Rauschmessung_Winkelmessung_Nullte_Ordnung.png}
+\end{center}
+\caption[Rauschmessung Winkelmessung]{Verteilung der gemessenen Winkel der nullten Ordnung}
+\label{fig:Rauschmessung_Winkel_Gitter}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{Bilder/First_Fit_Gitterkonstante.png}
+\end{center}
+\caption[Erster Fit Gitterkonstante]{Erster Geradenfit zur Bestimmung der Gitterkonstante}
+\label{fig:FirstFit_Gitterkonstante}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{Bilder/Anpassung_Gitterkonstante.png}
+\end{center}
+\caption[Fit Gitterkonstante]{Geradenfit mit minimalem $\chi ^2$ zur Bestimmung der Gitterkonstante}
+\label{fig:Fit_Gitterkonstante}
+\end{figure}
+
+Die gemessenen Winkel der nullten Ordnung sind in Tabelle \ref{tab:RohdatenRauschmessungGitter} aufgeführt. Aus den Winkel lassen sich Mittelwert und Fehler bestimmen zu:
+\begin{equation*}
+\bar{\alpha} = 84^{\circ} \quad 32,5' \qquad und \qquad \sigma_{\alpha} = 1,02'
+\end{equation*}
+Das Histogramm in Abbildung \ref{fig:Rauschmessung_Winkel_Gitter} zeigt, dass die gemessenen Winkel der nullten Ordnung einer Gaußverteilung folgen.
+
+Die gemessenen Winkel $\beta$ für die gegebenen Wellenlängen der Cadmium-Lampe sind in Tabelle \ref{tab:RohdatenBestimmungGitterkonstante} aufgeführt.\\
+Der Beobachtungswinkel $\theta$ berechnet sich nun zu 
+\begin{equation}
+\theta = \bar{\alpha} - \bar{\beta}.
+\end{equation}
+Damit und mit der Annahme, dass die Fehler auf die Winkelmessungen immer gleich sind berechnet sich der Fehler auf den Beobachtungswinkel als
+\begin{equation}
+\sigma _{\theta} = \sigma _{\alpha} + \sigma _{\beta} = 2 \cdot \sigma _{\alpha}
+\end{equation}
+
+Trägt man den Sinus des Winkels gegen das Produkt aus Wellenlänge und Ordnung auf, würde man gemäß Gl. \ref{eq:Maximumsbedingung} eine Gerade mit Steigung $\dfrac{1}{d}$ erwarten. Ein Geradenfit an die entstehende Gerade ist in Abbildung \ref{fig:FirstFit_Gitterkonstante} gezeigt. In den Residuen ist eine sehr deutliche Systematik zu sehen. Dies deutet darauf hin, dass das verwendete Modell nicht stimmt, der Winkel $\varphi$ zwischen der Senkrechten zum einfallenden Lichtstrahl und der Gitterebene nicht null ist. Daher muss eine Anpassung der Form von Gl. \ref{eq:VerallgemeinerteMaximumsbedingung} gemacht werden. Dazu wurde die Gleichung umgestellt zu
+\begin{equation}
+\sin (\theta - \varphi) = \dfrac{n \cdot \lambda}{d} - \sin (\varphi).
+\end{equation}
+In dieser Gleichung ist nur $\theta$ fehlerbehaftet, daher muss auch nur in der Y-Koordinate ein Fehler berechnet werden. Dieser berechnet sich aus gauß'scher Fehlerfortpflanzung zu:
+\begin{equation}
+\sigma _Y = \sigma _{\theta} \cdot \cos(\theta - \varphi) = 2 \cdot \sigma _{\alpha} \cdot \cos(\theta - \varphi)
+\end{equation}
+Nun kann (bei festem $\varphi$) eine lineare Regression in $\theta$ durchgeführt werden. Die sich bei unterschiedlichen $\varphi$ ergebenden $\chi ^2$ können nun für $\varphi$ minimiert werden. Damit ergibt sich für die Anpassung mit minimalem $\chi ^2$ der Fit, der in Abbildung \ref{fig:Fit_Gitterkonstante} gezeigt wird. Dabei ergibt sich der Winkel, um den das Gitter aus der idealen Position verdreht ist zu:
+\begin{equation*}
+\varphi = 0,107658 \, rad = 6 ^{\circ} \; 10,1'
+\end{equation*}
+Dann kann aus der Steigung $a$ der Geraden die Gitterkonstante berechnet werden zu:
+\begin{equation}
+d = \dfrac{1}{a}
+\end{equation}
+Beim Invertieren bleibt der relative Fehler gleich, daher errechnet sich der Fehler auf die Gitterkonstante zu:
+\begin{equation}
+\dfrac{\sigma_d}{d} = \dfrac{\sigma_a}{a} \quad \Leftrightarrow \quad \sigma_d = \sigma_a \cdot \dfrac{d}{a}
+\end{equation}
+Damit ergeben sich die Gitterkonstante und der statistische Fehler auf diese zu:
+\begin{equation*}
+d = (1658,91 \pm 0,34)nm
+\end{equation*}
 
 \subsection{Bestimmung der Wellenlänge}
 
