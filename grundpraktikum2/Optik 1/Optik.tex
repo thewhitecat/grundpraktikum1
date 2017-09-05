@@ -297,71 +297,85 @@
 	
 	Die Anpassung der vereinfachten Sellmeier-Formel an die Daten ist in Abbildung \ref{fig:RegressionDispersion} dargestellt. Die Vernachlässigung der violetten Linie bei etwa 404nm wird damit begründet, dass diese Linie schwer zu vermessen war und stark vom näherungsweise linearen Zusammenhang der anderen Datenpunkte abweicht.
 	Das vergleichsweise kleine $\chi^2 / ndof$ legt einen zu großen Fehler auf die Winkelmessung nahe. Dies war allerdings auch zu erwarten, da die Rauschmessung (vgl. Abb. \ref{fig:HistRauschen}) sehr stark und unregelmäßig streut.
-	\subsubsection{Spektrallinien}
-	\paragraph{Rohdaten}
-	\begin{table}
-		\begin{tabular}{|c|c|c||c|c|c|}
-			\hline 
-			& $\psi_1$ & $\psi_2$ & & $\psi_1$ & $\psi_2$ \\ 
-			\hline 
-			Linie 1(rot) & $27^\circ 20'$ & $145^\circ 02'$ & Linie 3(blau) & $24^\circ 06'$ & $148^\circ 11'$\\ 
-			\hline 
-			& $27^\circ 16'$ & $145^\circ 03'$& & $24^\circ 07'$ & $148^\circ 10'$\\
-			\hline
-			\hline 
-			\hline 
-			Linie 2(blau) & $24^\circ 22'$ & $147^\circ 53'$ & Linie 4(blau) & $23^\circ 59'$ & $148^\circ 20'$\\ 
-			\hline 
-			& $24^\circ 21'$ & $147^\circ 24'$&  & $23^\circ 57'$ & $148^\circ 22'$\\ 
-			\hline 
-		\end{tabular} 
-		\caption{Rohdaten der Spektrallinien beim Prisma}
-	\end{table}
-	
-	\paragraph{Bestimmung des Brechungsindex}
-	Die Bestimmung des Brechungsindexes verläuft analog zum vorherigen Teilversuch. Die Werte für die einzelnen Linien werden gemittelt und der Fehler errechnet sich aus dem Fehler der Rauschmessung, der als Fehler auf den Mittelwert einfließt.\\
-	Der Fehler auf allen Winkeln einschließlich $\delta_{min}$ beträgt demnach:
-	\begin{equation}
-	\sigma_{\psi} = TBD
-	\end{equation}
-	\\
-	Es ergeben sich damit für die vier Linien folgende Werte für den Brechungswinkel und die Brechzahl:
-	\begin{table}
-		\begin{tabular}{|c|c|c|c|c|}
-			\hline
-			& Linie 1 & Linie 2 & Linie 3 & Linie 4\\
-			\hline
-			$\delta_{min}$ & $58.8708^\circ$ & $61.6417^\circ$ & $62.0333^\circ$ & $62.1917^\circ$\\
-			\hline
-			$n$ & $1.72211\pm 0.0006$ & $1.74619\pm 0.0006$ & $1.74952\pm 0.0006$ & $1.75086\pm 0.0006$\\
-			\hline
-		\end{tabular}
-		\caption{Mithilfe des oben beschriebenen Verfahrens ermittelte Werte für minimaler Brechungswinkel und Brechzahl}
-	\end{table}
-	\paragraph{Ermittlung der Wellenlängen}
-	Mithilfe der vorher ermittelten Dispersionskurve wird nun jeder Brechzahl die dazugehörige Wellenlänge zugeordnet. Dabei wird die Gleichung TBD folgendermaßen umgestellt:
-	\begin{equation}
-	\lambda = \sqrt{\dfrac{a}{n-b}}
-	\end{equation}
-	Die Fehlerfortpflanzung auf dieser Formel sieht folgendermaßen aus:
-	\begin{equation}
-	\sigma_{\lambda} = \sqrt{\left(\dfrac{\sqrt{\dfrac{a}{n-b}}}{2\cdot a}\cdot \sigma_{a}\right)^2 + \left(\dfrac{a}{2\cdot (n-b)^2\cdot \sqrt{\dfrac{a}{n-b}}}\right)^2\cdot (\sigma_n^2 + \sigma_b^2)}
-	\end{equation}
-	Daraus ergeben sich folgende Entwerte:
-	\begin{table}
-		\begin{tabular}{|c|c|c|c|c|}
-			\hline
-			& Linie 1 & Linie 2 & Linie 3 & Linie 4\\
-			\hline
-			$\lambda [nm]TBD$ & $633.01\pm 4.11 $ & $489.56\pm 3.69$ & $476.58\pm 3.45$ & $471.64\pm 3.37$\\
-			\hline
-			Literaturwerte[nm] & 636.23 & 481.05 & 472.22 & 468.01\\
-			\hline
-			Standardabw. & & & &\\
-			\hline
-		\end{tabular}
-	\end{table}
-	\subsubsection{Auflösungsvermögen}
+\subsubsection{Spektrallinien}
+\begin{table}
+\begin{tabular}{|c|c|c||c|c|c|}
+\hline 
+ & $\psi_1$ & $\psi_2$ & & $\psi_1$ & $\psi_2$ \\ 
+\hline 
+Linie 1(rot) & $27^\circ 20'$ & $145^\circ 02'$ & Linie 3(blau) & $24^\circ 06'$ & $148^\circ 11'$\\ 
+\hline 
+ & $27^\circ 16'$ & $145^\circ 03'$& & $24^\circ 07'$ & $148^\circ 10'$\\
+\hline
+\hline 
+\hline 
+Linie 2(blau) & $24^\circ 22'$ & $147^\circ 53'$ & Linie 4(blau) & $23^\circ 59'$ & $148^\circ 20'$\\ 
+\hline 
+ & $24^\circ 21'$ & $147^\circ 24'$&  & $23^\circ 57'$ & $148^\circ 22'$\\ 
+\hline 
+\end{tabular} 
+\caption{Rohdaten der Spektrallinien beim Prisma}
+\label{tab:Spektrallinien_rohdaten}
+\end{table}
+
+\paragraph{Bestimmung des Brechungsindex}
+Die Bestimmung des Brechungsindexes verläuft analog zum vorherigen Teilversuch. Die ermittelten Winkel sind in Tabelle \ref{tab:Spektrallinien_rohdaten} aufgelistet.
+Der Fehler auf diesen Werten folgt weiterhin aus der Rauschmessung und beträgt
+\begin{equation}
+\sigma_{\psi} = TBD
+\end{equation}\\
+und der Fehler auf $\delta_{min}$
+\begin{equation}
+\sigma_{\delta} = TBD
+\end{equation}\\
+Die errechneten Ergebnisse für $\delta_{min}$ und den Brechungsindex n sind in Tabelle \ref{tab:Spekrallinien_Brechungsndex} aufgelistet.
+
+\begin{table}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & Linie 1 & Linie 2 & Linie 3 & Linie 4\\
+\hline
+$\delta_{min}$ & $58.8708^\circ$ & $61.6417^\circ$ & $62.0333^\circ$ & $62.1917^\circ$\\
+\hline
+$n$ & $1.72211\pm 0.0006$ & $1.74619\pm 0.0006$ & $1.74952\pm 0.0006$ & $1.75086\pm 0.0006$\\
+\hline
+\end{tabular}
+\caption{Mithilfe des oben beschriebenen Verfahrens ermittelte Werte für minimaler Brechungswinkel und Brechzahl}
+\label{tab:Spekrallinien_Brechungsndex}
+\end{table}
+\paragraph{Ermittlung der Wellenlängen}
+Mithilfe der vorher bestimmten Dispersionskurve wird nun jeder Brechzahl die dazugehörige Wellenlänge zugeordnet. Dabei wird die Gleichung TBD folgendermaßen umgestellt:
+\begin{equation}
+\lambda = \sqrt{\dfrac{a}{n-b}}
+\end{equation}
+Die Fehlerfortpflanzung auf dieser Formel sieht folgendermaßen aus:
+\begin{equation}
+\sigma_{\lambda} = \sqrt{\left(\dfrac{\sqrt{\dfrac{a}{n-b}}}{2\cdot a}\cdot \sigma_{a}\right)^2 + \left(\dfrac{a}{2\cdot (n-b)^2\cdot \sqrt{\dfrac{a}{n-b}}}\right)^2\cdot (\sigma_n^2 + \sigma_b^2)}
+\end{equation}
+Die sich daraus ergebenen Entwerte sind in Tabelle \ref{tab:Spektrallinien_Endergebnis} aufgelistet.
+\begin{table}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & Linie 1 & Linie 2 & Linie 3 & Linie 4\\
+\hline
+$\lambda [nm]TBD$ & $634.08\pm 7.13 $ & $487.17\pm 5.02$ & $473.96\pm 4.74$ & $468.94\pm 4.46$\\
+\hline
+Literaturwerte[nm] & 636.23 & 481.05 & 472.22 & 468.01\\
+\hline
+Standardabw.& 0.30 & 1.22 & 0.37 & 0.21\\
+\hline
+\end{tabular}
+\caption{Ergebnisse der Wellenlängenbestimmung und Vergleich mit den Literaturwerten}
+\label{tab:Spektrallinien_Endergebnis}
+\end{table}
+\paragraph{Fazit}
+\begin{figure}
+\includegraphics[scale=0.85]{Bilder/Spektrum_Zink.png}
+\caption{Visualisierung der Messergebnisse und des erwarteten Spektrums mit den Wellenlängen $\lambda = 468nm, 472nm, 481nm, 636nm$}
+\label{fig:Spektrum_Zink}
+\end{figure}
+
+\subsubsection{Auflösungsvermögen}
 	\paragraph{Auswertung}
 	Das Auflösungsvermögen wird mithilfe folgender Formel bestimmt:
 	\begin{equation}
