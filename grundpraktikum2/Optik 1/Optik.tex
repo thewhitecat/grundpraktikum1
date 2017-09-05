@@ -75,7 +75,7 @@ A = \dfrac{dn}{d\lambda}\cdot 2\cdot a\cdot\dfrac{sin\left(\dfrac{\epsilon}{2}\r
 	
 \subsection{Aufbau und Durchführung}
 Das folgende Experiment wurde mit Prisma 3 durchgeführt.\\
-Durch eine Kollimatorlinse werden aus dem Licht der Spektrallampe ebene Wellenfronten erzeugt. Diese werden mit dem einem Drehteller befindlichen Prisma gebrochen. Das gebrochene Spaltbild wird mit einem schwenkbaren Fernrohr beobachtet. Die relative Position des Fernrohrs kann dabei auf 1' genau abgelesen werden.
+Durch eine Kollimatorlinse werden aus dem Licht der Spektrallampe ebene Wellenfronten erzeugt. Diese werden mit dem sich auf einem Drehteller befindlichen Prisma gebrochen. Das gebrochene Spaltbild wird mit einem schwenkbaren Fernrohr beobachtet. Die relative Position des Fernrohrs kann dabei auf \SI{1}{\arcminute} genau abgelesen werden.
 Der Aufbau ist in Abbildung \ref{fig:AufbauPrisma} gezeigt.
 	
 	\begin{figure}
@@ -272,7 +272,7 @@ Die Rauschmessung ergibt eine statistische Unsicherheit auf die $\psi_i$ von
 		\begin{center}
 			\begin{tabular}{|c|c|c|}
 				\hline
-				$\lambda /nm$ & $\delta /rad$ & n \\
+				$\lambda$/nm & $\delta$/rad & n \\
 				\hline
 				435.83 & 1.1068 $\pm$ 0.0007 & 1.7611 $\pm$ 0.0003 \\ 
 				\hline
@@ -351,7 +351,7 @@ Die Bestimmung der Brechungsindizes verläuft analog zum vorherigen Teilversuch.
 Der Fehler auf diesen Werten ist weiterhin durch die Rauschmessung gegeben (vgl. \ref{eq:Rauschmessung})
 und der Fehler auf $\delta_{min}$ durch Gleichung \ref{eq:Fehler_delta}
 \begin{equation}
-\sigma_{\delta} = 0.0008 rad
+\sigma_{\delta} = \SI{0.0008}{\radian}
 \end{equation}\\
 Die errechneten Ergebnisse für $\delta_{min}$ und den Brechungsindex n sind in Tabelle \ref{tab:Spekrallinien_Brechungsndex} aufgelistet.
 
@@ -385,7 +385,7 @@ Die sich daraus ergebenen Endwerte sind in Tabelle \ref{tab:Spektrallinien_Ender
 \hline
  & Linie 1 & Linie 2 & Linie 3 & Linie 4\\
 \hline
-$\lambda [nm]$ & $634.08\pm 5.02 $ & $487.17\pm 3.74$ & $473.96\pm 3.53$ & $468.94\pm 4.45$\\
+$\lambda$ [nm] & $634.08\pm 5.02 $ & $487.17\pm 3.74$ & $473.96\pm 3.53$ & $468.94\pm 4.45$\\
 \hline
 Literaturwerte[nm] & 636.23 & 481.05 & 472.22 & 468.01\\
 \hline
@@ -399,7 +399,7 @@ Standardabw.& 0.43 & 1.63 & 0.49 & 0.21\\
 Die ermittelten Wellenlängen der Spektrallinien haben eine Ungenauigkeit von c.a 1\% und liegen zum größten Teil innerhalb einer Standardabweichung vom Literaturwert entfernt. Es handelt sich also bei der Lampe tatsächlich um eine Zink-Lampe.
 \begin{figure}
 \includegraphics[scale=0.8]{Bilder/Spektrum_Zink.png}
-\caption{Visualisierung der Messergebnisse und des erwarteten Spektrums mit den Wellenlängen $\lambda = 468nm, 472nm, 481nm, 636nm$. Die senkrechten Linien entsprechen den Literaturwerten und die Punkte mitsamt ihren Ungenauigkeiten den Messergebnissen.}
+\caption{Visualisierung der Messergebnisse und des erwarteten Spektrums mit den Wellenlängen $\lambda =$ 468\,nm, 472\,nm, 481\,nm, 636\,nm. Die senkrechten Linien entsprechen den Literaturwerten und die Punkte mitsamt ihren Ungenauigkeiten den Messergebnissen.}
 \label{fig:Spektrum_Zink}
 \end{figure}
 \subsubsection{Auflösungsvermögen}
@@ -482,9 +482,9 @@ Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungs
 	Eine Spektrallampe wird vor ein Kollimatorrohr gestellt. Dieses dient dazu, den Strahlengang möglichst parallel auf das Gitter zu schicken. An dem der Lampe zugewandten Ende des Kollimatorrohres ist ein in der Breite einstellbarer Spalt, der als zu beobachtender "Gegenstand" dient. Das Gitter steht auf einem Teller und wird dort (so gut wie möglich) senkrecht zum Kollimatorrohr aufgestellt. Sowohl das Gitter als auch das Kollimatorrohr werden einmal eingestellt und sollten danach nicht mehr bewegt werden. Bewegt wird nur das Fernrohr, mit dem die Beobachtung stattfindet. Dieses ist dazu auf einem drehbaren Arm angebracht, der mit einem Nonius verbunden ist, sodass ein Winkel abgelesen werden kann, mit dem dann die Beugung gemessen wird.\\
 	Zunächst muss ein Fehler auf die Winkelmessung bestimmt werden. Dazu wird die nullte Ordnung zehnmal gemessen. Um wirklich zehn einzelne, voneinander unabhängige Messungen zu erhalten, wird das Maximum jedes Mal komplett neu angefahren. Bei den nachfolgenden Messungen wird angenommen, dass der Fehler auf die Winkelmessung immer gleich ist und der Fehler aus der Rauschmessung übernommen. Da hierfür die Nullte Ordnung verwendet wird, kann der Mittelwert der Rauschmessung als Nullniveau verwendet werden. Die gemessenen Winkel müssen also immer als Abweichung von diesem Nullniveau betrachtet werden.\\
 	Für die Bestimmung der Gitterkonstanten eines (laut Herstellerangabe) sehr feinen Gitters muss eine Lampe mit vielen Spektrallinien im sichtbaren Bereich verwendet werden, da nach Gl. \ref{eq:Maximumsbedingung} nur wenige Ordnung beobachtbar sind. In diesem Fall wurde hierfür die Cadmium-Lampe verwendet. Es werden ausgewählte Spektrallinien in den beobachtbaren Ordnung angefahren und die Winkel gemessen. Wichtig ist, dass die Linien in Ordnung auf beiden Seiten der nullten Ordnung vermessen werden, um in der Anpassung berücksichtigen zu können, dass die Gitterebene nicht perfekt senkrecht zum einfallenden Strahl stand.\\
-	Zur Bestimmung der Wellenlänge der Spektrallinien einer anderen Lampe wird muss die Lampe ausgewechselt werden. Da hier eine Quecksilber-Cadmium Lampe verwendet wurde, muss darauf geachtet werden, dass nur die Quecksilber-Linien sinnvoll vermessen werden können. Die Durchführung ist identisch zu der Durchführung der Messung der Gitterkonstanten.\\
-	Zur Bestimmung des Auflösungsvermögens wird die Lampe durch eine andere ausgetauscht, die zwei nah beieinander liegende Spektrallinien hat. Hier wurden die beiden roten Linien der Natrium-Lampe verwendet. Es wird eine Leiste mit unterschiedlichen Blenden auf das Kollimatorrohr angebracht. Die Blenden haben Breiten in 0,5mm Schritten startend bei 0,5mm.\\
-	Die rote Doppellinie wird in erster Ordnung angefahren und in dem Okular so gelegt, dass sie gut sichtbar nicht zu weit am Rand liegt. Es ist darauf zu achten, dass das Fadenkreuz am Okular nicht die beiden Linien trennt. Anschließend wird in der Leiste der Blenden nach und nach eine kleinere Blende eingestellt und immer wieder überprüft, ob die beiden Linien noch getrennt werden können oder nicht.
+	Die Lampe wird ausgewechselt, um nun die Wellenlänge der Spektrallinien einer anderen Lampe zu bestimmen. Da hier eine Quecksilber-Cadmium Lampe verwendet wurde, haben wir nur Linien vermessen, die wir nicht als Cadmium Linien kannten um neue Linien zu vermessen. Die Durchführung ist identisch zu der Durchführung der Messung der Gitterkonstanten.\\
+	Zur Bestimmung des Auflösungsvermögens wird die Lampe durch eine andere ausgetauscht, die zwei nah beieinander liegende Spektrallinien hat. Hier wurden die beiden gelben Linien der Natrium-Lampe verwendet. Es wird eine Leiste mit unterschiedlichen Blenden auf das Kollimatorrohr angebracht. Die schmalste Blende war dabei 0,5\,mm breit und die Breite der Blenden war um 0,5\,mm verstellbar.\\
+	Zunächst wird eine große Blende gewählt. Die gelbe Doppellinie wird in erster Ordnung angefahren und in dem Okular so gelegt, dass sie gut sichtbar nicht zu weit am Rand liegt. Es ist darauf zu achten, dass das Fadenkreuz am Okular nicht die beiden Linien trennt. Anschließend wird in der Leiste nach und nach eine kleinere Blende eingestellt und immer wieder überprüft, ob die beiden Linien noch getrennt werden können oder nicht.
 	\subsection{Auswertung}
 	\subsubsection{Gitterkonstante}
 	
@@ -636,7 +636,7 @@ Das Messergebnis liegt damit knapp 23$\sigma$ neben der Herstellerangabe. Diese 
 	
 	\subsubsection{Bestimmung von Spektrallinien}
 	
-	Die gemessenen Winkel der Spektrallinien sind in Tabelle \ref{tab:rohdaten_wellenlängen} dargestellt. Als statistischer Fehler auf die Einzelmessung wird weiterhin $\sigma_{einzel} = \SI{0.000295}{rad}$ angenommen (siehe Bestimmung Gitterkonstante). Da alle Winkel doppelt gemessen wurden ergibt sich für die Winkel relativ zur Nullten Ordnung
+	Die gemessenen Winkel der Spektrallinien sind in Tabelle \ref{tab:rohdaten_wellenlängen} dargestellt. Als statistischer Fehler auf die Einzelmessung wird weiterhin $\sigma_{einzel} = \SI{0.000295}{rad}$ angenommen (siehe Bestimmung Gitterkonstante). Da alle Winkel doppelt gemessen wurden ergibt sich für die Winkel relativ zur nullten Ordnung
 	\begin{equation}
 	\theta_{gesucht} = \theta_{Nullte\;Ordnung} - \theta_{Andere\;Ordnung}
 	\end{equation}
