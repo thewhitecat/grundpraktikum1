@@ -17,14 +17,14 @@ nummer = 1
 
 n = nummer -1
 d = 1658.9*1e-9 #1.0/600000
-std_d = 1e-9
+std_d = 0.3424e-9
 grad = (linien[n][:,1]+linien[n][:,3])/2
 minuten = (linien[n][:,2]+linien[n][:,4])/2
 
 ordnung = linien[n][:,0]*-1
 winkel = bogenmass(grad, minuten)
 winkel -= winkel[0]
-std = np.full(len(winkel), np.sqrt(2)*0.000298)
+std = np.full(len(winkel), 0.000298)
 yerr = np.sqrt((std*d*np.cos(winkel))**2+(std_d*np.sin(winkel))**2)
 
 a, ea, b, eb, chi2 = p.lineare_regression_festes_b(ordnung, d*np.sin(winkel)*1e9, np.full(len(ordnung),0.0), yerr*1e9)
