@@ -73,6 +73,11 @@ data_564_1=[(25,53),(25,54),(25,54)]
 data_564_2=[(146,24),(146,25),(146,22)]
 d_564,ed_564=auswertung(data_564_1,data_564_2)
 
+#508,58
+data_508_1=raw_data_rauschen
+data_508_2=andere_seite
+d_508,ed_508=auswertung(data_508_1,data_508_2)
+
 #479,99nm
 data_479_1=[(24,22),(24,24),(24,18)]
 data_479_2=[(147,56),(148,0),(148,2)]
@@ -98,20 +103,20 @@ d_404,ed_404=auswertung(data_404_1,data_404_2)
 delta werte, aufsteigend von kleinem lambda zu großem lambda
 '''
 
-delta=np.array([d_404,d_435,d_476,d_479,d_564,d_579,d_643])
-error_delta=np.array([ed_404,ed_435,ed_476,ed_479,ed_564,ed_579,ed_643])
+delta=np.array([d_404,d_435,d_476,d_479,d_508,d_564,d_579,d_643])
+error_delta=np.array([ed_404,ed_435,ed_476,ed_479,ed_508,ed_564,ed_579,ed_643])
 
 n=np.sin(delta/2.0+30.0/180.0*np.pi)/np.sin(30.0/180.0*np.pi)
 en=abs(np.cos(delta/2.0+30.0/180.0*np.pi)/np.sin(30.0/180.0*np.pi)*delta/2.0)*error_delta
 
-l=np.array([404.66,435.83,467.81,479.99,546.07,579.07,643.85])
+l=np.array([404.66,435.83,467.81,479.99,508.58,546.07,579.07,643.85])
 
 
 '''
 plots
 '''
 
-plt.plot(0)
+plt.figure(0)
 plt.errorbar(l,n,en,marker='o')
 plt.xlim(400,650)
 plt.ylim(1.7,1.8)
@@ -119,14 +124,16 @@ plt.xlabel('$\lambda / {nm}$')
 plt.ylabel('n')
 plt.show()
 
-plt.plot(1)
+
+
+plt.figure(1)
+ax1=plt.subplot(211)
 x=1/l**2
-plt.errorbar(x,n,en,linestyle='None')
+plt.errorbar(x,n,en,linestyle='None',marker='.')
 plt.xlim(0.0000020,0.0000063)
 plt.ylim(1.7,1.8)
-plt.xlabel('$\lambda^{-2} / {nm}^{-2}$')
 plt.ylabel('n')
-plt.xticks(rotation=20)
+plt.setp(ax1.get_xticklabels(),visible=False)
 
 
 a,ea,b,eb,chiq,cov=Praktikum.lineare_regression(x,n,en)
@@ -136,9 +143,16 @@ chiq_ndof=chiq/(len(n)-2)
 print 'chiq/ndof ='+str(round(chiq_ndof,4))
 
 
-plt.figtext(0.2,0.7,'a={}+-{} \n b={}+-{} \n Chi^2/ndof={}'.format(round(a,3),round(ea,3),round(b,4),round(eb,4),round(chiq_ndof,3)))
+plt.figtext(0.2,0.7,'a={}$\pm${} \n b={}$\pm${} \n $\chi^2$/ndof={}'.format(round(a,3),round(ea,3),round(b,4),round(eb,4),round(chiq_ndof,3)))
 
 
+
+
+ax2=plt.subplot(212,sharex=ax1)
+#plt.xticks(rotation=0)
+plt.xlabel('$\lambda^{-2} / {nm}^{-2}$')
+plt.errorbar(x,n-(a*x+b),yerr=en,linestyle='None')
+plt.axhline(y=0,linestyle='dashed')
 plt.show()
 
 
@@ -165,8 +179,40 @@ plt.show()
 '''
 
 
+'''
+tabular formatierung für latex
+'''
+
+'''
+def tabprint(data1,data2,l):
+    print '\hline'
+    print '$\lambda =$'+str(l)+'nm & \\'
+    for i in range(len(data1)):
+        print '\hline'
+        print str(data1[i][0])+'$^{\circ}$'+str(data1[i][1])+"' &"+str(data2[i][0])+'$^{\circ}$'+str(data2[i][1])+"' \\ "
+    return
 
 
+tabprint(data_404_1,data_404_2,404.66)
+tabprint(data_435_1,data_435_2,435.83)
+tabprint(data_476_1,data_476_2,467.81)
+tabprint(data_479_1,data_479_2,479.99)
+#tabprint(data_508_1,data_508_2,508.58)
+tabprint(data_564_1,data_564_2,564.07)
+tabprint(data_579_1,data_579_2,579.07)
+tabprint(data_643_1,data_643_2,643.85)
+
+'''
+
+'''
+def tabs(l,delta,error_delta,n,en):
+    for i in range(len(l)):
+        print '\hline'
+        print str(l[i])+' & '+str(round(delta[i],4))+' $\pm$ '+str(round(error_delta[i],4))+' & '+str(round(n[i],4))+' $\pm$ '+str(round(en[i],4))+' \\ '
+    return
+
+tabs(l,delta,error_delta,n,en)
+'''
 
 
 
