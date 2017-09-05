@@ -72,9 +72,10 @@ A = \dfrac{dn}{d\lambda}\cdot 2\cdot a\cdot\dfrac{sin\left(\dfrac{\epsilon}{2}\r
 
 	
 	
-	\subsection{Aufbau und Durchführung}
-	Durch eine Kollimatorlinse werden aus dem Licht der Spektrallampe ebene Wellenfronten erzeugt. Diese werden mit dem einem Drehteller befindlichen Prisma gebrochen. Das gebrochene Spaltbild wird mit einem schwenkbaren Fernrohr beobachtet. Die relative Position des Fernrohrs kann dabei auf 1' genau abgelesen werden.
-	Der Aufbau ist in Abbildung \ref{fig:AufbauPrisma} gezeigt.
+\subsection{Aufbau und Durchführung}
+Das folgende Experiment wurde mit Prisma 3 durchgeführt.\\
+Durch eine Kollimatorlinse werden aus dem Licht der Spektrallampe ebene Wellenfronten erzeugt. Diese werden mit dem einem Drehteller befindlichen Prisma gebrochen. Das gebrochene Spaltbild wird mit einem schwenkbaren Fernrohr beobachtet. Die relative Position des Fernrohrs kann dabei auf 1' genau abgelesen werden.
+Der Aufbau ist in Abbildung \ref{fig:AufbauPrisma} gezeigt.
 	
 	\begin{figure}
 		\begin{center}
@@ -100,6 +101,7 @@ A = \dfrac{dn}{d\lambda}\cdot 2\cdot a\cdot\dfrac{sin\left(\dfrac{\epsilon}{2}\r
 	
 	\begin{equation}
 	\sigma_{\delta} = \frac{\sqrt{\sigma_{\psi_1}^2+\sigma_{\psi_2}^2}}{2}
+	\label{eq:Fehler_delta}
 	\end{equation}
 	
 	Damit folgt für die Brechungsindizes bei den entsprechenden Wellenlängen der Zusammenhang (vgl. Grundlagen):
@@ -114,25 +116,31 @@ A = \dfrac{dn}{d\lambda}\cdot 2\cdot a\cdot\dfrac{sin\left(\dfrac{\epsilon}{2}\r
 	\sigma_n = \frac{cos(\frac{\delta_{min}+\epsilon}{2})}{sin(\frac{\epsilon}{2})} \frac{\sigma_{\delta_{min}}}{2}
 	\end{equation}
 
-Nachdem man die Dispersionskurve ermittelt hat, wird die Spektrallampe ausgetauscht und das SPektrum der neuen Lampe bestimmt. 
+Nachdem man die Dispersionskurve ermittelt hat, wird die Spektrallampe ausgetauscht und das Spektrum der neuen Lampe bestimmt. 
 Dabei ermittelt man zuerst mit dem gleichen Verfahren die Brechungsindizes der Spektrallinien und ordnet diesen dann über die Dispersionskurve eine Wellenlänge zu.
+
+Als letztes wird noch das Auflösungsvermögen bestimmt.	
+Zur Abschätzung von diesem wird eine Schlitzblende auf das Kollimatorrohr gesteckt. Mit dem Fernrohr wird die gelbe Doppellinie des Quecksilberspektrums anvisiert.  Anschließend wird die beleuchtete Fläche des Prismas durch Vorschalten immer kleinerer Blenden soweit verkleinert, dass die Doppellinie gerade noch getrennt werden kann. Daraus wird eine Abschätzung des Auflösungsvermögens bestimmt (vgl. Grundlagen). 
+
+
+\subsection{Auswertung}
+
+\subsubsection{Rauschmessung}
+
+Das Ergebnis der Rauschmessung zur Bestimmung des statistischen Fehlers für die Winkelmessung findet sich in Tabelle \ref{tab:RauschenPrisma}.
+
+\begin{figure}
+\includegraphics[scale=1.0]{Bilder/HistRauschen.png}
+\caption{Grafische Darstellung der Rauschmessung mit empirischem Mittelwert und empirischer Standardabweichung. Die Bin-Breite entspricht der Ablesegenauigkeit von einer Bogenminute. Die Messung wurde 15 mal durchgeführt.}
+\label{fig:HistRauschen}
+\end{figure}
 	
-Zur Abschätzung des Auflösungsvermögens wird eine Schlitzblende auf das Kollimatorrohr gesteckt. Mit dem Fernrohr wird die gelbe Doppellinie des Quecksilberspektrums anvisiert.  Anschließend wird die beleuchtete Fläche des Prismas durch Vorschalten immer kleinerer Blenden soweit verkleinert, dass die Doppellinie gerade noch getrennt werden kann. Daraus wird eine Abschätzung des Auflösungsvermögens bestimmt (vgl. Grundlagen). 
-	
-	
-	\subsection{Auswertung}
-	
-	\subsubsection{Rauschmessung}
-	
-	Das Ergebnis der Rauschmessung zur Bestimmung des statistischen Fehlers für die Winkelmessung findet sich in Tabelle \ref{tab:RauschenPrisma}.
-	
-	\begin{figure}
-		\includegraphics[scale=1.0]{Bilder/HistRauschen.png}
-		\caption{Grafische Darstellung der Rauschmessung mit empirischem Mittelwert und empirischer Standardabweichung. Die Bin-Breite entspricht der Ablesegenauigkeit von einer Bogenminute. Die Messung wurde 15 mal durchgeführt.}
-		\label{fig:HistRauschen}
-	\end{figure}
-	
-	Die Rauschmessung ergibt eine statistische Unsicherheit auf die $\psi_i$ von $\sigma_{\psi_i} = 0.0017 rad$ bzw. $\sigma_{\psi_i} = 5.8'$ (vgl. Abb \ref{fig:HistRauschen}.)
+Die Rauschmessung ergibt eine statistische Unsicherheit auf die $\psi_i$ von 
+\begin{equation}
+\sigma_{\psi_i} = 0.0017 rad = 5.8'
+\label{eq:Rauschmessung}
+\end{equation}
+(vgl. Abb \ref{fig:HistRauschen}.)
 	
 	\begin{table}
 		\begin{center}
@@ -313,7 +321,7 @@ n(\lambda) = \dfrac{a}{\lambda^2} + b
 Die Bestimmung der Brechungsindizes ist mit einer relativen Unsicherheit im Subpromillbereich gelungen. Der sehr gute $\chi^2/ndof$ Wert in der Anpassung unterstreicht die Übereinstimmung mit dem theoretischen Modell.
 
 \subsubsection{Spektrallinien}
-Im folgenden Versuchsteil soll mithilfe der nun bestimmten Dispersionskurve das Spektrum einer unbekannten Spektrallampe ermittelt werden.
+Im folgenden Versuchsteil soll mithilfe der nun bestimmten Dispersionskurve das Spektrum einer Spektrallampe untersucht werden werden. In unserem Fall war dies eine Zink-Lampe.
 \begin{table}
 \begin{tabular}{|c|c|c||c|c|c|}
 \hline 
@@ -330,17 +338,14 @@ Linie 2(blau) & $24^\circ 22'$ & $147^\circ 53'$ & Linie 4(blau) & $23^\circ 59'
  & $24^\circ 21'$ & $147^\circ 24'$&  & $23^\circ 57'$ & $148^\circ 22'$\\ 
 \hline 
 \end{tabular} 
-\caption{Rohdaten der Spektrallinien beim Prisma}
+\caption{Rohdaten der Spektrallinien beim Prisma. Es wurden für jede Linie aus Zeitgründen jeweils nur zwei Messungen pro Reflektionsseite durchgeführt.}
 \label{tab:Spektrallinien_rohdaten}
 \end{table}
 
 \paragraph{Bestimmung des Brechungsindex}
 Die Bestimmung der Brechungsindizes verläuft analog zum vorherigen Teilversuch. Die ermittelten Winkel sind in Tabelle \ref{tab:Spektrallinien_rohdaten} aufgelistet.
-Der Fehler auf diesen Werten folgt weiterhin aus der Rauschmessung und beträgt
-\begin{equation}
-\sigma_{\psi} = 0.0017 rad
-\end{equation}\\
-und der Fehler auf $\delta_{min}$
+Der Fehler auf diesen Werten ist weiterhin durch die Rauschmessung gegeben (vgl. \ref{eq:Rauschmessung})
+und der Fehler auf $\delta_{min}$ durch Gleichung \ref{eq:Fehler_delta}
 \begin{equation}
 \sigma_{\delta} = 0.0008 rad
 \end{equation}\\
@@ -356,7 +361,7 @@ $\delta_{min}$ & $58.8708^\circ$ & $61.6417^\circ$ & $62.0333^\circ$ & $62.1917^
 $n$ & $1.72211\pm 0.0006$ & $1.74619\pm 0.0006$ & $1.74952\pm 0.0006$ & $1.75086\pm 0.0006$\\
 \hline
 \end{tabular}
-\caption{Mithilfe des oben beschriebenen Verfahrens ermittelte Werte für minimaler Brechungswinkel und Brechzahl}
+\caption{Mithilfe des oben beschriebenen Verfahrens ermittelte Werte für minimaler Brechungswinkel und Brechzahl.}
 \label{tab:Spekrallinien_Brechungsndex}
 \end{table}
 \paragraph{Ermittlung der Wellenlängen}
@@ -385,9 +390,9 @@ Standardabw.& 0.43 & 1.63 & 0.49 & 0.21\\
 \label{tab:Spektrallinien_Endergebnis}
 \end{table}
 \paragraph{Fazit}
-Die ermittelten Wellenlängen der Spektrallinien haben eine Ungenauigkeit von c.a 1\% und liegen zum größten Teil innerhalb einer Standardabweichung vom Literaturwert entfernt. Es handelt sich also bei der Lampe tatsächlich um eine Zink-Lampe. Die Bestimmung ist also geglückt.
+Die ermittelten Wellenlängen der Spektrallinien haben eine Ungenauigkeit von c.a 1\% und liegen zum größten Teil innerhalb einer Standardabweichung vom Literaturwert entfernt. Es handelt sich also bei der Lampe tatsächlich um eine Zink-Lampe.
 \begin{figure}
-\includegraphics[scale=0.85]{Bilder/Spektrum_Zink.png}
+\includegraphics[scale=0.8]{Bilder/Spektrum_Zink.png}
 \caption{Visualisierung der Messergebnisse und des erwarteten Spektrums mit den Wellenlängen $\lambda = 468nm, 472nm, 481nm, 636nm$. Die senkrechten Linien entsprechen den Literaturwerten und die Punkte mitsamt ihren Ungenauigkeiten den Messergebnissen.}
 \label{fig:Spektrum_Zink}
 \end{figure}
@@ -407,23 +412,23 @@ Trennbar? & ja & ja & ja & ja & gerade so & nein\\
 \caption{Überprüfung der Auflösbarkeit der beiden gelben Spektrallinien ($\lambda = 579.07nm$ und $\lambda = 576.96nm$). Ab einer Spaltbreite von 0.5 mm konnte man die Linien nicht mehr unterscheiden.}
 \label{tab:Auflosung_Prisma}
 \end{table}
-
-	Wegen der sehr großen Abständen zwischen den Spaltbreiten macht eine Fehlerbetrachtung keinen Sinn.\\
-	Für die experimentell bestimmte Auflösung folgt:
-	\begin{equation}
-	A \approx 286
-	\end{equation}
-	Der theoretisch erwartete Wert beträgt:
-	\begin{equation}
-	A = \dfrac{\lambda}{\Delta \lambda} = \dfrac{579.1 nm}{2.1 nm} = 276
-	\end{equation}
-	Wegen der hohen Ungenauigkeit kann man annehmen, dass der ermittelte Wert mit der theoretischen Erwartung übereinstimmt.
+Die minimal auflösbare Spaltbreite beträgt also bei c.a 1 mm.
+Wegen der sehr großen Abständen zwischen den Spaltbreiten macht eine Fehlerbetrachtung keinen Sinn.\\
+Für die experimentell bestimmte Auflösung folgt:
+\begin{equation}
+A \approx 286
+\end{equation}
+Der theoretisch erwartete Wert beträgt:
+\begin{equation}
+A = \dfrac{\lambda}{\Delta \lambda} = \dfrac{579.1 nm}{2.1 nm} = 276
+\end{equation}
+Wegen der hohen Ungenauigkeit kann man annehmen, dass der ermittelte Wert mit der theoretischen Erwartung übereinstimmt.
 	
 	
 \subsection{Fazit}
 Der prinzipielle Verlauf der Dispersionskurve entspricht der Erwartung im sichtbaren Bereich. Auch die lineare Anpassung an die Sellmeier-Formel ist mit einem $\chi^2/ndof$ von 0,86 gut gelungen.\\
-Die Bestimmung des Spektrums der Zinklampe ergab die Wellenlängen $634nm, 487nm, 473 nm, 469nm $. Diese wurden bis auf 1\% genau bestimmt. Sie entsprechen größtenteils den erwarteten Literaturwerten.\\
-Das Auflösungsvermögen des Prismas ist c.a 286. Auch dies entspricht der Erwartung.
+Die Bestimmung des Spektrums der Zinklampe ergab die Wellenlängen $634nm, 487nm, 473 nm, 469nm $. Diese wurden bis auf 1\% genau bestimmt. Sie stimmen größtenteils mit den Literaturwerten für Zink überein.\\
+Das Auflösungsvermögen des Prismas ist ungefähr 286. Auch dies entspricht der Erwartung.
 	
 \newpage
 \section{Gitterspektrometer}
