@@ -153,13 +153,13 @@ def lineare_regression_festes_b(x,y,ex,ey):
         return B[0]*x
 
     model  = scipy.odr.Model(f)
-    data   = scipy.odr.RealData(x, y, sy=ey)
-    odr    = scipy.odr.ODR(data, model, beta0=[a_ini, b_ini])
+    data   = scipy.odr.RealData(x, y, sx=ex, sy=ey)
+    odr    = scipy.odr.ODR(data, model, beta0=[a_ini*np.sqrt(2)])
     output = odr.run()
-    ndof = len(x)-2
+    ndof = len(x)-1
     chiq = output.res_var*ndof
 
-    return output.beta[0],output.sd_beta[0],output.beta[1],output.sd_beta[1], chiq
+    return output.beta[0],output.sd_beta[0], chiq
 
 
 def lineare_regression_y_achsenabschnitt_xy(x,y,ex,ey):

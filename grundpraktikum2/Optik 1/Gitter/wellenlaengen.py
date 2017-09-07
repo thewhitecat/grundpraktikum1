@@ -12,7 +12,7 @@ for i in range(5):
     
 
 # Nummer der bearbeiteten Linie
-nummer = 4
+nummer = 2
 
 
 n = nummer -1
@@ -21,43 +21,44 @@ std_d = 0.3424e-9
 grad = (linien[n][:,1]+linien[n][:,3])/2
 minuten = (linien[n][:,2]+linien[n][:,4])/2
 
-ordnung = linien[n][:,0]*-1
-winkel = bogenmass(grad, minuten)
-winkel -= winkel[0]
-std = np.full(len(winkel), 0.000298)
-yerr = np.sqrt((std*d*np.cos(winkel))**2+(std_d*np.sin(winkel))**2)
+korrektur = -0.94
 
-a, ea, b, eb, chi2 = p.lineare_regression_festes_b(ordnung, d*np.sin(winkel)*1e9, np.full(len(ordnung),0.0), yerr*1e9)
+ordnung = linien[n][1:,0]*-1
+winkel = bogenmass(grad, minuten)
+print winkel[0]
+winkel[0]=bogenmass(84.,33.)
+print winkel[0]
+winkel -= winkel[0]
+winkel = winkel[1:]
+std = np.full(len(winkel), 0.000298)
+yerr = np.sqrt((std*d*np.cos(winkel-bogenmass(korrektur,0)))**2+(std_d*np.sin(winkel-bogenmass(korrektur,0)))**2)
+
+
+
+a, ea, chi2 = p.lineare_regression_festes_b(ordnung, d*(np.sin(bogenmass(korrektur,0.0))+np.sin(winkel-bogenmass(korrektur,0.0)) )*1e9, np.full(len(winkel),1e-20), yerr*1e9)
 x = np.arange(5)-2
              
 
 
 plt.figure(1, [6.5,4.5])
 plt.subplot2grid((6,1),(0,0), rowspan=4)
-plt.errorbar(ordnung, d*np.sin(winkel)*1e9, yerr=yerr*1e9, fmt="o")
-plt.plot(x, a*x+b)
-plt.figtext(0.2, 0.75, "$\lambda = ({0:3.2f} \pm {1:3.2f})$ nm".format(a, ea))
-plt.ylabel("d sin($\\theta$) [nm]")
+plt.errorbar(ordnung, d*(np.sin(bogenmass(korrektur,0))+np.sin(winkel-bogenmass(korrektur,0)) )*1e9, yerr=yerr*1e9, fmt="o")
+plt.plot(x, a*x)
+plt.figtext(0.2, 0.7, "$\lambda = ({0:3.2f} \pm {1:3.2f})$ nm\n$\chi^2/ndof$ = {2:3.2f}\n$\\varphi = -1^\\circ$".format(a, ea, chi2/3))
+plt.ylabel("d[sin($\\varphi$)+sin($\\theta-\\varphi$)] [nm]")
 plt.xlabel("n")
 
 # Residuen
 plt.subplot2grid((6,1),(-2,0), rowspan=2)
-plt.errorbar(ordnung, d*np.sin(winkel)*1e9-a*ordnung, yerr=yerr*1e9, fmt = ".")
+plt.errorbar(ordnung, d*(np.sin(bogenmass(korrektur,0))+np.sin(winkel-bogenmass(korrektur,0)) )*1e9-a*ordnung, yerr=yerr*1e9, fmt = ".")
 plt.axhline(linestyle="dashed")
 plt.ylabel("Residuen [$nm$]")
 plt.xlabel("n")
 
+sys = std_d/d * a
+literatur = np.array([404.66, 435.83, 546.07, 576.96, 579.07])
+abw = (a-literatur[n])/np.sqrt(sys**2+ea**2)
 
-# Verschiebemethode, wegen sys Fehler auf d
-sys = np.sin(winkel)*1e9*std_d
-a2, ea2, b2, eb2, chi22 = p.lineare_regression_festes_b(ordnung, d*np.sin(winkel)*1e9 + sys, np.full(len(ordnung),0.0), yerr*1e9)
-a1, ea1, b1, eb1, chi21 = p.lineare_regression_festes_b(ordnung, d*np.sin(winkel)*1e9 - sys, np.full(len(ordnung),0.0), yerr*1e9)
-
-sig_sys = (np.abs(a1-a) + np.abs(a2-a))/2
-
-
-
-"""
 # direkt ausrechnen und mitteln
 # Nullte Ordnung
 theta_0 = bogenmass(84,(35+53)/2)
@@ -69,10 +70,15 @@ ordnung = np.array([ linien[n][1:,0] , linien[n][1:,0] ])
 winkel = theta_0 - bogenmass(grad, minuten)
 std_stat = 0.000298
 
-wellenlaenge = d * np.sin(winkel) / ordnung
-sig_stat = d * np.cos(winkel)/np.abs(ordnung) * std_stat
-sig_sys = np.sin(winkel)/ordnung * std_d
+wellenlaenge = d * (np.sin(bogenmass(korrektur, 0)) + np.sin(winkel-bogenmass(korrektur,0))) / ordnung
+sig_stat = d * np.cos(winkel-bogenmass(korrektur,0))/np.abs(ordnung) * std_stat
+sig_sys = (np.sin(bogenmass(korrektur,0))+np.sin(winkel-bogenmass(korrektur,0)))/ordnung * std_d
 mittelwert = np.mean(wellenlaenge.flatten()) * 1e9
-std = np.std(wellenlaenge.flatten()) * 1e9
+std = np.std(wellenlaenge.flatten(), ddof=1) * 1e9
 std_sys = np.mean(sig_sys.flatten()) * 1e9
-"""
+
+                 
+lam = d*( np.sin(np.mean(winkel[:,0])-bogenmass(korrektur,0)) - np.sin(np.mean(winkel[:,1])-bogenmass(korrektur,0)) )/2e-9
+stat = d/2e-9*np.sqrt( np.cos(np.mean(winkel[:,0])-bogenmass(korrektur,0))**2*std_stat**2 + np.cos(np.mean(winkel[:,1])-bogenmass(korrektur,0))**2*std_stat**2  )
+
+ 
