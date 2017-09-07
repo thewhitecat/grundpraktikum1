@@ -593,7 +593,7 @@ Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungs
 	
 	Die gemessenen Winkel der nullten Ordnung sind in Tabelle \ref{tab:RohdatenRauschmessungGitter} aufgeführt. Aus den Winkeln lassen sich Mittelwert und Fehler bestimmen zu:
 	\begin{equation*}
-	\bar{\alpha} = 84^{\circ} \; 32,5' \qquad und \qquad \sigma_{\alpha} = 1,02'
+	\bar{\alpha} = 84^{\circ} \; 32,5' \qquad und \qquad \sigma_{\alpha} = 1,08'
 	\end{equation*}
 	Das Histogramm in Abbildung \ref{fig:Rauschmessung_Winkel_Gitter} zeigt, dass die gemessenen Winkel der nullten Ordnung einer Gaußverteilung folgen.
 	
@@ -604,7 +604,7 @@ Ein Gitter ist ein optisches Bauteil, das einfallendes Licht beugt. Das Beugungs
 	\end{equation}
 	Damit und mit der Annahme, dass die Fehler auf die Winkelmessungen immer gleich sind berechnet sich der Fehler auf den Beobachtungswinkel als
 	\begin{equation}
-	\sigma _{\theta} = \sigma _{\alpha} + \sigma _{\beta} = 2 \cdot \sigma _{\alpha}
+	\sigma _{\theta} = \sqrt{\left( \dfrac{\sigma_\alpha}{\sqrt{10}} \right)^2 + \left( \dfrac{\sigma_\alpha}{\sqrt{2}} \right)^2} = \sigma_\alpha \cdot \sqrt{\dfrac{6}{10}} 
 	\end{equation}
 	
 	Trägt man den Sinus des Winkels gegen das Produkt aus Wellenlänge und Ordnung auf, würde man gemäß Gl. \ref{eq:Maximumsbedingung} eine Gerade mit Steigung $\dfrac{1}{d}$ erwarten. Ein Geradenfit an die entstehende Gerade ist in Abbildung \ref{fig:FirstFit_Gitterkonstante} gezeigt. In den Residuen ist eine sehr deutliche Systematik zu sehen. Dies deutet darauf hin, dass das verwendete Modell nicht stimmt, der Winkel $\varphi$ zwischen der Senkrechten zum einfallenden Lichtstrahl und der Gitterebene nicht null ist. Daher muss eine Anpassung der Form von Gl. \ref{eq:VerallgemeinerteMaximumsbedingung} gemacht werden. Dazu wurde die Gleichung umgestellt zu
