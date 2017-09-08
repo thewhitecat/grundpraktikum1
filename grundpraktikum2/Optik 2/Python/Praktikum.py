@@ -120,91 +120,6 @@ def lineare_regression_xy(x,y,ex,ey):
     return output.beta[0],output.sd_beta[0],output.beta[1],output.sd_beta[1],chiq,corr
 
 
-def lineare_regression_festes_b(x,y,ex,ey):
-    '''
-
-    Lineare Regression mit Fehlern in x und y.
-
-    Parameters
-    ----------
-    x : array_like
-        x-Werte der Datenpunkte
-    y : array_like
-        y-Werte der Datenpunkte
-    ex : array_like
-        Fehler auf die x-Werte der Datenpunkte
-    ey : array_like
-        Fehler auf die y-Werte der Datenpunkte
-
-    Diese Funktion benoetigt als Argumente vier Listen:
-    x-Werte, y-Werte sowie jeweils eine mit den Fehlern der x-
-    und y-Werte.
-    Sie fittet eine Gerade an die Werte und gibt die
-    Steigung a und y-Achsenverschiebung b mit Fehlern
-    sowie das chi^2 und die Korrelation von a und b
-    als Liste aus in der Reihenfolge
-    [a, ea, b, eb, chiq, cov].
-
-    Die Funktion verwendet den ODR-Algorithmus von scipy.
-    '''
-    a_ini,ea_ini,b_ini,eb_ini,chiq_ini,corr_ini = lineare_regression(x,y,ey)
-
-    def f(B, x):
-        return B[0]*x
-
-    model  = scipy.odr.Model(f)
-    data   = scipy.odr.RealData(x, y, sx=ex, sy=ey)
-    odr    = scipy.odr.ODR(data, model, beta0=[a_ini*np.sqrt(2)])
-    output = odr.run()
-    ndof = len(x)-1
-    chiq = output.res_var*ndof
-
-    return output.beta[0],output.sd_beta[0], chiq
-
-
-def lineare_regression_y_achsenabschnitt_xy(x,y,ex,ey):
-    '''
-
-    Lineare Regression mit Fehlern in x und y.
-
-    Parameters
-    ----------
-    x : array_like
-        x-Werte der Datenpunkte
-    y : array_like
-        y-Werte der Datenpunkte
-    ex : array_like
-        Fehler auf die x-Werte der Datenpunkte
-    ey : array_like
-        Fehler auf die y-Werte der Datenpunkte
-
-    Diese Funktion benoetigt als Argumente vier Listen:
-    x-Werte, y-Werte sowie jeweils eine mit den Fehlern der x-
-    und y-Werte.
-    Sie fittet eine Gerade an die Werte und gibt die
-    Steigung a und y-Achsenverschiebung b mit Fehlern
-    sowie das chi^2 und die Korrelation von a und b
-    als Liste aus in der Reihenfolge
-    [a, ea, b, eb, chiq, cov].
-
-    Die Funktion verwendet den ODR-Algorithmus von scipy.
-    '''
-    a_ini,ea_ini,b_ini,eb_ini,chiq_ini,corr_ini = lineare_regression(x,y,ey)
-
-    def f(B, x):
-        return -x + B[0]
-
-    model  = scipy.odr.Model(f)
-    data   = scipy.odr.RealData(x, y, sx=ex, sy=ey)
-    odr    = scipy.odr.ODR(data, model, beta0=[b_ini])
-    output = odr.run()
-    ndof = len(x)-1
-    chiq = output.res_var*ndof
-
-    return output.beta[0],output.sd_beta[0],chiq
-
-
-
 def fourier(t,y):
     '''
 
@@ -322,7 +237,6 @@ def exp_einhuellende(t,y,ey,Sens=0.1):
     sigmaA0=LR[3]*exp(LR[2])
     delta=-LR[0]
     sigmaDelta=LR[1]
-
     return(A0,sigmaA0,delta,sigmaDelta)
 
 def untermenge_daten(x,y,x0,x1):
