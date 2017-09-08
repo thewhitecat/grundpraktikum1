@@ -40,25 +40,28 @@ data6 = np.array(data_raw[:,6])
 
 xerr = np.full(len(m),0.2/np.sqrt(12))
 yerr = np.full(len(data1),1./np.sqrt(12))
+
 a1,ea1= linreg(m,data1,xerr,yerr)
 a2,ea2= linreg(m,data2,xerr,yerr)
 a3,ea3= linreg(m,data3,xerr,yerr)
 a4,ea4= linreg(m,data4,xerr,yerr)
 a5,ea5= linreg(m,data5,xerr,yerr)
 a6,ea6= linreg(m,data6,xerr,yerr)
+
 a = np.array([a1,a2,a3,a4,a5,a6])
 ea = np.array([ea1,ea2,ea3,ea4,ea5,ea6])
 gmean,gstd = p.gewichtetes_mittel(a,ea)
-mean = np.mean(a)
-std = np.std(a)
-#2d = m lam
+a_mean = np.mean(a)
+a_std = np.std(a)
 lam = 522.66e-9
 lamstat = 2.03e-9
 lamsys = 1.92e-9
 L = 0.01
-dn = lam/(2.*L*mean)
-dnsig = dn * np.sqrt((std / mean)**2 + (lamstat/lam)**2)
-print dn,dnsig
+Lerr = 0
+dn = lam/(2.*L*a_mean)
+dnerr = dn * np.sqrt((a_std / a_mean)**2 + (lamstat/lam)**2)
+dnsys = np.sqrt((dn/L*Lerr)**2 + (dn/lam*lamsys)**2)
+print dn,dnerr,dnsys
 
 
 
