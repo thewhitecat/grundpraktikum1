@@ -16,7 +16,7 @@ nummer = 2
 
 
 n = nummer -1
-d = 1658.9*1e-9 #1.0/600000
+d = 1658.91*1e-9 #1.0/600000
 std_d = 0.3424e-9
 grad = (linien[n][:,1]+linien[n][:,3])/2
 minuten = (linien[n][:,2]+linien[n][:,4])/2
