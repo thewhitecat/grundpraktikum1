@@ -34,18 +34,46 @@ I. Physikalisches Institut B\\[4.5cm]
 
 Im folgenden Versuch soll mithilfe eines Michelson-Interferometers die Wellenlänge eines Lasers bestimmt werden. Anschließend soll die Druckabhängigkeit des Brechungsindex von Luft untersucht werden. Als letztes wird der Brechungsindex von $\text{CO}_2$ bestimmt.\\
 \\
-Grundlage des Versuches ist  die Interferenz eines kohärenten Wellenzuges mit sich selbst durch Amlitudenaufspaltung. Die dadurch entstehenden Teilstrahlen durchlaufen eine unterschiedliche Strecke, bis sie wieder vereinigt werden. Dadurch besitzen sie eine feste Phasenbeziehung zueinander und somit eine konstante Interferenz.\\
-Beim Michelson-Interferometer wird ein leicht diverenter Strahl verwendet. Dadurch gibt es für unterschiedliche Divergenzwinkel $\theta$ andere Phasenverschiebungen, da die Strecke mit $\cos(\theta)$ modifiziert wird. Für den Streckenunterschied gilt dann:
+Grundlage des Versuches ist  die Interferenz eines kohärenten Wellenzuges mit sich selbst durch Amlitudenaufspaltung. Die dadurch entstehenden Teilstrahlen durchlaufen eine unterschiedliche Strecke, bis sie wieder vereinigt werden. Dadurch besitzen sie eine feste Phasenbeziehung zueinander und sind somit kohärent und damit interferenzfähig.\\
+Beim Michelson-Interferometer wird ein leicht divergenter Strahl verwendet. Dadurch gibt es für unterschiedliche Divergenzwinkel $\theta$ andere Phasenverschiebungen, da die Strecke mit $\cos(\theta)$ modifiziert wird. Für den Streckenunterschied gilt dann:
 \begin{equation}
 \delta = \dfrac{2\pi}{\lambda} \cdot 2d \cos(\theta)
 \end{equation}
 Betrachtet man Interferenzmaxima muss $\delta = 2\pi m$, $m=0,1,2,...$, gelten und damit:
 \begin{equation}
 2d \cos(\theta) = m\lambda
+\label{equ:Maxima}
+\end{equation}
+
+Durch Taylorentwicklung ergibt sich als lineare Näherung für die Druckabhängigkeit des Brechungsindexes vom Druck die Formel:
+
+\begin{equation}
+n(P) = 1+\frac{\Delta n}{\Delta P} \cdot P
+\end{equation}
+
+Aus der optischen Wegdifferenz und der Maximumsbedingung ergibt sich somit der Zusammenhang:
+
+\begin{equation}
+\frac{\Delta n}{\Delta P} = \frac{\Delta m}{\Delta P} \cdot  \frac{\lambda}{2L}
+\label{equ:DruckBrechung}
+\end{equation}
+
+Ähnliche Überlegungen ergeben für den Brechungsindex von $CO_2$ führen zu den Zusammenhängen
+
+\begin{equation}
+n_{CO_2} = n_{Luft} + \Delta_n
+\end{equation}
+
+wobei gilt
+
+\begin{equation}
+\Delta n = \Delta m \frac{\lambda}{2L}
 \end{equation}
 
 
+
 \section{Aufbau und Durchführung}
+
 \begin{figure}
 \centering
 \includegraphics[scale=0.6]{Bilder/Aufbau}
@@ -53,6 +81,23 @@ Betrachtet man Interferenzmaxima muss $\delta = 2\pi m$, $m=0,1,2,...$, gelten u
 \label{fig:Aufbau}
 \end{figure}
 
+Zu Beginn wird die Wellenlänge des grünen Lasers durch Veränderung der optischen Weglänge bestimmt. Eine Skizze des Versuchsaufbaus ist in Abbildung \ref{fig:Aufbau} gezeigt.
+Dazu wird der Spiegel M3 verschoben, wobei im Interferenzbild am Schirm aufgrund der Veränderung der optischen Weglänge nacheinander im Zentrum Maxima verschwinden bzw. erscheinen. Eine Wechsel von $\Delta m$ Maxima entspricht dann einer gewissen Verschiebung $\Delta d$. Die Wellenlänge des Lasers 
+ergibt sich dann aus Gleichung \ref{equ:Maxima} für $\theta = 0$.\\
+
+Die Verschiebung von M3 erfolgt über einen Feintrieb. Es muss somit zuvor eine Kalibrierung zwischen (relativer) Spiegelposition $d$ und Feintriebskala $s$ vorgenommen werden. Dafür wird ein roter He-Ne-Laser mit bekannter Wellenlänge ($\lambda = 632,8$ nm) verwendet.\\
+
+Zur Bestimmung der Druckabhängigkeit des Brechungsindexes von Luft wird eine Glasparzelle in den Strahlengang zwischen Strahlteiler ST und Spiegel M3 eingebracht. Der veränderte Aufbau ist in Abbildung \ref{fig:AufbauDruck} dargestellt.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.6]{Bilder/AufbauDruck.png}
+\caption{Aufbau zur Bestimmung der Druckabhängigkeit des Brechungsindex. (Quelle: Praktikumsskript S.41)}
+\label{fig:AufbauDruck}
+\end{center}
+\end{figure}
+
+Mit der Handpumpe wird der Druck in der Parzelle solange verringert, bis auf dem Schirm ein vollständiger Wechsel von Maximum zu Maximum durchlaufen wurde. Für jeden dieser Schritte wird der Druck gemessen und notiert. Die Druckabhängigkeit ergibt sich dann mithilfe von Gleichung \ref{equ:DruckBrechung}.
 
 \section{Auswertung}
 
