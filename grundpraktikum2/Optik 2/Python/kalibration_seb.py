@@ -13,9 +13,11 @@ import Praktikum as p
 laser = 632.8e-6
 sig_laser = 0.1e-6
 
+
 m, s = np.genfromtxt("Kalibration_A.txt", skip_header=1, delimiter=",", unpack=True)
 #s*=1e-3
 sig_s = 0.005/np.sqrt(12)
+
 
 # 2d = m lambda
 # d = ks
@@ -51,10 +53,12 @@ plt.xlabel("m")
 #
 ############################
 
+
 m, s = np.genfromtxt("Wellen_A.txt", skip_header=1, delimiter=",", unpack=True)
 #s*=1e-3
 
 m = m[0:len(s)]
+
 # 2 ks = lambda m
 
 y = 2*k*s
@@ -62,6 +66,7 @@ ey = y* sig_s/s
 
 
 a, ea, b, eb, chi2, corr = p.lineare_regression(m, y, ey)
+
 
 plt.figure(2, [6.5,4.5])
 plt.subplot2grid((6,1),(0,0), rowspan=4)
@@ -71,11 +76,5 @@ plt.figtext(0.2, 0.65, "2 k s = $\lambda$ m\n$\lambda = ({0:3.1f} \pm {1:3.1f})$
 plt.ylabel("2 k s [mm]")
 plt.xlabel("m")
 
-# Residuen
-plt.subplot2grid((6,1),(-2,0), rowspan=2)
-plt.errorbar(m, y - a*m -b, yerr=ey, fmt = ".")
-plt.axhline(linestyle="dashed")
-plt.ylabel("Residuen")
-plt.xlabel("m")
 
 ea_sys = a*ek/k
