@@ -27,9 +27,9 @@ def linreg(m,data1,xerr, yerr):
     plt.xlabel('m')
     plt.ylabel('Residuen')
     plt.show()
-    return a,ea
+    return a,ea,chiq_ndof
 
-data_raw = np.genfromtxt('Druck_A.txt', delimiter = ',', skip_header = 2);
+data_raw = np.genfromtxt('Druck_A.txt', delimiter = ',', skip_header = 1);
 m = np.array(data_raw[:,0])
 data1 = np.array(data_raw[:,1])
 data2 = np.array(data_raw[:,2])
@@ -41,21 +41,26 @@ data6 = np.array(data_raw[:,6])
 xerr = np.full(len(m),0.2/np.sqrt(12))
 yerr = np.full(len(data1),1./np.sqrt(12))
 
-a1,ea1= linreg(m,data1,xerr,yerr)
-a2,ea2= linreg(m,data2,xerr,yerr)
-a3,ea3= linreg(m,data3,xerr,yerr)
-a4,ea4= linreg(m,data4,xerr,yerr)
-a5,ea5= linreg(m,data5,xerr,yerr)
-a6,ea6= linreg(m,data6,xerr,yerr)
+a1,ea1,chi1= linreg(m,data1,xerr,yerr)
+a2,ea2,chi2= linreg(m,data2,xerr,yerr)
+a3,ea3,chi3= linreg(m,data3,xerr,yerr)
+a4,ea4,chi4= linreg(m,data4,xerr,yerr)
+a5,ea5,chi5= linreg(m,data5,xerr,yerr)
+a6,ea6,chi6= linreg(m,data6,xerr,yerr)
 
 a = np.array([a1,a2,a3,a4,a5,a6])
 ea = np.array([ea1,ea2,ea3,ea4,ea5,ea6])
-gmean,gstd = p.gewichtetes_mittel(a,ea)
+chi = np.array([chi1,chi2,chi3,chi4,chi5,chi6])
+gmean,gstd = p.gewichtetes_mittel(a,abs(chi-1))
 a_mean = np.mean(a)
 a_std = np.std(a)
+#a_mean = gmean
+#a_std = gstd
+print a_mean, a_std
 lam = 522.66e-9
-lamstat = 2.03e-9
-lamsys = 1.92e-9
+lamstat = 0
+#lamstat = 2.03e-9
+lamsys = np.sqrt(1.92e-9**2+ 2.03e-9**2)
 L = 0.01
 Lerr = 0
 dn = lam/(2.*L*a_mean)

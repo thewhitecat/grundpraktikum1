@@ -23,5 +23,9 @@ dnerr = np.sqrt((lam/(2*L)*std)**2 + (mean/(2*L) * lamstat)**2)
 
 print dn, dnerr
 
-nl = 
+nl = 1+2.6108675e-7*979.
+nlerr = 979*np.sqrt((3.4805e-9)**2 + (9.639e-10)**2)
+print nl
 n = nl +dn
+nerr = np.sqrt(dnerr**2+nlerr**2)
+print n-1, nerr
