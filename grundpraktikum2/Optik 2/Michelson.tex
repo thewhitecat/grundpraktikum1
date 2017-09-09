@@ -49,6 +49,7 @@ Durch Taylorentwicklung ergibt sich als lineare Näherung für die Druckabhängi
 
 \begin{equation}
 n(P) = 1+\frac{\Delta n}{\Delta P} \cdot P
+\label{eq:DruckBrechzahl}
 \end{equation}
 
 Aus der optischen Wegdifferenz und der Maximumsbedingung ergibt sich somit der Zusammenhang:
@@ -61,13 +62,15 @@ Aus der optischen Wegdifferenz und der Maximumsbedingung ergibt sich somit der Z
 Ähnliche Überlegungen ergeben für den Brechungsindex von $CO_2$ führen zu den Zusammenhängen
 
 \begin{equation}
-n_{CO_2} = n_{Luft} + \Delta_n
+n_{CO_2} = n_{Luft} + \Delta n
+\label{eq:COO_n}
 \end{equation}
 
 wobei gilt
 
 \begin{equation}
 \Delta n = \Delta m \frac{\lambda}{2L}
+\label{eq:COO_dn}
 \end{equation}
 
 
@@ -108,6 +111,49 @@ Mit der Handpumpe wird der Druck in der Parzelle solange verringert, bis auf dem
 \subsection{Druckabhängigkeit des Brechungsindex}
 
 \subsection{Brechungsindex von Kohlenstoffdioxid}
+In diesem Teilsversuch sollte mithilfe der Resultate von den vorherigen Versuchen der Brechungsindex von $CO_2$ bestimmt werden. Dabei wird zuerst nach Gleichung \ref{eq:COO_dn} der Unterschied im Brechungsindex von Luft und $CO_2$ bestimmt. Dazu werden, wie in den Versuchen vorher, wieder die Anzahl der durchlaufenen Interferenzmaxima beim füllen der Parzelle mit $CO_2$ gemessen. Die Resultate sind in Tabelle \ref{tab:COO_Rohdaten} aufgelistet.
+
+\begin{table}
+\center
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Messung & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
+\hline
+$\Delta m$ & 5.1 & 4.8 & 5.0 & 4.9 & 4.7 & 5.1 & 5.0 & 4.8\\
+\hline
+\end{tabular}
+\caption{Rohdaten der durchlaufenen Interferenzmaxima. Nach der Bestimmung der ungefähren durchläufe wurde noch abgeschätzt, um welchen Anteil Anfangs- und Endbild verschoben sind.}
+\label{tab:COO_Rohdaten}
+\end{table}
+
+Hieraus wurde der Mittelwert mitsamt seiner Standardabweichung gebildet:
+\begin{equation}
+\Delta m = 4.92 \pm 0.15
+\end{equation}
+Daraus wird mittels Gleichung \ref{eq:COO_dn} der Unterschied im Brechungsindex bestimmt:
+\begin{equation}
+\Delta n = (1.287 \pm 0.039 \pm 0.015)\cdot 10^{-4}
+\end{equation}
+Der statistische Fehler Bestimmt sich alllein durch die Mehrfachmessung.
+Der Systematische Fehler besteht aus den quadratisch addierten Fehlern auf der Wellenlänge aus dem Vorversuch und aus dem Fehler auf der Länge L, der hier mit 1\% angenommen wird:
+\begin{equation}
+\sigma_{stat} = \dfrac{\Delta n}{\Delta m} \cdot \sigma_{\Delta m}
+\end{equation}
+\begin{equation}
+\sigma_{sys} = \sqrt{\left(\dfrac{\Delta n}{\lambda} \cdot \sigma_{\lambda}\right)^2 + \left(\dfrac{\Delta n}{L} \cdot \sigma_{L}\right)^2}
+\end{equation}
+
+Um aus diesem Ergebnis nun den Brechungsindex von $CO_2$ zu bestimmen wird Gleichung \ref{eq:COO_n} benutzt. Dafür wird allerdings zuerst der Brechungsindex von Luft mithilfe der Resultate von Kapitel 3.3 und Gleichung \ref{eq:DruckBrechzahl} bestimmt. Dabei wird der Umgebungsdruck mit 979 hPa angenommen:
+\begin{equation}
+n_{Luft}-1 = (2.56 \pm 0.03)\cdot 10^{-4}
+\end{equation}
+Daraus folgt dann der Brechungsindex von $CO_2$:
+\begin{equation}
+n_{CO_2}-1 = (3.84 \pm 0.04 \pm 0.03)\cdot 10^{-4}
+\end{equation}
+
+\paragraph{Zwischenfazit}
+
 
 \section{Fazit}
 
