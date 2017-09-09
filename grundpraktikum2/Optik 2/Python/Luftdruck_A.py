@@ -17,8 +17,8 @@ def linreg(m,data1,xerr, yerr):
     ax1 = plt.subplot(211)
     plt.errorbar(m,data1,xerr = xerr,yerr = yerr,linestyle = 'None',marker = '.')
     plt.plot(x_axis,a*x_axis+b)
-    plt.ylabel('s/mm')
-    plt.figtext(0.60,0.70,' a = {}$\pm${} \n b = {}$\pm${} \n $\chi^2/ndof$ = {}'.format(round(a,5),round(ea,5),round(b,5),round(eb,5),round(chiq_ndof,3)))
+    plt.ylabel('P [hPa]')
+    plt.figtext(0.60,0.70,' a = {}$\pm${} hPa \n b = {}$\pm${} hPa \n $\chi^2/ndof$ = {}'.format(round(a,2),round(ea,2),round(b,2),round(eb,2),round(chiq_ndof,3)))
     plt.setp(ax1.get_xticklabels(),visible=False)
     
     ax2 = plt.subplot(212,sharex=ax1)
