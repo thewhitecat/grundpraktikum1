@@ -110,6 +110,200 @@ Mit der Handpumpe wird der Druck in der Parzelle solange verringert, bis auf dem
 
 \subsection{Druckabhängigkeit des Brechungsindex}
 
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+m [1] & $P_1$ [hPa] & $P_2$ [hPa] & $P_3$ [hPa] & $P_4$ [hPa] & $P_5$ [hPa] & $P_6$ [hPa] \\ 
+\hline 
+0 & 974 & 976 & 977 & 976 & 978 & 976 \\ 
+\hline 
+1 & 862 & 856 & 865 & 871 & 871 & 846 \\ 
+\hline 
+2 & 770 & 775 & 773 & 773 & 773 & 766 \\ 
+\hline 
+3 & 678 & 675 & 674 & 680 & 663 & 655 \\ 
+\hline 
+4 & 571 & 574 & 570 & 577 & 564 & 544 \\ 
+\hline 
+5 & 469 & 473 & 467 & 476 & 463 & 457 \\ 
+\hline 
+6 & 385 & 380 & 369 & 381 & 366 & 363 \\ 
+\hline 
+7 & 277 & 278 & 269 & 278 & 267 & 260 \\ 
+\hline 
+8 & 170 & 173 & 161 & 172 & 157 & 160 \\ 
+\hline 
+9 & 75 & 83 & 66 & 76 & 56 & 69 \\ 
+\hline 
+\end{tabular} 
+\caption{Rohdaten zur Bestimmung der Druckabhängigkeit des Brechungsindexes Aufbau A}
+\label{tab:Rohdaten_Druck_A}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline 
+m [1] & $P_1$ [hPa] & $P_2$ [hPa] & $P_3$ [hPa] & $P_4$ [hPa] & $P_5$ [hPa] & $P_6$ [hPa] & $P_7$ [hPa] & $P_8$ [hPa] \\ 
+\hline 
+0 & 976 & 976 & 976 & 976 & 976 & 976 & 976 & 976 \\ 
+\hline 
+1 & 866 & 870 & 867 & 858 & 876 & 870 & 882 & 858 \\ 
+\hline 
+2 & 756 & 763 & 758 & 753 & 773 & 758 & 766 & 753 \\ 
+\hline 
+3 & 664 & 653 & 668 & 640 & 681 & 667 & 664 & 662 \\ 
+\hline 
+4 & 541 & 551 & 552 & 525 & 574 & 586 & 562 & 559 \\ 
+\hline 
+5 & 438 & 455 & 452 & 414 & 480 & 449 & 479 & 457 \\ 
+\hline 
+6 & 343 & 354 & 348 & 320 & 390 & 368 & - & 352 \\ 
+\hline 
+7 & - & 252 & 257 & 215 & 269 & 243 & 276 & 264 \\ 
+\hline 
+8 & - & 154 & 149 & - & 174 & - & 161 & 157 \\ 
+\hline 
+\end{tabular} 
+\caption{Rohdaten zur Bestimmung der Druckabhängigkeit des Brechungsindexes Aufbau B}
+\label{tab:Rohdaten_Druck_B}
+\end{center}
+\end{table}
+
+Der Versuch zur Bestimmung der Druckabhängigkeit des Brechungsindexes wurde an zwei Aufbauten von zwei verschiedenen Experimentatorzweiergruppen durchgeführt. Zur Unterscheidung werden im Folgenden die Bezeichnungen 'Aufbau A' und 'Aufbau B' verwendet.\\
+Die Rohdaten von Aufbau A sind in Tabelle \ref{tab:Rohdaten_Druck_A} aufgeführt.\\
+Die Rohdaten von Aufbau B sind in Tabelle \ref{tab:Rohdaten_Druck_B} aufgeführt.\\
+Zur Auswertung der Daten gibt es zwei Möglichkeiten:
+\begin{enumerate}
+\item Man verschiebt die Messreihen anhand eines Messpunktes aufeinander und verwendet die Streuung der Punkte für jedes Maximum als Fehler und führt anschließend daran eine lineare Regression durch. 
+\item Man führt für alle Messreihen einzeln eine lineare Regression durch und mittelt anschließend die Steigungen. Für diese Variante muss ein Fehler auf die Druckmessung geschätzt werden.
+\end{enumerate}
+Die Messdaten von Aufbau B eignen sich augenscheinlich besser für Variante 1 als die Messdaten von Aufbau A, da hier bereits der erste Punkt aller Messreihen aufeinander liegen. Die lineare Regression ist in Abbildung \ref{fig:Druck_B_Var1} gezeigt. \\
+An den Residuen wird schnell ersichtlich, dass die Fehler deutlich zu groß sind. Dies konnte auch schon an den Messdaten selber erahnt werden, da diese sehr stark streuen.\\
+Aus der Steigung kann mittels 
+\begin{equation}
+\dfrac{dn}{dP} = \dfrac{1}{-a} \cdot \dfrac{\lambda}{2 \cdot l}
+\label{equ:Druck_Steigung}
+\end{equation}
+der Zusammenhang zwischen dem Brechungsindex der Luft und dem Luftdruck bestimmt werden. Der Fehler auf diesen Wert berechnet sich mit dem Fehler auf die Steigung $\sigma _a$ wie folgt bestimmt werden:
+\begin{equation}
+\sigma _{\dfrac{dn}{dP}} = \dfrac{dn}{dP} \cdot \sqrt{\left( \dfrac{\sigma_ a}{a} \right) ^2}
+\label{equ:Druck_Steigung_Fehler}
+\end{equation}
+Der Fehler auf die Wellenlänge wird als systematischer Fehler auf das Endergebnis betrachtet. Damit berechnet sich der systematische Fehler zu:
+\begin{equation}
+\sigma _{\dfrac{dn}{dP}, sys} = \dfrac{dn}{dP} \cdot \sqrt{\left( \dfrac{\sigma_ \lambda}{\lambda} \right) ^2}
+\label{equ:Druck_Steigung_Fehler_sys}
+\end{equation}
+Unter Verwendung von Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_Fehler} und Gl. \ref{equ:Druck_Steigung_Fehler_sys} berechnet sich der Wert für $\dfrac{dn}{dP}$ aus den Daten von Aufbau B nach Methode 1 zu:
+\begin{equation*}
+\dfrac{dn}{dP} = (2.5931 \pm 0.034 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}
+\end{equation*}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{Bilder/Druck_B_Var1.png}
+\caption{Lineare Regression nach Variante 1 an Messdaten von Aufbau B.}
+\label{fig:Druck_B_Var1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{Bilder/Druck_B_Var2.png}
+\caption{Lineare Regression beispielhaft an einer Messreihe von Aufbau B.}
+\label{fig:Druck_B_Var2}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{Bilder/Druck_A_Var2.png}
+\caption{Lineare Regression beispielhaft an einer Messreihe von Aufbau A.}
+\label{fig:Druck_A_Var2}
+\end{figure}
+
+Abbildung \ref{fig:Druck_B_Var2} zeigt beispielhaft eine der linearen Regressionen an einer der Messreihen von Aufbau B, die der Auswertung nach Variante 1 dienen. Abbildung \ref{fig:Druck_A_Var2} zeigt dies für Aufbau A. \\
+Die aus den verschiedenen Messreihen ermittelten Steigungen für diese linearen Regressionen sind für Aufbau B in Tabelle \ref{tab:Druck_Steigungen_B} aufgeführt. Tabelle \ref{tab:Druck_Steigungen_A} zeigt die Steigungen für Aufbau A.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Messreihe & a & $\sigma _a$ \\ 
+\hline 
+1 & -106.15 & 1.31 \\ 
+\hline 
+2 & -102.67 & 0.73 \\ 
+\hline 
+3 & -102.94 & 0.77 \\ 
+\hline 
+4 & -108.99 & 1.15 \\ 
+\hline 
+5 & -99.98 & 0.84 \\ 
+\hline 
+6 & -103.20 & 2.02 \\ 
+\hline 
+7 & -101.04 & 1.15 \\ 
+\hline 
+8 & -101.14 & 0.90 \\ 
+\hline 
+\end{tabular} 
+\caption{Aus den linearen Regressionen ermittelte Steigungen für Aufbau B.}
+\label{tab:Druck_Steigungen_B}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Messreihe & a & $\sigma _a$ \\ 
+\hline 
+1 & -99.32 & 0.68 \\ 
+\hline 
+2 & -98.76 & 0.71 \\ 
+\hline 
+3 & -101.01 & 0.42 \\ 
+\hline 
+4 & -99.81 & 0.37 \\ 
+\hline 
+5 & -101.94 & 0.42 \\ 
+\hline 
+6 & -99.85 & 1.14 \\  
+\hline 
+\end{tabular} 
+\caption{Aus den linearen Regressionen ermittelte Steigungen für Aufbau A.}
+\label{tab:Druck_Steigungen_A}
+\end{center}
+\end{table}
+
+Die Steigungen werden mit den Fehlern gewichtet gemittelt. Da die Werte nicht alle innerhalb einer Standardabweichung liegen, wird der Fehler aus der gewichteten Mittelung mit der Streuung der Werte für die Steigung verglichen und der größere genommen. Daraus ergibt sich die Steigung für Aufbau A zu:
+\begin{equation*}
+a = (-100.11 \pm 1.06) \, \si{hPa}
+\end{equation*}
+Und für Aufbau B:
+\begin{equation*}
+a = (-102.72 \pm 2.78) \, \si{hPa}
+\end{equation*}
+Mit Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_Fehler} und Gl. \ref{equ:Druck_Steigung_Fehler_sys} lassen sich daraus der gesuchte Wert und die Fehler auf diesen berechnen. \\
+Für Aufbau A ergibt sich damit:
+\begin{equation*}
+\dfrac{dn}{dP} = (2.6103 \pm 0.028 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}  
+\end{equation*}
+Für Aufbau B:
+\begin{equation*}
+\dfrac{dn}{dP} = (2.5612 \pm 0.069 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}
+\end{equation*}
+Der Literaturwert wird angegeben mit:
+\begin{equation*}
+\dfrac{dn}{dP} = 2.655 \cdot 10^{-7} \, \si{1/mbar}
+\end{equation*}
+Damit weicht der Wert, der nach Methode 1 aus den Messreihen von Aufbau B ermittelt wurde, 1.7 $\sigma$ vom Literaturwert ab.\\
+Der Wert, der nach Methode 2 aus den Messreihen von Aufbau A ermittelt wurde, weicht 1.4 $\sigma$ vom Literaturwert ab.\\
+Der Wert, der nach Methode 2 aus den Messreihen von Aufbau A ermittelt wurde, weicht 1.3 $\sigma$ vom Literaturwert ab.\\
+Der Wert konnte also mit beiden Aufbauten und beiden Auswertungsmethoden mit einer Abweichung von weniger als 2 $\sigma$ bestimmt werden. Dabei sind die Fehler alle im Bereich von 1 \% - 3 \%.
+
 \subsection{Brechungsindex von Kohlenstoffdioxid}
 In diesem Teilsversuch sollte mithilfe der Resultate von den vorherigen Versuchen der Brechungsindex von $CO_2$ bestimmt werden. Dabei wird zuerst nach Gleichung \ref{eq:COO_dn} der Unterschied im Brechungsindex von Luft und $CO_2$ bestimmt. Dazu werden, wie in den Versuchen vorher, wieder die Anzahl der durchlaufenen Interferenzmaxima beim füllen der Parzelle mit $CO_2$ gemessen. Die Resultate sind in Tabelle \ref{tab:COO_Rohdaten} aufgelistet.
 
