@@ -18,7 +18,7 @@ def linreg(m,data1,xerr, yerr):
     plt.errorbar(m,data1,xerr = xerr,yerr = yerr,linestyle = 'None',marker = '.')
     plt.plot(x_axis,a*x_axis+b)
     plt.ylabel('s/mm')
-    plt.figtext(0.15,0.70,' a = {}$\pm${} \n b = {}$\pm${} \n $\chi^2/ndof$ = {}'.format(round(a,5),round(ea,5),round(b,5),round(eb,5),round(chiq_ndof,3)))
+    plt.figtext(0.60,0.70,' a = {}$\pm${} \n b = {}$\pm${} \n $\chi^2/ndof$ = {}'.format(round(a,5),round(ea,5),round(b,5),round(eb,5),round(chiq_ndof,3)))
     plt.setp(ax1.get_xticklabels(),visible=False)
     
     ax2 = plt.subplot(212,sharex=ax1)
