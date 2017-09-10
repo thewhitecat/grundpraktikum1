@@ -15,17 +15,17 @@ def linreg(m,data1,xerr, yerr):
     x_axis = np.linspace(0,10,100)
     plt.figure()
     ax1 = plt.subplot(211)
-    plt.errorbar(m,data1,xerr = xerr,yerr = yerr,linestyle = 'None',marker = '.')
-    plt.plot(x_axis,a*x_axis+b)
+    plt.errorbar(m,data1,xerr = xerr,yerr = yerr,linestyle = 'None',marker = '.',color='b')
+    plt.plot(x_axis,a*x_axis+b,color='#ff9900')
     plt.ylabel('P [hPa]')
-    plt.figtext(0.60,0.70,' a = {}$\pm${} hPa \n b = {}$\pm${} hPa \n $\chi^2/ndof$ = {}'.format(round(a,2),round(ea,2),round(b,2),round(eb,2),round(chiq_ndof,3)))
+    plt.figtext(0.60,0.70,' a = ({}$\pm${}) hPa \n b = ({}$\pm${}) hPa \n $\chi^2/ndof$ = {}'.format(round(a,2),round(ea,2),round(b,2),round(eb,2),round(chiq_ndof,3)))
     plt.setp(ax1.get_xticklabels(),visible=False)
     
     ax2 = plt.subplot(212,sharex=ax1)
-    plt.errorbar(m,data1-(m*a+b),np.sqrt(yerr**2+(a*xerr)**2),linestyle = 'None')
-    plt.axhline(0)
+    plt.errorbar(m,data1-(m*a+b),np.sqrt(yerr**2+(a*xerr)**2),fmt = '.', color='b')
+    plt.axhline(0, color='#ff9900')
     plt.xlabel('m')
-    plt.ylabel('Residuen')
+    plt.ylabel('Residuen[hPa]')
     plt.show()
     return a,ea,chiq_ndof
 

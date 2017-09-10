@@ -234,7 +234,7 @@ Unter Verwendung von Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_F
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.8]{Bilder/Druck_A_Var2.png}
+\includegraphics[scale=0.8]{Bilder/Druck_A_Var2_1.png}
 \caption{Lineare Regression beispielhaft an einer Messreihe von Aufbau A.}
 \label{fig:Druck_A_Var2}
 \end{figure}
@@ -321,7 +321,8 @@ Der Wert, der nach Methode 2 aus den Messreihen von Aufbau A ermittelt wurde, we
 Der Wert konnte also mit beiden Aufbauten und beiden Auswertungsmethoden mit einer Abweichung von weniger als 2 $\sigma$ bestimmt werden. Dabei sind die Fehler alle im Bereich von 1 \% - 3 \%.
 
 \subsection{Brechungsindex von Kohlenstoffdioxid}
-In diesem Teilsversuch sollte mithilfe der Resultate von den vorherigen Versuchen der Brechungsindex von $CO_2$ bestimmt werden. Dabei wird zuerst nach Gleichung \ref{eq:COO_dn} der Unterschied im Brechungsindex von Luft und $CO_2$ bestimmt. Dazu werden, wie in den Versuchen vorher, wieder die Anzahl der durchlaufenen Interferenzmaxima beim füllen der Parzelle mit $CO_2$ gemessen. Die Resultate sind in Tabelle \ref{tab:COO_Rohdaten} aufgelistet.
+Dieser Teilversuch wurde mit Aufbau A durchgeführt.
+Es sollte mithilfe der Resultate von den vorherigen Versuchen der Brechungsindex von $CO_2$ bestimmt werden. Dabei wird zuerst nach Gleichung \ref{eq:COO_dn} der Unterschied im Brechungsindex von Luft und $CO_2$ bestimmt. Dazu werden, wie in den Versuchen vorher, wieder die Anzahl der durchlaufenen Interferenzmaxima beim füllen der Parzelle mit $CO_2$ gemessen. Die Resultate sind in Tabelle \ref{tab:COO_Rohdaten} aufgelistet.
 
 \begin{table}
 \center
@@ -363,8 +364,47 @@ n_{CO_2}-1 = (3.84 \pm 0.04 \pm 0.03)\cdot 10^{-4}
 \end{equation}
 
 \paragraph{Zwischenfazit}
-
-
+Der Literaturwert ist bei Normaldruck und $20^\circ \text{C}$ angegeben mit:
+\begin{equation}
+n_{CO_2}-1 = 4.16\cdot 10^{-4}
+\end{equation}
+Der Messwert wurde auf unter 2\% genau bestimmt.
+Mit quadratisch addierten Fehlern liegt der Messwert 6.16 Standardabweichungen vom Literaturwert entfernt. Dies entspricht einer relativen Abweichung von c.a 8\%.\\
+Es war zu erwarten, dass dieses Messergebnis nicht allzu genau ist, da es von den Ergebnissen aller Vorversuche abhängt und so eventuelle systematische Fehler im Aufbau mit einfließen.\\
+Versucht man allerdings das Messergebnis durch Anpassung der Parameter zum Literaturwert hin zu korrigieren, dann stellt sich heraus, dass $\Delta m$ bei c.a 6 liegen müsste und somit mehr als eine ganze Maximaordung zu klein ist. Sogar bei Benutztung der Literaturwerte als Eingangsdaten anstelle der Messergebnisse ist $\Delta m$ immernoch deutlich zu klein.\\
+Eine derartige Abweichung kann nicht auf eine Messungenauigkeit zurückgeführt werden.\\ \\
+Allerdings hängt der Brechungsindex von $CO_2$ geanu wie der von Luft stark von den Wetterbedingungen ab. Geht man davon aus, dass die Druckabhängigkeit auch hier linear ist, kann man den Literaturwert folgendermaßen korrigieren:
+\begin{equation}
+n_{corr}-1 = \dfrac{n_{CO_2}}{1013 hPa} \cdot 979 hPa = 4.02\cdot 10^{-4}
+\end{equation}
+Damit liegt der gemessene Wert nur noch $3.44 \sigma$ von der Erwartung entfernt. Die große Abweichung lässt sich also mit nicht berücksichtigten Umgebungsvariablen und eventuellen Ungenauigkeiten im Aufbau und in Vorversuchen erklären.
 \section{Fazit}
 
+\section{Anhang}
+
+\subsection{Druckabhängigkeit}
+
+\subsubsection{Lineare Regressionen Aufbau A}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_2.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_3.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_4.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_5.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_6.png}
+\caption{Lineare Regressionen für die übgrigen Messreihen von Aufbau A}
+\end{figure}
+
+\subsubsection{Lineare Regressionen Aufbau B (TODO)}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_2.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_3.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_4.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_5.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_6.png}
+\caption{Lineare Regressionen für die übgrigen Messreihen von Aufbau B}
+\end{figure}
+
 \end{document}
+
