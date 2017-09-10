@@ -124,7 +124,7 @@ Für die Bestimmung des Brechungsindex von $\text{CO}_2$ wird ebenfalls die Glas
 
 \subsection{Bestimmung der Wellenlänge}
 
-\subsection{Druckabhängigkeit des Brechungsindex}
+\subsection{Druckabhängigkeit des Brechungsindex von Luft}
 
 \begin{table}
 \begin{center}
@@ -205,12 +205,12 @@ Aus der Steigung kann mittels
 \end{equation}
 der Zusammenhang zwischen dem Brechungsindex der Luft und dem Luftdruck bestimmt werden. Der Fehler auf diesen Wert berechnet sich mit dem Fehler auf die Steigung $\sigma _a$ wie folgt bestimmt werden:
 \begin{equation}
-\sigma _{\dfrac{dn}{dP}} = \dfrac{dn}{dP} \cdot \sqrt{\left( \dfrac{\sigma_ a}{a} \right) ^2}
+\sigma _{\frac{dn}{dP}} = \dfrac{dn}{dP} \cdot \sqrt{\left( \dfrac{\sigma_ a}{a} \right) ^2}
 \label{equ:Druck_Steigung_Fehler}
 \end{equation}
 Der Fehler auf die Wellenlänge wird als systematischer Fehler auf das Endergebnis betrachtet. Damit berechnet sich der systematische Fehler zu:
 \begin{equation}
-\sigma _{\dfrac{dn}{dP}, sys} = \dfrac{dn}{dP} \cdot \sqrt{\left( \dfrac{\sigma_ \lambda}{\lambda} \right) ^2}
+\sigma _{\frac{dn}{dP}, sys} = \dfrac{dn}{dP} \cdot \sqrt{\left( \dfrac{\sigma_ \lambda}{\lambda} \right) ^2}
 \label{equ:Druck_Steigung_Fehler_sys}
 \end{equation}
 Unter Verwendung von Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_Fehler} und Gl. \ref{equ:Druck_Steigung_Fehler_sys} berechnet sich der Wert für $\dfrac{dn}{dP}$ aus den Daten von Aufbau B nach Methode 1 zu:
@@ -311,6 +311,7 @@ Für Aufbau B:
 \begin{equation*}
 \dfrac{dn}{dP} = (2.5612 \pm 0.069 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}
 \end{equation*}
+\paragraph{Zwischenfazit}
 Der Literaturwert wird angegeben mit:
 \begin{equation*}
 \dfrac{dn}{dP} = 2.655 \cdot 10^{-7} \, \si{1/mbar}
@@ -319,6 +320,8 @@ Damit weicht der Wert, der nach Methode 1 aus den Messreihen von Aufbau B ermitt
 Der Wert, der nach Methode 2 aus den Messreihen von Aufbau A ermittelt wurde, weicht 1.4 $\sigma$ vom Literaturwert ab.\\
 Der Wert, der nach Methode 2 aus den Messreihen von Aufbau A ermittelt wurde, weicht 1.3 $\sigma$ vom Literaturwert ab.\\
 Der Wert konnte also mit beiden Aufbauten und beiden Auswertungsmethoden mit einer Abweichung von weniger als 2 $\sigma$ bestimmt werden. Dabei sind die Fehler alle im Bereich von 1 \% - 3 \%.
+
+\newpage
 
 \subsection{Brechungsindex von Kohlenstoffdioxid}
 Dieser Teilversuch wurde mit Aufbau A durchgeführt.
@@ -333,11 +336,11 @@ Messung & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\
 $\Delta m$ & 5.1 & 4.8 & 5.0 & 4.9 & 4.7 & 5.1 & 5.0 & 4.8\\
 \hline
 \end{tabular}
-\caption{Rohdaten der durchlaufenen Interferenzmaxima. Nach der Bestimmung der ungefähren durchläufe wurde noch abgeschätzt, um welchen Anteil Anfangs- und Endbild verschoben sind.}
+\caption{Rohdaten der durchlaufenen Interferenzmaxima. Nach der Bestimmung der ungefähren Durchläufe wurde noch abgeschätzt, um welchen Anteil Anfangs- und Endbild verschoben sind.}
 \label{tab:COO_Rohdaten}
 \end{table}
 
-Hieraus wurde der Mittelwert mitsamt seiner Standardabweichung gebildet:
+Aus diesen Ergebnissen wurde der Mittelwert mitsamt seiner Standardabweichung gebildet:
 \begin{equation}
 \Delta m = 4.92 \pm 0.15
 \end{equation}
@@ -385,7 +388,7 @@ Damit liegt der gemessene Wert nur noch $3.44 \sigma$ von der Erwartung entfernt
 \subsection{Druckabhängigkeit}
 
 \subsubsection{Lineare Regressionen Aufbau A}
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_2.png}
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_3.png}
@@ -402,6 +405,8 @@ Damit liegt der gemessene Wert nur noch $3.44 \sigma$ von der Erwartung entfernt
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_3.png}
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_4.png}
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_5.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_6.png}
+\includegraphics[scale=0.5]{Bilder/Druck_A_Var2_6.png}
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_6.png}
 \caption{Lineare Regressionen für die übgrigen Messreihen von Aufbau B}
 \end{figure}
