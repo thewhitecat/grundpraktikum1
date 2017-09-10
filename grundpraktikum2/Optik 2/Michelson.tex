@@ -32,41 +32,51 @@ I. Physikalisches Institut B\\[4.5cm]
 
 \section{Grundlagen}
 
-Im folgenden Versuch soll mithilfe eines Michelson-Interferometers die Wellenlänge eines Lasers bestimmt werden. Anschließend soll die Druckabhängigkeit des Brechungsindex von Luft untersucht werden. Als letztes wird der Brechungsindex von $\text{CO}_2$ bestimmt.\\
-\\
-Grundlage des Versuches ist  die Interferenz eines kohärenten Wellenzuges mit sich selbst durch Amlitudenaufspaltung. Die dadurch entstehenden Teilstrahlen durchlaufen eine unterschiedliche Strecke, bis sie wieder vereinigt werden. Dadurch besitzen sie eine feste Phasenbeziehung zueinander und sind somit kohärent und damit interferenzfähig.\\
-Beim Michelson-Interferometer wird ein leicht divergenter Strahl verwendet. Dadurch gibt es für unterschiedliche Divergenzwinkel $\theta$ andere Phasenverschiebungen, da die Strecke mit $\cos(\theta)$ modifiziert wird. Für den Streckenunterschied gilt dann:
+\subsection{Versuchsbeschreibung}
+Im folgenden Versuch soll mithilfe eines Michelson-Interferometers die Wellenlänge eines Lasers bestimmt werden. Anschließend soll die Druckabhängigkeit des Brechungsindex von Luft untersucht werden. Im dritten Teilversuch wird der Brechungsindex von $\text{CO}_2$ bestimmt.\\
+
+\subsection{Physikalische Grundlagen}
+
+\paragraph{Michelson-Interferometer}\mbox{}\\
+Grundlage des Versuches ist  die Interferenz eines kohärenten Wellenzuges mit sich selbst durch Amplitudenaufspaltung. Die dadurch entstehenden Teilstrahlen durchlaufen unterschiedliche optische Weglängen und werden anschließend wieder vereinigt. Dadurch besitzen sie eine feste Phasenbeziehung zueinander,  sind also kohärent und damit interferenzfähig.\\
+Beim Michelson-Interferometer kommt es aufgrund einer gewissen Strahldivergenz zur Ausbildung von Interferenzringen durch den zusätzlichen Wegunterschied. Für die Phasendifferenz ergibt sich dann der Zusammenhang:
+ 
 \begin{equation}
 \delta = \dfrac{2\pi}{\lambda} \cdot 2d \cos(\theta)
 \end{equation}
-Betrachtet man Interferenzmaxima muss $\delta = 2\pi m$, $m=0,1,2,...$, gelten und damit:
+
+Betrachtet man Interferenzmaxima muss $\delta = 2\pi m$, $m=0,1,2,...$, gelten und damit
+
 \begin{equation}
 2d \cos(\theta) = m\lambda
 \label{equ:Maxima}
 \end{equation}
 
-Durch Taylorentwicklung ergibt sich als lineare Näherung für die Druckabhängigkeit des Brechungsindexes vom Druck die Formel:
+für die Beschreibung der Interferenzringe.
+
+\paragraph{Brechungsindex}\mbox{}\\
+Der Brechungsindex eines Gases hängt im allgemeinen von seinem Druck ab.\\
+Durch Taylorentwicklung ergibt sich als lineare Näherung für die Druckabhängigkeit des Brechungsindexes die Formel:
 
 \begin{equation}
 n(P) = 1+\frac{\Delta n}{\Delta P} \cdot P
 \label{eq:DruckBrechzahl}
 \end{equation}
 
-Aus der optischen Wegdifferenz und der Maximumsbedingung ergibt sich somit der Zusammenhang:
+Aus der optischen Wegdifferenz bei Veränderung des Brechungsindex und der Maximumsbedingung ergibt sich für das Zentrum des Schirms (d.h. $\theta = 0$) der Zusammenhang:
 
 \begin{equation}
 \frac{\Delta n}{\Delta P} = \frac{\Delta m}{\Delta P} \cdot  \frac{\lambda}{2L}
 \label{equ:DruckBrechung}
 \end{equation}
 
-Ähnliche Überlegungen ergeben für den Brechungsindex von $CO_2$ führen zu den Zusammenhängen
+Ähnliche Überlegungen bezüglich der optischen Wegdifferenz für den Brechungsindex von $\text{CO}_2$ führen zu den Zusammenhängen:
 
 \begin{equation}
 n_{CO_2} = n_{Luft} + \Delta n
 \label{eq:COO_n}
 \end{equation}
 
-wobei gilt
 
 \begin{equation}
 \Delta n = \Delta m \frac{\lambda}{2L}
@@ -77,20 +87,13 @@ wobei gilt
 
 \section{Aufbau und Durchführung}
 
+\subsection{Aufbau}
 \begin{figure}
 \centering
 \includegraphics[scale=0.6]{Bilder/Aufbau}
-\caption{Aufbau eines Michelson-Interferometers}
+\caption{Aufbau eines Michelson-Interferometers. (Quelle: Praktikumsskript S.37)}
 \label{fig:Aufbau}
 \end{figure}
-
-Zu Beginn wird die Wellenlänge des grünen Lasers durch Veränderung der optischen Weglänge bestimmt. Eine Skizze des Versuchsaufbaus ist in Abbildung \ref{fig:Aufbau} gezeigt.
-Dazu wird der Spiegel M3 verschoben, wobei im Interferenzbild am Schirm aufgrund der Veränderung der optischen Weglänge nacheinander im Zentrum Maxima verschwinden bzw. erscheinen. Eine Wechsel von $\Delta m$ Maxima entspricht dann einer gewissen Verschiebung $\Delta d$. Die Wellenlänge des Lasers 
-ergibt sich dann aus Gleichung \ref{equ:Maxima} für $\theta = 0$.\\
-
-Die Verschiebung von M3 erfolgt über einen Feintrieb. Es muss somit zuvor eine Kalibrierung zwischen (relativer) Spiegelposition $d$ und Feintriebskala $s$ vorgenommen werden. Dafür wird ein roter He-Ne-Laser mit bekannter Wellenlänge ($\lambda = 632,8$ nm) verwendet.\\
-
-Zur Bestimmung der Druckabhängigkeit des Brechungsindexes von Luft wird eine Glasparzelle in den Strahlengang zwischen Strahlteiler ST und Spiegel M3 eingebracht. Der veränderte Aufbau ist in Abbildung \ref{fig:AufbauDruck} dargestellt.
 
 \begin{figure}
 \begin{center}
@@ -100,7 +103,20 @@ Zur Bestimmung der Druckabhängigkeit des Brechungsindexes von Luft wird eine Gl
 \end{center}
 \end{figure}
 
-Mit der Handpumpe wird der Druck in der Parzelle solange verringert, bis auf dem Schirm ein vollständiger Wechsel von Maximum zu Maximum durchlaufen wurde. Für jeden dieser Schritte wird der Druck gemessen und notiert. Die Druckabhängigkeit ergibt sich dann mithilfe von Gleichung \ref{equ:DruckBrechung}.
+Der Aufbau besteht im wesentlichen aus einem Michelson-Interferometer. Über die Spiegel M1 und M2 wird der Laserstrahl auf den Strahlteiler gelenkt, wobei zusätzlich eine Linse zur Strahlaufweitung durchlaufen wird. Die geteilten Strahlen werden am Spiegel M4 und am verstellbaren Spiegel M3 reflektiert. Nach erneuter Vereinigung der Strahlen treffen diese Auf dem Schirm S auf. Eine Darstellung des Aufbaus für die Wellenlängenbestimmung ist in Abbildung \ref{fig:Aufbau} gezeigt. Der Versuchsaufbau zur Druckabhängigkeit und zum $\text{CO}_2$ findet sich in Abbildung \ref{fig:AufbauDruck} und unterscheidet sich dadurch, dass im Strahlengang zwischen Strahlteiler und Spiegel M3 zusätzlich eine Glasparzelle eingefügt wird.
+
+\subsection{Durchführung}
+
+
+Zu Beginn wird die Wellenlänge des grünen Lasers durch Veränderung der optischen Weglänge bestimmt.
+Dazu wird der Spiegel M3 (vgl. Abbildung \ref{fig:Aufbau})verschoben, wobei im Interferenzbild am Schirm aufgrund der Veränderung der optischen Weglänge nacheinander im Zentrum Maxima verschwinden bzw. erscheinen. Eine Wechsel von $\Delta m$ Maxima entspricht dann einer gewissen Verschiebung $\Delta d$. Die Wellenlänge des Lasers ergibt sich dann aus Gleichung \ref{equ:Maxima} für $\theta = 0$.\\
+
+Die Verschiebung von M3 erfolgt über einen Feintrieb. Es muss somit zuvor eine Kalibrierung zwischen (relativer) Spiegelposition $d$ und Feintriebskala $s$ vorgenommen werden. Dafür wird ein roter He-Ne-Laser mit bekannter Wellenlänge ($\lambda = 632,8$ nm) verwendet.\\
+
+
+Die Bestimmung der Druckabhängigkeit findet mit dem modifizierten Aufbau \ref{fig:AufbauDruck} statt. Mit der Handpumpe wird der Druck in der Parzelle solange verringert, bis auf dem Schirm ein vollständiger Wechsel von Maximum zu Maximum durchlaufen wurde. Für jeden dieser Schritte wird der Druck gemessen und notiert. Die Druckabhängigkeit ergibt sich dann durch entsprechende Auftragung mithilfe von Gleichung \ref{equ:DruckBrechung}.
+
+Für die Bestimmung des Brechungsindex von $\text{CO}_2$ wird ebenfalls die Glasparzelle verwendet. Die eingeschlossene Luft wird langsam durch $\text{CO}_2$ ersetzt bis das Volumen vollständig von diesem ausgefüllt wird. Die dabei durchlaufenen Interferenzmaxima werden gezählt. Der Brechungsindex ergibt sich dann durch die Gleichungen \ref{eq:COO_n} und \ref{eq:COO_dn}, wobei $n_{Luft}$ über den zuvor bestimmten Zusammenhang aus dem Umgebungsdruck ermittelt werden muss.
 
 \section{Auswertung}
 
