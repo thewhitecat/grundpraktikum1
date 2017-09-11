@@ -14,9 +14,9 @@ laser = 632.8e-6
 sig_laser = 0.1e-6
 
 
-m, s = np.genfromtxt("Kalibration_B.txt", skip_header=1, delimiter=",", unpack=True)
+m, s = np.genfromtxt("Kalibration_A.txt", skip_header=1, delimiter=",", unpack=True)
 #s*=1e-3
-sig_s = 0.015/np.sqrt(12)
+sig_s = 0.01/np.sqrt(12)
 
 
 # 2d = m lambda
@@ -54,7 +54,7 @@ plt.xlabel("m")
 ############################
 
 
-m, s, s2 = np.genfromtxt("Wellenlaenge_B.txt", skip_header=1, delimiter=",", unpack=True)
+m, s = np.genfromtxt("Wellen_A.txt", skip_header=1, delimiter=",", unpack=True)
 #s*=1e-3
 
 m = m[0:len(s)]
@@ -72,7 +72,7 @@ plt.figure(2, [6.5,4.5])
 plt.subplot2grid((6,1),(0,0), rowspan=4)
 plt.errorbar(m, y, yerr=ey, fmt=".")
 plt.plot(m, a*m+b)
-plt.figtext(0.2, 0.65, "2 k s = $\lambda$ m + b\n$\lambda = ({0:3.1f} \pm {1:3.1f})$ nm\nb = $({2:3.1f} \pm {3:3.1f})$ mm\n$\chi^2/ndof$ = {4:3.2f}".format(a*1e6,ea*1e6, b*1e3, eb*1e3, chi2/(len(m)-2)))
+plt.figtext(0.65, 0.65, "2 k s = $\lambda$ m + b\n$\lambda = ({0:3.1f} \pm {1:3.1f})$ nm\nb = $({2:3.1f} \pm {3:3.1f})$ $\mu$m\n$\chi^2/ndof$ = {4:3.2f}".format(a*1e6,ea*1e6, b*1e3, eb*1e3, chi2/(len(m)-2)))
 plt.ylabel("2 k s [mm]")
 plt.xlabel("m")
 
