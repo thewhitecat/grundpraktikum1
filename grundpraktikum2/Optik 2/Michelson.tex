@@ -115,7 +115,7 @@ Dazu wird der Spiegel M3 (vgl. Abbildung \ref{fig:Aufbau})verschoben, wobei im I
 Die Verschiebung von M3 erfolgt über einen Feintrieb. Es muss somit zuvor eine Kalibrierung zwischen (relativer) Spiegelposition $d$ und Feintriebskala $s$ vorgenommen werden. Dafür wird ein roter He-Ne-Laser mit bekannter Wellenlänge ($\lambda = 632,8$ nm) verwendet.\\
 
 
-Die Bestimmung der Druckabhängigkeit findet mit dem modifizierten Aufbau \ref{fig:AufbauDruck} statt. Mit der Handpumpe wird der Druck in der Parzelle solange verringert, bis auf dem Schirm ein vollständiger Wechsel von Maximum zu Maximum durchlaufen wurde. Für jeden dieser Schritte wird der Druck gemessen und notiert. Die Druckabhängigkeit ergibt sich dann durch entsprechende Auftragung mithilfe von Gleichung \ref{equ:DruckBrechung}.
+Die Bestimmung der Druckabhängigkeit findet mit dem modifizierten Aufbau statt (vgl. Abbildung \ref{fig:AufbauDruck}). Mit der Handpumpe wird der Druck in der Parzelle solange verringert, bis auf dem Schirm ein vollständiger Wechsel von Maximum zu Maximum durchlaufen wurde. Für jeden dieser Schritte wird der Druck gemessen und notiert. Die Druckabhängigkeit ergibt sich dann durch entsprechende Auftragung mithilfe von Gleichung \ref{equ:DruckBrechung}.
 
 Für die Bestimmung des Brechungsindex von $\text{CO}_2$ wird ebenfalls die Glasparzelle verwendet. Die eingeschlossene Luft wird langsam durch $\text{CO}_2$ ersetzt bis das Volumen vollständig von diesem ausgefüllt wird. Die dabei durchlaufenen Interferenzmaxima werden gezählt. Der Brechungsindex ergibt sich dann durch die Gleichungen \ref{eq:COO_n} und \ref{eq:COO_dn}, wobei $n_{Luft}$ über den zuvor bestimmten Zusammenhang aus dem Umgebungsdruck ermittelt werden muss.
 
@@ -518,7 +518,7 @@ Der Fehler auf die Wellenlänge wird als systematischer Fehler auf das Endergebn
 \sigma _{\frac{dn}{dP}, sys} = \dfrac{dn}{dP} \cdot \sqrt{\left( \dfrac{\sigma_ \lambda}{\lambda} \right) ^2}
 \label{equ:Druck_Steigung_Fehler_sys}
 \end{equation}
-Unter Verwendung von Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_Fehler} und Gl. \ref{equ:Druck_Steigung_Fehler_sys} berechnet sich der Wert für $\dfrac{dn}{dP}$ aus den Daten von Gruppe B nach Methode 1 zu:
+Unter Verwendung von Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_Fehler} und Gl. \ref{equ:Druck_Steigung_Fehler_sys} berechnet sich der Wert für $\frac{dn}{dP}$ aus den Daten von Gruppe B nach Methode 1 zu:
 \begin{equation*}
 \dfrac{dn}{dP} = (2.5931 \pm 0.034 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}
 \end{equation*}
@@ -676,17 +676,26 @@ Der Literaturwert ist bei Normaldruck und $20^\circ \text{C}$ angegeben mit:
 \begin{equation}
 n_{CO_2}-1 = 4.16\cdot 10^{-4}
 \end{equation}
-Der Messwert wurde auf unter 2\% genau bestimmt.
+Der Messwert wurde genauer als 2\% bestimmt.
 Mit quadratisch addierten Fehlern liegt der Messwert 6.16 Standardabweichungen vom Literaturwert entfernt. Dies entspricht einer relativen Abweichung von c.a 8\%.\\
-Es war zu erwarten, dass dieses Messergebnis nicht allzu genau ist, da es von den Ergebnissen aller Vorversuche abhängt und so eventuelle systematische Fehler im Gruppe mit einfließen.\\
+Es war zu erwarten, dass dieses Messergebnis nicht allzu genau ist, da es von den Ergebnissen aller Vorversuche abhängt und so eventuelle systematische Fehler im Aufbau mit einfließen.\\
 Versucht man allerdings das Messergebnis durch Anpassung der Parameter zum Literaturwert hin zu korrigieren, dann stellt sich heraus, dass $\Delta m$ bei c.a 6 liegen müsste und somit mehr als eine ganze Maximaordung zu klein ist. Sogar bei Benutztung der Literaturwerte als Eingangsdaten anstelle der Messergebnisse ist $\Delta m$ immernoch deutlich zu klein.\\
 Eine derartige Abweichung kann nicht auf eine Messungenauigkeit zurückgeführt werden.\\ \\
 Allerdings hängt der Brechungsindex von $CO_2$ geanu wie der von Luft stark von den Wetterbedingungen ab. Geht man davon aus, dass die Druckabhängigkeit auch hier linear ist, kann man den Literaturwert folgendermaßen korrigieren:
 \begin{equation}
 n_{corr}-1 = \dfrac{n_{CO_2}}{1013 hPa} \cdot 979 hPa = 4.02\cdot 10^{-4}
 \end{equation}
-Damit liegt der gemessene Wert nur noch $3.44 \sigma$ von der Erwartung entfernt. Die große Abweichung lässt sich also mit nicht berücksichtigten Umgebungsvariablen und eventuellen Ungenauigkeiten im Gruppe und in Vorversuchen erklären.
+Damit liegt der gemessene Wert nur noch $3.44 \sigma$ von der Erwartung entfernt. Die große Abweichung lässt sich also mit nicht berücksichtigten Umgebungsvariablen und eventuellen Ungenauigkeiten im AUfbau und in Vorversuchen erklären.
 \section{Fazit}
+\paragraph{Kalibrationsmessung}
+Die Kalibrationskonstante wurde bei Gruppe A mit $0.0487\pm 0.0002$ und bei Gruppe B mit $0.0442\pm 0.0002$ bestimmt. Dies ist mit dem Nominalwert von 0.05 vereinbar.
+\paragraph{Wellenlängenbestimmung}
+Die Wellenlänge des vorgegebenen Lasers wurde bei Gruppe A mit $(522.6\pm 2.0 \pm 2.1) nm$ und bei Gruppe B mit $(526.1\pm 1.7\pm 2.0)nm$ bestimmt. Die Ungenauigkeit beträgt dabei bei beiden Gruppen c.a 0.5\%. Allerdings ist die Abweichung vom Nominalwert(532nm)
+mit $3.2\sigma$ bzw. $2.3\sigma$ unerwartet groß. Dies ist vermutlich auf einen unbekannten systematischen Fehler bei Aufbau oder Durchführung zurückzuführen.
+\paragraph{Druckabhängigkeit}
+Die Druckabhängigkeit des Brechungsindexes von Luft wurde bei Gruppe A mit $(2.6103 \pm 0.028 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}$ und bei Gruppe B mit $(2.5612 \pm 0.069 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}$ bestimmt mit relativen Fehlern von 1 bis 3\%. Diese Werte sind ebenfalls mit den Literaturwert von $2.655\cdot 10^{-7} \, \si{1/mbar}$ vereinbar, vor allem da in dieses Ergebnis der mögliche Fehler aus der Wellenlängenbestimmung mit einfließt. 
+\paragraph{Brechungsindex von Kohlenstoffdioxid}
+Die Messung des Brechungsindexes von $CO_2$ beträgt 1.000416
 
 \section{Anhang}
 
