@@ -11,7 +11,8 @@
 \author{Tim}
 
 \begin{document}
-\setlength{\parindent}{0pt} 
+\setlength{\parindent}{0pt}
+\sisetup{separate-uncertainty = true} 
 \begin{center}
 {\LARGE Versuchsprotokoll}\\
 \begin{large}
@@ -120,9 +121,313 @@ Für die Bestimmung des Brechungsindex von $\text{CO}_2$ wird ebenfalls die Glas
 
 \section{Auswertung}
 
+Alle Teilversuche außer der Bestimmung des Brechungsindex von CO\textsubscript{2} wurden von zwei Teilgruppen unabhängig voneinander durchgeführt. Im folgenden werden diese mit \glqq Gruppe A \grqq und \glqq Gruppe B \grqq bezeichnet und nebeneinander ausgewertet.
+
+
+
 \subsection{Kalibration}
 
+Die gemessenen Rohdaten sind in Tabelle \ref{tab:kali_A} \ref{tab:kali_B} angegeben. Gemessen wurden die Position der Mikrometerschraube $s$ sowie die Anzahl der durchlaufenen Interferenzmaxima $m$. Es gilt für die Position des Spiegels M\textsubscript{3}
+
+\begin{table}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			m & s [mm] \\
+			\hline
+			0 & 8.00 \\
+			\hline
+			2 & 8.01 \\
+			\hline
+			4 & 8.03 \\
+			\hline
+			6 & 8.04 \\
+			\hline
+			8 & 8.05 \\
+			\hline
+			10 & 8.06 \\
+			\hline
+			12 & 8.07 \\
+			\hline
+			14 & 8.09 \\
+			\hline
+			16 & 8.10 \\
+			\hline
+			18 & 8.11 \\
+			\hline
+			20 & 8.13 \\
+			\hline
+			22 & 8.14 \\
+			\hline
+			24 & 8.15 \\
+			\hline
+			26 & 8.17 \\
+			\hline
+			28 & 8.18 \\
+			\hline
+			30 & 8.19 \\
+			\hline
+			32 & 8.21 \\
+			\hline
+			34 & 8.22 \\
+			\hline
+			36 & 8.23 \\
+			\hline
+			38 & 8.25 \\
+			\hline
+			40 & 8.26 \\
+			\hline
+			45 & 8.29 \\
+			\hline
+			50 & 8.33 \\
+			\hline
+			55 & 8.36 \\
+			\hline
+			60 & 8.39 \\
+			\hline
+			65 & 8.42 \\
+			\hline
+			70 & 8.45 \\
+			\hline
+			75 & 8.48 \\
+			\hline
+			80 & 8.52 \\
+			\hline
+		\end{tabular}
+		%\begin{table}
+		\caption{Rohdaten Kalibration Gruppe A}
+		\label{tab:kali_A}
+		%\end{table}
+		
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			m & s [mm] \\
+			\hline
+			0 & 8.00 \\
+			\hline
+			10 & 8.06 \\
+			\hline
+			20 & 8.12 \\
+			\hline
+			30 & 8.19 \\
+			\hline
+			40 & 8.26 \\
+			\hline
+			50 & 8.33 \\
+			\hline
+			60 & 8.41 \\
+			\hline
+			70 & 8.47 \\
+			\hline
+			80 & 8.54 \\
+			\hline
+			90 & 8.62 \\
+			\hline
+			100 & 8.69 \\
+			\hline
+			110 & 8.76 \\
+			\hline
+			120 & 8.84 \\
+			\hline
+			130 & 8.92 \\
+			\hline
+			140 & 9.00 \\
+			\hline
+		\end{tabular}
+		%\begin{table}
+		\caption{Rohdaten Kalibration Gruppe B}
+		\label{tab:kali_B}
+		%\end{table}
+	\end{minipage}
+\end{table}
+
+\begin{equation}
+d = ks
+\end{equation}
+
+mit der zu bestimmenden Kalibrierungskonstanten k.
+
+Für die statistische Unsicherheit auf die Messung von s gilt
+
+\begin{equation}
+\sigma_s = \frac{\SI{0.01}{mm}}{\sqrt{12}}.
+\end{equation}
+
+Das Inverse von $k$ erhält man nach Gleichung \ref{equ:Maxima} (mit $\theta = 0$) als Steigung der angepassten Geraden, wenn man $2 s /\lambda$ gegen $m$ aufträgt. Dies ist in Abbildung \ref{fig:fit_kali_A} dargestellt.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.8]{Bilder/Kalibration_A.png}
+	\caption{Messung Gruppe A zur Kalibration des Feinsttriebs mit Fit an die Daten.}
+	\label{fig:fit_kali_A}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.8]{Bilder/Kalibration_B.png}
+	\caption{Messung Gruppe B zur Kalibration des Feinsttriebs mit Fit an die Daten.}
+	\label{fig:fit_kali_B}
+\end{figure}
+
+
+Damit ergibt sich als Ergebnis für die Kalibrationskonstanten
+
+\begin{equation}
+k_A = \num{0.0487(2)} \qquad k_B = \num{0.0442(2)}.
+\end{equation}
+
+
+
 \subsection{Bestimmung der Wellenlänge}
+
+Zur Bestimmung einer unbekannten Laserwellenlänge wird analog zur Kalibration vorgegangen. 
+Die gemessenen Rohdaten sind in Tabellen \ref{tab:laser_A} und \ref{tab:laser_B} angegeben.
+
+Es wird $2ks$ gegen $m$ aufgetragen und nach Gleichung \ref{equ:Maxima} (mit $\theta = 0$) erhält man die Wellenlänge als Steigung der angepassten Geraden. Dies ist in Abbildung \ref{fig:fit_wellenlaenge_A} dargestellt.
+
+\begin{table}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			m & s [mm] \\
+			\hline
+			0 & 8.501 \\
+			\hline
+			5 & 8.478 \\
+			\hline
+			10 & 8.450 \\
+			\hline
+			15 & 8.421 \\
+			\hline
+			20 & 8.395 \\
+			\hline
+			25 & 8.358 \\
+			\hline
+			30 & 8.339 \\
+			\hline
+			35 & 8.311 \\
+			\hline
+			40 & 8.282 \\
+			\hline
+			45 & 8.257 \\
+			\hline
+			50 & 8.229 \\
+			\hline
+			55 & 8.202 \\
+			\hline
+			60 & 8.177 \\
+			\hline
+			65 & 8.149 \\
+			\hline
+			70 & 8.122 \\
+			\hline
+			75 & 8.099 \\
+			\hline
+			80 & 8.071 \\
+			\hline
+			85 & 8.046 \\
+			\hline
+			90 & 8.018 \\
+			\hline
+			95 & 7.992 \\
+			\hline
+			100 & 7.965 \\
+			\hline
+		\end{tabular}
+		\caption{Rohdaten zur Wellenlängenmessung Gruppe A}
+		\label{tab:laser_A}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			m & s [mm] \\
+			\hline
+			0 & 8.00 \\
+			\hline
+			10 & 8.05 \\
+			\hline
+			20 & 8.11 \\
+			\hline
+			30 & 8.16 \\
+			\hline
+			40 & 8.22 \\
+			\hline
+			50 & 8.28 \\
+			\hline
+			60 & 8.34 \\
+			\hline
+			70 & 8.39 \\
+			\hline
+			80 & 8.45 \\
+			\hline
+			90 & 8.51 \\
+			\hline
+			100 & 8.57 \\
+			\hline
+			110 & 8.64 \\
+			\hline
+			120 & 8.70 \\
+			\hline
+			130 & 8.76 \\
+			\hline
+			140 & 8.82 \\
+			\hline
+			150 & 8.89 \\
+			\hline
+			160 & 8.94 \\
+			\hline
+			170 & 9.00 \\
+			\hline
+		\end{tabular}
+		\caption{Rohdaten zur Wellenlängenmessung Gruppe B}
+		\label{tab:laser_B}
+	\end{minipage}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.8]{Bilder/Laser_A.png}
+	\caption{Messung Gruppe A zur Bestimmung der Wellenlänge eines Lasers mit Fit.}
+	\label{fig:fit_wellenlaenge_A}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.8]{Bilder/Laser_B.png}
+	\caption{Messung Gruppe B zur Bestimmung der Wellenlänge eines Lasers mit Fit.}
+	\label{fig_fit_wellenlaenge_B}
+\end{figure}
+
+Für die statistische Unsicherheit auf s gilt weiterhin
+
+\begin{equation*}
+\sigma_s = \frac{\SI{0.01}{mm}}{\sqrt{12}}
+\end{equation*}
+
+Die systematische Unsicherheit auf die Wellenlänge aufgrund der Kalibration ist
+
+\begin{equation}
+\sigma_{\lambda, sys} = \lambda \frac{\sigma_k}{k}
+\end{equation}
+
+da $\lambda$ linear von $k$ abhängt.
+
+Damit ergibt sich für die gemessene Wellenlänge
+
+\begin{equation}
+\lambda_A = (522.6 \pm 2.0 \pm 2.1)\,\text{nm, \quad} \lambda_B = (526.1 \pm 1.7 \pm  2.0)\,\text{nm}
+\end{equation}
+
+Der angegebene Literaturwert für die verwendeten Laser ist \SI{532}{nm}. Die Abweichung unserer Messwerte ist für Gruppe A 3.2$\sigma$ und für Gruppe B 2.3$\sigma$.
+
+
+
 
 \subsection{Druckabhängigkeit des Brechungsindex von Luft}
 
@@ -188,15 +493,15 @@ m [1] & $P_1$ [hPa] & $P_2$ [hPa] & $P_3$ [hPa] & $P_4$ [hPa] & $P_5$ [hPa] & $P
 \end{center}
 \end{table}
 
-Der Versuch zur Bestimmung der Druckabhängigkeit des Brechungsindexes wurde an zwei Aufbauten von zwei verschiedenen Experimentatorzweiergruppen durchgeführt. Zur Unterscheidung werden im Folgenden die Bezeichnungen 'Aufbau A' und 'Aufbau B' verwendet.\\
-Die Rohdaten von Aufbau A sind in Tabelle \ref{tab:Rohdaten_Druck_A} aufgeführt.\\
-Die Rohdaten von Aufbau B sind in Tabelle \ref{tab:Rohdaten_Druck_B} aufgeführt.\\
+
+Die Rohdaten von Gruppe A sind in Tabelle \ref{tab:Rohdaten_Druck_A} aufgeführt.\\
+Die Rohdaten von Gruppe B sind in Tabelle \ref{tab:Rohdaten_Druck_B} aufgeführt.\\
 Zur Auswertung der Daten gibt es zwei Möglichkeiten:
 \begin{enumerate}
 \item Man verschiebt die Messreihen anhand eines Messpunktes aufeinander und verwendet die Streuung der Punkte für jedes Maximum als Fehler und führt anschließend daran eine lineare Regression durch. 
 \item Man führt für alle Messreihen einzeln eine lineare Regression durch und mittelt anschließend die Steigungen. Für diese Variante muss ein Fehler auf die Druckmessung geschätzt werden.
 \end{enumerate}
-Die Messdaten von Aufbau B eignen sich augenscheinlich besser für Variante 1 als die Messdaten von Aufbau A, da hier bereits der erste Punkt aller Messreihen aufeinander liegen. Die lineare Regression ist in Abbildung \ref{fig:Druck_B_Var1} gezeigt. \\
+Die Messdaten von Gruppe B eignen sich augenscheinlich besser für Variante 1 als die Messdaten von Gruppe A, da hier bereits der erste Punkt aller Messreihen aufeinander liegen. Die lineare Regression ist in Abbildung \ref{fig:Druck_B_Var1} gezeigt. \\
 An den Residuen wird schnell ersichtlich, dass die Fehler deutlich zu groß sind. Dies konnte auch schon an den Messdaten selber erahnt werden, da diese sehr stark streuen.\\
 Aus der Steigung kann mittels 
 \begin{equation}
@@ -213,7 +518,7 @@ Der Fehler auf die Wellenlänge wird als systematischer Fehler auf das Endergebn
 \sigma _{\frac{dn}{dP}, sys} = \dfrac{dn}{dP} \cdot \sqrt{\left( \dfrac{\sigma_ \lambda}{\lambda} \right) ^2}
 \label{equ:Druck_Steigung_Fehler_sys}
 \end{equation}
-Unter Verwendung von Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_Fehler} und Gl. \ref{equ:Druck_Steigung_Fehler_sys} berechnet sich der Wert für $\dfrac{dn}{dP}$ aus den Daten von Aufbau B nach Methode 1 zu:
+Unter Verwendung von Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_Fehler} und Gl. \ref{equ:Druck_Steigung_Fehler_sys} berechnet sich der Wert für $\dfrac{dn}{dP}$ aus den Daten von Gruppe B nach Methode 1 zu:
 \begin{equation*}
 \dfrac{dn}{dP} = (2.5931 \pm 0.034 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}
 \end{equation*}
@@ -221,26 +526,26 @@ Unter Verwendung von Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_F
 \begin{figure}
 \centering
 \includegraphics[scale=0.8]{Bilder/Druck_B_Var1.png}
-\caption{Lineare Regression nach Variante 1 an Messdaten von Aufbau B.}
+\caption{Lineare Regression nach Variante 1 an Messdaten von Gruppe B.}
 \label{fig:Druck_B_Var1}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.8]{Bilder/Druck_B_Var2.png}
-\caption{Lineare Regression beispielhaft an einer Messreihe von Aufbau B.}
+\caption{Lineare Regression beispielhaft an einer Messreihe von Gruppe B.}
 \label{fig:Druck_B_Var2}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.8]{Bilder/Druck_A_Var2_1.png}
-\caption{Lineare Regression beispielhaft an einer Messreihe von Aufbau A.}
+\caption{Lineare Regression beispielhaft an einer Messreihe von Gruppe A.}
 \label{fig:Druck_A_Var2}
 \end{figure}
 
-Abbildung \ref{fig:Druck_B_Var2} zeigt beispielhaft eine der linearen Regressionen an einer der Messreihen von Aufbau B, die der Auswertung nach Variante 1 dienen. Abbildung \ref{fig:Druck_A_Var2} zeigt dies für Aufbau A. \\
-Die aus den verschiedenen Messreihen ermittelten Steigungen für diese linearen Regressionen sind für Aufbau B in Tabelle \ref{tab:Druck_Steigungen_B} aufgeführt. Tabelle \ref{tab:Druck_Steigungen_A} zeigt die Steigungen für Aufbau A.
+Abbildung \ref{fig:Druck_B_Var2} zeigt beispielhaft eine der linearen Regressionen an einer der Messreihen von Gruppe B, die der Auswertung nach Variante 1 dienen. Abbildung \ref{fig:Druck_A_Var2} zeigt dies für Gruppe A. \\
+Die aus den verschiedenen Messreihen ermittelten Steigungen für diese linearen Regressionen sind für Gruppe B in Tabelle \ref{tab:Druck_Steigungen_B} aufgeführt. Tabelle \ref{tab:Druck_Steigungen_A} zeigt die Steigungen für Gruppe A.
 
 \begin{table}
 \begin{center}
@@ -265,7 +570,7 @@ Messreihe & a & $\sigma _a$ \\
 8 & -101.14 & 0.90 \\ 
 \hline 
 \end{tabular} 
-\caption{Aus den linearen Regressionen ermittelte Steigungen für Aufbau B.}
+\caption{Aus den linearen Regressionen ermittelte Steigungen für Gruppe B.}
 \label{tab:Druck_Steigungen_B}
 \end{center}
 \end{table}
@@ -289,25 +594,25 @@ Messreihe & a & $\sigma _a$ \\
 6 & -99.85 & 1.14 \\  
 \hline 
 \end{tabular} 
-\caption{Aus den linearen Regressionen ermittelte Steigungen für Aufbau A.}
+\caption{Aus den linearen Regressionen ermittelte Steigungen für Gruppe A.}
 \label{tab:Druck_Steigungen_A}
 \end{center}
 \end{table}
 
-Die Steigungen werden mit den Fehlern gewichtet gemittelt. Da die Werte nicht alle innerhalb einer Standardabweichung liegen, wird der Fehler aus der gewichteten Mittelung mit der Streuung der Werte für die Steigung verglichen und der größere genommen. Daraus ergibt sich die Steigung für Aufbau A zu:
+Die Steigungen werden mit den Fehlern gewichtet gemittelt. Da die Werte nicht alle innerhalb einer Standardabweichung liegen, wird der Fehler aus der gewichteten Mittelung mit der Streuung der Werte für die Steigung verglichen und der größere genommen. Daraus ergibt sich die Steigung für Gruppe A zu:
 \begin{equation*}
 a = (-100.11 \pm 1.06) \, \si{hPa}
 \end{equation*}
-Und für Aufbau B:
+Und für Gruppe B:
 \begin{equation*}
 a = (-102.72 \pm 2.78) \, \si{hPa}
 \end{equation*}
 Mit Gl. \ref{equ:Druck_Steigung}, Gl. \ref{equ:Druck_Steigung_Fehler} und Gl. \ref{equ:Druck_Steigung_Fehler_sys} lassen sich daraus der gesuchte Wert und die Fehler auf diesen berechnen. \\
-Für Aufbau A ergibt sich damit:
+Für Gruppe A ergibt sich damit:
 \begin{equation*}
 \dfrac{dn}{dP} = (2.6103 \pm 0.028 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}  
 \end{equation*}
-Für Aufbau B:
+Für Gruppe B:
 \begin{equation*}
 \dfrac{dn}{dP} = (2.5612 \pm 0.069 (stat) \pm 0.014 (sys)) \cdot 10^{-7} \, \si{1/mbar}
 \end{equation*}
@@ -316,15 +621,15 @@ Der Literaturwert wird angegeben mit:
 \begin{equation*}
 \dfrac{dn}{dP} = 2.655 \cdot 10^{-7} \, \si{1/mbar}
 \end{equation*}
-Damit weicht der Wert, der nach Methode 1 aus den Messreihen von Aufbau B ermittelt wurde, 1.7 $\sigma$ vom Literaturwert ab.\\
-Der Wert, der nach Methode 2 aus den Messreihen von Aufbau A ermittelt wurde, weicht 1.4 $\sigma$ vom Literaturwert ab.\\
-Der Wert, der nach Methode 2 aus den Messreihen von Aufbau A ermittelt wurde, weicht 1.3 $\sigma$ vom Literaturwert ab.\\
-Der Wert konnte also mit beiden Aufbauten und beiden Auswertungsmethoden mit einer Abweichung von weniger als 2 $\sigma$ bestimmt werden. Dabei sind die Fehler alle im Bereich von 1 \% - 3 \%.
+Damit weicht der Wert, der nach Methode 1 aus den Messreihen von Gruppe B ermittelt wurde, 1.7 $\sigma$ vom Literaturwert ab.\\
+Der Wert, der nach Methode 2 aus den Messreihen von Gruppe A ermittelt wurde, weicht 1.4 $\sigma$ vom Literaturwert ab.\\
+Der Wert, der nach Methode 2 aus den Messreihen von Gruppe A ermittelt wurde, weicht 1.3 $\sigma$ vom Literaturwert ab.\\
+Der Wert konnte also mit beiden Gruppeten und beiden Auswertungsmethoden mit einer Abweichung von weniger als 2 $\sigma$ bestimmt werden. Dabei sind die Fehler alle im Bereich von 1 \% - 3 \%.
 
 \newpage
 
 \subsection{Brechungsindex von Kohlenstoffdioxid}
-Dieser Teilversuch wurde mit Aufbau A durchgeführt.
+Dieser Teilversuch wurde mit Gruppe A durchgeführt.
 Es sollte mithilfe der Resultate von den vorherigen Versuchen der Brechungsindex von $CO_2$ bestimmt werden. Dabei wird zuerst nach Gleichung \ref{eq:COO_dn} der Unterschied im Brechungsindex von Luft und $CO_2$ bestimmt. Dazu werden, wie in den Versuchen vorher, wieder die Anzahl der durchlaufenen Interferenzmaxima beim füllen der Parzelle mit $CO_2$ gemessen. Die Resultate sind in Tabelle \ref{tab:COO_Rohdaten} aufgelistet.
 
 \begin{table}
@@ -373,21 +678,21 @@ n_{CO_2}-1 = 4.16\cdot 10^{-4}
 \end{equation}
 Der Messwert wurde auf unter 2\% genau bestimmt.
 Mit quadratisch addierten Fehlern liegt der Messwert 6.16 Standardabweichungen vom Literaturwert entfernt. Dies entspricht einer relativen Abweichung von c.a 8\%.\\
-Es war zu erwarten, dass dieses Messergebnis nicht allzu genau ist, da es von den Ergebnissen aller Vorversuche abhängt und so eventuelle systematische Fehler im Aufbau mit einfließen.\\
+Es war zu erwarten, dass dieses Messergebnis nicht allzu genau ist, da es von den Ergebnissen aller Vorversuche abhängt und so eventuelle systematische Fehler im Gruppe mit einfließen.\\
 Versucht man allerdings das Messergebnis durch Anpassung der Parameter zum Literaturwert hin zu korrigieren, dann stellt sich heraus, dass $\Delta m$ bei c.a 6 liegen müsste und somit mehr als eine ganze Maximaordung zu klein ist. Sogar bei Benutztung der Literaturwerte als Eingangsdaten anstelle der Messergebnisse ist $\Delta m$ immernoch deutlich zu klein.\\
 Eine derartige Abweichung kann nicht auf eine Messungenauigkeit zurückgeführt werden.\\ \\
 Allerdings hängt der Brechungsindex von $CO_2$ geanu wie der von Luft stark von den Wetterbedingungen ab. Geht man davon aus, dass die Druckabhängigkeit auch hier linear ist, kann man den Literaturwert folgendermaßen korrigieren:
 \begin{equation}
 n_{corr}-1 = \dfrac{n_{CO_2}}{1013 hPa} \cdot 979 hPa = 4.02\cdot 10^{-4}
 \end{equation}
-Damit liegt der gemessene Wert nur noch $3.44 \sigma$ von der Erwartung entfernt. Die große Abweichung lässt sich also mit nicht berücksichtigten Umgebungsvariablen und eventuellen Ungenauigkeiten im Aufbau und in Vorversuchen erklären.
+Damit liegt der gemessene Wert nur noch $3.44 \sigma$ von der Erwartung entfernt. Die große Abweichung lässt sich also mit nicht berücksichtigten Umgebungsvariablen und eventuellen Ungenauigkeiten im Gruppe und in Vorversuchen erklären.
 \section{Fazit}
 
 \section{Anhang}
 
 \subsection{Druckabhängigkeit}
 
-\subsubsection{Lineare Regressionen Aufbau A}
+\subsubsection{Lineare Regressionen Gruppe A}
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_2.png}
@@ -395,10 +700,10 @@ Damit liegt der gemessene Wert nur noch $3.44 \sigma$ von der Erwartung entfernt
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_4.png}
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_5.png}
 \includegraphics[scale=0.5]{Bilder/Druck_A_Var2_6.png}
-\caption{Lineare Regressionen für die übgrigen Messreihen von Aufbau A}
+\caption{Lineare Regressionen für die übgrigen Messreihen von Gruppe A}
 \end{figure}
 
-\subsubsection{Lineare Regressionen Aufbau B}
+\subsubsection{Lineare Regressionen Gruppe B}
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{Bilder/Druck_B_Var2_0.png}
@@ -408,7 +713,7 @@ Damit liegt der gemessene Wert nur noch $3.44 \sigma$ von der Erwartung entfernt
 \includegraphics[scale=0.5]{Bilder/Druck_B_Var2_5.png}
 \includegraphics[scale=0.5]{Bilder/Druck_B_Var2_6.png}
 \includegraphics[scale=0.5]{Bilder/Druck_B_Var2_7.png}
-\caption{Lineare Regressionen für die übgrigen Messreihen von Aufbau B}
+\caption{Lineare Regressionen für die übgrigen Messreihen von Gruppe B}
 \end{figure}
 
 \end{document}
