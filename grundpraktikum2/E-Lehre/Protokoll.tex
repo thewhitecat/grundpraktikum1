@@ -106,9 +106,41 @@ Den Tiefpass erhält man dann entsprechend durch Abgriff am Kondensator. Die Üb
 \subsection{Aufbau und Durchführung}
 
 \begin{figure}
-\caption{}
+\centering
+\includegraphics[scale=0.8]{Bilder/AufbauSerie.png}
+\caption{Schaltbild zum Serienschwingkreis. Die Spannungsmessung am Ohmschen Widerstand wurde nur im Rahmen der Vorauswertung mit dem Oszilloskop durchgeführt.}
 \label{fig:AufbauSerie}
 \end{figure}
+
+\subsection{Vorauswertung: Oszilloskop}
+Im Rahmen der Vorauswertung wurde die Spannung am Ohmschen Widerstand und die gesamte abfallende Spannung mittels Oszilloskop gemessen. Verwendet wurde der Widerstand mit Nominalwert $R = 5,1 \Omega$. Die Frequenz der angelegten Wechselspannung wird über den Frequenzgenerator eingestellt.\\
+
+Zur Bestimmung der Resonanzfrequenz werden die gemessenen Spannungen an beiden Kanälen im Oszilloskop gegeneinander aufgetragen. Die Frequenz wurde so eingestellt, dass die Ellipse verschwindet und die Spannungswerte eine Gerade bilden. Die dazu nötige (Resonanz)frequenz ergab sich zu
+
+\begin{equation}
+f_0 = (2149 \pm 2) \text{Hz}
+\end{equation}
+
+wobei die Unsicherheit durch die abgeschätzte Ablesegenauigkeit gegeben ist.
+
+Zur Bestimmung der Resonanzbreite werden in der Zeitdarstellung des Oszilloskops diejenigen Frequenzen bestimmt, für die die Amplitude der Spannung am Widerstand um den Faktor $\sqrt{2}$ kleiner als im Resonanzfall ist. Die so bestimmten Werte sind
+
+\begin{equation}
+f_1 = (1755 \pm 4) \text{Hz} \quad f_2 = (2614 \pm 4) \text{Hz}
+\end{equation}
+
+wobei der Fehler erneut durch die Ablesegenauigkeit gegeben ist.
+Es folgt mit $\sigma_{\Delta f} = \sqrt{\sigma_{f_1}^2+\sigma_{f_2}^2}$ und $\sigma_Q = Q \sqrt{(\frac{\sigma_{f_0}}{f_0})^2 + (\frac{\sigma_{\Delta f}}{\Delta f})^2}$:
+
+\begin{equation}
+\Delta f = (859 \pm 5,7) \text{Hz} \quad \Rightarrow \quad Q = \frac{f_0}{\Delta f} = 2,50 \pm 0,02 
+\end{equation}
+
+Eine zweite Voruntersuchung durch Bestimmen der Spannungsüberhöhung im Resonanzfall war aus Zeitgründen nicht möglich.
+
+
+
+
 
 \section{Parallelschwingkreis}
 
