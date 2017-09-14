@@ -71,12 +71,44 @@ Aus der Knotenregel kann ebenfalls eine Differentialgleichung zur Beschreibung d
 Aus dieser kann ebenfalls die Resonanzfrequenz bestimmt werden.
 
 \begin{equation}
-\omega_0 = \sqrt{\frac{1-\frac{C}{L}\cdotR_L^2}{LC}}
+\omega_0 = \sqrt{\frac{1-\frac{C}{L}\cdot R_L^2}{LC}}
 \end{equation} 
 
+Für große Widerstände im Kreis ergibt sich für die Güte der Schaltung näherungsweise der Zusammenhang:
 
+\begin{equation}
+Q_P = \frac{1}{R_L} \sqrt{\frac{L}{C}}
+\end{equation}
+
+Im Falle des Parallelschwingkreises kommt es bei Resonanz zu einer Stromüberhöhung. Auch hier ergibt sich der Zusammenhang:
+
+\begin{equation}
+\frac{(I_L)_0}{I_0} = Q_p
+\end{equation}
+
+\paragraph{Hoch -und Tiefpass}
+Ein Hoch- bzw. Tiefpass 1. Ordnung besteht aus einer Serienschaltung von Widerstand und Kondensator. Durch Anlegen einer Wechselspannung werden, abhängig davon wo die Spannung abgegriffen wird, entweder große oder kleine Frequenzen blockiert bzw. durchgelassen.
+
+Der Hochpass ergibt sich durch Spannungsabgriff am Widerstand. Die Übertragsfunktion ergibt sich dabei zu:
+
+\begin{equation}
+\frac{U_a}{U_e} = \frac{1}{\sqrt{(\frac{1}{\omega C R})^2+1}}
+\end{equation}
+
+Den Tiefpass erhält man dann entsprechend durch Abgriff am Kondensator. Die Übertragsfunktion lautet:
+
+\begin{equation}
+\frac{U_a}{U_e} = \frac{1}{\sqrt{1+(\omega C R)^2}}
+\end{equation}
 
 \section{Serienschwingkreis}
+
+\subsection{Aufbau und Durchführung}
+
+\begin{figure}
+\caption{}
+\label{fig:AufbauSerie}
+\end{figure}
 
 \section{Parallelschwingkreis}
 
