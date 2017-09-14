@@ -113,28 +113,40 @@ Den Tiefpass erhält man dann entsprechend durch Abgriff am Kondensator. Die Üb
 \end{figure}
 
 \subsection{Vorauswertung: Oszilloskop}
-Im Rahmen der Vorauswertung wurde die Spannung am Ohmschen Widerstand und die gesamte abfallende Spannung mittels Oszilloskop gemessen. Verwendet wurde der Widerstand mit Nominalwert $R = 5,1 \Omega$. Die Frequenz der angelegten Wechselspannung wird über den Frequenzgenerator eingestellt.\\
+Im Rahmen der Vorauswertung wurde die Spannung am Ohmschen Widerstand und die gesamte abfallende Spannung mittels Oszilloskop gemessen. Für Gruppe B wurde der Widerstand mit Nominalwert $R = 5,1 \Omega$ verwendet. Die Frequenz der angelegten Wechselspannung wird über den Frequenzgenerator eingestellt.\\
 
-Zur Bestimmung der Resonanzfrequenz werden die gemessenen Spannungen an beiden Kanälen im Oszilloskop gegeneinander aufgetragen. Die Frequenz wurde so eingestellt, dass die Ellipse verschwindet und die Spannungswerte eine Gerade bilden. Die dazu nötige (Resonanz)frequenz ergab sich zu
+Zur Bestimmung der Resonanzfrequenz werden die gemessenen Spannungen an beiden Kanälen im Oszilloskop gegeneinander aufgetragen. Die Frequenz wurde so eingestellt, dass die Ellipse verschwindet und die Spannungswerte eine Gerade bilden. Der entsprechende Frequenzwert ist die Resonanzfrequenz
+Zur Bestimmung der Resonanzbreite werden in der Zeitdarstellung des Oszilloskops diejenigen Frequenzen bestimmt, für die die Amplitude der Spannung am Widerstand um den Faktor $\sqrt{2}$ kleiner als im Resonanzfall ist. 
 
-\begin{equation}
-f_0 = (2149 \pm 2) \text{Hz}
-\end{equation}
-
-wobei die Unsicherheit durch die abgeschätzte Ablesegenauigkeit gegeben ist.
-
-Zur Bestimmung der Resonanzbreite werden in der Zeitdarstellung des Oszilloskops diejenigen Frequenzen bestimmt, für die die Amplitude der Spannung am Widerstand um den Faktor $\sqrt{2}$ kleiner als im Resonanzfall ist. Die so bestimmten Werte sind
+Es gilt
 
 \begin{equation}
-f_1 = (1755 \pm 4) \text{Hz} \quad f_2 = (2614 \pm 4) \text{Hz}
+\Delta f = f_2 - f_1 \quad \Rightarrow \quad Q = \frac{f_0}{\Delta f}
 \end{equation}
 
-wobei der Fehler erneut durch die Ablesegenauigkeit gegeben ist.
-Es folgt mit $\sigma_{\Delta f} = \sqrt{\sigma_{f_1}^2+\sigma_{f_2}^2}$ und $\sigma_Q = Q \sqrt{(\frac{\sigma_{f_0}}{f_0})^2 + (\frac{\sigma_{\Delta f}}{\Delta f})^2}$:
+und mittels Fehlerfortpflanzung:
 
 \begin{equation}
-\Delta f = (859 \pm 5,7) \text{Hz} \quad \Rightarrow \quad Q = \frac{f_0}{\Delta f} = 2,50 \pm 0,02 
+\sigma_{\Delta f} = \sqrt{\sigma_{f_1}^2+\sigma_{f_2}^2} \qquad \sigma_Q = Q \sqrt{(\frac{\sigma_{f_0}}{f_0})^2 + (\frac{\sigma_{\Delta f}}{\Delta f})^2}
 \end{equation}
+
+Die Ergebnisse der Voruntersuchung sind für beide Gruppen in Tabelle \ref{tab:Voruntersuchung} dargestellt.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Gruppe & $f$/Hz & $f_1$/Hz & $f_2$/Hz & Q\\
+\hline
+A & & & &\\
+\hline
+B & $2149 \pm 2$ & $1755 \pm 4$ & $2614 \pm 4$ & $2,50 \pm 0,02$\\
+\hline
+\end{tabular}
+\caption{Ergebnisse der Voruntersuchung mittels Oszilloskop}
+\label{tab:Voruntersuchung}
+\end{table}
+
 
 Eine zweite Voruntersuchung durch Bestimmen der Spannungsüberhöhung im Resonanzfall war aus Zeitgründen nicht möglich.
 
