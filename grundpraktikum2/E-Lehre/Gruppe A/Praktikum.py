@@ -314,7 +314,7 @@ def gewichtetes_mittel(y,ey):
 
     Gibt den gewichteten Mittelwert samt Fehler zurueck.
     '''
-    w = 1/ey**2
+    w = 1./ey**2
     s = sum(w*y)
     wsum = sum(w)
     xm = s/wsum
