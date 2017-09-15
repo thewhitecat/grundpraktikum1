@@ -45,6 +45,7 @@ def plot1():#alles
     popt,pcov = opt.curve_fit(func,freq,Iin)#,sigma=errors(Iin),absolute_sigma=True)
     ywerte = func(xwerte,*popt)
     plt.plot(xwerte,ywerte)
+    err1 = fehler(Iin,ywerte)
     
     popt,pcov = opt.curve_fit(func3,freq,IC,p0=[1,1])
     ywerte2 = func3(xwerte,*popt)
@@ -63,7 +64,7 @@ def plot1():#alles
     argmin = np.argmin(ywerte)
     minimum = xwerte[argmin]
     schnittpunkt = np.argmin(np.abs(ywerte2-ywerte3))
-    print minimum
+    print minimum,ywerte[argmin],err1
     print xwerte[schnittpunkt],ywerte3[schnittpunkt],err
     print 'Q_L=',ywerte3[schnittpunkt]/ywerte[schnittpunkt]
     print 'Q_C=',ywerte2[schnittpunkt]/ywerte[schnittpunkt]
@@ -75,8 +76,8 @@ def plot2():#Phase
     ywerte4 = func2(xwerte,*popt)
     plt.plot(xwerte,ywerte4)
     plt.plot(xwerte,np.full(len(xwerte),0),color='red',linestyle='dashed')
-    plt.plot(xwerte,np.full(len(xwerte),1./np.sqrt(2)),color='yellow',linestyle='dashed')
-    plt.plot(xwerte,np.full(len(xwerte),-1./np.sqrt(2)),color='yellow',linestyle='dashed')
+    plt.plot(xwerte,np.full(len(xwerte),1./np.sqrt(2)),color='green',linestyle='dashed')
+    plt.plot(xwerte,np.full(len(xwerte),-1./np.sqrt(2)),color='green',linestyle='dashed')
     
 def plot3():#Breite Iges
     plt.plot(freq,Iin)
@@ -103,13 +104,15 @@ def plot4(plotte):#Gaussfit Z
     return wres,maxi
 
 def plot5(plotte):#Polynom Z
-    popt,pcov = opt.curve_fit(func,freq,Z)
+    popt,pcov = opt.curve_fit(func,freq,Z,p0=[0,0,10000,0,0,0,110])
     ywerte = func(xwerte,*popt)
+    wres = xwerte[np.argmax(ywerte)]
+    maxi = np.max(ywerte)
+    print maxi
     if plotte == True:
         plt.plot(freq,Z)
         plt.plot(xwerte,ywerte)
-    wres = xwerte[np.argmax(ywerte)]
-    maxi = np.max(ywerte)
+        plt.axvline(2216)
     return wres,maxi
 
 def errors(array):
@@ -142,8 +145,8 @@ Rl = 0.8
 R = 99.08
 w0 = np.sqrt((1-C/L * Rl**2)/(L*C))/(2*np.pi)
 print w0
-wres,Zmax = plot5(False)
+wres,Zmax = plot5(0)
 print 'Q=',R*np.sqrt(C/L)/(1+R*Rl*C/L)
 print 'Q2=',1./Rl * np.sqrt(L/C)
 print 'Q_Z=',wres*2*np.pi*C*Zmax
-plot1()
+plot2()

@@ -7,13 +7,14 @@ Created on Fri Sep 15 10:30:14 2017
 
 import numpy as np
 import Praktikum as p
+#####################################
 #Iges Minimum 4,3,2
 w0 = np.array([2216.,2216.,2235.])
 w0err = np.array([50.,65.,80.])
 f_0,sig_f = p.gewichtetes_mittel(w0,w0err)
 #f_0 = np.mean(w0)
 #sig_f = np.std(w0err)
-
+U0 = []
 U0err = [0.005,0.009,0.002]
 dw = np.array([737.,488.,738.])
 dwerr = np.array([64.,110.,49.])
@@ -42,8 +43,21 @@ dext = np.sqrt( ( 1./(n-1)*np.sum(w*(xm-Q2)**2))/sum(w))
 dint =  np.sqrt(1./sum(w))
 print xm,dext,dint
 
+#####################################
 
 w0 = np.array([2094.2,2096.1,2093.4])
 w0err = np.array([49.2,56.5,51.3])
 UL = np.array([0.0850,0.1278,0.1274])
-dU = np.array([0.0009,0.0021,])
+dU = np.array([0.0009,0.0021,0.0017])
+U0 = np.array([0.0256,0.0234,0.0390])
+U0err = [0.0008,0.0021,0.0017]
+Q = UL/U0
+Qerr = Q * np.sqrt((dU/UL)**2+ (U0err/U0)**2)
+print Q,Qerr
+print gew_mittelwert(Q,Qerr)
+
+####################################
+
+phi0 = np.array([2154,2137,2137])
+phierr = np.array([42,30,32])
+print gew_mittelwert(phi0,phierr)

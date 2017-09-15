@@ -30,7 +30,7 @@ def plot3():
     plt.plot(x,1./(np.sqrt(1+(1./(x*(2*np.pi)*99.08*4.5974*10**(-6)))**2)),linestyle='dashed')
     plt.plot(freq,np.full(len(freq),1./np.sqrt(2)))
 
-messung1=p.lese_lab_datei('pass3.lab')
+messung1=p.lese_lab_datei('pass2.lab')
 #Index,zeit,Uin,Iin,phi,UA2,UB2,?,f0,f1,z,hoch,tief
 freq = messung1[:,9]
 Uin = messung1[:,2]
