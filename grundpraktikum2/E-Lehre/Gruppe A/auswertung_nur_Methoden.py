@@ -260,6 +260,8 @@ def getmax(x, y):
     return max_x, max_y, max_index
 
 def Schnittpunkte(x, y1, y2):
+    #gibt die Indizes der Stellen zurück, NACH denen ein Schnittpunkt zwischen den Daten von y1 
+    #und y2 liegt
     output = []
     y_diff = y1 - y2
     for i in range(len(y_diff) - 1):
@@ -268,3 +270,12 @@ def Schnittpunkte(x, y1, y2):
         if y_diff[i] < 0 and y_diff[i+1] > 0:
             output += [i]
     return output
+
+def gew_mittelwert(Q2, sig):
+    #gibt den gewichteten Mittelwert, den inneren und den äußeren Fehler zurück
+    n = len(sig)
+    w = 1./(sig)**2
+    xm = sum(w*Q2)/sum(w)
+    dext = np.sqrt( ( 1./(n-1)*np.sum(w*(xm-Q2)**2))/sum(w))
+    dint =  np.sqrt(1./sum(w))
+    return xm,dext,dint

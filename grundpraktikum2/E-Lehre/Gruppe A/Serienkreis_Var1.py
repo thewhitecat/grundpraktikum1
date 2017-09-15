@@ -13,8 +13,8 @@ import auswertung_nur_Methoden as AM
 
 start_time=timeit.default_timer()
 
-data = p.lese_lab_datei('10Ohm.lab')
-kleiner = False
+data = p.lese_lab_datei('5Ohm.lab')
+kleiner = True
 
 I = data[:,3]
 UC = data[:,5]
@@ -45,17 +45,20 @@ f_left = (f[schnitt[0]] + f[schnitt[0]+1])/2
 Q_ber = sol[0] / (f_right - f_left)
 Q_ab = sol[0] / (ab_right - ab_left)
 
-sig_Q_ab = Q_ab * np.sqrt((sig_f/sol[0])**2 + (sig_f/ab_left)**2 + (sig_f/ab_right)**2)
-sig_Q_ber = Q_ber * np.sqrt((sig_f_ber/sol[0])**2 + (sig_f_ber/f_left)**2 + (sig_f_ber/f_right)**2)
+sig_Q_ab = Q_ab * np.sqrt((sig_f/sol[0])**2 + 2 * (sig_f/(ab_right - ab_left))**2)
+sig_Q_ber = Q_ber * np.sqrt((sig_f_ber/sol[0])**2 + 2 * (sig_f_ber/(f_right - f_left))**2)
 
-print("Güte aus Schnittpunkten: \n {0:2.3f} +/- {1:2.3f} (berechnet) \n {2:2.3f} +/- {3:2.3f} (abgelesen)".format(round(Q_ber, 3), round(sig_Q_ber, 3), round(Q_ab, 3), round(sig_Q_ab, 3)))
+print("Güte aus Schnittpunkten: \n {0:2.4f} +/- {1:2.4f} (berechnet) \n {2:2.4f} +/- {3:2.4f} (abgelesen)".format(round(Q_ber, 4), round(sig_Q_ber, 4), round(Q_ab, 4), round(sig_Q_ab, 4)))
 
 plt.figure(1)
 ax1=plt.subplot(111)
 plt.plot(f, I)
+ax1.set_ylabel("Strom [A]")
+ax1.set_xlabel("Frequenz [Hz]")
+ax1.set_title("Resonanzkurve")
 plt.axvline(ab_right, color = 'r')
 plt.axvline(ab_left, color = 'r')
-plt.axvline(sol[0], color = 'r')
+plt.axvline(sol[0], color = 'g')
 plt.axvline(f_right, color = 'g')
 plt.axvline(f_left, color = 'g')
 plt.axhline(sol[1]/np.sqrt(2), color = 'r')

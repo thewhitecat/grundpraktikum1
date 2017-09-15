@@ -53,14 +53,17 @@ f_untere_ber = (f[sol_untere[0]] + f[sol_untere[0]+1])/2
 Q_ber = f_zero_ber / (f_obere_ber - f_untere_ber)
 Q_ab = f_zero / (f_obere - f_untere)
 
-sig_Q_ab = Q_ab * np.sqrt((sig_f/f_zero)**2 + (sig_f/f_obere)**2 + (sig_f/f_untere)**2)
-sig_Q_ber = Q_ber * np.sqrt((sig_f_ber/f_zero_ber)**2 + (sig_f_ber/f_obere_ber)**2 + (sig_f_ber/f_untere_ber)**2)
+sig_Q_ab = Q_ab * np.sqrt((sig_f/f_zero)**2 + 2 * (sig_f/(f_untere - f_obere))**2)
+sig_Q_ber = Q_ber * np.sqrt((sig_f_ber/f_zero_ber)**2 + 2 * (sig_f_ber/(f_untere_ber - f_obere_ber))**2)
 
 print("Güte aus Schnittpunkten: \n {0:2.4f} +/- {1:2.4f} (berechnet) \n {2:2.4f} +/- {3:2.4f} (abgelesen)".format(round(Q_ber, 4), round(sig_Q_ber, 4), round(Q_ab, 4), round(sig_Q_ab, 4)))
 
 plt.figure(1)
 ax1=plt.subplot(111)
 plt.plot(f, phi)
+ax1.set_ylabel("$\phi$ [grad]")
+ax1.set_xlabel("Frequenz [Hz]")
+ax1.set_title("Phasenverschiebung")
 plt.axvline(f_zero, color = 'r')
 plt.axvline(f_untere, color = 'r')
 plt.axvline(f_obere, color = 'r')
