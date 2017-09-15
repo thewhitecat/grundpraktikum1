@@ -60,9 +60,15 @@ Q_s = \frac{1}{R} \sqrt{\frac{L}{C}}
 und beschreibt unter anderem den Zusammenhang zwischen angelegter Spannung und Spannungsüberhöhung im Resonanzfall:
 
 \begin{equation}
-\frac{U_L(\omega_0)}{U(\omega_0} = Q_s 
+\frac{U_L(\omega_0)}{U(\omega_0)} = Q_s 
+\label{equ:Güte_Spannungsüberhöhung}
 \end{equation}
 
+Man stellt fest, dass die Güte sich auch noch als Quotient aus Resonanzfrequenz und Breite der Resonanzkurve bestimmen lässt:
+\begin{equation}
+\dfrac{\omega_0}{\Delta \omega} = \dfrac{\omega_0}{2d} = \dfrac{\omega_0 L}{R} = \dfrac{1}{R \omega_0 L} = \dfrac{1}{R} \cdot \sqrt{\dfrac{L}{C}} =: Q_S
+\label{equ:Güte_Resonanzbreite}
+\end{equation}
 
 
 \paragraph{Parallelschwingkreis}
@@ -78,6 +84,7 @@ Für große Widerstände im Kreis ergibt sich für die Güte der Schaltung nähe
 
 \begin{equation}
 Q_P = \frac{1}{R_L} \sqrt{\frac{L}{C}}
+\label{equ:Güte_Bauteile}
 \end{equation}
 
 Im Falle des Parallelschwingkreises kommt es bei Resonanz zu einer Stromüberhöhung. Auch hier ergibt sich der Zusammenhang:
@@ -150,6 +157,15 @@ B & $2149 \pm 2$ & $1755 \pm 4$ & $2614 \pm 4$ & $2,50 \pm 0,02$\\
 
 Eine zweite Voruntersuchung durch Bestimmen der Spannungsüberhöhung im Resonanzfall war aus Zeitgründen nicht möglich.
 
+\subsection{Auswertung}
+Zur Bestimmung der Güte eines Serienschwingkreises gibt es die folgenden 4 Möglichkeiten:
+\begin{enumerate}
+\item Man misst die Resonanzfrequenz und die Breite der Resonanzkurve. Die Güte ist dann gemäß Gl. \ref{equ:Güte_Resonanzbreite} der Quotient aus beiden.
+\item Ein analoges Verfahren lässt sich mit der Phasenverschiebung durchführen: Die Resonanzfrequenz ist dann bei $\varphi = 0$ und die Breite $\Delta \omega$ ist zwischen $\varphi = \pm \ang{45}$.
+\item Gemäß Gl. \ref{equ:Güte_Spannungsüberhöhung} lässt sich die Güte auch aus der Spannungsüberhöhung an der Resonanzfrequenz bestimmen.
+\item Mit Gl. \ref{equ:Güte_Bauteile} kann die Güte aus den Größen der Bauteilen berechnet werden.
+\end{enumerate}
+\subsubsection{Gruppe A}
 
 
 
