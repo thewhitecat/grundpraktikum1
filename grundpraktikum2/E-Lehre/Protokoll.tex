@@ -113,12 +113,24 @@ Den Tiefpass erhält man dann entsprechend durch Abgriff am Kondensator. Die Üb
 
 \subsection{Aufbau und Durchführung}
 
+
+\subsection{Aufbau und Durchführung}
+
 \begin{figure}
 \centering
 \includegraphics[scale=0.8]{Bilder/AufbauSerie.png}
 \caption{Schaltbild zum Serienschwingkreis. Die Spannungsmessung am Ohmschen Widerstand wurde nur im Rahmen der Vorauswertung mit dem Oszilloskop durchgeführt.}
 \label{fig:AufbauSerie}
 \end{figure}
+
+Der wesentliche Versuchsaufbau ist in Abbildung \ref{fig:AufbauSerie} gezeigt. Für alle Versuche zum Serienkreis wurde der Kondensator mit Nominalkapazität $C=\SI{4,7}{\micro \F}$ und die Spule mit 250 Windungen verwendet.
+
+Die Messung der Spannung am Ohmschen Widerstand findet dabei nur im Rahmen des Vorversuches mit einem Oszilloskop statt.
+Im Hauptversuch werden Gesamtspannung und Strom über das Power-CASSY, welches gleichzeitig als Spannungsquelle fungiert, als Effektivwerte gemessen. Die abfallenden Spannungen an Spule und Kondensator werden mit dem Sensor-CASSY ebenfalls als Effektivwerte aufgezeichnet. Der Messvorgang wird mit verschiedenen Widerständen wiederholt.
+
+Die am Power-CASSY eingestellte Wechselspannungsamplitude wurde abhängig vom Widerstand gewählt. Der Gleichspannungsoffset beträgt $U = \SI{0}{V}$. Die Signalform ist eine Sinusschwingung.
+
+Die Frequenz wurde automatisch über die Formel $f_1 = f_0 +(n-1) \cdot \Delta f$ automatisch variiert. Über eine die Zusatzbedingung der Form$f_1 < f_{Grenz} and delta t > 2$ wurde ein Abbruch bei einer maximalen Frequenz sowie das Aufzeichnen des Messwertes nach dem Einschwingvorgang gewährleistet. Der Messbereich der Spannung ist 0-7V. Start- und Endfrequenz wurden dabei für jeden Widerstand unterschiedlich gewählt.
 
 \subsection{Vorauswertung: Oszilloskop}
 Im Rahmen der Vorauswertung wurde die Spannung am Ohmschen Widerstand und die gesamte abfallende Spannung mittels Oszilloskop gemessen. Für Gruppe B wurde der Widerstand mit Nominalwert $R = 5,1 \Omega$ verwendet. Die Frequenz der angelegten Wechselspannung wird über den Frequenzgenerator eingestellt.\\
@@ -302,6 +314,46 @@ $Q$ & $3.01\pm 0.27 $ & $4.54\pm 1.03 $ & $3.03\pm 0.23$\\
 
 
 \section{Hoch- und Tiefpass}
+
+
+In diesem Versuch soll die Übertragsfunktion von Hoch- bzw. Tiefpass aufgezeichnet werden und die charakteristische Frequenz $\omega_0$ des Aufbaus bestimmt werden.
+
+\subsection{Auf und Durchführung}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{Bilder/AufbauHochTief.png}
+\caption{Schaltskizze zum Hoch- bzw Tiefpass. (Quelle: Praktikumsskript S. 94)}
+\label{fig:AufbauHochTief}
+\end{figure}
+
+Der Versuchsaufbau erfolgt nach der Schaltskizze in Abbildung \ref{fig:AufbauHochTief}. Die Spannungen an Widerstand und Kondensator
+werden mit dem Sensor-CASSY aufgezeichnet. Die Spannungsquelle ist erneut durch das Power-CASSY gegeben, welches gleichzeitig die angelegte Spannung misst. Alle Messwerte werden als Effektivwerte gemessen.
+
+Die Frequenz wird wieder automatisch schrittweise bis zu einem maximalen Wert erhöht. Die Einstellungen diesbezüglich sind identisch zu den vorherigen Versuchen. Die Wechselspannungsamplitude wurde zu 5V eingestellt.
+
+Gruppe A verwendet in ihrem Aufbau den $\SI{4,7}{\micro \F}$ Kondensator und den $\SI{100}{\ohm}$ Widerstand. Gruppe B hat einen Kondensator mit gleichem Nominalwert und einen $\SI{10}{\ohm}$ Widerstand benutzt.
+
+\subsection{Auswertung}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{Bilder/RohdatenHochTief_A.png}
+\caption{Rohdaten für Gruppe A. eine Hilfslinie bei $\frac{U_{eff}}{\sqrt{2}}$, wobei $U_{eff}$ der Effektivwert der angelegten Spannung ist, eingezeichnet.}
+\label{fig:RohdatenHochTief_A}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{Bilder/RohdatenHochTief_B.png}
+\caption{Rohdaten der aufgezeichneten Spannungen für Gruppe B. Es sind Hilfslinien bei $U_{eff}$ und $\frac{U_{eff}}{\sqrt{2}}$, wobei $U_{eff}$ der Effektivwert der angelegten Spannung ist, eingezeichnet.}
+\label{fig:RohdatenHochTief_B}
+\end{figure}
+
+Die Rohdaten der Versuche finden sich in den Abbildungen \ref{fig:RohdatenHochTief_A} und \ref{fig:RohdatenHochTief_B}.
+
+
+
 
 
 
