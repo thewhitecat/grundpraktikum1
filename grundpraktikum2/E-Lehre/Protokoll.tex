@@ -348,13 +348,13 @@ Q_{abgelesen} = \num{1.4780(20)} \qquad Q_{berechnet} = \num{1.4847(18)}
 \hline 
 Bauteil & Größe \\ 
 \hline 
-Spule & \SI{1.2750(3)}{mH} \\ 
+Spule & \SI{1.275(1)}{mH} \\ 
 \hline 
-Kondensator & \SI{4.5975(3)}{\mu F} \\ 
+Kondensator & \SI{4.598(1)}{\mu F} \\ 
 \hline 
-\SI{5}{\ohm} Widerstand & \SI{5.1820(3)}{\ohm} \\ 
+\SI{5}{\ohm} Widerstand & \SI{5.182(1)}{\ohm} \\ 
 \hline 
-\SI{10}{\ohm} Widerstand & \SI{99.080(3)}{\ohm} \\ 
+\SI{10}{\ohm} Widerstand & \SI{10.035(1)}{\ohm} \\ 
 \hline 
 \end{tabular} 
 \caption{Größen der für den Aufbau des Serienschwingkreises von Gruppe A verwendeten Bauteile.}
@@ -371,12 +371,73 @@ Die Güte berechnet sich wie Gl. \ref{equ:Guete_Bauteile_Groesse}. Anhand dieser
 
 Damit ergibt sich aus den Bauteilen die Güte des Schwingkreises mit dem $\SI{5}{\ohm}$ Widerstand mit Gl. \ref{equ:Guete_Bauteile_Groesse} und Gl. \ref{equ:FehlerGuete_FehlerBauteile} zu:
 \begin{equation*}
-Q_{Bauteile} = \num{3.2135(4)}
+Q_{Bauteile} = \num{3.2135(14)}
 \end{equation*}
 Und für den $\SI{10}{\ohm}$ Widerstand:
 \begin{equation*}
-Q_{Bauteile} = \num{1.6594(2)}
+Q_{Bauteile} = \num{1.6594(7)}
 \end{equation*}
+
+\paragraph{5. Fazit}\mbox{}\\
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Widerstand & Methode 1 & Methode 2 & Methode 3 & Methode 4 \\ 
+\hline 
+\SI{5}{\ohm} abgelesen & \num{2.6392(245)} & \num{2.5860(235)} & \num{2.6170(30)} & - \\ 
+\hline 
+\SI{5}{\ohm} berechnet & \num{2.6667(289)} & \num{2.6125(276)} & \num{2.6282(28)} & \num{3.1235(14)}\\ 
+\hline 
+\SI{10}{\ohm} abgelesen & \num{1.5003(85)} & \num{1.4458(78)} & \num{1.4780(20)} & - \\ 
+\hline 
+\SI{10}{\ohm} berechnet & \num{1.4857(96)} & \num{1.4452(90)} & \num{1.4847(18)} & \num{1.6594(7)}\\ 
+\hline 
+\end{tabular} 
+\caption{Ergebnisse für die Güte der Serien-Schwingkreise mit \SI{5}{\ohm} und \SI{10}{\ohm} Widerstand. Methode 1 ist Messung der Resonanzfrequenz und Breite der Resonanzkurve, Methode 2 ist die Bestimmung aus der Phasenverschiebung, Methode 3 ist die Spannungsüberhöhung an der Resonanzstelle und Methode 4 ist die Berechnung aus den Bauteilen.}
+\label{tab:Guete_Ergebnisse_A}
+\end{center}
+\end{table}
+
+Tabelle \ref{tab:Guete_Ergebnisse_A} zeigt alle Ergebnisse für die Güte, die sich bei den unterschiedlichen Auswertungsmethoden ergeben.\\
+Da die Werte für Methode 1-3 fast innerhalb einer Standardabweichung übereinstimmen, können diese Werte gewichtet gemittelt werden. Da die Übereinstimmung nicht innerhalb einer Standardabweichung ist, müssen äußerer und innerer Fehler verglichen und der größere genommen werden.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Widerstand & abgelesen & berechnet \\ 
+\hline 
+\SI{5}{\ohm} & \num{2.6168(33)} & \num{2.6284(28)} \\ 
+\hline 
+\SI{10}{\ohm} & \num{1.4772(65)} & \num{1.4833(53)} \\ 
+\hline 
+\end{tabular} 
+\caption{Gewichtet gemittelte Ergebnisse für die Güte des Serienschwingkreises mit \SI{5}{\ohm} und \SI{10}{\ohm} Widerstand von Gruppe A.}
+\label{tab:Guete_gemErgebnisse_A}
+\end{center}
+\end{table}
+
+Tabelle \ref{tab:Guete_gemErgebnisse_A} zeigt die gewichteten Ergebnisse für die Güte. Der Unterschied zwischen dem Ergebnis durch manuelles Ablesen und dem Ergebnis durch automatisierte Auswertung beträgt für den \SI{5}{\ohm} Widerstand ca. $2.7 \sigma$ und für den \SI{10}{\ohm} Widerstand ca. $0.7 \sigma$.\\
+Beide Werte unterscheiden sich allerdings sehr stark von den aus den Bauteilen berechneten Werten; die Abweichung zeigt Tabelle \ref{tab:Guete_Abweichungen_A}.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Widerstand & Abweichung abgelesen & Abweichung berechnet \\ 
+\hline 
+\SI{5}{\ohm} & 141.4$\, \sigma$ & 158.2$\, \sigma$ \\ 
+\hline 
+\SI{10}{\ohm} & 27.9$\, \sigma$ & 32.9$\, \sigma$ \\ 
+\hline 
+\end{tabular} 
+\caption{Abweichungen der gewichtet gemittelten Werte für die Güte von den aus den Bauteilen berechneten "Erwartungswerte".}
+\label{tab:Guete_Abweichungen_A}
+\end{center}
+\end{table}
+
+Diese großen Abweichungen verwundern durchaus, denn die Werte aus den verschiedenen (unabhängigen) Messmethoden lagen sehr nah beieinander.
 
 
 \newpage
