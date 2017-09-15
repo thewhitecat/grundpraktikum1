@@ -444,12 +444,15 @@ Diese großen Abweichungen verwundern durchaus, denn die Werte aus den verschied
 \section{Parallelschwingkreis}
 
 \subsection{Auswertung}
+Während der Durchführung wurde eine Periodische Schwankung in den gemessenen Strömen festgestellt. Dadurch gestaltet sich die Auswertung der Daten äußerst schwierig. Um nicht nur ungefähre Abschätzungen zu machen, wurde eine Anpassung an den Daten durchgeführt, die die Schwingung ignoriert.
+
+
 \paragraph{1. Resonanzfrequenz und Breite der Resonanzkurve}\mbox{}\\
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{Bilder/Parallel_Iges.png}
 \caption{TBD}
-\label{fig:Serie_Resonanzkurve_A_5}
+\label{fig:parallel_Iges}
 \end{figure}
 
 \begin{table}
@@ -462,6 +465,61 @@ $f_0$ & $2216\pm 50 $ & $2216\pm 65 $ & $2235\pm 80$\\
 $\Delta f$ & $737\pm 64 $ & $488\pm 110 $ & $738\pm 49$\\
 \hline
 $Q$ & $3.01\pm 0.27 $ & $4.54\pm 1.03 $ & $3.03\pm 0.23$\\
+\hline
+\end{tabular}
+\label{tab:parallel_methode1}
+\end{table}
+
+Die Methode ist in Abbildung \ref{fig:parallel_Iges} dargestellt.
+Mithilfe der Anpassung wurde der Minimale Gesamtstrom und damit $f_0$ bestimmt. Es macht wegen der Ungenauigkeit der Anpassung keinen Sinn einen Fehler aus dieser zu bestimmen.  Stattdessen wird der Fehler Durch eine Visuelle Abschätzung an den Rohdaten bestimmt.
+Der Fehler auf den Wert des Stromes wird durch Schwankung der Abweichung zwischen Anpassung und Rohdaten bestimmt.\\
+Nun wird geschaut, an welchen Stellen der Strom um $\sqrt{2}$ angestiegen ist und aus dem Abstand von diesen Punkten $\Delta f$ berechnet.\\
+Der Fehler folgt aus der Schwankung des Stromes. Dabei wird der Wert des Minimalen Stromes um den Fehler in beide Richtungen verschoben und ein neues $\Delta f$ für den verschobenen Wert berechnet und geschaut, wie weit der neue Wert vom alten abweicht.\\
+Abschließend wird die Güte mithilfe von Formel ??? bestimmt.\\
+Alle Ergebnisse sind in Tabelle \ref{tab:parallel_methode1} aufgelistet.\\
+Eine gewichtete Mittelung der Ergebnisse ergibt:
+\begin{equation}
+Q = 3.06\pm 0.18 
+\end{equation}
+Dabei muss der äußere Fehler genommen werde.
+
+\paragraph{2.Stromüberhöhung}\mbox{}\\
+Bei dieser Auswertungsmethode wird die Resonanzfrequenz über den Schnittpunkt zwischen den Stromkurven von Spule und Kondensator ermittelt. 
+
+\begin{table}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Messung & 1 & 2 & 3\\
+\hline
+$f_0$ & $2094.2\pm 49.2$ & $2096.1\pm 56.5$ & $2093.4\pm 51.3$\\
+\hline
+$U_L$ & $0.0850\pm 0.0009$ & $0.1278\pm 0.0021$ & $0.1274\pm 0.0017$ \\
+\hline
+$U_0$ & $0.0256\pm 0.0009$ & $0.0234\pm 0.0029$ & $0.0390\pm 0.0018$ \\
+\hline
+$Q$ & $3.32\pm 0.11$ & $5.46\pm 0.50$ & $3.27\pm 0.15$ \\
+\hline
+\end{tabular}
+\end{table}
+Der gewichtete Mittelwert beträgt mit äußerem Fehler:
+\begin{equation}
+Q = 3.37\pm 0.26 
+\end{equation}
+
+\subsubsection{Impedanz}
+Aus
+\begin{equation}
+Z = \dfrac{U}{I}
+\end{equation}
+kann die Impedanz bestimmt werden.
+
+\subsubsection{Phase}
+\begin{table}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Messung & 1 & 2 & 3\\
+\hline
+$f_0$ & $2154\pm 42$ &$ 2137\pm 30$ & $2137\pm 32$\\
 \hline
 \end{tabular}
 \end{table}
