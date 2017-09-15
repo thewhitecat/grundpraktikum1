@@ -56,19 +56,26 @@ Dabei ergibt sich der maximale Strom im Kreis bei Resonanz für
 Die Güte des Schwingkreises ist definiert durch
 \begin{equation}
 Q_s = \frac{1}{R} \sqrt{\frac{L}{C}}
+\label{equ:Guete_Bauteile_Groesse}
 \end{equation}
 
 und beschreibt unter anderem den Zusammenhang zwischen angelegter Spannung und Spannungsüberhöhung im Resonanzfall:
 
 \begin{equation}
 \frac{U_L(\omega_0)}{U(\omega_0)} = Q_s 
-\label{equ:Güte_Spannungsüberhöhung}
+\label{equ:Guete_Spannungsüberhöhung}
 \end{equation}
 
 Man stellt fest, dass die Güte sich auch noch als Quotient aus Resonanzfrequenz und Breite der Resonanzkurve bestimmen lässt:
 \begin{equation}
 \dfrac{\omega_0}{\Delta \omega} = \dfrac{\omega_0}{2d} = \dfrac{\omega_0 L}{R} = \dfrac{1}{R \omega_0 L} = \dfrac{1}{R} \cdot \sqrt{\dfrac{L}{C}} =: Q_S
-\label{equ:Güte_Resonanzbreite}
+\label{equ:Guete_Resonanzbreite}
+\end{equation}
+
+Man stellt fest, dass die Güte sich auch noch als Quotient aus Resonanzfrequenz und Breite der Resonanzkurve bestimmen lässt:
+\begin{equation}
+\dfrac{\omega_0}{\Delta \omega} = \dfrac{\omega_0}{2d} = \dfrac{\omega_0 L}{R} = \dfrac{1}{R \omega_0 L} = \dfrac{1}{R} \cdot \sqrt{\dfrac{L}{C}} =: Q_S
+\label{equ:Guete_Resonanzbreite}
 \end{equation}
 
 
@@ -173,10 +180,10 @@ Eine zweite Voruntersuchung durch Bestimmen der Spannungsüberhöhung im Resonan
 \subsection{Auswertung}
 Zur Bestimmung der Güte eines Serienschwingkreises gibt es die folgenden 4 Möglichkeiten:
 \begin{enumerate}
-\item Man misst die Resonanzfrequenz und die Breite der Resonanzkurve. Die Güte ist dann gemäß Gl. \ref{equ:Güte_Resonanzbreite} der Quotient aus beiden.
+\item Man misst die Resonanzfrequenz und die Breite der Resonanzkurve. Die Güte ist dann gemäß Gl. \ref{equ:Guete_Resonanzbreite} der Quotient aus beiden.
 \item Ein analoges Verfahren lässt sich mit der Phasenverschiebung durchführen: Die Resonanzfrequenz ist dann bei $\varphi = 0$ und die Breite $\Delta \omega$ ist zwischen $\varphi = \pm \ang{45}$.
-\item Gemäß Gl. \ref{equ:Güte_Spannungsüberhöhung} lässt sich die Güte auch aus der Spannungsüberhöhung an der Resonanzfrequenz bestimmen.
-\item Mit Gl. \ref{equ:Güte_Bauteile} kann die Güte aus den Größen der Bauteilen berechnet werden.
+\item Gemäß Gl. \ref{equ:Guete_Spannungsüberhöhung} lässt sich die Güte auch aus der Spannungsüberhöhung an der Resonanzfrequenz bestimmen.
+\item Mit Gl. \ref{equ:Guete_Bauteile} kann die Güte aus den Größen der Bauteilen berechnet werden.
 \end{enumerate}
 
 \subsubsection{Gruppe A}
@@ -227,13 +234,13 @@ Die Unsicherheit beim Ablesen wird mit
 \end{equation*}
 angenommen.\\
 Die Fehlerfortpflanzung ist für die Auswertung durch Ablesen und die automatisierte Auswertung identisch:\\
-Nach Gl. \ref{equ:Güte_Resonanzbreite} pflanzt sich der Fehler auf die Frequenz fort:
+Nach Gl. \ref{equ:Guete_Resonanzbreite} pflanzt sich der Fehler auf die Frequenz fort:
 \begin{equation}
 \dfrac{\sigma_Q}{Q} = \sqrt{\left( \dfrac{\sigma_f}{f_0} \right)^2 + \left( \dfrac{\sigma_{\Delta f}}{\Delta f} \right)^2} = \sqrt{\left( \dfrac{\sigma_f}{f_0} \right)^2 + \left( \dfrac{\sqrt{2} \cdot \sigma _f}{\Delta f} \right)^2}
-\label{equ:FehlerGüte_FehlerFrequenz}
+\label{equ:FehlerGuete_FehlerFrequenz}
 \end{equation}
 
-Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit dem $\SI{5}{\ohm}$ Widerstand mit Gl. \ref{equ:Güte_Resonanzbreite} und Gl. \ref{equ:FehlerGüte_FehlerFrequenz} zu:
+Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit dem $\SI{5}{\ohm}$ Widerstand mit Gl. \ref{equ:Guete_Resonanzbreite} und Gl. \ref{equ:FehlerGuete_FehlerFrequenz} zu:
 \begin{equation*}
 Q_{abgelesen} = \num{2.6392(245)} \qquad Q_{berechnet} = \num{2.6667(289)}
 \end{equation*}
@@ -275,14 +282,101 @@ $\SI{10}{\ohm}$ & 2110.274 & 1516.288 & 2975.858 & 2110 & 1510 & 2970 \\
 
 Tabelle \ref{tab:StromPhasenverschiebung_A} zeigt die abgelesenen und automatisiert berechneten Werte für die Resonanzfrequenz und die beiden die Resonanzbreite begrenzende Frequenzen. \\
 Die automatisierte Auswertung wurde genauso realisiert wie bei Methode 1. \\
-Die Fehlerrechnung kann komplett aus der Auswertung nach der ersten Methode übernommen werden (siehe Gl. \ref{equ:FehlerGüte_FehlerFrequenz}). \\
-Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit dem $\SI{5}{\ohm}$ Widerstand mit Gl. \ref{equ:Güte_Resonanzbreite} und Gl. \ref{equ:FehlerGüte_FehlerFrequenz} zu:
+Die Fehlerrechnung kann komplett aus der Auswertung nach der ersten Methode übernommen werden (siehe Gl. \ref{equ:FehlerGuete_FehlerFrequenz}). \\
+Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit dem $\SI{5}{\ohm}$ Widerstand mit Gl. \ref{equ:Guete_Resonanzbreite} und Gl. \ref{equ:FehlerGuete_FehlerFrequenz} zu:
 \begin{equation*}
 Q_{abgelesen} = \num{2.5860(235)} \qquad Q_{berechnet} = \num{2.6125(276)}
 \end{equation*}
 Und für den $\SI{10}{\ohm}$ Widerstand:
 \begin{equation*}
 Q_{abgelesen} = \num{1.4458(78)} \qquad Q_{berechnet} = \num{1.4452(90)}
+\end{equation*}
+
+\paragraph{3. Spannungsüberhöhung}\mbox{}\\
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{Bilder/Serie_Spannungsueberhoehung_A_5.png}
+\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau mit dem $\SI{5}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
+\label{fig:Serie_Spannungsueberhoehung_A_5}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{Bilder/Serie_Spannungsueberhoehung_A_10.png}
+\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau mit dem $\SI{10}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
+\label{fig:Serie_Spannungsueberhoehung_A_10}
+\end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c||c|c|c|}
+\hline
+Widerstand & $f_0$/Hz & $U_{L, f_0}$/V & $U_{an, f_0}$/V & $f_0$/Hz & $U_{L, f_0}$/V & $U_{an, f_0}$/V \\
+\hline
+$\SI{5}{\ohm}$ & 2101.633 & 3.696443 & 1.41231 & 2110 & 3.711449 & 1.412179 \\
+\hline
+$\SI{10}{\ohm}$ & 2102.349 & 2.086694 & 1.41231 & 2110 & 2.096682 & 1.412179 \\
+\hline
+\end{tabular}
+\caption{Auswertungswerte der Spannungsüberhöhung im Serienschwingkreis von Gruppe A. Links sind die abgelesenen Werte, rechts die automatisiert berechneten.}
+\label{tab:Spannungsueberhoehung_A}
+\end{table}
+
+Abbildung \ref{fig:Serie_Spannungsueberhoehung_A_5} zeigt die Verläufe von Kondensator-, Spulen- und angelegter Spannung für den Aufbau mit dem $\SI{5}{\ohm}$ Widerstand.\\
+Abbildung \ref{fig:Serie_Spannungsueberhoehung_A_10} zeigt die Verläufe von Kondensator-, Spulen- und angelegter Spannung für den Aufbau mit dem $\SI{10}{\ohm}$ Widerstand.\\ 
+Tabelle \ref{tab:Spannungsueberhoehung_A} zeigt die abgelesenen und automatisiert berechneten Werte.\\
+Als Fehler auf die Spannung wird die Standardabweichung aus der Rauschmessung verwendet:
+\begin{equation*}
+\sigma _U = \sigma _{U_L} = \sigma _{U_{an}} = \SI{0.0014}{V}
+\end{equation*}
+Gemäß Gl. \ref{equ:Guete_Spannungsüberhöhung} lässt sich die Fortpflanzung des Fehlers auf die Spannung wie folgt bestimmen:
+\begin{equation}
+\dfrac{\sigma _Q}{Q} = \sqrt{\left( \dfrac{\sigma _U}{U_{L, f_0}} \right)^2 + \left( \dfrac{\sigma _U}{U_{an, f_0}} \right)^2}
+\end{equation}
+
+Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit dem $\SI{5}{\ohm}$ Widerstand mit Gl. \ref{equ:Guete_Resonanzbreite} und Gl. \ref{equ:FehlerGuete_FehlerFrequenz} zu:
+\begin{equation*}
+Q_{abgelesen} = \num{2.6170(30)} \qquad Q_{berechnet} = \num{2.6282(28)}
+\end{equation*}
+Und für den $\SI{10}{\ohm}$ Widerstand:
+\begin{equation*}
+Q_{abgelesen} = \num{1.4780(20)} \qquad Q_{berechnet} = \num{1.4847(18)}
+\end{equation*}
+
+\paragraph{4. Berechnung aus Bauteilen}\mbox{}\\
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+Bauteil & Größe \\ 
+\hline 
+Spule & \SI{1.2750(3)}{mH} \\ 
+\hline 
+Kondensator & \SI{4.5975(3)}{\mu F} \\ 
+\hline 
+\SI{5}{\ohm} Widerstand & \SI{5.1820(3)}{\ohm} \\ 
+\hline 
+\SI{10}{\ohm} Widerstand & \SI{99.080(3)}{\ohm} \\ 
+\hline 
+\end{tabular} 
+\caption{Größen der für den Aufbau des Serienschwingkreises von Gruppe A verwendeten Bauteile.}
+\label{tab:BauteileGroesse_A}
+\end{center}
+\end{table}
+
+Die charakteristischen Größen der Bauteile wurde mit der Brücke gemessen. Das Ergebnis dieser Messung ist in Tabelle \ref{tab:BauteileGroesse_A} aufgeführt.\\
+Die Güte berechnet sich wie Gl. \ref{equ:Guete_Bauteile_Groesse}. Anhand dieser lassen sich auch direkt die Fehler fortpflanzen:
+\begin{equation}
+\dfrac{\sigma _Q}{Q} = \sqrt{\left( \dfrac{\sigma _R}{R} \right)^2 + \left( \dfrac{\sigma _L}{2 \cdot L} \right)^2 + \left( \dfrac{\sigma _C}{2 \cdot C} \right)^2}
+\label{equ:FehlerGuete_FehlerBauteile}
+\end{equation}
+
+Damit ergibt sich aus den Bauteilen die Güte des Schwingkreises mit dem $\SI{5}{\ohm}$ Widerstand mit Gl. \ref{equ:Guete_Bauteile_Groesse} und Gl. \ref{equ:FehlerGuete_FehlerBauteile} zu:
+\begin{equation*}
+Q_{Bauteile} = \num{3.2135(4)}
+\end{equation*}
+Und für den $\SI{10}{\ohm}$ Widerstand:
+\begin{equation*}
+Q_{Bauteile} = \num{1.6594(2)}
 \end{equation*}
 
 
