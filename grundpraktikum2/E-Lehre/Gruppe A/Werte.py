@@ -24,6 +24,14 @@ Q = f_0/dwmid
 sig = Q * np.sqrt((sig_f/f_0)**2 + (dwstd/dwmid)**2)
 print Q, sig
 
+def gew_mittelwert(Q2, sig):
+    n = len(sig)
+    w = 1./(sig)**2
+    xm = sum(w*Q2)/sum(w)
+    dext = np.sqrt( ( 1./(n-1)*np.sum(w*(xm-Q2)**2))/sum(w))
+    dint =  np.sqrt(1./sum(w))
+    return xm,dext,dint
+
 Q2 = w0/dw
 sig = Q2 * np.sqrt((w0err/w0)**2 + (dwerr/dw)**2)
 print Q2,sig
@@ -35,3 +43,7 @@ dint =  np.sqrt(1./sum(w))
 print xm,dext,dint
 
 
+w0 = np.array([2094.2,2096.1,2093.4])
+w0err = np.array([49.2,56.5,51.3])
+UL = np.array([0.0850,0.1278,0.1274])
+dU = np.array([0.0009,0.0021,])

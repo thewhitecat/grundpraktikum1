@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import Praktikum as p
 import scipy.optimize as opt
 
-messung1=p.lese_lab_datei('Messung2.lab')
+messung1=p.lese_lab_datei('Messung4.lab')
 #Index,zeit,Uin,Iin,phi,IA2,UB2,?,IA3,f0,f1,z,hoch,tief
 freq = messung1[:,10]
 Uin = messung1[:,2]
@@ -50,18 +50,21 @@ def plot1():#alles
     ywerte2 = func3(xwerte,*popt)
     plt.plot(xwerte,ywerte2)
     err = fehler(IC,ywerte2)
-    #plt.errorbar(freq,IC,yerr = err)
+    plt.plot(xwerte,ywerte2+err)
+    plt.plot(xwerte,ywerte2-err)
     
     popt,pcov = opt.curve_fit(func4,freq,IL,p0=[100,1,1])
     ywerte3 = func4(xwerte,*popt)
     plt.plot(xwerte,ywerte3)
     err = fehler(IL,ywerte3)
+    plt.plot(xwerte,ywerte3+err)
+    plt.plot(xwerte,ywerte3-err)
     
     argmin = np.argmin(ywerte)
     minimum = xwerte[argmin]
     schnittpunkt = np.argmin(np.abs(ywerte2-ywerte3))
     print minimum
-    print xwerte[schnittpunkt]
+    print xwerte[schnittpunkt],ywerte3[schnittpunkt],err
     print 'Q_L=',ywerte3[schnittpunkt]/ywerte[schnittpunkt]
     print 'Q_C=',ywerte2[schnittpunkt]/ywerte[schnittpunkt]
     
@@ -98,7 +101,7 @@ def plot4(plotte):#Gaussfit Z
     wres = xwerte[np.argmax(ywerte)]
     maxi = np.max(ywerte)
     return wres,maxi
-    
+
 def plot5(plotte):#Polynom Z
     popt,pcov = opt.curve_fit(func,freq,Z)
     ywerte = func(xwerte,*popt)
@@ -130,9 +133,9 @@ def fehler(array, anpassung):
         err[i] = np.abs(anpassung[2*i]-array[i])
         i+=1
     return np.std(err)
-    
-    
-    
+
+
+
 L=1.275*10**(-3)
 C = 4.5975*10**(-6)
 Rl = 0.8
@@ -143,4 +146,4 @@ wres,Zmax = plot5(False)
 print 'Q=',R*np.sqrt(C/L)/(1+R*Rl*C/L)
 print 'Q2=',1./Rl * np.sqrt(L/C)
 print 'Q_Z=',wres*2*np.pi*C*Zmax
-plot3()
+plot1()
