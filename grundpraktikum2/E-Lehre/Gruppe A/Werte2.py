@@ -10,12 +10,12 @@ import Praktikum as p
 #####################################
 #Iges Minimum 4,3,2
 w0 = np.array([2216.,2216.,2235.])
-w0err = np.array([40.,50.,30.])
+w0err = np.array([23.,29.,17.])
 f_0,sig_f = p.gewichtetes_mittel(w0,w0err)
 U0 = []
 U0err = [0.005,0.009,0.002]
 dw = np.array([737.,488.,738.])
-dwerr = np.array([33.,75.,43.])
+dwerr = np.array([19.,43.,24.])
 dwmid,dwstd =  p.gewichtetes_mittel(dw,dwerr)
 
 def gew_mittelwert(Q2, sig):
@@ -40,11 +40,11 @@ print "######"
 #####################################
 
 w0 = np.array([2094.6,2095.6,2093.7])
-w0err = np.array([33.7,38.2,35.2])
+w0err = np.array([33.7,38.2,35.2])/np.sqrt(3)
 UL = np.array([0.0850,0.1278,0.1274])
-dU = np.array([0.0009,0.0021,0.0017])
+dU = np.array([0.0009,0.0021,0.0017])/np.sqrt(3)
 U0 = np.array([0.0256,0.0234,0.0390])
-U0err = [0.0008,0.0021,0.0017]
+U0err = [0.0008,0.0021,0.0017]/np.sqrt(3)
 Q = UL/U0
 Qerr = Q * np.sqrt((dU/UL)**2+ (U0err/U0)**2)
 print Q,Qerr

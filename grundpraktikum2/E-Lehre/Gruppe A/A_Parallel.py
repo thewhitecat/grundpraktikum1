@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import Praktikum as p
 import scipy.optimize as opt
 
-messung1=p.lese_lab_datei('Messung4.lab')
+messung1=p.lese_lab_datei('Messung3.lab')
 #Index,zeit,Uin,Iin,phi,IA2,UB2,?,IA3,f0,f1,z,hoch,tief
 freq = messung1[:,10]
 Uin = messung1[:,2]
@@ -36,7 +36,10 @@ def func4(x,a,b,c):
 def func5(x,a,x0,sigma,b,c):
     return a*np.exp(-(x-x0)**2/(2*sigma**2))+b*x+c
 
-xwerte = np.linspace(freq[0],freq[-1],len(freq)*2)
+def func6(x,a,b,c,d,e):
+    return a*np.sin(x*b+e)+c*x+d
+
+xwerte = np.linspace(freq[0],freq[-1],len(freq)*20)
 def plot1():#alles
     plt.plot(freq,Iin)
     plt.plot(freq,IC)
@@ -50,22 +53,31 @@ def plot1():#alles
     popt,pcov = opt.curve_fit(func3,freq,IC,p0=[1,1])
     ywerte2 = func3(xwerte,*popt)
     plt.plot(xwerte,ywerte2)
-    err = fehler(IC,ywerte2)
-    plt.plot(xwerte,ywerte2+err)
-    plt.plot(xwerte,ywerte2-err)
+    err2 = fehler(IC,ywerte2)/(1.73)
+    plt.plot(xwerte,ywerte2+err2)
+    plt.plot(xwerte,ywerte2-err2)
     
     popt,pcov = opt.curve_fit(func4,freq,IL,p0=[100,1,1])
     ywerte3 = func4(xwerte,*popt)
     plt.plot(xwerte,ywerte3)
-    err = fehler(IL,ywerte3)
-    plt.plot(xwerte,ywerte3+err)
-    plt.plot(xwerte,ywerte3-err)
+    err3 = fehler(IL,ywerte3)/(1.73)
+    plt.plot(xwerte,ywerte3+err3)
+    plt.plot(xwerte,ywerte3-err3)
+    
+    left = xwerte[np.argmin(np.abs((ywerte2+err2)-(ywerte3-err3)))]
+    right = xwerte[np.argmin(np.abs((ywerte2-err2)-(ywerte3+err3)))]
+    print (left-right)/2
+    plt.axvline(left,linestyle = 'dashed')
+    plt.axvline(right,linestyle = 'dashed')
     
     argmin = np.argmin(ywerte)
     minimum = xwerte[argmin]
     schnittpunkt = np.argmin(np.abs(ywerte2-ywerte3))
+    plt.axvline(xwerte[schnittpunkt],color = 'red',linestyle = 'dashed')
+    
+    fehler2(freq,IC,xwerte[schnittpunkt])
     print minimum,ywerte[argmin],err1
-    print xwerte[schnittpunkt],ywerte3[schnittpunkt],err
+    print xwerte[schnittpunkt],ywerte3[schnittpunkt],err3
     print 'Q_L=',ywerte3[schnittpunkt]/ywerte[schnittpunkt]
     print 'Q_C=',ywerte2[schnittpunkt]/ywerte[schnittpunkt]
     
@@ -90,8 +102,8 @@ def plot3():#Breite Iges
     minimum = xwerte[np.argmin(ywerte)]
     print minimum
     plt.plot(xwerte,np.full(len(xwerte),np.min(ywerte)*np.sqrt(2)),color='red',linestyle='dashed')
-    plt.plot(xwerte,np.full(len(xwerte),(np.min(ywerte)+err)*np.sqrt(2)),color='green',linestyle='dashed')
-    plt.plot(xwerte,np.full(len(xwerte),(np.min(ywerte)-err)*np.sqrt(2)),color='green',linestyle='dashed')
+    plt.plot(xwerte,np.full(len(xwerte),(np.min(ywerte))*np.sqrt(2)+err),color='green',linestyle='dashed')
+    plt.plot(xwerte,np.full(len(xwerte),(np.min(ywerte))*np.sqrt(2)-err),color='green',linestyle='dashed')
 
 def plot4(plotte):#Gaussfit Z
     popt,pcov = opt.curve_fit(func5,freq,Z,p0=[1,2200,1000,0,1],maxfev = 5000)
@@ -99,6 +111,7 @@ def plot4(plotte):#Gaussfit Z
     if plotte == True:
         plt.plot(freq,Z)
         plt.plot(xwerte,ywerte)
+        plt.axvline(2216)
     wres = xwerte[np.argmax(ywerte)]
     maxi = np.max(ywerte)
     return wres,maxi
@@ -112,7 +125,9 @@ def plot5(plotte):#Polynom Z
     if plotte == True:
         plt.plot(freq,Z)
         plt.plot(xwerte,ywerte)
-        plt.axvline(2216)
+        plt.axvline(2237,linestyle='dashed',color = 'red')
+        plt.ylabel("Z in Ohm ")
+        plt.xlabel("Frequenz in Hz ")
     return wres,maxi
 
 def errors(array):
@@ -133,11 +148,13 @@ def fehler(array, anpassung):
     i = 0
     err = np.empty(len(array))
     while(i<len(array)):
-        err[i] = np.abs(anpassung[2*i]-array[i])
+        err[i] = np.abs(anpassung[20*i]-array[i])
         i+=1
     return np.std(err)
 
-
+def find_nearest(array,value):
+    idx = (np.abs(array-value)).argmin()
+    return idx
 
 L=1.275*10**(-3)
 C = 4.5975*10**(-6)
@@ -149,4 +166,4 @@ wres,Zmax = plot5(0)
 print 'Q=',R*np.sqrt(C/L)/(1+R*Rl*C/L)
 print 'Q2=',1./Rl * np.sqrt(L/C)
 print 'Q_Z=',wres*2*np.pi*C*Zmax
-plot2()
+plot1()

@@ -98,6 +98,7 @@ Im Falle des Parallelschwingkreises kommt es bei Resonanz zu einer Stromüberhö
 
 \begin{equation}
 \frac{(I_L)_0}{I_0} = Q_p
+\label{eq:Parallel_Strmhoch}
 \end{equation}
 
 \paragraph{Hoch -und Tiefpass}
@@ -116,6 +117,8 @@ Den Tiefpass erhält man dann entsprechend durch Abgriff am Kondensator. Die Üb
 \end{equation}
 
 \section{Serienschwingkreis}
+
+\subsection{Aufbau und Durchführung}
 
 
 \subsection{Aufbau und Durchführung}
@@ -442,10 +445,20 @@ Diese großen Abweichungen verwundern durchaus, denn die Werte aus den verschied
 \section{Parallelschwingkreis}
 
 \subsection{Auswertung}
-Während der Durchführung wurde eine Periodische Schwankung in den gemessenen Strömen festgestellt. Dadurch gestaltet sich die Auswertung der Daten äußerst schwierig. Um nicht nur ungefähre Abschätzungen zu machen, wurde eine Anpassung an den Daten durchgeführt, die die Schwingung ignoriert.
+\begin{figure}
+\centering
+\includegraphics[scale=1]{Bilder/Parallel_Rohdaten.png}
+\caption{Rohdaten des Gesamtstromes und der Ströme an Kondensator und Spule. Es wurden an die Daten Anpassungen durchgeführt, die versuchen, die Schwingung zu ignorieren.}
+\label{fig:parallel_Rohdaten}
+\end{figure}
+
+Während der Durchführung wurde eine Periodische Schwankung in den gemessenen Strömen festgestellt. Dadurch gestaltet sich die Auswertung der Daten äußerst schwierig.\\
+Deswegen wurde versucht, an die Rohdaten Anpassungen durchzuführen, die diese Schwingung ignorieren.\\
+An den Gesamtstrom wurde wegen seiner recht komplizierten theoretischen Form ein Polynom 6. Grades, an den Kondensatorstrom eine lineare Funktion und an den Spulenstrom eine 1/x-Funktion angepasst.\\
+Rohdaten und Anpassungen sind in Abbildung \ref{fig:parallel_Rohdaten} dargestellt.
 
 
-\paragraph{1. Resonanzfrequenz und Breite der Resonanzkurve}\mbox{}\\
+\subsubsection{Resonanzfrequenz und Breite der Resonanzkurve}\mbox{}\\
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{Bilder/Parallel_Iges.png}
@@ -454,22 +467,23 @@ Während der Durchführung wurde eine Periodische Schwankung in den gemessenen S
 \end{figure}
 
 \begin{table}
+\centering
 \begin{tabular}{|c|c|c|c|}
 \hline
 Messung & 1&2&3\\
 \hline
-$f_0$ & $2216\pm 50 $ & $2216\pm 65 $ & $2235\pm 80$\\
+$f_0$ & $2216\pm 23 $ & $2216\pm 29 $ & $2235\pm 17$\\
 \hline
-$\Delta f$ & $737\pm 64 $ & $488\pm 110 $ & $738\pm 49$\\
+$\Delta f$ & $737\pm 19 $ & $488\pm 43 $ & $738\pm 24$\\
 \hline
-$Q$ & $3.01\pm 0.27 $ & $4.54\pm 1.03 $ & $3.03\pm 0.23$\\
+$Q$ & $3.01\pm 0.08 $ & $4.54\pm 0.41 $ & $3.03\pm 0.10$\\
 \hline
 \end{tabular}
 \label{tab:parallel_methode1}
 \end{table}
 
 Die Methode ist in Abbildung \ref{fig:parallel_Iges} dargestellt.
-Mithilfe der Anpassung wurde der Minimale Gesamtstrom und damit $f_0$ bestimmt. Es macht wegen der Ungenauigkeit der Anpassung keinen Sinn einen Fehler aus dieser zu bestimmen.  Stattdessen wird der Fehler Durch eine Visuelle Abschätzung an den Rohdaten bestimmt.
+Mithilfe der Anpassung wurde der Minimale Gesamtstrom und damit $f_0$ bestimmt. Es macht wegen der Ungenauigkeit der Anpassung keinen Sinn einen Fehler aus dieser zu bestimmen.  Stattdessen wird der Fehler Durch eine visuelle Abschätzung an den Rohdaten bestimmt.
 Der Fehler auf den Wert des Stromes wird durch Schwankung der Abweichung zwischen Anpassung und Rohdaten bestimmt.\\
 Nun wird geschaut, an welchen Stellen der Strom um $\sqrt{2}$ angestiegen ist und aus dem Abstand von diesen Punkten $\Delta f$ berechnet.\\
 Der Fehler folgt aus der Schwankung des Stromes. Dabei wird der Wert des Minimalen Stromes um den Fehler in beide Richtungen verschoben und ein neues $\Delta f$ für den verschobenen Wert berechnet und geschaut, wie weit der neue Wert vom alten abweicht.\\
@@ -477,29 +491,42 @@ Abschließend wird die Güte mithilfe von Formel ??? bestimmt.\\
 Alle Ergebnisse sind in Tabelle \ref{tab:parallel_methode1} aufgelistet.\\
 Eine gewichtete Mittelung der Ergebnisse ergibt:
 \begin{equation}
-Q = 3.06\pm 0.18 
+Q = 3.05\pm 0.17 
 \end{equation}
-Dabei muss der äußere Fehler genommen werde.
+Dabei muss der äußere Fehler genommen werden.
 
-\paragraph{2.Stromüberhöhung}\mbox{}\\
-Bei dieser Auswertungsmethode wird die Resonanzfrequenz über den Schnittpunkt zwischen den Stromkurven von Spule und Kondensator ermittelt. 
+\subsubsection{Stromüberhöhung an der Resonanzstelle}\mbox{}\\
+Bei dieser Auswertungsmethode wird die Resonanzfrequenz über den Schnittpunkt zwischen den Stromkurven von Spule und Kondensator ermittelt. Dieser kann direckt aus den Anpassungen bestimmt werden.\\
+Um einen Fehler auf den Wert zu bekommen, wird zuerst ein Fehler auf die gemessenen Ströme abgeschätzt. Anschließend werden die Anpassungskurven um diesen Fehler verschoben und die neuen Schnittpunkte bestimmt. Der Fehler auf unseren Messwert beträgt dann die Hälfte des größten Abstandes zwischen zwei Schnittpunkten. Dises verfahren wurde in Abbildung \ref{fig:parallel_Stromhoch} visualisiert.
+Da der Wiederstand in der Spule wesentlich geringer ist als der benutzte Wiederstand ist, muss keine Korrekturrechnung durchgeführt werden.\\
+Die somit bestimmten Schnittpunkt-Frequenzen sind in Tabelle \ref{tab:Stromhoch_Rohdaten} aufgelistet. Dort ist auch die Größe des Stromes am Kondensator und im gesamten Schwingkreis am Schnittpunkt zu finden. \\
+Mithilfe von Gleichung \ref{eq:Parallel_Strmhoch} lässt sich daraus schließlich die Güte bestimmen. Es wurde der Strom an der Spule verwendet, da diser einen kleineren Fehler hat.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.7]{Bilder/Parallel_Stromhoch.png}
+\caption{TBD}
+\label{fig:parallel_Stromhoch}
+\end{figure}
 
 \begin{table}
+\centering
 \begin{tabular}{|c|c|c|c|}
 \hline
 Messung & 1 & 2 & 3\\
 \hline
-$f_0$ & $2094.2\pm 49.2$ & $2096.1\pm 56.5$ & $2093.4\pm 51.3$\\
+$f_0$ & $2094.6\pm 33.7$ & $2095.6\pm 38.2$ & $2093.7\pm 35.2$\\
 \hline
-$U_L$ & $0.0850\pm 0.0009$ & $0.1278\pm 0.0021$ & $0.1274\pm 0.0017$ \\
+$I_L$ & $0.0850\pm 0.0009$ & $0.1278\pm 0.0021$ & $0.1274\pm 0.0017$ \\
 \hline
-$U_0$ & $0.0256\pm 0.0009$ & $0.0234\pm 0.0029$ & $0.0390\pm 0.0018$ \\
+$I_0$ & $0.0256\pm 0.0009$ & $0.0234\pm 0.0029$ & $0.0390\pm 0.0018$ \\
 \hline
 $Q$ & $3.32\pm 0.11$ & $5.46\pm 0.50$ & $3.27\pm 0.15$ \\
 \hline
 \end{tabular}
+\label{tab:Stromhoch_Rohdaten}
 \end{table}
-Der gewichtete Mittelwert beträgt mit äußerem Fehler:
+Der gewichtete Mittelwert der ermittelten Güten beträgt mit äußerem Fehler:
 \begin{equation}
 Q = 3.37\pm 0.26 
 \end{equation}
@@ -507,12 +534,45 @@ Q = 3.37\pm 0.26
 \subsubsection{Impedanz}
 Aus
 \begin{equation}
-Z = \dfrac{U}{I}
+Z = \dfrac{U_{ges}}{I_{ges}}
 \end{equation}
-kann die Impedanz bestimmt werden.
+kann die Impedanz bestimmt werden. Diese sollte bei der Resonanzfrequenz maximal sein. In Abbildung \ref{fig:parallel_Impedanz} ist die Impedanz beispielhaft dargestellt. Dabei wurde auch versucht eine Anpassung an diese Daten durchzuführen. Diese ist aber nicht gut genug gelungen, weswegen die Auswertung vollständig visuell gemacht wird.\\
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Messung & 1 & 2 & 3\\
+\hline
+$f_0$ & $2218\pm 23$ & $2216\pm 23$ & $2219\pm 23$\\
+\hline
+$N$ & $55\pm 3$ & $114\pm 29$ & $47\pm 4$\\
+\hline
+\end{tabular}
+\label{tab:Parallel_Impedanz}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{Bilder/Parallel_Impedanz.png}
+\caption{TBD}
+\label{fig:parallel_Impedanz}
+\end{figure}
 
 \subsubsection{Phase}
+\begin{figure}
+\includegraphics[scale=1]{Bilder/Parallel_Phase.png}
+\caption{Phase zwischen Strom und Spannung der Messreihe 1. An die Rohdaten wurde eine Arcustangens-Funktion angepasst. Es wurden außerdem die Winkel $0^\circ, 45^\circ und -45^\circ$ durch gestrichelte Linien markiert.}
+\label{fig:parallel_Phase}
+\end{figure}
+
+Aus der Phase Zwischen Strom und Spannung kann auch hier die Resonanzfreqenz bestimmt werden, bei der die Phase 0 beträgt.\\
+In Abbildung \ref{fig:parallel_Phase} ist die Phasenbeziehung beispielhaft gezeigt. Auch hier ist offensichtlich wieder eine störende Schwingung vorhanden. Um die Daten besser auswerten zu können wird eine arcustangens-Funktion an die Daten angepasst. An dieser wird dann die Nullstelle abgelesen.
+Die Fehler werden visuell abgeschätzt.\\
+Die so bestimmten Resonanzfrequenzen sind in Tabelle  \ref{tab:Parallel_Phase} aufgelistet.
+
 \begin{table}
+\centering
 \begin{tabular}{|c|c|c|c|}
 \hline
 Messung & 1 & 2 & 3\\
@@ -520,10 +580,17 @@ Messung & 1 & 2 & 3\\
 $f_0$ & $2154\pm 42$ &$ 2137\pm 30$ & $2137\pm 32$\\
 \hline
 \end{tabular}
+\label{tab:Parallel_Phase}
 \end{table}
+
+Aus diesen wird abschließend noch der gewichtete Mittelwert gebildet:
+\begin{equation}
+f_0 = \SI{2140(19)}{Hz}
+\end{equation}
 
 
 \section{Hoch- und Tiefpass}
+
 
 In diesem Versuch soll die Übertragsfunktion von Hoch- bzw. Tiefpass aufgezeichnet werden und die charakteristische Frequenz $\omega_0$ des Aufbaus bestimmt werden.
 
@@ -561,50 +628,7 @@ Gruppe A verwendet in ihrem Aufbau den $\SI{4,7}{\micro \F}$ Kondensator und den
 
 Die Rohdaten der Versuche finden sich in den Abbildungen \ref{fig:RohdatenHochTief_A} und \ref{fig:RohdatenHochTief_B}.
 
-Zur Bestimmung Der charakteristischen Frequenz wird der Schnittpunkt der Spannungsverläufe mit der Geraden $\frac{U_{eff}}{\sqrt{2}}$ bestimmt (vgl. Gleichungen \ref{equ:Hochpass} und \ref{equ:Tiefpass}).
 
-Der Schnittpunkt wird unter Berücksichtigung des statistischen Fehlers auf die Spannungsmessung abgelesen. Dabei ergibt sich durch die Ablesegenauigkeit ein statistischer Fehler auf die so bestimmten Frequenzen.
-Zur Berücksichtigung der systematischen Fehler werden zunächst die Offsets korrigiert. Die "linearen" systematischen Fehler werden auf die Spannungsmessung addiert bzw. abgezogen. 
-Die Frequenzbestimmung wird an den verschobenen Kurven erneut vorgenommen. Der Abstände zwischen Frequenz der unveränderten Kurve und den Frequenzen der verschobenen Kurven stellen den systematischen Fehler dar. Durch die Herstellerangabe von $\sigma_{U_i} = 0,01 \cdot U_i$ ist dieser relativ groß.
-
-Eine alternative Möglichkeit zur Bestimmung der charakteristischen Frequenz ist durch die Phase zwischen den Spannungen gegeben. Bei erreichen der charakteristischen Frequenz beträgt die Phasendifferenz $\ang{45}$. Die Phase wird vom CASSY intern gemessen und es liegen keine Informationen zur Art und Weise der Bestimmung vor. Es kann somit nur ein statistischer Ablesefehler bei der Frequenzbestimmung angenommen werden. Der Verlauf der Phase für beide Gruppen findet sich in Abbildung \ref{fig:HochTiefPhase}.
-
-Als Vergleichswert kann auch die theoretische Erwartung über $f = \frac{1}{2\pi RC}$ berechnet werden. Die Werte von R und C wurden durch die Brücke im Raum bestimmt, wobei eine statistische Unsicherheit auf die letzte Stelle und eine systematische Unsicherheit von $0,25$\% angenommen wurden. Für Gruppe A ergab sich $R=\SI{99,08}{\ohm}$ und $C=\SI{4,597}{\micro \F}$, für Gruppe B $R=\SI{9,988}{\ohm}$ und $C=\SI{4,475}{\micro \F}$. Mittels Fehlerfortpflanzung ergibt folgt:
-
-\begin{equation}
-\sigma_f = f \sqrt{\left( \frac{\sigma_R}{R} \right)^2+\left( \frac{\sigma_C}{C} \right)^2}
-\end{equation}
-
-Die auf die verschiedenen Arten bestimmten charakteristischen Frequenzen befinden sich in Tabelle \ref{tab:HochTief}.
-
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{Bilder/PhaseHochTief_A.png}
-\includegraphics[scale=0.5]{Bilder/PhaseHochTief_B.png}
-\caption{Phasenverschiebungen für Gruppe A (links) und Gruppe B (rechts).}
-\label{fig:HochTiefPhase}
-\end{figure}
-
-
-\begin{table}
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Gruppe & $f_{Tiefpass}$ & $f_{Hochpass}$ & $f_{Phase}$ &  $f_{Erwartung}$ \\
-\hline
-A & $(352 \pm 3 \substack{+7\\-8})$Hz & $(350 \pm 3 \pm 7)$Hz & $(347 \pm 6)$Hz & $(349,43 \pm 0,08 \pm 1,22)$Hz \\
-\hline
-B & $(3524 \pm 16 \substack{+44 \\ -91})$Hz & $(3815 \pm 10 \substack{+37 \\ -165})$Hz & $(3577 \pm 15)$Hz & $(3561 \pm 1 \pm 12)$Hz \\
-\hline
-\end{tabular}
-\caption{Abgelesene Frequenzen mitsamt abgeschätztem statistischen und, falls vorhanden, systematischen Fehler für beide Gruppen.}
-\label{tab:HochTief}
-\end{table}
-
-\paragraph{Fazit} \mbox{}\\
-Unter Berücksichtigung der Fehler sind die Ergebnisse von Gruppe A mit Abweichungen von weniger als einer Standardabweichung untereinander konsistent. Auch eine ebenso gute Übereinstimmung zur theoretischen Erwartung, die aus den Bauteilen berechnet wurde, ist gegeben.
-
-Bei Gruppe B ist die Übereinstimmung von theoretischer Erwartung und Bestimmung durch die Phasenverschiebung im Rahmen der Fehler vereinbar. Besonders auffällig sind hier allerdings die sehr großen, unsymmetrischen, systematischen Fehler von bis zu 5\%. Zwar sind ist die systematische Spannungsunsicherheit mit 1\% deutlich kleiner, bei Übersetzung in eine Frequenzunsicherheit durch die Verschiebung kommt es allerdings aufgrund des Kurvenverlaufs zu dieser Vergrößerung des Fehlers. Zwar läge die theoretische Erwartung noch innerhalb der Unsicherheit von $f_{Tiefpass}$ und $f_{Hochpass}$, die Bestimmung an sich ist wegen der großen systematischen Unsicherheiten dennoch ungenau.
 
 
 
