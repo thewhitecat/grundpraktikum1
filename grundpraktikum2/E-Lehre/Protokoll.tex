@@ -663,7 +663,7 @@ Diese großen Abweichungen verwundern durchaus, denn die Werte aus den verschied
 \centering
 \includegraphics[scale=1]{Bilder/Parallel_Rohdaten.png}
 \includegraphics[scale=1]{Bilder/Parallel_RohdatenB.png}
-\caption{Rohdaten des Gesamtstromes und der Ströme an Kondensator und Spule. Es wurden an die Daten Anpassungen durchgeführt, die versuchen, die Schwingung zu ignorieren.}
+\caption{Rohdaten des Gesamtstromes und der Ströme an Kondensator und Spule. Es wurden an die Daten Anpassungen durchgeführt, die versuchen, die Schwingung zu ignorieren. Bei Gruppe B scheitert dies teilweise.}
 \label{fig:parallel_Rohdaten}
 \end{figure}
 
@@ -704,7 +704,7 @@ Mithilfe der Anpassung wurde der Minimale Gesamtstrom und damit $f_0$ bestimmt. 
 Der Fehler auf den Wert des Stromes wird aus der Stärke der Schwankung bestimmt. Es macht keinen Sinn systematische Fehler zu betrachten, da die Werte durch die Schwankung nicht genau genug bestimmt werden können und der systematische Fehler wesentlich kleiner als der Ablesefehler ist.\\
 Nun wird geschaut, an welchen Stellen der Strom um $\sqrt{2}$ angestiegen ist und aus dem Abstand von diesen Punkten $\Delta f$ berechnet.\\
 Der Fehler folgt aus der Schwankung des Stromes. Dabei wird der Wert des Minimalen Stromes um seinen Fehler in beide Richtungen verschoben, ein neues $\Delta f$ für den verschobenen Wert berechnet und geschaut, wie weit der neue Wert vom alten abweicht.\\
-Abschließend wird die Güte mithilfe von Formel ??? bestimmt.\\
+Abschließend wird die Güte mithilfe von Formel \ref{equ:Guete_Resonanzbreite} bestimmt.\\
 Alle Ergebnisse sind in Tabelle \ref{tab:parallel_methode1} aufgelistet.\\
 Eine gewichtete Mittelung der Messungen ergibtfür Gruppe A:
 \begin{equation}
@@ -733,7 +733,7 @@ Mithilfe von Gleichung \ref{eq:Parallel_Strmhoch} lässt sich daraus schließlic
 \begin{figure}
 \centering
 \includegraphics[scale=0.7]{Bilder/Parallel_Stromhoch.png}
-\caption{Methode zur Bestimmung des Schnittpunktes (mittlere gestrichelte Linie) und seines Fehlers. Dazu werden die Stromkurven um ihre Fehler verschoben und die maximale Verschiebung des Schnittpunktes bestimmt.}
+\caption{Methode zur Bestimmung des Schnittpunktes (mittlere gestrichelte Linie) und seines Fehlers. Dazu werden die Stromkurven um ihre Fehler verschoben und die maximale Verschiebung des Schnittpunktes bestimmt (äußere gestrichelte Linien).}
 \label{fig:parallel_Stromhoch}
 \end{figure}
 
@@ -860,7 +860,7 @@ $Z[\Omega]$ & - & - & $52.7\pm 8.1$ & - & $347$\\
 $\sigma$ & - & - & $36.3$ & - & -\\
 \hline
 \end{tabular}
-\caption{Zusammenfassung aller Ergebnisse von Gruppe A. Es wurde zu allen Werten die Standardabweichungen vom Literaturwert angegeben.}
+\caption{Zusammenfassung aller Ergebnisse von Gruppe A. Es wurde zu allen Werten die Standardabweichungen vom Erwartungswert angegeben.}
 \label{tab:Parallel_FazitA}
 \end{table}
 
@@ -873,20 +873,16 @@ Wert & Gesamtstrom & Impedanz & Phase & Erwartungswert\\
 \hline
 $f_0[Hz]$ & $2278\pm 39$ & $2275\pm 21$ & $2094\pm 11$ & $2130$\\
 \hline
-$\sigma$ & $12.5$ & $5.3$ & $3.4$ & -\\
+$\sigma$ & $3.8$ & $6.9$ & $3.3$ & -\\
 \hline
 \hline
 $Q$ & $3.13\pm 0.25$ &  - & - & $25.90$\\
 \hline
-$\sigma$ & $9.2$ &  - & - & -\\
-\hline
 \hline
 $Z[\Omega]$ - & $70.5\pm 6.4$ & - &  - &$432$\\
 \hline
-$\sigma$ & - & $36.3$ & - & -\\
-\hline
 \end{tabular}
-\caption{Zusammenfassung aller Ergebnisse von Gruppe B. Es wurde zu allen Werten die Standardabweichungen vom Literaturwert angegeben.}
+\caption{Zusammenfassung aller Ergebnisse von Gruppe B. Der Vergleich mit dem Erwartungswert macht hier zum Teil keinen Sinn.}
 \label{tab:Parallel_FazitB}
 \end{table}
 
