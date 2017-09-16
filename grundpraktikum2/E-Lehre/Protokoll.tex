@@ -655,62 +655,77 @@ Diese großen Abweichungen verwundern durchaus, denn die Werte aus den verschied
 
 
 \newpage
+
 \section{Parallelschwingkreis}
 
 \subsection{Auswertung}
 \begin{figure}
 \centering
 \includegraphics[scale=1]{Bilder/Parallel_Rohdaten.png}
+\includegraphics[scale=1]{Bilder/Parallel_RohdatenB.png}
 \caption{Rohdaten des Gesamtstromes und der Ströme an Kondensator und Spule. Es wurden an die Daten Anpassungen durchgeführt, die versuchen, die Schwingung zu ignorieren.}
 \label{fig:parallel_Rohdaten}
 \end{figure}
 
-Während der Durchführung wurde eine Periodische Schwankung in den gemessenen Strömen festgestellt. Dadurch gestaltet sich die Auswertung der Daten äußerst schwierig.\\
+Während der Durchführung wurde bei beiden Gruppen eine Periodische Schwankung in den gemessenen Strömen festgestellt. Dadurch gestaltet sich die Auswertung der Daten äußerst schwierig.\\
 Deswegen wurde versucht, an die Rohdaten Anpassungen durchzuführen, die diese Schwingung ignorieren.\\
 An den Gesamtstrom wurde wegen seiner recht komplizierten theoretischen Form ein Polynom 6. Grades, an den Kondensatorstrom eine lineare Funktion und an den Spulenstrom eine 1/x-Funktion angepasst.\\
-Rohdaten und Anpassungen sind in Abbildung \ref{fig:parallel_Rohdaten} dargestellt.
+Rohdaten und Anpassungen sind in Abbildung \ref{fig:parallel_Rohdaten} dargestellt.\\
+Es ist zu erkennen, dass der Stromverlauf an Spule und Kondensator bei Gruppe B nicht wie erwartet verläuft. Es scheint dort ein Messfehler unterlaufen zu sein, weswegen diese Daten nicht weiter ausgewertet wurden.
 
 
-\subsubsection{Resonanzfrequenz und Breite der Resonanzkurve}\mbox{}\\
+\subsubsection{Bestimmung der Güte über den Gesamtstrom}
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{Bilder/Parallel_Iges.png}
-\caption{TBD}
+\includegraphics[scale=0.9]{Bilder/Parallel_Iges.png}
+\caption{Bestimmung des Güte mithilfe des Gesamtstromes. Es wird zuerst das Minimum des Stromes bestimmt, das sich nahe der Resonanzfrequenz befindet. Dann wird geschaut, an welchen Stelle der Strom um $\sqrt{2}$ angestiegen ist (rote gestrichelte Linie) und daraus die Breite der Kurve bestimmt. Zur Fehlerabschätzung wird das Minimum um seinen Fehler verschoben und eine neue Breite abgeschätzt (grüne gestrichelte Linien). }
 \label{fig:parallel_Iges}
 \end{figure}
 
 \begin{table}
 \centering
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c|c|c|c||c|c|}
 \hline
-Messung & 1&2&3\\
+Messung & A1 & A2 & A3 & B1 & B2\\
 \hline
-$f_0$ & $2216\pm 23 $ & $2216\pm 29 $ & $2235\pm 17$\\
+$f_0[Hz]$ & $2216\pm 23 $ & $2216\pm 29 $ & $2235\pm 17$ & $2272\pm 54$ & $2285\pm 55$\\
 \hline
-$\Delta f$ & $737\pm 19 $ & $488\pm 43 $ & $738\pm 24$\\
+$\Delta f$ & $737\pm 19 $ & $488\pm 43 $ & $738\pm 24$ & $750\pm 81$ & $700\pm 79$\\
 \hline
-$Q$ & $3.01\pm 0.08 $ & $4.54\pm 0.41 $ & $3.03\pm 0.10$\\
+$Q$ & $3.01\pm 0.08 $ & $4.54\pm 0.41 $ & $3.03\pm 0.10$ & $3.03\pm 0.33$ & $3.26\pm 0.38$\\
 \hline
 \end{tabular}
 \label{tab:parallel_methode1}
+\caption{Ermittelte Daten aus der Gesamtstromkurve.}
 \end{table}
 
 Die Methode ist in Abbildung \ref{fig:parallel_Iges} dargestellt.
-Mithilfe der Anpassung wurde der Minimale Gesamtstrom und damit $f_0$ bestimmt. Es macht wegen der Ungenauigkeit der Anpassung keinen Sinn einen Fehler aus dieser zu bestimmen.  Stattdessen wird der Fehler Durch eine visuelle Abschätzung an den Rohdaten bestimmt.
-Der Fehler auf den Wert des Stromes wird durch Schwankung der Abweichung zwischen Anpassung und Rohdaten bestimmt.\\
+Mithilfe der Anpassung wurde der Minimale Gesamtstrom und damit $f_0$ bestimmt. Es macht wegen der Ungenauigkeit der Anpassung keinen Sinn einen Fehler aus dem Fit zu bestimmen.  Stattdessen wird der Fehler durch eine visuelle Abschätzung an den Rohdaten bestimmt.\\
+Der Fehler auf den Wert des Stromes wird aus der Stärke der Schwankung bestimmt. Es macht keinen Sinn systematische Fehler zu betrachten, da die Werte durch die Schwankung nicht genau genug bestimmt werden können und der systematische Fehler wesentlich kleiner als der Ablesefehler ist.\\
 Nun wird geschaut, an welchen Stellen der Strom um $\sqrt{2}$ angestiegen ist und aus dem Abstand von diesen Punkten $\Delta f$ berechnet.\\
-Der Fehler folgt aus der Schwankung des Stromes. Dabei wird der Wert des Minimalen Stromes um den Fehler in beide Richtungen verschoben und ein neues $\Delta f$ für den verschobenen Wert berechnet und geschaut, wie weit der neue Wert vom alten abweicht.\\
+Der Fehler folgt aus der Schwankung des Stromes. Dabei wird der Wert des Minimalen Stromes um seinen Fehler in beide Richtungen verschoben, ein neues $\Delta f$ für den verschobenen Wert berechnet und geschaut, wie weit der neue Wert vom alten abweicht.\\
 Abschließend wird die Güte mithilfe von Formel ??? bestimmt.\\
 Alle Ergebnisse sind in Tabelle \ref{tab:parallel_methode1} aufgelistet.\\
-Eine gewichtete Mittelung der Ergebnisse ergibt:
+Eine gewichtete Mittelung der Messungen ergibtfür Gruppe A:
 \begin{equation}
-Q = 3.05\pm 0.17 
+f_0 = \SI{2226(12)}{Hz}
+\end{equation}
+\begin{equation}
+Q_A = 3.05\pm 0.17 
+\end{equation}
+und für Gruppe B:
+\begin{equation}
+f_0 = \SI{2278(39)}{Hz}
+\end{equation}
+\begin{equation}
+Q_B = 3.13\pm 0.25 
 \end{equation}
 Dabei muss der äußere Fehler genommen werden.
 
-\subsubsection{Stromüberhöhung an der Resonanzstelle}\mbox{}\\
+\subsubsection{Bestimmung der Güte über Stromüberhöhung}
 Bei dieser Auswertungsmethode wird die Resonanzfrequenz über den Schnittpunkt zwischen den Stromkurven von Spule und Kondensator ermittelt. Dieser kann direckt aus den Anpassungen bestimmt werden.\\
-Um einen Fehler auf den Wert zu bekommen, wird zuerst ein Fehler auf die gemessenen Ströme abgeschätzt. Anschließend werden die Anpassungskurven um diesen Fehler verschoben und die neuen Schnittpunkte bestimmt. Der Fehler auf unseren Messwert beträgt dann die Hälfte des größten Abstandes zwischen zwei Schnittpunkten. Dises verfahren wurde in Abbildung \ref{fig:parallel_Stromhoch} visualisiert.
+Da die Messwerte bei Gruppe B nicht dem erwarteten Verlauf folgen (vgl. Abbildung \ref{fig:parallel_Rohdaten}), wird diese Auswertung nur für Gruppe A durchgeführt.\\
+Um einen Fehler auf den Wert zu bekommen, wird zuerst ein Fehler auf die gemessenen Ströme wie im vorherigen Kapitel abgeschätzt. Anschließend werden die Anpassungskurven um diesen Fehler verschoben und die neuen Schnittpunkte bestimmt. Der Fehler auf den Messwert beträgt dann die Hälfte des größten Abstandes zwischen zwei Schnittpunkten. Dises Verfahren wurde in Abbildung \ref{fig:parallel_Stromhoch} visualisiert.
 Da der Wiederstand in der Spule wesentlich geringer ist als der benutzte Wiederstand ist, muss keine Korrekturrechnung durchgeführt werden.\\
 Die somit bestimmten Schnittpunkt-Frequenzen sind in Tabelle \ref{tab:Stromhoch_Rohdaten} aufgelistet. Dort ist auch die Größe des Stromes am Kondensator und im gesamten Schwingkreis am Schnittpunkt zu finden. \\
 Mithilfe von Gleichung \ref{eq:Parallel_Strmhoch} lässt sich daraus schließlich die Güte bestimmen. Es wurde der Strom an der Spule verwendet, da diser einen kleineren Fehler hat.
@@ -718,7 +733,7 @@ Mithilfe von Gleichung \ref{eq:Parallel_Strmhoch} lässt sich daraus schließlic
 \begin{figure}
 \centering
 \includegraphics[scale=0.7]{Bilder/Parallel_Stromhoch.png}
-\caption{TBD}
+\caption{Methode zur Bestimmung des Schnittpunktes (mittlere gestrichelte Linie) und seines Fehlers. Dazu werden die Stromkurven um ihre Fehler verschoben und die maximale Verschiebung des Schnittpunktes bestimmt.}
 \label{fig:parallel_Stromhoch}
 \end{figure}
 
@@ -726,9 +741,9 @@ Mithilfe von Gleichung \ref{eq:Parallel_Strmhoch} lässt sich daraus schließlic
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
-Messung & 1 & 2 & 3\\
+Messung & A1 & A2 & A3\\
 \hline
-$f_0$ & $2094.6\pm 33.7$ & $2095.6\pm 38.2$ & $2093.7\pm 35.2$\\
+$f_0[Hz]$ & $2094.6\pm 33.7$ & $2095.6\pm 38.2$ & $2093.7\pm 35.2$\\
 \hline
 $I_L$ & $0.0850\pm 0.0009$ & $0.1278\pm 0.0021$ & $0.1274\pm 0.0017$ \\
 \hline
@@ -738,6 +753,7 @@ $Q$ & $3.32\pm 0.11$ & $5.46\pm 0.50$ & $3.27\pm 0.15$ \\
 \hline
 \end{tabular}
 \label{tab:Stromhoch_Rohdaten}
+\caption{Gemessene Daten für die Resonanzfrequenz, der Stromstärken an Spule und im gesamten Schlatkreis bei der Resonanzfrequenz, sowie die daraus bestimmte Güte. Die Fehler folgen aus der in Abbildung \ref{fig:parallel_Stromhoch} beschriebenen Methode.}
 \end{table}
 Der gewichtete Mittelwert der ermittelten Güten beträgt mit äußerem Fehler:
 \begin{equation}
@@ -749,32 +765,46 @@ Aus
 \begin{equation}
 Z = \dfrac{U_{ges}}{I_{ges}}
 \end{equation}
-kann die Impedanz bestimmt werden. Diese sollte bei der Resonanzfrequenz maximal sein. In Abbildung \ref{fig:parallel_Impedanz} ist die Impedanz beispielhaft dargestellt. Dabei wurde auch versucht eine Anpassung an diese Daten durchzuführen. Diese ist aber nicht gut genug gelungen, weswegen die Auswertung vollständig visuell gemacht wird.\\
+kann die Impedanz bestimmt werden. Diese sollte bei der Resonanzfrequenz maximal sein.\\
+In Abbildung \ref{fig:parallel_Impedanz} ist die Impedanz beispielhaft dargestellt. Dabei wurde auch versucht eine Anpassung an diese Daten durchzuführen. Diese ist aber nicht gut genug gelungen, weswegen die Auswertung vollständig visuell gemacht wird.\\
+In Tabelle \ref{tab:Parallel_Impedanz} sind die Resultate aufgelistet. Die Fehler wurden bestimmt, indem eine Gleichverteilung zwischen den zwei größten Messwerten angenommen wurde.\\
+Daraus wurde wieder der gewichtete Mittelwert bestimmt:
+
+\begin{equation}
+Gruppe A: Z = \SI{52.7(81)}{\Omega}
+\end{equation}
+
+\begin{equation}
+Gruppe B: Z = \SI{70.5(64)}{\Omega}
+\end{equation}
 
 \begin{table}
 \centering
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c|c|c|c||c|c|}
 \hline
-Messung & 1 & 2 & 3\\
+Messung & A1 & A2 & A3 & B1 & B2\\
 \hline
-$f_0$ & $2218\pm 23$ & $2216\pm 23$ & $2219\pm 23$\\
+$f_0[Hz]$ & $2218\pm 23$ & $2216\pm 23$ & $2219\pm 23$ & $2275\pm 30$ & $2275\pm 30$\\
 \hline
-$N$ & $55\pm 3$ & $114\pm 29$ & $47\pm 4$\\
+$Z[\Omega]$ & $55\pm 3$ & $114\pm 29$ & $47\pm 4$ & $71\pm 9$ & $70\pm 9$\\
 \hline
 \end{tabular}
 \label{tab:Parallel_Impedanz}
+\caption{Ermittelte Daten bei der Messung an der Impedanzkurve. Die Fehler wurden visuell abgeschätzt und als gleichverteilt in diser Abschätzung angenommen.}
 \end{table}
 
 \begin{figure}
 \centering
 \includegraphics[scale=1]{Bilder/Parallel_Impedanz.png}
-\caption{TBD}
+\includegraphics[scale=1]{Bilder/Parallel_ImpedanzB.png}
+\caption{Impedanzverlauf von Gruppe A und B. Wegen der Schwankungen ist eine Anpassung an die Daten nicht geglückt. Die über das Minimum der Stromstärke bestimmte Resonanzfrequenz wurde mit einer senkrechten Linie makiert.}
 \label{fig:parallel_Impedanz}
 \end{figure}
 
 \subsubsection{Phase}
 \begin{figure}
 \includegraphics[scale=1]{Bilder/Parallel_Phase.png}
+\includegraphics[scale=1]{Bilder/Parallel_PhaseB.png}
 \caption{Phase zwischen Strom und Spannung der Messreihe 1. An die Rohdaten wurde eine Arcustangens-Funktion angepasst. Es wurden außerdem die Winkel $0^\circ, 45^\circ und -45^\circ$ durch gestrichelte Linien markiert.}
 \label{fig:parallel_Phase}
 \end{figure}
@@ -786,22 +816,99 @@ Die so bestimmten Resonanzfrequenzen sind in Tabelle  \ref{tab:Parallel_Phase} a
 
 \begin{table}
 \centering
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c|c|c|c||c|c|}
 \hline
-Messung & 1 & 2 & 3\\
+Messung & A1 & A2 & A3 & B1 & B2\\
 \hline
-$f_0$ & $2154\pm 42$ &$ 2137\pm 30$ & $2137\pm 32$\\
+$f_0[Hz]$ & $2154\pm 42$ &$ 2137\pm 30$ & $2137\pm 32$ & $2094\pm 16$ & $2094\pm 16$\\
 \hline
 \end{tabular}
+\caption{Abgeschätzte Resonanzfrequenzen aus der Phasendifferenz zwischen Spannung und Strom. Die Fehler wurden visuell abgeschätzt.}
 \label{tab:Parallel_Phase}
 \end{table}
 
 Aus diesen wird abschließend noch der gewichtete Mittelwert gebildet:
 \begin{equation}
-f_0 = \SI{2140(19)}{Hz}
+Gruppe A: f_0 = \SI{2141(19)}{Hz}
 \end{equation}
 
+\begin{equation}
+Gruppe B: f_0 = \SI{2094(11)}{Hz}
+\end{equation}
 
+\subsection{Zusammenfassung}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Wert & Gesamtstrom & Stromüberhöhung & Impedanz & Phase & Erwartungswert\\
+\hline
+\hline
+$f_0[Hz]$ & $2226\pm 12$ &$ 2095\pm 12$ & $2218\pm 27$ & $2141\pm 19$ & $2076$\\
+\hline
+$\sigma$ & $12.5$ & $1.6$ & $5.3$ & $3.4$ & -\\
+\hline
+\hline
+$Q$ & $3.05\pm 0.17$ &$ 3.37\pm 0.26$ & - & - & $4.63$\\
+\hline
+$\sigma$ & $9.2$ & $4.8$ & - & - & -\\
+\hline
+\hline
+$Z[\Omega]$ & - & - & $52.7\pm 8.1$ & - & $347$\\
+\hline
+$\sigma$ & - & - & $36.3$ & - & -\\
+\hline
+\end{tabular}
+\caption{Zusammenfassung aller Ergebnisse von Gruppe A. Es wurde zu allen Werten die Standardabweichungen vom Literaturwert angegeben.}
+\label{tab:Parallel_FazitA}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Wert & Gesamtstrom & Impedanz & Phase & Erwartungswert\\
+\hline
+\hline
+$f_0[Hz]$ & $2278\pm 39$ & $2275\pm 21$ & $2094\pm 11$ & $0$\\
+\hline
+$\sigma$ & $12.5$ & $5.3$ & $3.4$ & -\\
+\hline
+\hline
+$Q$ & $3.13\pm 0.25$ &  - & - & $0$\\
+\hline
+$\sigma$ & $9.2$ &  - & - & -\\
+\hline
+\hline
+$Z[\Omega]$ - & $70.5\pm 6.4$ & - &  - &$0$\\
+\hline
+$\sigma$ & - & $36.3$ & - & -\\
+\hline
+\end{tabular}
+\caption{Zusammenfassung aller Ergebnisse von Gruppe B. Es wurde zu allen Werten die Standardabweichungen vom Literaturwert angegeben.}
+\label{tab:Parallel_FazitB}
+\end{table}
+
+Die Erwartungswerte der Messgrößen wurden folgendermaßen aus den Bauteilen des Schwingkreises bestimmt:
+\begin{equation}
+f_0 = \sqrt{\dfrac{1-\frac{C}{L}\cdot R_L^{2}}{LC}}\cdot \dfrac{1}{2\pi}
+\end{equation}
+\begin{equation}
+Q = \dfrac{R\cdot \sqrt{\frac{C}{L}}}{1+R\cdot R_L\cdot \frac{C}{L}}
+\end{equation}
+\begin{equation}
+Z_{res} = \dfrac{L}{C\cdot R_L}
+\end{equation}
+
+In Tabelle \ref{tab:Parallel_FazitA} und \ref{tab:Parallel_FazitB} sind nochmal alle ausgewerteten Messgrößen aufgelistet.\\
+Dort sind außerdem die Abweichungen vom Erwartungswert angegeben, der aus den Komponenten des Schwingkreises bestimmt wurde.\\
+Die ermittelten Werte für die Resonanzfrequenz schwanken zwischen den verschiedenen Verfahren um mehr als 150 Hz und liegen bis zu 12 Standardabweichungen vom Erwartungswert entfernt. Da die Verfahren theoretisch aber nur in der Näherung übereinstimmen war diese Abweichung zu erwarten.\\
+Die experimentell bestimmten Güten weichen zwar auch um bis zu 35\% vom Erwartungswert ab, stimmen aber innerhalb ihrer Abweichung miteinander überein. Die großen Fehler von bis zu 8\% sind auf die unbekannte Systematik zurückzuführen, die das Bestimmen der Werte sehr schwierig gemacht hat.
+
+
+
+\newpage
 \section{Hoch- und Tiefpass}
 
 In diesem Versuch soll die Übertragsfunktion von Hoch- bzw. Tiefpass aufgezeichnet werden und die charakteristische Frequenz $\omega_0$ des Aufbaus bestimmt werden.
