@@ -72,11 +72,9 @@ Man stellt fest, dass die Güte sich auch noch als Quotient aus Resonanzfrequenz
 \label{equ:Guete_Resonanzbreite}
 \end{equation}
 
-Man stellt fest, dass die Güte sich auch noch als Quotient aus Resonanzfrequenz und Breite der Resonanzkurve bestimmen lässt:
-\begin{equation}
-\dfrac{\omega_0}{\Delta \omega} = \dfrac{\omega_0}{2d} = \dfrac{\omega_0 L}{R} = \dfrac{1}{R \omega_0 L} = \dfrac{1}{R} \cdot \sqrt{\dfrac{L}{C}} =: Q_S
-\label{equ:Guete_Bauteile}
-\end{equation}
+Die Resonanzfrequenz und die Breite der Resonanzkurve können dazu auf 2 verschiedene Arten bestimmt werden:\\
+Die Resonanzfrequenz liegt vor, wenn der Strom im Serienschwingkreis als Funktion der Frequenz sein Maximum erreicht. Die Breite der Resonanzkurve wird durch die beiden Punkte bestimmt, bei denen der Strom auf $\frac{I_{max}}{\sqrt{2}}$ abgefallen ist.\\
+Im Fall der Resonanzfrequenz gilt für die Phasenverschiebung $\phi$ zwischen Strom und Spannung $\phi = 0$. Die Breite wird durch die beiden Punkte bestimmt, bei denen die Phasenverschiebung $\phi = \pm \ang{45}$ ist.
 
 \paragraph{Parallelschwingkreis}
 Aus der Knotenregel kann ebenfalls eine Differentialgleichung zur Beschreibung des Parallelschwingkreises hergeleitet werden.
@@ -101,25 +99,25 @@ Im Falle des Parallelschwingkreises kommt es bei Resonanz zu einer Stromüberhö
 \label{eq:Parallel_Strmhoch}
 \end{equation}
 
+Auch beim Parallelschwingkreis kann die Güte aus der Resonanzfrequenz und der Breite der Resonanzkurve bestimmt werden. Bestimmt werden diese dann aus der Spannung, die am Kreis anliegt und nicht aus dem Strom. Die Bestimmung von Resonanzfrequenz und Breite der Resonanzkurve ist dabei analog zu der beim Serienkreis. Die Berechnung der Güte daraus ist analog zu Gl. \ref{equ:Guete_Resonanzbreite}.
+
+
 \paragraph{Hoch -und Tiefpass}
 Ein Hoch- bzw. Tiefpass 1. Ordnung besteht aus einer Serienschaltung von Widerstand und Kondensator. Durch Anlegen einer Wechselspannung werden, abhängig davon wo die Spannung abgegriffen wird, entweder große oder kleine Frequenzen blockiert bzw. durchgelassen.
 
-Der Hochpass ergibt sich durch Spannungsabgriff am Widerstand. Die Übertragsfunktion ergibt sich dabei zu:
+Der Hochpass ergibt sich durch Spannungsabgriff am Widerstand. Die Übertragungsfunktion ergibt sich dabei zu:
 
 \begin{equation}
-\frac{U_a}{U_e} = \frac{1}{\sqrt{(\frac{1}{\omega C R})^2+1}}
+\frac{U_a}{U_e} = \frac{1}{\sqrt{\left(\frac{1}{\omega C R}\right)^2+1}}
 \end{equation}
 
-Den Tiefpass erhält man dann entsprechend durch Abgriff am Kondensator. Die Übertragsfunktion lautet:
+Den Tiefpass erhält man dann entsprechend durch Abgriff am Kondensator. Die Übertragungsfunktion lautet:
 
 \begin{equation}
 \frac{U_a}{U_e} = \frac{1}{\sqrt{1+(\omega C R)^2}}
 \end{equation}
 
 \section{Serienschwingkreis}
-
-\subsection{Aufbau und Durchführung}
-
 
 \subsection{Aufbau und Durchführung}
 
@@ -137,10 +135,10 @@ Im Hauptversuch werden Gesamtspannung und Strom über das Power-CASSY, welches g
 
 Die am Power-CASSY eingestellte Wechselspannungsamplitude wurde abhängig vom Widerstand gewählt. Der Gleichspannungsoffset beträgt $U = \SI{0}{V}$. Die Signalform ist eine Sinusschwingung.
 
-Die Frequenz wurde automatisch über die Formel $f_1 = f_0 +(n-1) \cdot \Delta f$ automatisch variiert. Über eine die Zusatzbedingung der Form$f_1 < f_{Grenz} and delta t > 2$ wurde ein Abbruch bei einer maximalen Frequenz sowie das Aufzeichnen des Messwertes nach dem Einschwingvorgang gewährleistet. Der Messbereich der Spannung ist 0-7V. Start- und Endfrequenz wurden dabei für jeden Widerstand unterschiedlich gewählt.
+Die Frequenz wurde automatisch über die Formel $f_1 = f_0 +(n-1) \cdot \Delta f$ automatisch variiert. Über eine die Zusatzbedingung der Form$f_1 < f_{Grenz}$ and $\Delta t > 2$ wurde ein Abbruch bei einer maximalen Frequenz sowie das Aufzeichnen des Messwertes nach dem Einschwingvorgang gewährleistet. Der Messbereich der Spannung ist 0-7V. Start- und Endfrequenz wurden dabei für jeden Widerstand unterschiedlich gewählt.
 
 \subsection{Vorauswertung: Oszilloskop}
-Im Rahmen der Vorauswertung wurde die Spannung am Ohmschen Widerstand und die gesamte abfallende Spannung mittels Oszilloskop gemessen. Für Gruppe B wurde der Widerstand mit Nominalwert $R = 5,1 \Omega$ verwendet. Die Frequenz der angelegten Wechselspannung wird über den Frequenzgenerator eingestellt.\\
+Im Rahmen der Vorauswertung wurde die Spannung am Ohmschen Widerstand und die gesamte abfallende Spannung mittels Oszilloskop gemessen. Für beide Gruppen wurde der Widerstand mit Nominalwert $R = 5,1 \Omega$ verwendet. Die Frequenz der angelegten Wechselspannung wird über den Frequenzgenerator eingestellt.\\
 
 Zur Bestimmung der Resonanzfrequenz werden die gemessenen Spannungen an beiden Kanälen im Oszilloskop gegeneinander aufgetragen. Die Frequenz wurde so eingestellt, dass die Ellipse verschwindet und die Spannungswerte eine Gerade bilden. Der entsprechende Frequenzwert ist die Resonanzfrequenz
 Zur Bestimmung der Resonanzbreite werden in der Zeitdarstellung des Oszilloskops diejenigen Frequenzen bestimmt, für die die Amplitude der Spannung am Widerstand um den Faktor $\sqrt{2}$ kleiner als im Resonanzfall ist. 
@@ -154,7 +152,7 @@ Es gilt
 und mittels Fehlerfortpflanzung:
 
 \begin{equation}
-\sigma_{\Delta f} = \sqrt{\sigma_{f_1}^2+\sigma_{f_2}^2} \qquad \sigma_Q = Q \sqrt{(\frac{\sigma_{f_0}}{f_0})^2 + (\frac{\sigma_{\Delta f}}{\Delta f})^2}
+\sigma_{\Delta f} = \sqrt{\sigma_{f_1}^2+\sigma_{f_2}^2} \qquad \sigma_Q = Q \sqrt{\left(\frac{\sigma_{f_0}}{f_0}\right)^2 + \left(\frac{\sigma_{\Delta f}}{\Delta f}\right)^2}
 \end{equation}
 
 Die Ergebnisse der Voruntersuchung sind für beide Gruppen in Tabelle \ref{tab:Voruntersuchung} dargestellt.
@@ -165,9 +163,9 @@ Die Ergebnisse der Voruntersuchung sind für beide Gruppen in Tabelle \ref{tab:V
 \hline
 Gruppe & $f$/Hz & $f_1$/Hz & $f_2$/Hz & Q\\
 \hline
-A & & & &\\
+A & $2094 \pm 3$ & $1781 \pm 6$ & $2510 \pm 6$ & $2.87 \pm 0.03$ \\
 \hline
-B & $2149 \pm 2$ & $1755 \pm 4$ & $2614 \pm 4$ & $2,50 \pm 0,02$\\
+B & $2149 \pm 2$ & $1755 \pm 4$ & $2614 \pm 4$ & $2.50 \pm 0.02$\\
 \hline
 \end{tabular}
 \caption{Ergebnisse der Voruntersuchung mittels Oszilloskop}
@@ -183,7 +181,7 @@ Zur Bestimmung der Güte eines Serienschwingkreises gibt es die folgenden 4 Mög
 \item Man misst die Resonanzfrequenz und die Breite der Resonanzkurve. Die Güte ist dann gemäß Gl. \ref{equ:Guete_Resonanzbreite} der Quotient aus beiden.
 \item Ein analoges Verfahren lässt sich mit der Phasenverschiebung durchführen: Die Resonanzfrequenz ist dann bei $\varphi = 0$ und die Breite $\Delta \omega$ ist zwischen $\varphi = \pm \ang{45}$.
 \item Gemäß Gl. \ref{equ:Guete_Spannungsüberhöhung} lässt sich die Güte auch aus der Spannungsüberhöhung an der Resonanzfrequenz bestimmen.
-\item Mit Gl. \ref{equ:Guete_Bauteile} kann die Güte aus den Größen der Bauteilen berechnet werden.
+\item Mit Gl. \ref{equ:Guete_Bauteile_Groesse} kann die Güte aus den Größen der Bauteilen berechnet werden.
 \end{enumerate}
 
 \subsubsection{Gruppe A}
