@@ -815,9 +815,9 @@ Messung & A1 & A2 & A3\\
 \hline
 $f_0[Hz]$ & $2094.6\pm 33.7$ & $2095.6\pm 38.2$ & $2093.7\pm 35.2$\\
 \hline
-$I_L$ & $0.0850\pm 0.0009$ & $0.1278\pm 0.0021$ & $0.1274\pm 0.0017$ \\
+$I_L[A]$ & $0.0850\pm 0.0009$ & $0.1278\pm 0.0021$ & $0.1274\pm 0.0017$ \\
 \hline
-$I_0$ & $0.0256\pm 0.0009$ & $0.0234\pm 0.0029$ & $0.0390\pm 0.0018$ \\
+$I_0[A]$ & $0.0256\pm 0.0009$ & $0.0234\pm 0.0029$ & $0.0390\pm 0.0018$ \\
 \hline
 $Q$ & $3.32\pm 0.11$ & $5.46\pm 0.50$ & $3.27\pm 0.15$ \\
 \hline
@@ -826,6 +826,9 @@ $Q$ & $3.32\pm 0.11$ & $5.46\pm 0.50$ & $3.27\pm 0.15$ \\
 \caption{Gemessene Daten für die Resonanzfrequenz, der Stromstärken an Spule und im gesamten Schlatkreis bei der Resonanzfrequenz, sowie die daraus bestimmte Güte. Die Fehler folgen aus der in Abbildung \ref{fig:parallel_Stromhoch} beschriebenen Methode.}
 \end{table}
 Der gewichtete Mittelwert der ermittelten Güten beträgt mit äußerem Fehler:
+\begin{equation}
+f_0 = \SI{2095(12)}{Hz}
+\end{equation}
 \begin{equation}
 Q = 3.37\pm 0.26 
 \end{equation}
@@ -838,14 +841,20 @@ Z = \dfrac{U_{ges}}{I_{ges}}
 kann die Impedanz bestimmt werden. Diese sollte bei der Resonanzfrequenz maximal sein.\\
 In Abbildung \ref{fig:parallel_Impedanz} ist die Impedanz beispielhaft dargestellt. Dabei wurde auch versucht eine Anpassung an diese Daten durchzuführen. Diese ist aber nicht gut genug gelungen, weswegen die Auswertung vollständig visuell gemacht wird.\\
 In Tabelle \ref{tab:Parallel_Impedanz} sind die Resultate aufgelistet. Die Fehler wurden bestimmt, indem eine Gleichverteilung zwischen den zwei größten Messwerten angenommen wurde.\\
-Daraus wurde wieder der gewichtete Mittelwert bestimmt:
-
+Daraus wurde wieder der gewichtete Mittelwert bestimmt:\\
+Gruppe A:
 \begin{equation}
-Gruppe A: Z = \SI{52.7(81)}{\Omega}
+f_0 = \SI{2218(27)}{Hz}
 \end{equation}
-
 \begin{equation}
-Gruppe B: Z = \SI{70.5(64)}{\Omega}
+Z = \SI{52.7(81)}{\Omega}
+\end{equation}
+Gruppe B:
+\begin{equation}
+f_0 = \SI{2275(21)}{Hz}
+\end{equation}
+\begin{equation}
+Z = \SI{70.5(64)}{\Omega}
 \end{equation}
 
 \begin{table}
@@ -906,6 +915,7 @@ Gruppe A: f_0 = \SI{2141(19)}{Hz}
 Gruppe B: f_0 = \SI{2094(11)}{Hz}
 \end{equation}
 
+\newpage
 \subsection{Zusammenfassung}
 
 \begin{table}[h]
@@ -949,7 +959,7 @@ $\sigma$ & $3.8$ & $6.9$ & $3.3$ & -\\
 $Q$ & $3.13\pm 0.25$ &  - & - & $25.90$\\
 \hline
 \hline
-$Z[\Omega]$ - & $70.5\pm 6.4$ & - &  - &$432$\\
+$Z[\Omega]$ - & - & $70.5\pm 6.4$ &  - &$432$\\
 \hline
 \end{tabular}
 \caption{Zusammenfassung aller Ergebnisse von Gruppe B. Der Vergleich mit dem Erwartungswert macht hier zum Teil keinen Sinn.}

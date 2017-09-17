@@ -9,16 +9,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import Praktikum as p
 import scipy.optimize as opt
-mess = 4
-messung1=p.lese_lab_datei('Messung4.lab')
+
+messung1=p.lese_lab_datei('lab/Parallell_unendlich1.lab')
+#messung1=p.lese_lab_datei('lab/Parallel_100Ohm.lab')
 #Index,zeit,Uin,Iin,phi,IA2,UB2,?,IA3,f0,f1,z,hoch,tief
-freq = messung1[:,10]
+freq = messung1[:,-2]
 Uin = messung1[:,2]
 Iin = messung1[:,3]
 UR = messung1[:,6]
-IC = messung1[:,5]
-IL = messung1[:,8]
-phi = messung1[:,4]/360*(2*np.pi)
+IC = messung1[:,-6]
+IL = messung1[:,-3]
+phi = messung1[:,-7]/360*(2*np.pi)
 Z=Uin/Iin
 err = np.std(Uin)
 def func(x,a,b,c,d,e,f,g):
@@ -49,6 +50,10 @@ def plot1():#alles
     ywerte = func(xwerte,*popt)
     plt.plot(xwerte,ywerte)
     err1 = fehler(Iin,ywerte)
+    plt.ylabel("Strom in A ")
+    plt.xlabel("Frequenz in Hz ")
+    plt.title("Rohdaten Gruppe B2")
+    plt.legend(handles=[l1,l2,l3])
     
     popt,pcov = opt.curve_fit(func3,freq,IC,p0=[1,1])
     ywerte2 = func3(xwerte,*popt)
@@ -57,7 +62,7 @@ def plot1():#alles
     #plt.plot(xwerte,ywerte2+err2)
     #plt.plot(xwerte,ywerte2-err2)
     
-    popt,pcov = opt.curve_fit(func4,freq,IL,p0=[100,1,1])
+    popt,pcov = opt.curve_fit(func4,freq,IL,p0=[100,1,1],maxfev = 5000)
     ywerte3 = func4(xwerte,*popt)
     plt.plot(xwerte,ywerte3)
     err3 = fehler(IL,ywerte3)/(1.73)
@@ -75,11 +80,6 @@ def plot1():#alles
     schnittpunkt = np.argmin(np.abs(ywerte2-ywerte3))
     #plt.axvline(xwerte[schnittpunkt],color = 'red',linestyle = 'dashed')
     
-    plt.ylabel("Strom in A ")
-    plt.xlabel("Frequenz in Hz ")
-    plt.title("Rohdaten Messung A3")
-    plt.legend(handles=[l1,l2,l3])
-    
     print minimum,ywerte[argmin],err1
     print xwerte[schnittpunkt],ywerte3[schnittpunkt],err3
     print 'Q_L=',ywerte3[schnittpunkt]/ywerte[schnittpunkt]
@@ -96,7 +96,7 @@ def plot2():#Phase
     plt.plot(xwerte,np.full(len(xwerte),-1./np.sqrt(2)),color='green',linestyle='dashed')
     plt.ylabel("Phase in rad ")
     plt.xlabel("Frequenz in Hz ")
-    plt.title("Phase Messung A3")
+    plt.title("Phase Messung B2")
     
 def plot3():#Breite Iges
     plt.plot(freq,Iin)
@@ -105,15 +105,15 @@ def plot3():#Breite Iges
     ywerte = func(xwerte,*popt)
     plt.plot(xwerte,ywerte)
     err = fehler(Iin,ywerte)
-    print (np.sqrt(4*err**2))
-    minimum = xwerte[np.argmin(ywerte)]
-    print minimum
-    plt.plot(xwerte,np.full(len(xwerte),np.min(ywerte)*np.sqrt(2)),color='red',linestyle='dashed')
-    plt.plot(xwerte,np.full(len(xwerte),(np.min(ywerte))*np.sqrt(2)+err),color='green',linestyle='dashed')
-    plt.plot(xwerte,np.full(len(xwerte),(np.min(ywerte))*np.sqrt(2)-err),color='green',linestyle='dashed')
+    minimum = np.min(ywerte)
+    print minimum , (np.sqrt(4*err**2))
+    w0 = xwerte[np.argmin(ywerte)]
+    print w0
+    plt.plot(xwerte,np.full(len(xwerte),minimum*np.sqrt(2)),color='red',linestyle='dashed')
+    plt.plot(xwerte,np.full(len(xwerte),minimum*np.sqrt(2)+err),color='green',linestyle='dashed')
+    plt.plot(xwerte,np.full(len(xwerte),minimum*np.sqrt(2)-err),color='green',linestyle='dashed')
     plt.ylabel("Strom in A ")
     plt.xlabel("Frequenz in Hz ")
-    plt.title("Impedanz Messung A1")
     
 
 def plot4(plotte):#Gaussfit Z
@@ -136,10 +136,10 @@ def plot5(plotte):#Polynom Z
     if plotte == True:
         plt.plot(freq,Z)
         plt.plot(xwerte,ywerte)
-        plt.axvline(2237,linestyle='dashed',color = 'red')
+        plt.axvline(2275,linestyle='dashed',color = 'red')
         plt.ylabel("Z in Ohm ")
         plt.xlabel("Frequenz in Hz ")
-        plt.title("Impedanz Messung A3")
+        plt.title("Impedanz Messung B1")
     return wres,maxi
 
 def errors(array):
@@ -168,10 +168,10 @@ def find_nearest(array,value):
     idx = (np.abs(array-value)).argmin()
     return idx
 
-L=1.275*10**(-3)
-C = 4.5975*10**(-6)
-Rl = 0.8
-R = 99.08
+L=1.245*10**(-3)
+C = 4.475*10**(-6)
+Rl = 0.644
+R = 100000
 w0 = np.sqrt((1-C/L * Rl**2)/(L*C))/(2*np.pi)
 print w0
 wres,Zmax = plot5(0)
