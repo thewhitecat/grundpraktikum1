@@ -640,6 +640,26 @@ Die Ströme an Kondensator und Spule werden wieder mit dem Sensor-CASSY aufgezei
 Die Wechselspannungsamplitude wurde jeweils zu \SI{2}{\V} eingestellt, der Messbereich der Ströme beträgt für beide Gruppen $0-2$A.
 
 Aus den aufgezeichneten Stromverläufen als Funktion der Frequenz kann ähnlich zum vorherigen Versuch die Güte des Aufbaus bestimmt werden, wobei die Messung in beiden Gruppen für verschiedene Widerstände durchgeführt wird. Für die übrigen Bauteile verwendeten Gruppe A und  Gruppe B wieder den Kondensator mit Nominalwert \SI{4,7}{\micro \F} und die Spule mit 250 Windungen.
+Wegen Zeitknappheit wurde die Messung nur mit einem Wiederstand durchgeführt. Die genauen Daten der Bauteile sind Tabelle \ref{tab:parallel_Bauteile} zu entnehmen.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Bauteil & Gruppe A & Gruppe B\\
+\hline
+Spule[mH] & $1.275\pm 0.001\pm 0.003$ & $1.245\pm 0.001\pm 0.003$\\
+\hline
+R Spule[$\Omega$] & $0.800\pm 0.001\pm 0.002$ & $0.644\pm 0.001\pm 0.002$\\
+\hline
+Kondensator[$\mu F$] & $4.598\pm 0.001\pm 0.011$ & $4.475\pm 0.001\pm 0.011$\\
+\hline
+Wiederstand[$\Omega$] & $99.080\pm 0.001\pm 0.050$ & $\infty$ (nicht eingebaut)\\
+\hline
+\end{tabular}
+\label{tab:parallel_Bauteile}
+\caption{Verwendete Bauteile beim Serienschwingkreis.}
+\end{table}
 
 
 \subsection{Auswertung}
@@ -651,6 +671,18 @@ Aus den aufgezeichneten Stromverläufen als Funktion der Frequenz kann ähnlich 
 \label{fig:parallel_Rohdaten}
 \end{figure}
 
+Aus den aufgezeichneten Stromverlauf wird im folgenden die Resonanzfrequenz und die Güte des Schwinkreises mit ähnlichen Methoden wie beim Serienschwingkreis bestimmt. Dies geschieht über folgende Methoden:
+\begin{enumerate}
+\item Man betrcahtet den Gesamtstrom und bestimmt das Minimum und die Breite von dieser. Die Güte ist dann gemäß Gl. \ref{equ:Guete_Resonanzbreite} der Quotient aus beiden.
+
+\item Gemäß Gl. \ref{eq:Parallel_Strmhoch} lässt sich die Güte auch aus der Spannungsüberhöhung an der Resonanzfrequenz bestimmen.
+
+\item Die Resonanzfrequenz kann ebenfalls über das Maximum der Impedanz bestimmt werden.
+
+\item Zuletzt wird die Resonanzfrequenz noch über die Phasenverschiebung zwischen Strom und Spannung ermittelt.
+\end{enumerate}
+
+Es wurden für Gruppe A insgesamt drei Messreihen und für Gruppe B zwei Messreihen aufgenommen. Diese werden im folgenden mit A1,A2,A3,B1,B2 bezeichnet.\\
 Während der Durchführung wurde bei beiden Gruppen eine Periodische Schwankung in den gemessenen Strömen festgestellt. Dadurch gestaltet sich die Auswertung der Daten äußerst schwierig.\\
 Deswegen wurde versucht, an die Rohdaten Anpassungen durchzuführen, die diese Schwingung ignorieren.\\
 An den Gesamtstrom wurde wegen seiner recht komplizierten theoretischen Form ein Polynom 6. Grades, an den Kondensatorstrom eine lineare Funktion und an den Spulenstrom eine 1/x-Funktion angepasst.\\
@@ -1076,41 +1108,41 @@ Bei Gruppe B ist die Übereinstimmung von theoretischer Erwartung und Bestimmung
 	\label{fig:Serie_Spannungsueberhoehung_B_10}
 \end{figure}
 
-
+\newpage
 \subsection{Parallelschwingkreis}
-
-\begin{figure}[h]
+\subsubsection{Rohdaten}
+\begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{Bilder/Parallel_Rohdaten_2.png}
-\includegraphics[scale=0.5]{Bilder/Parallel_Rohdaten_3.png}
-\includegraphics[scale=0.5]{Bilder/Parallel_RohdatenB_2.png}
+\includegraphics[scale=0.65]{Bilder/Parallel_Rohdaten_2.png}
+\includegraphics[scale=0.65]{Bilder/Parallel_Rohdaten_3.png}
+\includegraphics[scale=0.65]{Bilder/Parallel_RohdatenB_2.png}
+\end{figure}
+\subsubsection{Impedanz}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.69]{Bilder/Parallel_Impedanz_2.png}
+\includegraphics[scale=0.69]{Bilder/Parallel_Impedanz_3.png}
+\includegraphics[scale=0.69]{Bilder/Parallel_ImpedanzB_2.png}
+\end{figure}
+\subsubsection{Phase}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.69]{Bilder/Parallel_Phase_2.png}
+\includegraphics[scale=0.69]{Bilder/Parallel_Phase_3.png}
+\includegraphics[scale=0.69]{Bilder/Parallel_PhaseB_2.png}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.7]{Bilder/Parallel_Impedanz_2.png}
-\includegraphics[scale=0.7]{Bilder/Parallel_Impedanz_3.png}
-\includegraphics[scale=0.7]{Bilder/Parallel_ImpedanzB_2.png}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.7]{Bilder/Parallel_Phase_2.png}
-\includegraphics[scale=0.7]{Bilder/Parallel_Phase_3.png}
-\includegraphics[scale=0.7]{Bilder/Parallel_PhaseB_2.png}
-\end{figure}
-
-
+\newpage
 \subsection{Hoch- und Tiefpass}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/HochTief_oben_A.png}
 \includegraphics[scale=0.5]{Bilder/HochTief_unten_A.png}
 \caption{Systematische Verschiebung für Hoch- und Tiefpass Gruppe A}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/HochTief_oben_B.png}
 \includegraphics[scale=0.5]{Bilder/HochTief_unten_B.png}
