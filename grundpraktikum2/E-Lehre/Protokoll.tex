@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{siunitx}
+\usepackage{float}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \author{Tim}
 
@@ -196,9 +197,25 @@ Zur Bestimmung der Güte eines Serienschwingkreises gibt es die folgenden 4 Mög
 \item Mit Gl. \ref{equ:Guete_Bauteile_Groesse} kann die Güte aus den Größen der Bauteilen berechnet werden.
 \end{enumerate}
 
-\paragraph{Gruppe A}
 Für die Auswertungsmöglichkeiten 1-3 wurden die jeweiligen Werte jeweils abgelesen und automatisiert berechnet.\\
-Die automatisiert berechneten Werte gehen über die einzelnen Messpunkte. Dabei werden Schnittpunkte immer als der Mittelwert der beiden Messpunkte, zwischen denen der Schnittpunkt liegt, approximiert. Für die Bestimmung des Fehlers auf diese Berechnung wird eine Gleichverteilung angenommen.\\
+Die automatisiert berechneten Werte verwenden genau die einzelnen Messpunkte. Dabei werden Schnittpunkte immer als der Mittelwert der beiden Messpunkte, zwischen denen der Schnittpunkt liegt, approximiert. Für die Bestimmung des Fehlers auf diese Berechnung wird eine Gleichverteilung angenommen.\\
+
+Um die systematische Unsicherheit abzuschätzen wurde bei den Methoden 1 und 3 die Verschiebemethode verwendet. Das bedeutet, dass die Messwerte um den systematischen Fehler der CASSY-Messung verschoben wurden und dann die benötigten Größen erneut abgelesen wurden. Die Abschätzung für die Unsicherheit ergibt sich so aus der Änderung dieser Größen durch die Verschiebungen.
+
+Dabei gilt für die systematischen Unsicherheiten von CASSY:
+
+\begin{equation}
+	\sigma_{U, syst} = 0.01 U_i + 0.005 BE
+\end{equation}
+\begin{equation}
+	\sigma_{I, syst} = 0.02 I_i + 0.005 BE.
+\end{equation}
+
+Für Methode 2 können keine systematischen Fehler angegeben werden, da nicht bekannt ist, wie CASSY die Phasenverschiebung ermittelt.
+
+Bei der Berechnung aus den Bauteilen (Methode 4) kann der systematische Fehler der Brücke mittels Fehlerfortpflanzung direkt berechnet werden.
+
+In diesem Kapitel der Auswertung werden exemplarisch einige typische Datenplots gezeigt. Alle hier nicht dargestellten Plots sind im Anhang zu finden.
 
 
 \subsubsection{Resonanzfrequenz und Breite der Resonanzkurve}
@@ -210,12 +227,6 @@ Die automatisiert berechneten Werte gehen über die einzelnen Messpunkte. Dabei 
 	\caption{Resonanzkurve des Aufbaus A mit $\SI{5}{\ohm}$ Widerstand. Die waagerechte Linie markiert die Stelle bei der $I = \frac{I_{max}}{\sqrt{2}}$ gilt. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
 	\label{fig:Serie_Resonanzkurve_A_5}
 \end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.8]{Bilder/Serie_Resonanzkurve_A_10.png}
-	\caption{Resonanzkurve des Aufbaus A mit $\SI{10}{\ohm}$ Widerstand. Die waagerechte Linie markiert die Stelle bei der $I = \frac{I_{max}}{\sqrt{2}}$ gilt. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
-	\label{fig:Serie_Resonanzkurve_A_10}
-\end{figure}
 
 
 % Plots Gruppe B
@@ -225,23 +236,12 @@ Die automatisiert berechneten Werte gehen über die einzelnen Messpunkte. Dabei 
 	\caption{Resonanzkurve des Aufbaus B mit $\SI{1}{\ohm}$ Widerstand. Die waagerechte Linie markiert die Stelle bei der $I = \frac{I_{max}}{\sqrt{2}}$ gilt. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
 	\label{fig:Serie_Resonanzkurve_B_1}
 \end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.8]{Bilder/Serie_Resonanzkurve_B_5.png}
-	\caption{Resonanzkurve des Aufbaus B mit $\SI{5}{\ohm}$ Widerstand. Die waagerechte Linie markiert die Stelle bei der $I = \frac{I_{max}}{\sqrt{2}}$ gilt. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
-	\label{fig:Serie_Resonanzkurve_B_5}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.8]{Bilder/Serie_Resonanzkurve_B_10.png}
-	\caption{Resonanzkurve des Aufbaus B mit $\SI{10}{\ohm}$ Widerstand. Die waagerechte Linie markiert die Stelle bei der $I = \frac{I_{max}}{\sqrt{2}}$ gilt. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
-	\label{fig:Serie_Resonanzkurve_B_10}
-\end{figure}
 
 
 
-In den Abbildungen \ref{fig:Serie_Resonanzkurve_A_5} und \ref{fig:Serie_Resonanzkurve_A_10} sind die Resonanzkurven von Gruppe A mit dem $\SI{5}{\ohm}$ und dem $\SI{10}{\ohm}$ Widerstand dargestellt. \\
-Abbildungen \ref{fig:Serie_Resonanzkurve_B_1}, \ref{fig:Serie_Resonanzkurve_B_5} und \ref{fig:Serie_Resonanzkurve_B_10} zeigen die Resonanzkurven für die Aufbauten von Gruppe B mit den $\SI{1}{\ohm}$, $\SI{5}{\ohm}$ und $\SI{10}{\ohm}$ Widerständen.
+
+In den Abbildungen \ref{fig:Serie_Resonanzkurve_A_5} und \ref{fig:Serie_Resonanzkurve_B_1} sind zwei Resonanzkurven mit einem $\SI{5}{\ohm}$ und einem $\SI{1}{\ohm}$ Widerstand dargestellt. \\
+
 
 \begin{table}
 	\centering
@@ -304,18 +304,18 @@ Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit Gl. \ref{e
 		&&\\
 		Gruppe A &&\\
 		\hline
-		\SI{5}{\ohm} & \num{2.639(25)} & \num{2.667(29)} \\
+		\SI{5}{\ohm} & \num{2.639(25)}\,$\pm\,0.033$ & \num{2.667(29)}\,$\pm\,0.033$ \\
 		\hline
-		\SI{10}{\ohm} & \num{1.500(9)} & \num{1.486(10)} \\
+		\SI{10}{\ohm} & \num{1.500(9)}\,$\pm\,0.032$ & \num{1.486(10)}\,$\pm\,0.032$ \\
 		\hline
 		&&\\
 		Gruppe B &&\\
 		\hline
-		\SI{1}{\ohm} & \num{8.17(22)} & \num{7.64(22)} \\
+		\SI{1}{\ohm} & \num{8.17(22)}\,$\pm\,0.9$ & \num{7.64(22)}\,$\pm\,0.9$ \\
 		\hline
-		\SI{5}{\ohm} & \num{2.675(28)} & \num{2.668(24)} \\
+		\SI{5}{\ohm} & \num{2.675(28)}\,$\pm\,0.071$ & \num{2.668(24)}\,$\pm\,0.071$ \\
 		\hline
-		\SI{10}{\ohm} & \num{1.561(9)} & \num{1.521(10)} \\
+		\SI{10}{\ohm} & \num{1.561(9)}\,$\pm\,0.011$ & \num{1.521(10)}\,$\pm\,0.011$ \\
 		\hline		
 	\end{tabular}
 	\caption{Ergebnisse der Gütebestimmung durch die Breite der Stromkurve}
@@ -324,7 +324,7 @@ Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit Gl. \ref{e
 
 \subsubsection{Phasenverschiebung}
 
-Die Verläufe der Phasenverschiebung in Abhängigkeit von der Frequenz der angelegten Spannung ist für die verschiedenen Aufbauten in Abbildungen \ref{fig:Serie_Phasenverschiebung_A_5} bis \ref{fig:Serie_Phasenverschiebung_B_10} dargestellt.
+Die Verläufe der Phasenverschiebung in Abhängigkeit von der Frequenz der angelegten Spannung ist für die verschiedenen Aufbauten in Abbildungen \ref{fig:Serie_Phasenverschiebung_A_5} und \ref{fig:Serie_Phasenverschiebung_B_1} dargestellt.
 
 
 % Gruppe A
@@ -334,12 +334,6 @@ Die Verläufe der Phasenverschiebung in Abhängigkeit von der Frequenz der angel
 	\caption{Phasenverschiebung des Aufbaus A mit \SI{5}{\ohm} Widerstand. Die waagerechten Linien markieren die Stellen bei der $\varphi = \ang{0}, \pm \ang{45}$. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
 	\label{fig:Serie_Phasenverschiebung_A_5}
 \end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.8]{Bilder/Serie_Phasenverschiebung_A_10.png}
-	\caption{Phasenverschiebung des Aufbaus A mit \SI{10}{\ohm} Widerstand. Die waagerechten Linien markieren die Stellen bei der $\varphi = 0, \pm \ang{45}$ ist. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
-	\label{fig:Serie_Phasenverschiebung_A_10}
-\end{figure}
 
 % Gruppe B
 \begin{figure}
@@ -347,18 +341,6 @@ Die Verläufe der Phasenverschiebung in Abhängigkeit von der Frequenz der angel
 	\includegraphics[scale=0.8]{Bilder/Serie_Phasenverschiebung_B_1.png}
 	\caption{Phasenverschiebung des Aufbaus B mit \SI{1}{\ohm} Widerstand. Die waagerechten Linien markieren die Stellen bei der $\varphi = \ang{0}, \pm \ang{45}$ ist. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
 	\label{fig:Serie_Phasenverschiebung_B_1}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.8]{Bilder/Serie_Phasenverschiebung_B_5.png}
-	\caption{Phasenverschiebung des Aufbaus B mit \SI{5}{\ohm} Widerstand. Die waagerechten Linien markieren die Stellen bei der $\varphi = \ang{0}, \pm \ang{45}$. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
-	\label{fig:Serie_Phasenverschiebung_B_5}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.8]{Bilder/Serie_Phasenverschiebung_B_10.png}
-	\caption{Phasenverschiebung des Aufbaus B mit \SI{10}{\ohm} Widerstand. Die waagerechten Linien markieren die Stellen bei der $\varphi = \ang{0}, \pm \ang{45}$ ist. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
-	\label{fig:Serie_Phasenverschiebung_B_10}
 \end{figure}
 
 
@@ -436,12 +418,6 @@ Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit Gl. \ref{e
 	\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau A mit dem $\SI{5}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
 	\label{fig:Serie_Spannungsueberhoehung_A_5}
 \end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.8]{Bilder/Serie_Spannungsueberhoehung_A_10.png}
-	\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau A mit dem $\SI{10}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
-	\label{fig:Serie_Spannungsueberhoehung_A_10}
-\end{figure}
 
 
 % Gruppe B
@@ -450,18 +426,6 @@ Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit Gl. \ref{e
 	\includegraphics[scale=0.8]{Bilder/Serie_Spannungsueberhoehung_B_1.png}
 	\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau B mit dem $\SI{1}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
 	\label{fig:Serie_Spannungsueberhoehung_B_1}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.8]{Bilder/Serie_Spannungsueberhoehung_B_5.png}
-	\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau B mit dem $\SI{5}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
-	\label{fig:Serie_Spannungsueberhoehung_B_5}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.8]{Bilder/Serie_Spannungsueberhoehung_B_10.png}
-	\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau B mit dem $\SI{10}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
-	\label{fig:Serie_Spannungsueberhoehung_B_10}
 \end{figure}
 
 
@@ -494,7 +458,7 @@ Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit Gl. \ref{e
 	\label{tab:Spannungsueberhoehung}
 \end{table}
 
-Abbildungen \ref{fig:Serie_Spannungsueberhoehung_A_5} bis \ref{fig:Serie_Spannungsueberhoehung_B_10} zeigen die Verläufe von Kondensator-, Spulen- und angelegter Spannung für alle Aufbauten\\ 
+Abbildungen \ref{fig:Serie_Spannungsueberhoehung_A_5} und \ref{fig:Serie_Spannungsueberhoehung_B_1} zeigen die Verläufe von Kondensator-, Spulen- und angelegter Spannung für zwei Aufbauten.\\ 
 Tabelle \ref{tab:Spannungsueberhoehung} zeigt die abgelesenen und automatisiert berechneten Werte.\\
 Als Fehler auf die Spannung wird die Standardabweichung aus der Rauschmessung verwendet:
 \begin{equation*}
@@ -516,18 +480,19 @@ Damit ergibt sich aus dieser Methode die Güte des Schwingkreises mit Gl. \ref{e
 		\hline
 		&&\\
 		Gruppe A &&\\
-		\SI{5}{\ohm} & \num{2.6170(30)} & \num{2.6282(28)} \\
 		\hline
-		\SI{10}{\ohm} & \num{1.4780(20)} & \num{1.4847(18)} \\
+		\SI{5}{\ohm} & \num{2.6170(30)}\,$\pm\,0.051$ & \num{2.6282(28)}\,$\pm\,0.051$ \\
+		\hline
+		\SI{10}{\ohm} & \num{1.4780(20)}\,$\pm\,0.040$ & \num{1.4847(18)}\,$\pm\,0.040$ \\
 		\hline
 		&&\\
 		Gruppe B &&\\
 		\hline
-		\SI{1}{\ohm} & \num{8.29(23)} & \num{7.97(21)} \\
+		\SI{1}{\ohm} & \num{8.29(23)}\,$\pm\,0.73$ & \num{7.97(21)}\,$\pm\,0.73$ \\
 		\hline
-		\SI{5}{\ohm} & \num{2.671(6)} & \num{2.664(6)} \\
+		\SI{5}{\ohm} & \num{2.671(6)}\,$\pm\,0.076$ & \num{2.664(6)}\,$\pm\,0.076$ \\
 		\hline
-		\SI{10}{\ohm} & \num{1.500(1)} & \num{1.491(1)} \\
+		\SI{10}{\ohm} & \num{1.500(1)}\,$\pm\,0.029$ & \num{1.491(1)}\,$\pm\,0.029$ \\
 		\hline
 	\end{tabular}
 	\caption{Ergebnisse der Gütebestimmung durch die Spannungsüberhöhung.}
@@ -570,14 +535,7 @@ Die Güte berechnet sich nach Gl. \ref{equ:Guete_Bauteile_Groesse}. Anhand diese
 \label{equ:FehlerGuete_FehlerBauteile}
 \end{equation}
 
-Damit ergibt sich aus den Bauteilen die Güte des Schwingkreises mit dem $\SI{5}{\ohm}$ Widerstand mit Gl. \ref{equ:Guete_Bauteile_Groesse} und Gl. \ref{equ:FehlerGuete_FehlerBauteile} zu:
-\begin{equation*}
-Q_{Bauteile} = \num{3.2135(14)}
-\end{equation*}
-Und für den $\SI{10}{\ohm}$ Widerstand:
-\begin{equation*}
-Q_{Bauteile} = \num{1.6594(7)}\pm 0.0013
-\end{equation*}
+Damit ergibt sich aus den Bauteilen die Güte des Schwingkreises mit Gl. \ref{equ:Guete_Bauteile_Groesse} und Gl. \ref{equ:FehlerGuete_FehlerBauteile}. Die Werte sind in Tabelle  \ref{tab:Serienguete_Var4} angegeben.
 
 
 \begin{table}
@@ -703,7 +661,7 @@ Es ist zu erkennen, dass der Stromverlauf an Spule und Kondensator bei Gruppe B 
 \subsubsection{Bestimmung der Güte über den Gesamtstrom}
 \begin{figure}
 \centering
-\includegraphics[scale=0.9]{Bilder/Parallel_Iges.png}
+\includegraphics[scale=0.8]{Bilder/Parallel_Iges.png}
 \caption{Bestimmung des Güte mithilfe des Gesamtstromes. Es wird zuerst das Minimum des Stromes bestimmt, das sich nahe der Resonanzfrequenz befindet. Dann wird geschaut, an welchen Stelle der Strom um $\sqrt{2}$ angestiegen ist (rote gestrichelte Linie) und daraus die Breite der Kurve bestimmt. Zur Fehlerabschätzung wird das Minimum um seinen Fehler verschoben und eine neue Breite abgeschätzt (grüne gestrichelte Linien). }
 \label{fig:parallel_Iges}
 \end{figure}
@@ -758,7 +716,7 @@ Mithilfe von Gleichung \ref{eq:Parallel_Strmhoch} lässt sich daraus schließlic
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.7]{Bilder/Parallel_Stromhoch.png}
+\includegraphics[scale=0.6]{Bilder/Parallel_Stromhoch.png}
 \caption{Methode zur Bestimmung des Schnittpunktes (mittlere gestrichelte Linie) und seines Fehlers. Dazu werden die Stromkurven um ihre Fehler verschoben und die maximale Verschiebung des Schnittpunktes bestimmt (äußere gestrichelte Linien).}
 \label{fig:parallel_Stromhoch}
 \end{figure}
@@ -1021,6 +979,72 @@ Bei Gruppe B ist die Übereinstimmung von theoretischer Erwartung und Bestimmung
 
 \newpage
 \section{Anhang}
+
+\subsection{Serienschwingkreis}
+\subsubsection{Breite der Resonanzkurve}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Bilder/Serie_Resonanzkurve_A_10.png}
+	\caption{Resonanzkurve des Aufbaus A mit $\SI{10}{\ohm}$ Widerstand. Die waagerechte Linie markiert die Stelle bei der $I = \frac{I_{max}}{\sqrt{2}}$ gilt. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
+	\label{fig:Serie_Resonanzkurve_A_10}
+\end{figure}
+
+% Plots Gruppe B
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Bilder/Serie_Resonanzkurve_B_5.png}
+	\caption{Resonanzkurve des Aufbaus B mit $\SI{5}{\ohm}$ Widerstand. Die waagerechte Linie markiert die Stelle bei der $I = \frac{I_{max}}{\sqrt{2}}$ gilt. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
+	\label{fig:Serie_Resonanzkurve_B_5}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Bilder/Serie_Resonanzkurve_B_10.png}
+	\caption{Resonanzkurve des Aufbaus B mit $\SI{10}{\ohm}$ Widerstand. Die waagerechte Linie markiert die Stelle bei der $I = \frac{I_{max}}{\sqrt{2}}$ gilt. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
+	\label{fig:Serie_Resonanzkurve_B_10}
+\end{figure}
+\subsubsection{Phasenverschiebung}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Bilder/Serie_Phasenverschiebung_A_10.png}
+	\caption{Phasenverschiebung des Aufbaus A mit \SI{10}{\ohm} Widerstand. Die waagerechten Linien markieren die Stellen bei der $\varphi = 0, \pm \ang{45}$ ist. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
+	\label{fig:Serie_Phasenverschiebung_A_10}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Bilder/Serie_Phasenverschiebung_B_5.png}
+	\caption{Phasenverschiebung des Aufbaus B mit \SI{5}{\ohm} Widerstand. Die waagerechten Linien markieren die Stellen bei der $\varphi = \ang{0}, \pm \ang{45}$. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
+	\label{fig:Serie_Phasenverschiebung_B_5}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Bilder/Serie_Phasenverschiebung_B_10.png}
+	\caption{Phasenverschiebung des Aufbaus B mit \SI{10}{\ohm} Widerstand. Die waagerechten Linien markieren die Stellen bei der $\varphi = \ang{0}, \pm \ang{45}$ ist. Die senkrechten Linien sind die Auswertungslinien (rot = abgelesen, grün = automatisiert ausgerechnet).}
+	\label{fig:Serie_Phasenverschiebung_B_10}
+\end{figure}
+
+\subsubsection{Spannungsüberhöhung}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Bilder/Serie_Spannungsueberhoehung_A_10.png}
+	\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau A mit dem $\SI{10}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
+	\label{fig:Serie_Spannungsueberhoehung_A_10}
+\end{figure}
+
+% Gruppe B
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Bilder/Serie_Spannungsueberhoehung_B_5.png}
+	\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau B mit dem $\SI{5}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
+	\label{fig:Serie_Spannungsueberhoehung_B_5}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Bilder/Serie_Spannungsueberhoehung_B_10.png}
+	\caption{Verlauf der Kondensator- (orange), Spulen- (blau) und angelegten Spannung (grün) beim Aufbau B mit dem $\SI{10}{\ohm}$ Widerstand. Die waagerechte Linie markiert den Spannungswert des Schnittpunktes und die senkrechten Linien die zugehörige Frequenz (rot = abgelesen, grün = automatisiert ausgerechnet).}
+	\label{fig:Serie_Spannungsueberhoehung_B_10}
+\end{figure}
+
 
 \subsection{Parallelschwingkreis}
 
