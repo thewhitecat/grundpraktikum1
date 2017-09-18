@@ -752,53 +752,74 @@ Es ist zu erkennen, dass der Stromverlauf an Spule und Kondensator bei Gruppe B 
 \label{fig:parallel_Iges}
 \end{figure}
 
+\begin{figure}
+\centering
+\includegraphics[scale=1]{Bilder/Parallel_sys.png}
+\caption{Bestimmung der systematischen Fehler beim Gesamtstrom. Die Kurve(rot) wird um den systematischen Fehler nach oben und unten verschoben und es wird jeweils eine neue Breite bestimmt.}
+\label{fig:parallel_sys}
+\end{figure}
+
 \begin{table}
 \centering
-\begin{tabular}{|c|c|c|c||c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline
-Messung & A1 & A2 & A3 & B1 & B2\\
+Messung & A1 & A2 & A3\\
 \hline
-$f_0[Hz]$ & $2216\pm 23 $ & $2216\pm 29 $ & $2235\pm 17$ & $2272\pm 54$ & $2285\pm 55$\\
+$f_0[Hz]$ & $2216\pm 23 $ & $2216\pm 29 $ & $2235\pm 17$\\
 \hline
-$\Delta f$ & $737\pm 19 $ & $488\pm 43 $ & $738\pm 24$ & $750\pm 81$ & $700\pm 79$\\
+$\Delta f$ & $737\pm 19\pm 54$ & $488\pm 43\pm 38$ & $738\pm 24\pm 36$\\
 \hline
-$Q$ & $3.01\pm 0.08 $ & $4.54\pm 0.41 $ & $3.03\pm 0.10$ & $3.03\pm 0.33$ & $3.26\pm 0.38$\\
+$Q$ & $3.01\pm 0.08\pm 0.22 $ & $4.54\pm 0.41\pm 0.35 $ & $3.03\pm 0.10\pm 0.15$\\
+\hline
+\hline
+ & B1 & B2 & \\
+\hline
+$f_0[Hz]$ & $2272\pm 54$ & $2285\pm 55$ &\\
+\hline
+$\Delta f$ & $750\pm 81\pm 24$ & $700\pm 79\pm 23$ &\\
+\hline
+$Q$ & $3.03\pm 0.33\pm 0.10$ & $3.26\pm 0.38\pm 0.11$ &\\
 \hline
 \end{tabular}
-\label{tab:parallel_methode1}
 \caption{Ermittelte Daten aus der Gesamtstromkurve.}
+\label{tab:parallel_methode1}
 \end{table}
 
 Die Methode ist in Abbildung \ref{fig:parallel_Iges} dargestellt.
 Mithilfe der Anpassung wurde der Minimale Gesamtstrom und damit $f_0$ bestimmt. Es macht wegen der Ungenauigkeit der Anpassung keinen Sinn einen Fehler aus dem Fit zu bestimmen.  Stattdessen wird der Fehler durch eine visuelle Abschätzung an den Rohdaten bestimmt.\\
-Der Fehler auf den Wert des Stromes wird aus der Stärke der Schwankung bestimmt. Es macht keinen Sinn systematische Fehler zu betrachten, da die Werte durch die Schwankung nicht genau genug bestimmt werden können und der systematische Fehler wesentlich kleiner als der Ablesefehler ist.\\
+Der Fehler auf den Wert des Stromes wird aus der Stärke der Schwankung bestimmt.
 Nun wird geschaut, an welchen Stellen der Strom um $\sqrt{2}$ angestiegen ist und aus dem Abstand von diesen Punkten $\Delta f$ berechnet.\\
 Der Fehler folgt aus der Schwankung des Stromes. Dabei wird der Wert des Minimalen Stromes um seinen Fehler in beide Richtungen verschoben, ein neues $\Delta f$ für den verschobenen Wert berechnet und geschaut, wie weit der neue Wert vom alten abweicht.\\
-Abschließend wird die Güte mithilfe von Formel \ref{equ:Guete_Resonanzbreite} bestimmt.\\
+Die systematischen Fehler werden über die Verschiebemethode berechnet. Dazu wird die Stromkurve um den Bereichsentwert-Fehler verschoben und das oben beschriebene Verfahren wiederholt. Dieses Verfahren ist in Abbildung \ref{fig:parallel_sys} dargestellt.
+Abschließend wird die Güte mithilfe von Formel \ref{equ:Guete_Resonanzbreite} bestimmt, wobei die Fehler per gausscher Fehlerfortpflanzung berechnet werden.\\
 Alle Ergebnisse sind in Tabelle \ref{tab:parallel_methode1} aufgelistet.\\
 Eine gewichtete Mittelung der Messungen ergibtfür Gruppe A:
 \begin{equation}
 f_0 = \SI{2226(12)}{Hz}
 \end{equation}
 \begin{equation}
-Q_A = 3.05\pm 0.17 
+Q_A = 3.05\pm 0.27 
 \end{equation}
 und für Gruppe B:
 \begin{equation}
 f_0 = \SI{2278(39)}{Hz}
 \end{equation}
 \begin{equation}
-Q_B = 3.13\pm 0.25 
+Q_B = 3.13\pm 0.26 
 \end{equation}
 Dabei muss der äußere Fehler genommen werden.
-
+\newpage
 \subsubsection{Bestimmung der Güte über Stromüberhöhung}
 Bei dieser Auswertungsmethode wird die Resonanzfrequenz über den Schnittpunkt zwischen den Stromkurven von Spule und Kondensator ermittelt. Dieser kann direckt aus den Anpassungen bestimmt werden.\\
 Da die Messwerte bei Gruppe B nicht dem erwarteten Verlauf folgen (vgl. Abbildung \ref{fig:parallel_Rohdaten}), wird diese Auswertung nur für Gruppe A durchgeführt.\\
-Um einen Fehler auf den Wert zu bekommen, wird zuerst ein Fehler auf die gemessenen Ströme wie im vorherigen Kapitel abgeschätzt. Anschließend werden die Anpassungskurven um diesen Fehler verschoben und die neuen Schnittpunkte bestimmt. Der Fehler auf den Messwert beträgt dann die Hälfte des größten Abstandes zwischen zwei Schnittpunkten. Dises Verfahren wurde in Abbildung \ref{fig:parallel_Stromhoch} visualisiert.
-Da der Wiederstand in der Spule wesentlich geringer ist als der benutzte Wiederstand ist, muss keine Korrekturrechnung durchgeführt werden.\\
-Die somit bestimmten Schnittpunkt-Frequenzen sind in Tabelle \ref{tab:Stromhoch_Rohdaten} aufgelistet. Dort ist auch die Größe des Stromes am Kondensator und im gesamten Schwingkreis am Schnittpunkt zu finden. \\
-Mithilfe von Gleichung \ref{eq:Parallel_Strmhoch} lässt sich daraus schließlich die Güte bestimmen. Es wurde der Strom an der Spule verwendet, da diser einen kleineren Fehler hat.
+Um einen Fehler auf den Wert zu bekommen, wird zuerst ein Fehler auf die gemessenen Ströme wie im vorherigen Kapitel abgeschätzt. Anschließend werden die Anpassungskurven um diesen Fehler verschoben und die neuen Schnittpunkte bestimmt. Der Fehler auf den Messwert beträgt dann die Hälfte des größten Abstandes zwischen zwei Schnittpunkten. Dises Verfahren wurde in Abbildung \ref{fig:parallel_Stromhoch} visualisiert.\\
+Der Systematische Fehler wurde über die Verschiebemethode bestimmt. Dazu wurde der Fehler auf die Stromstärken angenommen mit:
+\begin{equation}
+\sigma_I = 0.02\cdot I_i + 0.005BE
+\end{equation}
+mit dem Bereichsentwert von 0.7A.\\
+Die somit bestimmten Schnittpunkt-Frequenzen sind in Tabelle \ref{tab:Stromhoch_Rohdaten} aufgelistet. Dort ist auch die Stromstärke der Spule beim Schnittpunkt und die des geamten Kreises beim Minimum des Gesamtstromes zu finden.\\
+Mithilfe von Gleichung \ref{eq:Parallel_Strmhoch} lässt sich daraus schließlich die Güte bestimmen.
 
 \begin{figure}
 \centering
@@ -813,24 +834,25 @@ Mithilfe von Gleichung \ref{eq:Parallel_Strmhoch} lässt sich daraus schließlic
 \hline
 Messung & A1 & A2 & A3\\
 \hline
-$f_0[Hz]$ & $2094.6\pm 33.7$ & $2095.6\pm 38.2$ & $2093.7\pm 35.2$\\
+$f_0[Hz]$ & $2094.6\pm 33.7\pm 76$ & $2095.6\pm 38.2\pm 60$ & $2093.7\pm 35.2\pm 59$\\
 \hline
-$I_L[A]$ & $0.0850\pm 0.0009$ & $0.1278\pm 0.0021$ & $0.1274\pm 0.0017$ \\
+$I_L[A]$ & $0.0850\pm 0.0009\pm 0.0030$ & $0.1278\pm 0.0021\pm 0.0035$ & $0.1274\pm 0.0017\pm 0.0035$ \\
 \hline
-$I_0[A]$ & $0.0256\pm 0.0009$ & $0.0234\pm 0.0029$ & $0.0390\pm 0.0018$ \\
+$I_0[A]$ & $0.0256\pm 0.0009\pm 0.0038$ & $0.0234\pm 0.0029\pm 0.0037$ & $0.0390\pm 0.0018\pm 0.0039$ \\
 \hline
-$Q$ & $3.32\pm 0.11$ & $5.46\pm 0.50$ & $3.27\pm 0.15$ \\
+$Q$ & $3.32\pm 0.11\pm 0.51$ & $5.46\pm 0.50\pm 0.88$ & $3.27\pm 0.15\pm 0.34$ \\
 \hline
 \end{tabular}
 \label{tab:Stromhoch_Rohdaten}
-\caption{Gemessene Daten für die Resonanzfrequenz, der Stromstärken an Spule und im gesamten Schlatkreis bei der Resonanzfrequenz, sowie die daraus bestimmte Güte. Die Fehler folgen aus der in Abbildung \ref{fig:parallel_Stromhoch} beschriebenen Methode.}
+\caption{Gemessene Daten für die Resonanzfrequenz, der Stromstärken an Spule und im gesamten Schlatkreis bei der Resonanzfrequenz, sowie die daraus bestimmte Güte. Die Fehler folgen aus der in Abbildung \ref{fig:parallel_Stromhoch} beschriebenen Methode.
+Anmerkung: Der große systematische Fehler Auf den Ergebnissen der Güte folgt zum Großteil aus dem hohen relativen Fehler (bis 15\%) des Minimums des Gesamtstromes.}
 \end{table}
 Der gewichtete Mittelwert der ermittelten Güten beträgt mit äußerem Fehler:
 \begin{equation}
-f_0 = \SI{2095(12)}{Hz}
+f_0 = \SI{2095(42)}{Hz}
 \end{equation}
 \begin{equation}
-Q = 3.37\pm 0.26 
+Q = 3.37\pm 0.42 
 \end{equation}
 
 \subsubsection{Impedanz}

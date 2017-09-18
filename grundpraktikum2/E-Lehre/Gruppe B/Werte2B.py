@@ -16,6 +16,7 @@ U0 = [0.065,0.063]
 U0err = [0.010,0.010]
 dw = np.array([750.,700.])
 dwerr = np.array([81.,79.])
+dwsys = np.array([24.,23.])
 dwmid,dwstd =  p.gewichtetes_mittel(dw,dwerr)
 
 def gew_mittelwert(Q2, sig):
@@ -28,7 +29,9 @@ def gew_mittelwert(Q2, sig):
 
 Q2 = w0/dw
 sig = Q2 * np.sqrt((w0err/w0)**2 + (dwerr/dw)**2)
-print Q2,sig
+sys = Q2 * np.sqrt((0/w0)**2 + (dwsys/dw)**2)
+print Q2,sig,sys
+sig = np.sqrt(sig**2+sys**2)
 n = len(sig)
 w = 1./(sig)**2
 xm = sum(w*Q2)/sum(w)

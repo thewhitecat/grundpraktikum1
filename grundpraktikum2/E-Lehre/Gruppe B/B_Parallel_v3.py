@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import Praktikum as p
 import scipy.optimize as opt
 
-messung1=p.lese_lab_datei('lab/Parallell_unendlich1.lab')
+messung1=p.lese_lab_datei('lab/Parallell_unendlich2.lab')
 #messung1=p.lese_lab_datei('lab/Parallel_100Ohm.lab')
 #Index,zeit,Uin,Iin,phi,IA2,UB2,?,IA3,f0,f1,z,hoch,tief
 freq = messung1[:,-2]
@@ -103,17 +103,27 @@ def plot3():#Breite Iges
     
     popt,pcov = opt.curve_fit(func,freq,Iin)
     ywerte = func(xwerte,*popt)
-    plt.plot(xwerte,ywerte)
-    err = fehler(Iin,ywerte)
-    minimum = np.min(ywerte)
-    print minimum , (np.sqrt(4*err**2))
-    w0 = xwerte[np.argmin(ywerte)]
-    print w0
-    plt.plot(xwerte,np.full(len(xwerte),minimum*np.sqrt(2)),color='red',linestyle='dashed')
-    plt.plot(xwerte,np.full(len(xwerte),minimum*np.sqrt(2)+err),color='green',linestyle='dashed')
-    plt.plot(xwerte,np.full(len(xwerte),minimum*np.sqrt(2)-err),color='green',linestyle='dashed')
+    plt.plot(xwerte,ywerte,color='red')
+    plt.plot(xwerte,ywerte+0.0035,color='green')
+    plt.plot(xwerte,ywerte-0.0035,color='orange')
+    err = fehler(Iin, ywerte)
+    print (np.sqrt(4*err**2))
+    minimum = xwerte[np.argmin(ywerte)]
+    print minimum
+    plt.plot(xwerte,np.full(len(xwerte),np.min(ywerte)*np.sqrt(2)),color='red',linestyle='dashed')
+    #plt.plot(xwerte,np.full(len(xwerte),(np.min(ywerte+0.0035))*np.sqrt(2)+err),color='green',linestyle='dashed')
+    #plt.plot(xwerte,np.full(len(xwerte),(np.min(ywerte+0.0035))*np.sqrt(2)-err),color='green',linestyle='dashed')
+    plt.plot(xwerte,np.full(len(xwerte),np.min(ywerte+0.0035)*np.sqrt(2)),color='green',linestyle='dashed')
+    plt.plot(xwerte,np.full(len(xwerte),np.min(ywerte-0.0035)*np.sqrt(2)),color='orange',linestyle='dashed')
+    plt.axvline(xwerte[np.argmin(np.abs(ywerte-np.min(ywerte)*np.sqrt(2)+0.0001))],color='red',linestyle='dashed')
+    plt.axvline(xwerte[np.argmin(np.abs(ywerte-np.min(ywerte)*np.sqrt(2)))],color='red',linestyle='dashed')
+    plt.axvline(xwerte[np.argmin(np.abs(ywerte+0.0035-np.min(ywerte+0.0035)*np.sqrt(2)-0.0001))],color='green',linestyle='dashed')
+    plt.axvline(xwerte[np.argmin(np.abs(ywerte+0.0035-np.min(ywerte+0.0035)*np.sqrt(2)))],color='green',linestyle='dashed')
+    plt.axvline(xwerte[np.argmin(np.abs(ywerte-0.0035-np.min(ywerte-0.0035)*np.sqrt(2)+0.0002))],color='orange',linestyle='dashed')
+    plt.axvline(xwerte[np.argmin(np.abs(ywerte-0.0035-np.min(ywerte-0.0035)*np.sqrt(2)))],color='orange',linestyle='dashed')
     plt.ylabel("Strom in A ")
     plt.xlabel("Frequenz in Hz ")
+    plt.title("Systematischer Fehler Messung A1")
     
 
 def plot4(plotte):#Gaussfit Z
@@ -179,4 +189,4 @@ print 'Q=',R*np.sqrt(C/L)/(1+R*Rl*C/L)
 print 'Q2=',1./Rl * np.sqrt(L/C)
 print 'Q_Z=',wres*2*np.pi*C*Zmax
 print 'Z=',L/(C*Rl)
-plot1()
+plot3()
