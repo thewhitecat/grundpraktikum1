@@ -32,28 +32,47 @@ def histogramm(temp, U,bilder):
     if bilder == 1:
         f,ax = plt.subplots(len(temp)-5,2)
     for i in range(len(temp)-5):
-        if bilder == 1:
-            ax[i,0].hist(temp[i])
-            ax[i,1].hist(U[i])
         temp_mean[i] = np.mean(temp[i])
         temp_std[i] = np.std(temp[i],ddof=1)/np.sqrt(len(temp[i]))
         U_mean[i] = np.mean(U[i])
         U_std[i] = np.std(U[i],ddof=1)/np.sqrt(len(U[i]))
+        if bilder == 1:
+            ax[i,0].hist(temp[i])
+            ax[i,0].set_title('Temperatur {}C'.format(i*5+50))
+            ax[i,0].set_xlabel('T in C')
+            ax[i,0].set_ylabel('#')
+            ax[i,0].legend
+            ax[i,0].text(0.95, 0.95, ' mean={}C \n err={}C'.format(round(temp_mean[i],2),round(temp_std[i],2)),verticalalignment='top', horizontalalignment='right',transform=ax[i,0].transAxes,color='red', fontsize=10)
+            ax[i,1].hist(U[i])
+            ax[i,1].set_title('Spannung {}C'.format(i*5+50))
+            ax[i,1].set_xlabel('U in V')
+            ax[i,1].set_ylabel('#')
+            ax[i,1].text(0.95, 0.95, ' mean={}V \n err={}V'.format(round(U_mean[i],4),round(U_std[i],4)),verticalalignment='top', horizontalalignment='right',transform=ax[i,1].transAxes,color='red', fontsize=10)
     if bilder == 1:
-        f.tight_layout()
+        #f.tight_layout()
         f,ax = plt.subplots(len(temp)-5,2)
     for i in range(len(temp)-5):
         if bilder == 1:
             ax[i,0].hist(temp[i+5])
+            ax[i,0].set_title('Temperatur {}C'.format(i*5+50))
+            ax[i,0].set_xlabel('T in C')
+            ax[i,0].set_ylabel('#')
             ax[i,1].hist(U[i+5])
+            ax[i,1].set_title('Spannung {}C'.format((i+5)*5+50))
+            ax[i,1].set_xlabel('U in V')
+            ax[i,1].set_ylabel('#')
         temp_mean[i+5] = np.mean(temp[i+5])
         temp_std[i+5] = np.std(temp[i+5],ddof=1)/np.sqrt(len(temp[i+5]))
         U_mean[i+5] = np.mean(U[i+5])
         U_std[i+5] = np.std(U[i+5],ddof=1)/np.sqrt(len(U[i+5]))
-    if bilder == 1:
-        f.tight_layout()
+    #if bilder == 1:
+        #f.tight_layout()
 
 def get_werte(string):
     temp, U = einlesen(string)
     histogramm(temp,U,0)
     return temp_mean,temp_std,U_mean,U_std
+
+if __name__ == "__main__":
+    temp, U = einlesen('schwarz')
+    histogramm(temp,U,1)
