@@ -12,7 +12,7 @@ import Praktikum as p
 
 kelvin = 273.15
 a, b = 1.0107638757247093, -3.3550993800564015
-T0 = 23.70487017571428+kelvin
+T0 = (23.70487017571428+kelvin)*a+b
 
 weis = h.get_werte('weiss')
 messing = h.get_werte('messing')

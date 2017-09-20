@@ -31,9 +31,12 @@ v = 10e-4
 a, b = 1.0107638757247093, -3.3550993800564015
 T0 = (23.7048701757+kelvin)*a+b
 
+# durch konstante teilen -> werte sind seltsam + mist
+#mit konstante mal nehmen (entgegen skript etc)-> werte gut
+#?!?!?!?!??!?!?!?!?!?!?
 
 def get_epsilon_easy(p1,ep1):
-    epsilon = p1*0.15**2*np.pi*v*k/(np.pi**2*(0.023/2)**2*(0.035/2)**2*sigma)
+    epsilon = p1*0.15**2*np.pi*v/(k*np.pi**2*(0.023/2)**2*(0.035/2)**2*sigma)
     epsilon_stat = epsilon * ep1/p1
     epsilon_syst = epsilon * ek/k
     return epsilon, epsilon_stat, epsilon_syst
@@ -44,9 +47,22 @@ def get_epsilon_hard(p1,ep1,p0,ep0,string):
     data = h.get_werte(string)
     T, eT = a*(data[0]+kelvin)+b, data[1]*a+b
     
-    eps = ((p0+p1*(T**4-T0**4))*v*0.15**2)/(np.pi*(0.035/2)**2*(0.023/2)**2*sigma*(T**4-T0**4))
+    eps = ((p0+p1*(T**4-T0**4))*v*(0.15**2))/(k*np.pi*(0.035/2)**2*(0.023/2)**2*sigma*(T**4-T0**4))
     
     return eps
 
-print get_epsilon_hard(p_schwarz, ep_schwarz, b_schwarz, eb_schwarz,'schwarz')
+def get_epsilon(string):
+    data = h.get_werte(string)
+    T, eT = a*(data[0]+kelvin)+b, data[1]*a+b
+    U, eU = data[2], data[3]
+    
+    eps = (U*v*0.15**2*np.pi)/((k*np.pi**2*(0.035/2)**2*(0.023/2)**2*sigma*(T**4-T0**4)))
+    eps_stat = np.sqrt((eU/U)**2*eps + (eps*eT*4*T**3/(T**4-T0**4))**2)
+    eps_syst = np.sqrt((ek/k)**2*eps**2)
+    return eps,eps_stat,eps_syst
+    
+    
+    
+print get_epsilon('schwarz')
+#print get_epsilon_hard(p_schwarz, ep_schwarz, b_schwarz, eb_schwarz,'schwarz')
 #,get_epsilon_hard('weiss'),get_epsilon_hard('messing'),get_epsilon_hard('spiegel')
