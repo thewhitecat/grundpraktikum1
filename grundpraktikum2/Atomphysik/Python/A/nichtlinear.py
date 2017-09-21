@@ -38,10 +38,15 @@ def minimierung(T,Terr,U):
     result =  opt.minimize(chifunc,[0.,1e-9,4.])
     print result
 
-startwerte_weiss = []
-startwerte_schwarz = []
-startwerte_messing = []
-startwerte_spiegel = []
+sw = [0.2, 1.33468e-9]
+ss = [0.09, 1.3727e-9]
+sm = [0.06, 1.327e-10]
+ssp = [0.025, 7.5344e-11]
+T0 = 296.7**4
+w = [sw[0]-sw[1]*T0,sw[1],4.]
+s = [ss[0]-ss[1]*T0,ss[1],4.]
+m = [sm[0]-sm[1]*T0,sm[1],4.]
+sp = [ssp[0]-ssp[1]*T0,ssp[1],4.]
 
 def regression(T, U,sigT,sigU):
     def f(B, T):
@@ -49,7 +54,7 @@ def regression(T, U,sigT,sigU):
 
     model  = odr.Model(f)
     data   = odr.RealData(T, U, sx=sigT, sy=sigU)
-    anpassung    = odr.ODR(data, model, beta0=[-13,1.37e-10,4.],maxit = 50000000)
+    anpassung    = odr.ODR(data, model, beta0=m,maxit = 50000000)
     output = anpassung.run()
     ndof = len(T)-3
     chiq = output.res_var
@@ -58,7 +63,7 @@ def regression(T, U,sigT,sigU):
     return output.beta[0],output.sd_beta[0],output.beta[1],output.sd_beta[1],output.beta[2],output.sd_beta[2],chiq,corr
 
 def main():
-    messing = h.get_werte('spiegel')
+    messing = h.get_werte('messing')
     T = messing[0]+273.
     Terr = messing[1]
     U = messing[2]
@@ -72,15 +77,16 @@ def main():
     xwerte = np.linspace(T[0],T[-1],1000)
     ywerte = func(xwerte,a,b,c)
     plt.plot(xwerte,ywerte)
-    plt.figtext(0.2,0.7,'a={0:.3g}$\pm${1:.3g} \n m={2:.3g}$\pm${3:.3g} \n n={4:.3g}$\pm${5:.3g} \n $\chi^2$/ndof={6:.3g}'
+    plt.figtext(0.2,0.7,'a={0:.3g}$\pm${1:.3g} \n m={2:.3g}$\pm${3:.3g} \n n={4:.2f}$\pm${5:.2f} \n $\chi^2$/ndof={6:.3g}'
                 .format(a,ea,b,eb,c,ec,chi))
+    print c
     ax2=plt.subplot(212,sharex=ax1)
     plt.xlabel('T in K')
     plt.ylabel('Residuen')
     plt.errorbar(T,U-func(T,a,b,c),yerr=np.sqrt(Uerr**2 +(dfunc(T,a,b,c)*Terr)**2),linestyle='None',marker='.')
     plt.axhline(y=0,linestyle='dashed')
     plt.show()
-    #umrechnung: p0 = p0*
+    #umrechnung: p0 = p0+p1*T0
 
 
 

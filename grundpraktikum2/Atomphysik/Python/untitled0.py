@@ -95,7 +95,9 @@ t = np.array(t)
 u = np.array(u)
 et = np.array(et)
 eu = np.array(eu)
-
+print t
+def getwerte():
+    return t,u
 
 # Linearer Fit
 

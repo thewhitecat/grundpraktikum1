@@ -12,16 +12,16 @@ import scipy.optimize as opt
 import untitled0 as seb
 
 def einlesen(string):
-    Messing1=p.lese_lab_datei(string + '/mes50.lab')
-    Messing2=p.lese_lab_datei(string + '/mes55.lab')
-    Messing3=p.lese_lab_datei(string + '/mes60.lab')
-    Messing4=p.lese_lab_datei(string + '/mes65.lab')
-    Messing5=p.lese_lab_datei(string + '/mes70.lab')
-    Messing6=p.lese_lab_datei(string + '/mes75.lab')
-    Messing7=p.lese_lab_datei(string + '/mes80.lab')
-    Messing8=p.lese_lab_datei(string + '/mes85.lab')
-    Messing9=p.lese_lab_datei(string +'/mes90.lab')
-    Messing10=p.lese_lab_datei(string + '/mes95.lab')
+    Messing1=p.lese_lab_datei(string + '/50.lab')
+    Messing2=p.lese_lab_datei(string + '/55.lab')
+    Messing3=p.lese_lab_datei(string + '/60.lab')
+    Messing4=p.lese_lab_datei(string + '/65.lab')
+    Messing5=p.lese_lab_datei(string + '/70.lab')
+    Messing6=p.lese_lab_datei(string + '/75.lab')
+    Messing7=p.lese_lab_datei(string + '/80.lab')
+    Messing8=p.lese_lab_datei(string + '/85.lab')
+    Messing9=p.lese_lab_datei(string +'/90.lab')
+    Messing10=p.lese_lab_datei(string + '/95.lab')
     temp = [Messing1[:,3],Messing2[:,3],Messing3[:,3],Messing4[:,3],Messing5[:,3],Messing6[:,3],Messing7[:,3],Messing8[:,3],Messing9[:,3],Messing10[:,3]]
     U = [Messing1[:,2],Messing2[:,2],Messing3[:,2],Messing4[:,2],Messing5[:,2],Messing6[:,2],Messing7[:,2],Messing8[:,2],Messing9[:,2],Messing10[:,2]]
     return temp, U
@@ -88,11 +88,15 @@ def histogramm2(temp, U,bilder):
         U_mean[i] = np.mean(U[i])
         U_std[i] = np.std(U[i],ddof=1)/np.sqrt(len(U[i]))
         if bilder == 1:
-            
-            ax[i,0].hist(temp[i],color = '#66ccff')
+            test = sorted(temp[i])
+            binwidth = 100.
+            for x in range(len(temp[i])-1):
+                if binwidth > np.abs(test[x]-test[x+1]) and np.abs(test[x]-test[x+1]) != 0.0:
+                    binwidth = np.abs(test[x]-test[x+1])
+            ax[i,0].hist(temp[i],color = '#66ccff',bins=np.arange(min(temp[i]), max(temp[i]) + 2* binwidth, binwidth),)
             ax[i,0].set_title('Temperatur {}C'.format(i*5+50))
             ax[i,0].set_xlabel('T in C')
-            ax[i,0].text(0.95, 0.95, ' mean={}C \n err={}C'.format(round(temp_mean[i],2),round(temp_std[i],2)),verticalalignment='top', horizontalalignment='right',transform=ax[i,0].transAxes,color='black', fontsize=10)
+            ax[i,0].text(0.95, 0.95, ' mean={}C \n err={}C'.format(round(temp_mean[i],3),round(temp_std[i],3)),verticalalignment='top', horizontalalignment='right',transform=ax[i,0].transAxes,color='black', fontsize=10)
             test = sorted(U[i])
             binwidth = 100.
             for x in range(len(U[i])-1):
@@ -112,10 +116,15 @@ def histogramm2(temp, U,bilder):
         U_mean[i+5] = np.mean(U[i+5])
         U_std[i+5] = np.std(U[i+5],ddof=1)/np.sqrt(len(U[i+5]))
         if bilder == 1:
-            ax[i,2].hist(temp[i+5],color = '#66ccff')
+            binwidth = 100.
+            test = sorted(temp[i+5])
+            for x in range(len(temp[i+5])-1):
+                if binwidth > np.abs(test[x]-test[x+1]) and np.abs(test[x]-test[x+1]) != 0.0:
+                    binwidth = np.abs(test[x]-test[x+1])
+            ax[i,2].hist(temp[i+5],color = '#66ccff',bins=np.arange(min(temp[i+5]), max(temp[i+5]) + 2*binwidth, binwidth))
             ax[i,2].set_title('Temperatur {}C'.format((i+5)*5+50))
             ax[i,2].set_xlabel('T in C')
-            ax[i,2].text(0.95, 0.95, ' mean={}V \n err={}V'.format(round(temp_mean[i+5],2),round(temp_std[i+5],2))
+            ax[i,2].text(0.95, 0.95, ' mean={}V \n err={}V'.format(round(temp_mean[i+5],3),round(temp_std[i+5],3))
             ,verticalalignment='top', horizontalalignment='right',transform=ax[i,2].transAxes,color='black', fontsize=10)
             test = sorted(U[i+5])
             binwidth = 100.
@@ -153,7 +162,6 @@ def get_werte(string):
     return temp_mean,temp_std,U_mean,U_std
 
 if __name__ == "__main__":
-    #temp, U = einlesen('schwarz')
-    temp, U = seb.getwerte()
+    temp, U = einlesen('C/messing')
     histogramm2(temp,U,1)
     #beispiel()
