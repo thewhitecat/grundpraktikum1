@@ -9,7 +9,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import Praktikum as p
 import scipy.optimize as opt
-import untitled0 as seb
 
 def einlesen(string):
     Messing1=p.lese_lab_datei(string + '/mes50.lab')

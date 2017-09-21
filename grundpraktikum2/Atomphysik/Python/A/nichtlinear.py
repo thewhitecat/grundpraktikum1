@@ -77,9 +77,9 @@ def main():
     xwerte = np.linspace(T[0],T[-1],1000)
     ywerte = func(xwerte,a,b,c)
     plt.plot(xwerte,ywerte)
-    plt.figtext(0.2,0.7,'a={0:.3g}$\pm${1:.3g} \n m={2:.3g}$\pm${3:.3g} \n n={4:.2f}$\pm${5:.2f} \n $\chi^2$/ndof={6:.3g}'
-                .format(a,ea,b,eb,c,ec,chi))
-    print c
+    plt.figtext(0.2,0.65,'$y = a + m x^n$ \n a=({0:.3g}$\pm${1:.3g})V \n m=({2:1.3f}$\pm${3:1.3f})*1e-14 V/K \n n={4:1.2f}$\pm${5:1.2f} \n $\chi^2$/ndof={6:1.3g}'
+                .format(a,ea,b*1e14,eb*1e14,c,ec,chi))
+    print ec
     ax2=plt.subplot(212,sharex=ax1)
     plt.xlabel('T in K')
     plt.ylabel('Residuen')
