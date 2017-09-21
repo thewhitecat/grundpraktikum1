@@ -57,7 +57,7 @@ def Auswertung(data,i=0,plots = True):
         
         return m,em,q,eq
 
-Auswertung(h.get_werte('weiss'),1)
-Auswertung(h.get_werte('messing'),2)
-Auswertung(h.get_werte('schwarz'),3)
-Auswertung(h.get_werte('spiegel'),4)
+w=Auswertung(h.get_werte('weiss'),1)
+m=Auswertung(h.get_werte('messing'),2)
+s=Auswertung(h.get_werte('schwarz'),3)
+sp=Auswertung(h.get_werte('spiegel'),4)
