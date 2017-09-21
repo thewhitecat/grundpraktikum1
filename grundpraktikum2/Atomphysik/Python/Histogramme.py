@@ -138,14 +138,19 @@ def histogramm2(temp, U,bilder):
             ,verticalalignment='top', horizontalalignment='right',transform=ax[i,3].transAxes,color='black', fontsize=10)
     #if bilder == 1:
         #f.tight_layout()
-def beispiel():
-    plt.figure(1)
-    plt.hist(temp[4])
+def beispiel(temp, U):
+    test = sorted(temp[4])
+    binwidth = 100.
+    for x in range(len(temp[4])-1):
+        if binwidth > np.abs(test[x]-test[x+1]) and np.abs(test[x]-test[x+1]) != 0.0:
+            binwidth = np.abs(test[x]-test[x+1])
+    plt.figure(4)
+    plt.hist(temp[4],bins=np.arange(min(temp[4]), max(temp[4]) + 2*binwidth, binwidth))
     plt.title('Temperatur {}C'.format(4*5+50))
     plt.xlabel('T in C')
     plt.ylabel('#')
     #plt.figtext(0.2,0.7,' mean={}C \n err={}C'.format(round(temp_mean[4],2),round(temp_std[4],2)))
-    plt.figure(2)
+    plt.figure(5)
     test = sorted(U[4])
     binwidth = 100.
     for x in range(len(U[4])-1):
@@ -163,5 +168,5 @@ def get_werte(string):
 
 if __name__ == "__main__":
     temp, U = einlesen('C/messing')
-    histogramm2(temp,U,1)
-    #beispiel()
+    #histogramm2(temp,U,1)
+    beispiel(temp,U)
