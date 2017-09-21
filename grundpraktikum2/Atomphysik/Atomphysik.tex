@@ -233,6 +233,45 @@ an die Daten gefittet werden. Problem bei diesen nicht-linearen Fits ist häufig
 a = - \varepsilon \cdot \sigma \cdot T_0^4 \qquad m = \varepsilon \cdot \sigma \qquad n = 4
 \end{equation*}
 
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{Bilder/nichtlinear_A_weiss}
+\caption{Nicht-lineare Regression an die Daten der weißen Seite.}
+\label{fig:nicht_linearRegweiss_A}
+\end{figure}
+
+Abbildung \ref{fig:nicht_linearRegweiss_A} zeigt exemplarisch einen der nicht-linearen Fits.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Messung & a $[V]$ & m $[\frac{V}{K^4}]$ & n & $\chi^2 / ndof$ \\
+\hline
+Messing Gruppe A & \num{-0.545(273)} & $(\num{2.860(177)}) \cdot 10^{-14}$ & \num{5.40(103)} & 61 \\
+\hline
+Spiegel Gruppe A & \num{0.0078(203)} & $(\num{2.890(149)}) \cdot 10^{-22}$ & \num{8.37(0)} & 192 \\
+\hline
+Weiß Gruppe A & \num{-12.8(18)} & $(\num{2.32(435)}) \cdot 10^{-8}$ & \num{3.540(307)} & 2.74 \\
+\hline
+Schwarz Gruppe A & \num{-13.80(379)} & $(\num{4.530(164)}) \cdot 10^{-8}$ & \num{3.43(59)} & 10.4 \\
+\\
+\hline
+Messing Gruppe B & \num{-1.725(8003)} & $(\num{0.344(22804)}) \cdot 10^{-9}$ & \num{3.921(10886)} & 318275 \\
+\hline
+Spiegel Gruppe B & \num{-0.992(2964)} & $(\num{63.321(2177749)}) \cdot 10^{-9}$ & \num{2.916(5566)} & 29443.5 \\
+\hline
+Weiß Gruppe B & \num{-12.453(1149)} & $(\num{19.713(22989)}) \cdot 10^{-9}$ & \num{3.566(191)} & 590.9 \\
+\hline
+Schwarz Gruppe B & \num{-13.721(2835)} & $(\num{49.282(130796)}) \cdot 10^{-9}$ & \num{3.419(433)} & 4035.9 \\
+\hline 
+\end{tabular}
+\caption{Ergebnisse der nicht-linearen Fits.}
+\label{tab:Nicht_lin_Fit_Ergebnis}
+\end{table}
+
+Tabelle \ref{tab:Nicht_lin_Fit_Ergebnis} zeigt die Ergebnisse für die Parameter der nicht-linearen Fits. Anhand dieser und der Werte für das $\chi^2 / ndof$ lässt sich leicht erkennen, dass die meisten der nicht-linearen Fits nicht funktioniert haben. Erstaunlicherweise lässt sich beobachten, dass die meisten Werte für die Exponenten sehr nah am Erwartungswert dran sind.
+
 
 \section{Anhang}
 \subsection{Gruppe A}
