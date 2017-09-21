@@ -141,39 +141,45 @@ An den vorbereiteten Rohdaten werden nach Auftragung von $U$ gegen $T^4$ lineare
 fortpflanzt.
 
 \begin{figure}
+\centering
 \includegraphics[scale=0.5]{Bilder/Schwarz_A}
-%hier figure B
+\includegraphics[scale=0.5]{Bilder/schwarz_B}
 \caption{Lineare Regression an die Daten der schwarzen Seite. Gruppe A links und Gruppe B rechts.}
 \label{fig:RegSchwarz}
 \end{figure}
 
 \begin{figure}
+\centering
 \includegraphics[scale=0.5]{Bilder/Weiss_A}
-%hier figure B
+\includegraphics[scale=0.5]{Bilder/weiss_B}
 \caption{Lineare Regression an die Daten der weißen Seite. Gruppe A links und Gruppe B rechts.}
 \label{fig:RegWeiss}
 \end{figure}
 
 \begin{figure}
+\centering
 \includegraphics[scale=0.5]{Bilder/Messing_A}
-%hier figure B
+\includegraphics[scale=0.5]{Bilder/messing_B}
 \caption{Lineare Regression an die Daten der messingfarbenen Seite. Gruppe A links und Gruppe B rechts.}
 \label{fig:RegMessing}
 \end{figure}
 
 \begin{figure}
+\centering
 \includegraphics[scale=0.5]{Bilder/Spiegel_A}
-%hier figure B
+\includegraphics[scale=0.5]{Bilder/spiegel_B}
 \caption{Lineare Regression an die Daten der spiegelnden Seite. Gruppe A links und Gruppe B rechts.}
 \label{fig:RegSpiegel}
 \end{figure}
+
+
 
 
 \subsection{Emissionskoeffizient}
 
 Für jede Seite des Würfels kann der Emissionskoeffizient bestimmt werden. Zusätzlich wird ein relatives $\epsilon_{rel}$, welches auf die bezüglich der schwarzen Seite normiert wurde, ermittelt um die Ergebnisse der beiden Gruppen besser vergleichen zu können.
 
-Falls der y-Achsenabschnitt in den Anpassungen aus dem vorherigen Abschnitt im Rahmen seiner Fehler vernachlässigbar ist, kann der Emissionskoeffizient in guter Näherung durch den Zusammenhang
+Falls der y-Achsenabschnitt in den Anpassungen aus dem vorherigen Abschnitt im Rahmen seiner Fehler vernachlässigbar ist, könnte der Emissionskoeffizient in guter Näherung durch den Zusammenhang
 
 \begin{equation}
 \epsilon = \frac{P_{gemessen}}{P_{ideal}} = \frac{a v \pi r^2}{const A_s A_e \sigma}
@@ -188,33 +194,43 @@ der Koeffizient punktweise aus den Messwerten bestimmt. Der dazu nötige Zusamme
 
 Dabei bezeichnet $v = 10^{-4}$ den verwendeten Verstärkungsfaktor, $const$ die Empfindlichkeit der Thermosäule. $A_s = \pi \left(\frac{\SI{0,035}{\m}}{2}\right)$ und $A_e = \pi \left(\frac{\SI{0,023}{\m}}{2}\right)$, sowie $r = \SI{0,108}{\m}$ sind vorgegebene Konstanten in den Aufbauten beider Gruppen.\\
 
+Da nicht bei allen Anpassungen der Abschnitt im Rahmen seines Fehlers null war wurde der Emissionskoeffizient für bessere Vergleichbarkeit bei allen Seiten punktweise berechnet und anschließend gewichtet gemittelt.
+
 hier kommt fehlergedöns hin. Ich mag Züge!
 
 
 \begin{table}
 \centering
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|}
 \hline
-Gruppe & $\epsilon_{schwarz}$ & $\epsilon_{weiß}$ & $\epsilon_{Messing}$ & $\epsilon_{Spiegel}$ \\
+Gruppe & A & B \\
 \hline
-A & & & & \\
+$\epsilon_{schwarz}$ & $ 0,979 \pm 0,011 \pm 0,030 $ & $ 0,856 \pm 0,001 \pm 0,026 $ \\
 \hline
-B & & & & \\
+$\epsilon_{weiß}$ & $ 0,966 \pm 0,011 \pm 0,029 $ & $ 0,847 \pm 0,004 \pm 0,025 $ \\
+\hline
+$\epsilon_{Messing}$ & $ 0,101 \pm  0,001 \pm 0,003 $ & $ 0,129 \pm 0,005 \pm 0,004 $ \\
+\hline
+$\epsilon_{Spiegel}$ & $ 0,056 \pm 0,001 \pm 0,002 $ & $ 0,118 \pm 0,001 \pm 0,004 $ \\
 \hline
 \end{tabular}
-\caption{Ermittelte Emissionskoeffizienten für beide Gruppen.}
+\caption{Ermittelte Emissionskoeffizienten für beide Gruppen. Der Wert und der statistische Fehler ergeben sich durch Bildung des gewichteten Mittelwertes (innerer Fehler). Der systematische Fehler ist der relative Fehler der Empfindlichkeit, fortgepflanzt auf den Mittelwert von $ßepsilon$.}
 \label{tab:Emission}
 \end{table}
 
 \begin{table}
 \centering
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|}
 \hline
-Gruppe & $\epsilon_{rel,schwarz}$ & $\epsilon_{rel,weiß}$ & $\epsilon_{rel,Messing}$ & $\epsilon_{rel,Spiegel}$ \\
+Gruppe & A & B \\
 \hline
-A & & & & \\
+$\epsilon_{rel,schwarz}$ & 1 & 1 \\
 \hline
-B & & & & \\
+$\epsilon_{rel,weiss}$ & $ 0,987 \pm 0,011 \pm 0,061 $ & $ 0,988 \pm 0,004 \pm 0,296 $ \\
+\hline
+$\epsilon_{rel,Messing}$ & $ 0,103 \pm 0,001 \pm 0,006 $ & $ 0,151 \pm 0,006 \pm 0,011$ \\
+\hline
+$\epsilon_{rel,Spiegel}$ & $ 0,057 \pm 0,001 \pm 0,006 $ & $ 0,137 \pm 0,002 \pm 0,006$ \\
 \hline
 \end{tabular}
 \caption{Auf $\epsilon_{schwarz}$ normierte Koeffizienten für beide Gruppen.}
