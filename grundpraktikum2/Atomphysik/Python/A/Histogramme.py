@@ -37,13 +37,19 @@ def histogramm(temp, U,bilder):
         U_mean[i] = np.mean(U[i])
         U_std[i] = np.std(U[i],ddof=1)/np.sqrt(len(U[i]))
         if bilder == 1:
+            
             ax[i,0].hist(temp[i])
             ax[i,0].set_title('Temperatur {}C'.format(i*5+50))
             ax[i,0].set_xlabel('T in C')
             ax[i,0].set_ylabel('#')
             ax[i,0].legend
             ax[i,0].text(0.95, 0.95, ' mean={}C \n err={}C'.format(round(temp_mean[i],2),round(temp_std[i],2)),verticalalignment='top', horizontalalignment='right',transform=ax[i,0].transAxes,color='red', fontsize=10)
-            ax[i,1].hist(U[i])
+            test = sorted(U[i])
+            binwidth = 100.
+            for x in range(len(U[i])-1):
+                if binwidth > np.abs(test[x]-test[x+1]) and np.abs(test[x]-test[x+1]) != 0.0:
+                    binwidth = np.abs(test[x]-test[x+1])
+            ax[i,1].hist(U[i],bins=np.arange(min(U[i]), max(U[i]) + 2* binwidth, binwidth))
             ax[i,1].set_title('Spannung {}C'.format(i*5+50))
             ax[i,1].set_xlabel('U in V')
             ax[i,1].set_ylabel('#')
@@ -57,7 +63,12 @@ def histogramm(temp, U,bilder):
             ax[i,0].set_title('Temperatur {}C'.format(i*5+50))
             ax[i,0].set_xlabel('T in C')
             ax[i,0].set_ylabel('#')
-            ax[i,1].hist(U[i+5])
+            test = sorted(U[i+5])
+            binwidth = 100.
+            for x in range(len(U[i+5])-1):
+                if binwidth > np.abs(test[x]-test[x+1]) and np.abs(test[x]-test[x+1]) != 0.0:
+                    binwidth = np.abs(test[x]-test[x+1])
+            ax[i,1].hist(U[i+5],bins=np.arange(min(U[i+5]), max(U[i+5]) + 2*binwidth, binwidth))
             ax[i,1].set_title('Spannung {}C'.format((i+5)*5+50))
             ax[i,1].set_xlabel('U in V')
             ax[i,1].set_ylabel('#')
