@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{siunitx}
+\usepackage{float}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \author{Tim}
 
@@ -149,7 +150,7 @@ An den vorbereiteten Rohdaten werden nach Auftragung von $U$ gegen $T^4$ lineare
 
 fortpflanzt.
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/Schwarz_A}
 \includegraphics[scale=0.5]{Bilder/schwarz_B}
@@ -157,7 +158,7 @@ fortpflanzt.
 \label{fig:RegSchwarz}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/Weiss_A}
 \includegraphics[scale=0.5]{Bilder/weiss_B}
@@ -165,7 +166,7 @@ fortpflanzt.
 \label{fig:RegWeiss}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/Messing_A}
 \includegraphics[scale=0.5]{Bilder/messing_B}
@@ -173,7 +174,7 @@ fortpflanzt.
 \label{fig:RegMessing}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/Spiegel_A}
 \includegraphics[scale=0.5]{Bilder/spiegel_B}
@@ -203,9 +204,33 @@ der Koeffizient punktweise aus den Messwerten bestimmt. Der dazu nötige Zusamme
 
 Dabei bezeichnet $v = 10^{-4}$ den verwendeten Verstärkungsfaktor, $const$ die Empfindlichkeit der Thermosäule. $A_s = \pi \left(\frac{\SI{0,035}{\m}}{2}\right)$ und $A_e = \pi \left(\frac{\SI{0,023}{\m}}{2}\right)$, sowie $r = \SI{0,108}{\m}$ sind vorgegebene Konstanten in den Aufbauten beider Gruppen.\\
 
+Für den statistischen Fehler auf $\epsilon$ gilt:
+
+\begin{equation}
+\sigma_{\epsilon, stat} = \epsilon \sqrt{ \left(\frac{\sigma_U}{U}\right)^2 + \left(\frac{4 \sigma_T}{T}\right)^2}
+\end{equation}
+
+und für den systematischen Fehler aus der Empfindlichkeit der Thermosäule:
+
+\begin{equation}
+\sigma_{\epsilon, sys} = \epsilon \frac{\sigma_{const}}{const}.
+\end{equation}
+
 Da nicht bei allen Anpassungen der Abschnitt im Rahmen seines Fehlers null war wurde der Emissionskoeffizient für bessere Vergleichbarkeit bei allen Seiten punktweise berechnet und anschließend gewichtet gemittelt.
 
-hier kommt fehlergedöns hin. Ich mag Züge!
+Zudem wurden die Emissionskoeffizienten auf $\epsilon_{schwarz}$ normiert. Diese relativen Emissionskoeffizienten sind in Tabelle \ref{tab:Emission_relativ} angegeben:
+
+\begin{equation}
+\epsilon_{rel, i} = \frac{\epsilon_i}{\epsilon_{schwarz}}
+\end{equation}
+
+\begin{equation}
+\sigma_{rel \,i, stat} = \frac{\sigma_{epsilon \,i}}{\epsilon_{schwarz}}
+\end{equation}
+
+\begin{equation}
+\sigma_{rel \,i, sys} = \frac{\epsilon_{i}}{\epsilon_{schwarz}^2} \sqrt{\sigma_{schwarz, stat}^2 + \sigma_{schwarz, sys}^2}.
+\end{equation}
 
 
 \begin{table}
@@ -299,84 +324,79 @@ Tabelle \ref{tab:Nicht_lin_Fit_Ergebnis} zeigt die Ergebnisse für die Parameter
 Dennoch muss aufgrund der $\chi^2 / ndof$ und der geringen Stabilität des Verfahren gesagt werden, dass die Ergebnisse des nicht-linearen Fits keine Aussagekraft haben.
 
 
+\section{Zusammenfassung}
+
+
 \newpage
 \section{Anhang}
 \subsection{Rohdaten}
 \subsubsection{Gruppe A}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.8]{Bilder/Rauschen_A_schwarz_2.png}
 \caption{Rauschmessungen der schwarzen Seite von Gruppe A.}
-\label{fig:RegSpiegel}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.8]{Bilder/Rauschen_A_weiss_2.png}
 \caption{Rauschmessungen der weißen Seite von Gruppe A.}
-\label{fig:RegSpiegel}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.8]{Bilder/Rauschen_A_messing_2.png}
 \caption{Rauschmessungen der Messing Seite von Gruppe A.}
-\label{fig:RegSpiegel}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.8]{Bilder/Rauschen_A_spiegel_2.png}
 \caption{Rauschmessungen der spiegelnden Seite von Gruppe A.}
-\label{fig:RegSpiegel}
 \end{figure}
 
 \subsubsection{Gruppe B}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.8]{Bilder/Rauschen_B_schwarz_2.png}
 \caption{Rauschmessungen der schwarzen Seite von Gruppe A.}
-\label{fig:RegSpiegel}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.8]{Bilder/Rauschen_B_weiss_2.png}
 \caption{Rauschmessungen der weißen Seite von Gruppe A.}
-\label{fig:RegSpiegel}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.8]{Bilder/Rauschen_B_messing_2.png}
 \caption{Rauschmessungen der Messing-Seite von Gruppe A.}
-\label{fig:RegSpiegel}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.8]{Bilder/Rauschen_B_spiegel_2.png}
 \caption{Rauschmessungen der spiegelnden Seite von Gruppe B.}
-\label{fig:RegSpiegel}
 \end{figure}
 
 \subsection{Nicht-linearer Fit}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/nichtlinear_A_messing.png}
 \includegraphics[scale=0.5]{Bilder/nonlinear_messing_B.png}
 \caption{Nicht-linearer Fit an den Daten der Messing-Seite. Links der von Gruppe A, rechts der von Gruppe B.}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/nichtlinear_A_spiegel.png}
 \includegraphics[scale=0.5]{Bilder/nonlinear_spiegel_B.png}
 \caption{Nicht-linearer Fit an den Daten der Spiegel-Seite. Links der von Gruppe A, rechts der von Gruppe B}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/nichtlinear_A_weiss.png}
 \includegraphics[scale=0.5]{Bilder/nonlinear_weiss_B.png}
 \caption{Nicht-linearer Fit an den Daten der weißen Seite. Links der von Gruppe A, rechts der von Gruppe B.}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Bilder/nichtlinear_A_schwarz.png}
 \includegraphics[scale=0.5]{Bilder/nonlinear_schwarz_B.png}
