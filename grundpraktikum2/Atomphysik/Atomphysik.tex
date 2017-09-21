@@ -53,17 +53,17 @@ E_{\lambda, s} = 2 \pi \cdot \dfrac{h c^2}{\lambda^5} \cdot \dfrac{1}{e^{\frac{h
 Integriert man dieses Emissionsvermögen über alle Wellenlängen, erhält man die gesamte abgestrahlte Leistung:
 \begin{equation}
 P = E_s (T) = \int_0^\infty E_{\lambda, s} (\lambda, T) d\lambda = \sigma T^4 \qquad mit \qquad \sigma = \dfrac{2 \pi^5 k^4}{15h^3c^2}
-\label{Stefan_Boltzmann_Gesetz_schwarz}
+\label{equ:Stefan_Boltzmann_Gesetz_schwarz}
 \end{equation}
-Für einen nicht-schwarzen Körper (also mit Emissionskoeffizient $\varepsilon \neq$ 1) muss Gl. \ref{Stefan_Boltzmann_Gesetz_schwarz} modifiziert werden. Dabei werden in diesem Versuch zur Vereinfachung nur graue Körper betrachtet, das bedeutet, dass der Emissionskoeffizient $\varepsilon$ über die Wellenlänge konstant ist. Das Stefan-Boltzmann Gesetz sieht für solche Körper dann wie folgt aus:
+Für einen nicht-schwarzen Körper (also mit Emissionskoeffizient $\varepsilon \neq$ 1) muss Gl. \ref{equ:Stefan_Boltzmann_Gesetz_schwarz} modifiziert werden. Dabei werden in diesem Versuch zur Vereinfachung nur graue Körper betrachtet, das bedeutet, dass der Emissionskoeffizient $\varepsilon$ über die Wellenlänge konstant ist. Das Stefan-Boltzmann Gesetz sieht für solche Körper dann wie folgt aus:
 \begin{equation}
 P = \varepsilon \sigma T^4 \qquad mit \qquad \sigma = \dfrac{2 \pi^5 k^4}{15h^3c^2}
-\label{Stefan_Boltzmann_Gesetz_grau}
+\label{equ:Stefan_Boltzmann_Gesetz_grau}
 \end{equation}
 Wichtig für die Auswertung ist, dass der Versuch in Luft bei Umgebungsdruck und Zimmertemperatur durchgeführt wurde. Die Umgebung strahlt ebenfalls auf den Körper, sodass die letztlich gemessene Strahlungsleistung die Differenz zwischen der Strahlung des Körpers und der Strahlung der Umgebung ist:
 \begin{equation}
 P = \varepsilon \sigma (T^4 - T_0^4)
-\label{Stefan_Boltzmann_Gesetz_gemessen}
+\label{equ:Stefan_Boltzmann_Gesetz_gemessen}
 \end{equation}
 Mit der Umgebungstemperatur $T_0$.
 
@@ -171,6 +171,17 @@ fortpflanzt.
 
 
 \subsection{Emissionskoeffizient}
+
+
+\subsection{Nicht-linearer Fit}
+Anstelle eines linearen Fits zwischen der Spannung und der vierten Potenz der Temperatur kann auch eine Funktion der Form
+\begin{equation*}
+U = a + m \cdot T^n
+\end{equation*}
+an die Daten gefittet werden. Problem bei diesen nicht-linearen Fits ist häufig eine geringe Stabilität der Verfahren, sodass die Startwerte der Parameter mit Bedacht gewählt werden müssen. Hierbei bietet es sich an, die Parameter aus dem Ergebnis des linearen Fits zu verwenden. Aus dem Vergleich der angepassten Funktion mit der im linearen Fit bereits bestätigten Gl. \ref{equ:Stefan_Boltzmann_Gesetz_gemessen} ergeben sich die Startparameter zu:
+\begin{equation*}
+a = - \varepsilon \cdot \sigma \cdot T_0^4 \qquad m = \varepsilon \cdot \sigma \qquad n = 4
+\end{equation*}
 
 
 \section{Anhang}
