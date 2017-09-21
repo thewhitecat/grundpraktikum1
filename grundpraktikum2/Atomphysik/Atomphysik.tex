@@ -100,33 +100,33 @@ T_{real} = a \cdot T_{Cassy} + b
 eine Kalibrierungsgerade durch die Punkte gelegt. Die gemessenen Referenzpunkte befinden sich in Tabelle \ref{tab:Kalibrierung}. Die ermittelten Parameter in Tabelle \ref{tab:Parameter}.
 
 \begin{table}
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-Gruppe & A & B \\
-\hline
-Eis & \SI{273.56}{\K} & \\
-\hline
-Kochen & \SI{372.50}{\K} & \\
-\hline 
-\end{tabular}
-\caption{Kalibrierungspunkte des Thermometers}
-\label{tab:Kalibrierung}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Gruppe & A & B \\
+		\hline
+		Eis & \SI{273.56}{\K} & \SI{276.55}{K}\\
+		\hline
+		Kochen & \SI{372.50}{\K} & \SI{373.17}{K}\\
+		\hline 
+	\end{tabular}
+	\caption{Gemessene Kalibrierungspunkte des Thermometers}
+	\label{tab:Kalibrierung}
 \end{table}
 
 \begin{table}
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-Gruppe & A & B \\
-\hline
-a & $1.0108$ & \\
-\hline
-b & \SI{-3.3551}{\K} & \\
-\hline
-\end{tabular}
-\caption{Kalibrierungsparameter für Gruppe A und B.}
-\label{tab:Parameter}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Gruppe & A & B \\
+		\hline
+		a & $1.0108$ & 1.0382 \\
+		\hline
+		b & \SI{-3.3551}{\K} & \SI{-13.9592}{K} \\
+		\hline
+	\end{tabular}
+	\caption{Kalibrierungsparameter für Gruppe A und B.}
+	\label{tab:Parameter}
 \end{table}
 
 \subsection{Rohdaten}
@@ -239,7 +239,7 @@ Zudem wurden die Emissionskoeffizienten auf $\epsilon_{schwarz}$ normiert. Diese
 \end{equation}
 
 \begin{equation}
-\sigma_{rel \,i, sys} = \frac{\epsilon_{i}}{\epsilon_{schwarz}^2} \sqrt{\sigma_{schwarz, stat}^2 + \sigma_{schwarz, sys}^2}.
+\sigma_{rel \,i, sys} = \frac{\sigma_{i,sys}}{\epsilon_{schwarz}} + \frac{\epsilon_{i}}{\epsilon_{schwarz}^2} \sqrt{\sigma_{schwarz, stat}^2 + \sigma_{schwarz, sys}^2}.
 \end{equation}
 
 
@@ -335,6 +335,18 @@ Dennoch muss aufgrund der $\chi^2 / ndof$ und der geringen Stabilität des Verfa
 
 
 \section{Zusammenfassung}
+An den linearen Regressionen ist zu erkennen, dass die gemessene Spannung $U$ und damit die gemessene Wärmestrahlungsleistung $P$ proportional zu $(T^4 - T_0^4)$ ist.
+
+Da der Ordinatenabschnitt nicht für alle Messungen im Rahmen seiner Unsicherheit mit Null übereinstimmt, wurden die Emissionskoeffizienten punktweise berechnet und gemittelt.
+
+Dabei sind erwartungsgemäß die Koeffizienten der schwarzen und weißen Flächen mit circa 0.9 die größten Emissionskoeffizienten.
+
+Um die beiden Aufbauten von Gruppe A und Gruppe B zu vergleichen, wurden die relativen Emissionskoeffizienten im Vergleich zur jeweiligen schwarzen Würfelseite ausgerechnet, um den Einfluss der einzelnen Aufbauten auf den Vergleich zu minimieren.
+
+Dabei fällt auf, dass zumindest für die schwarzen und weißen Seiten der jeweiligen Würfel von beiden Gruppen im Rahmen der Unsicherheiten ein gleicher Emissionskoeffizient bestimmt wurde. Für die Messing- und Spiegelseite stimmen die Werte jedoch nicht überein.
+
+
+Um die Potenz der Temperaturabhängigkeit zu bestimmen, wurden nicht-lineare Regression durchgeführt. Dabei wurden zwar meistens Potenzen ermittelt, die im Rahmen ihrer Fehler mit 4 übereinstimmen, allerdings sind die Anpassungen nicht gelungen, wie man an den Residuen und am jeweiligen $\chi^2/ndof$ erkennen kann. Daher gehen wir davon aus, dass diese Anpassungen keine besondere Aussagekraft haben. 
 
 
 \newpage
