@@ -131,7 +131,6 @@ b & \SI{-3.3551}{\K} & \\
 \subsection{Rohdaten}
 Moritz, this is your job!
 
-
 \subsection{Lineare Regressionen}
 An den vorbereiteten Rohdaten werden nach Auftragung von $U$ gegen $T^4$ lineare Regressionen durchgeführt um den $T^4$ Zusammenhang des Stefan-Boltzmann-Gesetztes nachzuweisen. Dabei ist zu beachten, dass sich der Fehler auf den Mittelwert von $T$ gemäß 
 
@@ -171,6 +170,57 @@ fortpflanzt.
 
 
 \subsection{Emissionskoeffizient}
+
+Für jede Seite des Würfels kann der Emissionskoeffizient bestimmt werden. Zusätzlich wird ein relatives $\epsilon_{rel}$, welches auf die bezüglich der schwarzen Seite normiert wurde, ermittelt um die Ergebnisse der beiden Gruppen besser vergleichen zu können.
+
+Falls der y-Achsenabschnitt in den Anpassungen aus dem vorherigen Abschnitt im Rahmen seiner Fehler vernachlässigbar ist, kann der Emissionskoeffizient in guter Näherung durch den Zusammenhang
+
+\begin{equation}
+\epsilon = \frac{P_{gemessen}}{P_{ideal}} = \frac{a v \pi r^2}{const A_s A_e \sigma}
+\end{equation}
+
+bestimmt werden. Falls der Abschnitt nicht vernachlässigbar wird 
+der Koeffizient punktweise aus den Messwerten bestimmt. Der dazu nötige Zusammenhang lautet:
+
+\begin{equation}
+\epsilon = \frac{P_{gemessen}}{P_{ideal}} = \frac{U_{gemessen}vr^2 \pi}{const A_s A_e \sigma (T_{gemessen}^4-T_0^4)}
+\end{equation}
+
+Dabei bezeichnet $v = 10^{-4}$ den verwendeten Verstärkungsfaktor, $const$ die Empfindlichkeit der Thermosäule. $A_s = \pi \left(\frac{\SI{0,035}{\m}}{2}\right)$ und $A_e = \pi \left(\frac{\SI{0,023}{\m}}{2}\right)$, sowie $r = \SI{0,108}{\m}$ sind vorgegebene Konstanten in den Aufbauten beider Gruppen.\\
+
+hier kommt fehlergedöns hin. Ich mag Züge!
+
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Gruppe & $\epsilon_{schwarz}$ & $\epsilon_{weiß}$ & $\epsilon_{Messing}$ & $\epsilon_{Spiegel}$ \\
+\hline
+A & & & & \\
+\hline
+B & & & & \\
+\hline
+\end{tabular}
+\caption{Ermittelte Emissionskoeffizienten für beide Gruppen.}
+\label{tab:Emission}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Gruppe & $\epsilon_{rel,schwarz}$ & $\epsilon_{rel,weiß}$ & $\epsilon_{rel,Messing}$ & $\epsilon_{rel,Spiegel}$ \\
+\hline
+A & & & & \\
+\hline
+B & & & & \\
+\hline
+\end{tabular}
+\caption{Auf $\epsilon_{schwarz}$ normierte Koeffizienten für beide Gruppen.}
+\label{tab:Emission_relativ}
+\end{table}
+
 
 
 \subsection{Nicht-linearer Fit}
