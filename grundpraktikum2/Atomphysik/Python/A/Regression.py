@@ -39,14 +39,14 @@ def Auswertung(data,i=0,plots = True):
         plt.figure(i)
     
         ax1 = plt.subplot(211)
-        plt.errorbar(T4,U,xerr=eT4,yerr=eU,linestyle='None')
+        plt.errorbar(T4,U,xerr=eT4,yerr=eU,linestyle='None',marker='.')
         plt.plot(x_axis,m*x_axis+q)
         plt.setp(ax1.get_xticklabels(),visible=False)
         plt.ylabel('U/V')
         plt.figtext(0.15,0.73,' a = ({:.2e} $\pm$ {:.2e})V/K$^4$ \n b = ({:.3f} $\pm$ {:.3f})V \n $\chi^2 /ndof = {:.2f}$'.format(m,em,q,eq,chiq_ndof))
         
         ax2 = plt.subplot(212,sharex=ax1)
-        plt.errorbar(T4, (U-m*T4-q) , yerr = np.sqrt(eU**2+m**2*eT4**2), linestyle='None')
+        plt.errorbar(T4, (U-m*T4-q) , yerr = np.sqrt(eU**2+m**2*eT4**2), linestyle='None',marker='.')
         plt.axhline(0)
         plt.xlabel('$T^4-T_0^4 / K^4$')
         plt.ylabel('Residuen')
