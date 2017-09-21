@@ -83,8 +83,90 @@ Der Lesliewürfel (3) ist ein Würfel, der mit Wasser gefüllt auf einer Heizpla
 \subsection{Durchführung}
 
 \section{Auswertung}
-\subsection{Gruppe A}
-\subsection{Gruppe B}
+
+\subsection{Kalibrierung}
+Zunächst ist eine Kalibrierung des Thermometers notwendig. Dazu wird die Temperatur von Eiswasser und kochendem Wasser gemessen und gemäß des Zusammenhangs
+ 
+\begin{equation}
+T_{real} = a \cdot T_{Cassy} + b
+\end{equation}
+
+eine Kalibrierungsgerade durch die Punkte gelegt. Die gemessenen Referenzpunkte befinden sich in Tabelle \ref{tab:Kalibrierung}. Die ermittelten Parameter in Tabelle \ref{tab:Parameter}.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Gruppe & A & B \\
+\hline
+Eis & \SI{273.56}{\K} & \\
+\hline
+Kochen & \SI{372.50}{\K} & \\
+\hline 
+\end{tabular}
+\caption{Kalibrierungspunkte des Thermometers}
+\label{tab:Kalibrierung}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Gruppe & A & B \\
+\hline
+a & $1.0108$ & \\
+\hline
+b & \SI{-3.3551}{\K} & \\
+\hline
+\end{tabular}
+\caption{Kalibrierungsparameter für Gruppe A und B.}
+\label{tab:Parameter}
+\end{table}
+
+\subsection{Rohdaten}
+Moritz, this is your job!
+
+
+\subsection{Lineare Regressionen}
+An den vorbereiteten Rohdaten werden nach Auftragung von $U$ gegen $T^4$ lineare Regressionen durchgeführt um den $T^4$ Zusammenhang des Stefan-Boltzmann-Gesetztes nachzuweisen. Dabei ist zu beachten, dass sich der Fehler auf den Mittelwert von $T$ gemäß 
+
+\begin{equation}
+\sigma_{T^4} = 4 \cdot T^3 \sigma_T
+\end{equation}
+
+fortpflanzt.
+
+\begin{figure}
+\includegraphics[scale=0.5]{Bilder/Schwarz_A}
+%hier figure B
+\caption{Lineare Regression an die Daten der schwarzen Seite. Gruppe A links und Gruppe B rechts.}
+\label{fig:RegSchwarz}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.5]{Bilder/Weiss_A}
+%hier figure B
+\caption{Lineare Regression an die Daten der weißen Seite. Gruppe A links und Gruppe B rechts.}
+\label{fig:RegWeiss}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.5]{Bilder/Messing_A}
+%hier figure B
+\caption{Lineare Regression an die Daten der messingfarbenen Seite. Gruppe A links und Gruppe B rechts.}
+\label{fig:RegMessing}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.5]{Bilder/Spiegel_A}
+%hier figure B
+\caption{Lineare Regression an die Daten der spiegelnden Seite. Gruppe A links und Gruppe B rechts.}
+\label{fig:RegSpiegel}
+\end{figure}
+
+
+\subsection{Emissionskoeffizient}
+
 
 \section{Anhang}
 \subsection{Gruppe A}

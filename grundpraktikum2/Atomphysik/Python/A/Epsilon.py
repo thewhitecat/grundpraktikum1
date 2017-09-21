@@ -23,6 +23,9 @@ ep_list = np.array([ep_schwarz,ep_weis,ep_messing,ep_spiegel])
 b_list = np.array([b_schwarz,b_weis,b_messing,b_spiegel])
 eb_list = np.array([eb_schwarz,eb_weis,eb_messing,eb_spiegel])
 
+eps_rel_easy = p_list/p_schwarz
+eps_rel_easy_stat = eps_rel_easy * (ep_list)/(p_list)
+eps_rel_easy_syst = eps_rel_easy * (ep_schwarz)/(p_schwarz)
 #constants
 kelvin = 273.15
 k = 0.229
@@ -46,9 +49,7 @@ print get_epsilon_easy(p_list,ep_list)
 def get_epsilon_hard(p1,ep1,p0,ep0,string):
     data = h.get_werte(string)
     T, eT = a*(data[0]+kelvin)+b, data[1]*a+b
-    
     eps = ((p0+p1*(T**4-T0**4))*v*(0.108**2))/(k*np.pi*(0.035/2)**2*(0.023/2)**2*sigma*(T**4-T0**4))
-    
     return eps
 
 def get_epsilon(string):
@@ -63,6 +64,9 @@ def get_epsilon(string):
     
     
     
-print get_epsilon('schwarz')
+schwarz = get_epsilon('schwarz')
+weiss =  get_epsilon('weiss')
+messing = get_epsilon('messing')
+spiegel = get_epsilon('spiegel')
 #print get_epsilon_hard(p_schwarz, ep_schwarz, b_schwarz, eb_schwarz,'schwarz')
 #,get_epsilon_hard('weiss'),get_epsilon_hard('messing'),get_epsilon_hard('spiegel')
