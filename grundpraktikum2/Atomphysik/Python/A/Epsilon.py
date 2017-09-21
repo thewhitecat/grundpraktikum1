@@ -11,6 +11,7 @@ import Praktikum as p
 from scipy.constants import sigma as sigma
 import Histogramme as h
 import Regression as r
+from auswertung_nur_Methoden import gew_mittelwert
 
 #steigungen
 p_schwarz, ep_schwarz, b_schwarz, eb_schwarz = r.Auswertung(h.get_werte('schwarz'),plots = False)
@@ -44,7 +45,7 @@ def get_epsilon_easy(p1,ep1):
     epsilon_syst = epsilon * ek/k
     return epsilon, epsilon_stat, epsilon_syst
 
-print get_epsilon_easy(p_list,ep_list)
+#print get_epsilon_easy(p_list,ep_list)
 
 def get_epsilon_hard(p1,ep1,p0,ep0,string):
     data = h.get_werte(string)
@@ -60,13 +61,13 @@ def get_epsilon(string):
     eps = (U*v*0.108**2*np.pi)/((k*np.pi**2*(0.035/2)**2*(0.023/2)**2*sigma*(T**4-T0**4)))
     eps_stat = np.sqrt((eU/U)**2*eps + (eps*eT*4*T**3/(T**4))**2)
     eps_syst = np.sqrt((ek/k)**2*eps**2)
-    return eps,eps_stat,eps_syst
     
-def get_epsilon_rel():        
-    schwarz = get_epsilon('schwarz')
-    weiss =  get_epsilon('weiss')
-    messing = get_epsilon('messing')
-    spiegel = get_epsilon('spiegel')
+    out = gew_mittelwert(eps,eps_stat)
+    return out , (ek/k)*out[0]
+    
+    #return eps,eps_stat,eps_syst
+
+
     
 
     
